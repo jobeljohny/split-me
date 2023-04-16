@@ -1,14 +1,19 @@
 <div class="details-panel shadow-lg p-3 mb-2 rounded card-container lead">
   <h3 class="lead" style="text-align: center">Details</h3>
-  <div class="total-amount">food price 💵 : ₹ {{ totalFoodBill }}</div>
+  <div class="amounts-container">
+    <div class="amount-item">
+      <div class="label">Food price&nbsp; 💵</div>
+      <div class="value">₹ {{ totalFoodBill }}</div>
+    </div>
+    <div class="amount-item">
+      <div class="label">Bill amount 💵</div>
+      <div class="value">₹ {{ finalTotal }}</div>
+    </div>
+  </div>
   <app-tax-discount-panel></app-tax-discount-panel>
-  <div class="individual-cont-panel">
-    <span >Individual amounts</span>
-    <img src="../../../assets/refresh_icon.png" (click)="calcFinalTotal()"/>
+  <div class="individual-cont-panel" (click)="calcFinalTotal()">
+    view individual splits
   </div>
 
-  <div class="total-amount">bill amount 💵 : ₹ {{ finalTotal }}</div>
-  <app-detail-modal
-    #DetailModal
-  ></app-detail-modal>
+  <app-detail-modal #DetailModal></app-detail-modal>
 </div>

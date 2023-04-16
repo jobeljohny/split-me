@@ -1,29 +1,29 @@
 .tax-discount-panel {
-    display: flex;
-    font-size: 1rem;
+  display: flex;
+  font-size: 1rem;
 
-    .td-panel-item {
-      margin-top: 20px;
-      .td-label {
-        margin-left: 16px;
-      }
-      &:first-child {
-        margin-right: 32px;
-      }
+  .td-panel-item {
+    margin-top: 20px;
+    .td-label {
+      margin-left: 16px;
     }
-    .input-wrap {
-      margin-top: 4px;
-      display: flex;
-      align-items: center;
-      font-size: 1.4rem;
-      input {
-        width: 90px;
+    &:first-child {
+      margin-right: 32px;
+    }
+  }
+  .input-wrap {
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    input {
+      width: 100px;
 
-        margin-left: 4px;
-        &:focus {
-          outline: none;
-          box-shadow: none;
-        }
+      margin-left: 4px;
+      &:focus {
+        outline: none;
+        box-shadow: none;
       }
     }
   }
+}

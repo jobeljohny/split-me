@@ -47,6 +47,14 @@ export class DetailsService {
     return ContributorsMap;
   }
 
+  getCalculatedAmount() {
+    // return the total amount with tax and discount integrated
+    this.totalFoodAmount = this.foodPalette.getTotalAmount();
+    return (
+      Math.round((this.totalFoodAmount + this.tax - this.discount) * 100) / 100
+    );
+  }
+
   //utility function
   addbits(s: string): number {
     const regex = /[+\-]?([0-9\.]+)/g;

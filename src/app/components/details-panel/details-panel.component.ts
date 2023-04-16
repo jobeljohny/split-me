@@ -9,7 +9,7 @@ import { DetailModalComponent } from '../detail-modal/detail-modal.component';
   styleUrls: ['./details-panel.component.scss'],
 })
 export class DetailsPanelComponent {
-  @ViewChild('DetailModal') detailModal:DetailModalComponent;
+  @ViewChild('DetailModal') detailModal: DetailModalComponent;
   constructor(
     private foodPalette: FoodPaletteService,
     private details: DetailsService
@@ -17,18 +17,16 @@ export class DetailsPanelComponent {
     this.detailModal = new DetailModalComponent(details);
   }
 
-  calcFinalTotal(){
+  calcFinalTotal() {
     this.details.calculateFinalTotal();
     this.detailModal.showModal();
   }
-
 
   get totalFoodBill() {
     return this.foodPalette.getTotalAmount();
   }
 
-  get finalTotal(){
-    return this.details.finalTotal;
+  get finalTotal() {
+    return this.details.getCalculatedAmount();
   }
-
 }

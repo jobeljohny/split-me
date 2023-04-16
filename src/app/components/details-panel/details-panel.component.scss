@@ -1,21 +1,40 @@
 .details-panel {
-  .total-amount {
-    font-size: 1.1rem;
-    font-weight: 400;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .amounts-container {
+    .amount-item {
+      font-size: 1rem;
+      font-weight: 400;
+      display: flex;
+
+      div {
+        background-color: rgb(244, 246, 255);
+        border: 1px solid white;
+        padding: 8px 12px;
+        font-weight: 400;
+        &.label {
+          width: 140px;
+        }
+        &.value {
+          width: 125px;
+        }
+      }
+    }
   }
 
   .individual-cont-panel {
     margin-top: 24px;
-    img {
-      margin-left: 8px;
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-      &:hover {
-        filter: invert(10%) sepia(90%) saturate(5268%) hue-rotate(245deg)
-          brightness(109%) contrast(155%);
-      }
+    font-size: 1rem;
+    background-color: rgb(241, 200, 200);
+    padding: 10px 16px;
+    border: 1px solid rgb(94, 184, 94);
+    background: rgb(251, 255, 251);
+    cursor: pointer;
+    border-radius: 20px;
+    &:hover {
+      background: rgb(94, 184, 94);
+      color: white;
     }
   }
 }
