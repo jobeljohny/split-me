@@ -5,19 +5,18 @@ import { FoodPaletteService } from 'src/app/services/food-palette.service';
 @Component({
   selector: 'app-food-palettes-box',
   templateUrl: './food-palettes-box.component.html',
-  styleUrls: ['./food-palettes-box.component.scss']
+  styleUrls: ['./food-palettes-box.component.scss'],
 })
 export class FoodPalettesBoxComponent {
   @ViewChild('itemWrapper') myScrollContainer!: ElementRef;
 
-  @HostListener('window:keydown.shift.f', ['$event'])
+  @HostListener('window:keydown.alt.f', ['$event'])
   keydown(event: KeyboardEvent): void {
+    event.preventDefault();
     this.onAddFoodPalette();
   }
 
-  constructor(private foodPalette: FoodPaletteService){
-    
-  }
+  constructor(private foodPalette: FoodPaletteService) {}
   onAddFoodPalette() {
     this.foodPalette.add();
 

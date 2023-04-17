@@ -49,7 +49,7 @@ export class CreateProfileModalComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.myModal = new Modal(this.Modal.nativeElement, {
       backdrop: 'static',
-      keyboard: false,
+      keyboard: true,
     });
   }
 

@@ -19,7 +19,7 @@ export class ProfileListComponent {
     this.profileModal = new CreateProfileModalComponent(fb);
   }
 
-  @HostListener('window:keydown.shift.p', ['$event'])
+  @HostListener('window:keydown.alt.p', ['$event'])
   keydown(event: KeyboardEvent): void {
     this.onAddProfile();
   }
