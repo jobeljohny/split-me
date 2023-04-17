@@ -1,4 +1,8 @@
-<div class="profile-wrapper" (contextmenu)="onContextMenu($event)">
+<div
+  class="profile-wrapper"
+  (contextmenu)="onContextMenu($event)"
+  (click)="onContextMenu($event)"
+>
   <span class="name">{{ participant.name }}</span>
   <img src="../../../assets/user-logo-2.png" alt="user.png" />
   <span class="price">₹ {{ participant.contribution }}</span>
@@ -12,17 +16,27 @@
 <!-- context menu -->
 <mat-menu #contextMenu="matMenu">
   <ng-template matMenuContent let-item="item">
-    <div class="portions">
-      <button (click)="onPortionModifier(0.5)">1/2</button>
-      <button (click)="onPortionModifier(0.3333)">1/3</button>
-      <button (click)="onPortionModifier(0.25)">1/4</button>
+    <div class="portions-container">
+      <div class="portions">
+        <button (click)="onPortionModifier(0.5)">
+          <sup>1</sup>/<sub>2</sub>
+        </button>
+        <button (click)="onPortionModifier(0.3333)">
+          <sup>1</sup>/<sub>3</sub>
+        </button>
+        <button (click)="onPortionModifier(0.25)">
+          <sup>1</sup>/<sub>4</sub>
+        </button>
+      </div>
+      <div class="portions">
+        <button (click)="onPortionModifier(1)">1</button>
+        <button (click)="onPortionModifier(2)">2</button>
+        <button (click)="onPortionModifier(3)">3</button>
+        <button (click)="onPortionModifier(4)">4</button>
+      </div>
     </div>
-    <div class="portions">
-      <button (click)="onPortionModifier(1)">1</button>
-      <button (click)="onPortionModifier(2)">2</button>
-      <button (click)="onPortionModifier(3)">3</button>
-      <button (click)="onPortionModifier(4)">4</button>
-    </div>
+
+    <hr />
     <div class="custom-input-wrapper">
       <input
         #customInput
@@ -33,10 +47,10 @@
       />
       <button class="btn" (click)="updateCustom(customInput.value)">ok</button>
     </div>
-    <hr/>
+    <hr />
     <div class="delete-wrapper" (click)="remove()">
-        <img src="../../../assets/delete-icon.svg" alt="delete.png">
-        <span>Remove</span>
+      <img src="../../../assets/delete-icon.svg" alt="delete.png" />
+      <span>Remove</span>
     </div>
   </ng-template>
 </mat-menu>

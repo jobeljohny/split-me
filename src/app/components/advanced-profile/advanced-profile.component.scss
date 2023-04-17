@@ -51,23 +51,27 @@
 //
 
 //context menu
-.portions {
-  display: flex;
-  padding: 0px 4px;
-  justify-content: center;
-  button {
-    background-color: #306ff7;
-    border: none;
-    color: white;
-    padding: 3px 8px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    border-radius: 8px;
-    &:hover {
-      background-color: #4430f7;
+.portions-container {
+  padding: 8px 0px;
+  .portions {
+    display: flex;
+    padding: 0px 4px;
+    justify-content: center;
+    button {
+      background-color: #ffffff00;
+      border: none;
+      color: white;
+      padding: 3px 8px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 3px;
+      border-radius: 8px;
+      border: 1px solid white;
+      &:hover {
+        background-color: #090055;
+      }
     }
   }
 }
@@ -75,19 +79,20 @@
 .custom-input-wrapper {
   display: flex;
   justify-content: center;
-  margin: 2px 5px;
+  padding: 8px 8px;
   input {
-    margin-top: 5px;
     text-align: center;
     width: 85px;
+    background-color: #ffffff00;
+    color: white;
   }
   button {
-
-    margin-top: 5px;
-    background-color: #8fb2ff;
+    background-color: #fffefe00;
     margin-left: 5px;
+    color: white;
+    border: 1px solid white;
     &:hover {
-      background-color: #a08fff;
+      background-color: #03001b;
     }
   }
 }
@@ -95,7 +100,15 @@
 .delete-wrapper {
   display: flex;
   align-items: center;
+  padding: 8px 0px;
   cursor: pointer;
+  &:hover {
+    background-color: #000227;
+    span,
+    img {
+      filter: brightness(50%) sepia(100) saturate(100) hue-rotate(25deg);
+    }
+  }
   img {
     width: 20px;
     height: 20px;
@@ -103,9 +116,17 @@
   }
   span {
     margin-left: 8px;
+    color: white;
   }
-  &:hover {
-    filter: invert(16%) sepia(99%) saturate(7404%) hue-rotate(4deg)
-      brightness(95%) contrast(118%);
-  }
+}
+
+hr {
+  margin: 0;
+  color: white;
+}
+
+//mat-menu styling
+::ng-deep .mat-mdc-menu-content {
+  padding: 0px !important;
+  background: linear-gradient(to bottom, #190075 0%, #010442 100%);
 }
