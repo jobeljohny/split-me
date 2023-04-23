@@ -2,7 +2,6 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Modal } from 'bootstrap';
-import { IContributors } from 'src/app/classes/interfaces';
 import { DetailsService } from 'src/app/services/details.service';
 
 @Component({
@@ -41,5 +40,13 @@ export class DetailModalComponent implements AfterViewInit {
 
   get finalTotal() {
     return this.details.finalTotal;
+  }
+
+  get participants() {
+    return this.details.participantsCount;
+  }
+
+  viewSummary() {
+    console.log('viewing summary');
   }
 }

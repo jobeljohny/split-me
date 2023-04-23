@@ -3,7 +3,9 @@
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header border-0 pb-0">
-        <h3 class="modal-title" style="text-align:center" id="title">SPLIT UP</h3>
+        <h3 class="modal-title" style="text-align: center" id="title">
+          SPLIT UP
+        </h3>
         <button
           type="button"
           class="btn-close"
@@ -51,7 +53,7 @@
                   *matHeaderCellDef
                   mat-sort-header
                 >
-                  Split Amount
+                  Split amount
                 </th>
                 <td mat-cell *matCellDef="let element">
                   ₹ {{ element.split_amount }}
@@ -62,10 +64,27 @@
               <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
             </table>
           </div>
-          <div class=" data-panel shadow-lg">
+          <div class="data-panel shadow-lg">
             <div class="panel-content">
-              <div class="total-amount">Total food bill 💵 : ₹ {{ totalFoodBill }}</div>
-              <div class="total-amount">Final&nbsp; charges 💵 : ₹ {{ finalTotal }}</div>
+              <div class="heading"><span>DETAILS</span></div>
+
+              <div class="items-container">
+                <div class="panel-item">
+                  <div class="label">💵 Total food bill</div>
+                  <div class="value">:&nbsp; ₹ {{ totalFoodBill }}</div>
+                </div>
+                <div class="panel-item">
+                  <div class="label">💵 Final charges</div>
+                  <div class="value">:&nbsp; ₹ {{ finalTotal }}</div>
+                </div>
+                <div class="panel-item">
+                  <div class="label">👤 Participants</div>
+                  <div class="value">:&nbsp; {{ participants }}</div>
+                </div>
+              </div>
+              <div class="summary-panel">
+                <span (click)="viewSummary()">View individual summaries</span>
+              </div>
             </div>
           </div>
         </div>
