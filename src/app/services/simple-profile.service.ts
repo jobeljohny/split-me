@@ -5,7 +5,19 @@ import { saveAs } from 'file-saver-es';
   providedIn: 'root',
 })
 export class SimpleProfileService {
-  profiles: string[] = [];
+  profiles: string[] = [
+    'jobel',
+    'arathy',
+    'manju',
+    'arshith',
+    'athuljith',
+    'yogesh',
+    'joel',
+    'john',
+    'thomas',
+    'sidharth',
+    'jithin',
+  ].sort();
   constructor() {}
 
   remove(profile: string) {

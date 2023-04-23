@@ -1,18 +1,24 @@
 import { Injectable } from '@angular/core';
 import { FoodPaletteService } from './food-palette.service';
 import { IContributors } from '../classes/interfaces';
+import { IndividualSummary } from '../classes/individual-summary';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DetailsService {
-  tax: number = 0;
-  discount: number = 0;
+  tax: number = 113.15;
+  discount: number = 75;
   totalFoodAmount: number = 0;
   finalTotal: number = 0;
-  contributorsMap: Map<string, number> | undefined;
-  totalAmountMap: Map<string, number> | undefined;
-  constructor(private foodPalette: FoodPaletteService) {}
+  contributorsMap: Map<string, number>;
+  totalAmountMap: Map<string, number>;
+  individualSummaryMap: Map<string, IndividualSummary>;
+  constructor(private foodPalette: FoodPaletteService) {
+    this.contributorsMap = new Map<string, number>();
+    this.totalAmountMap = new Map<string, number>();
+    this.individualSummaryMap = new Map<string, IndividualSummary>();
+  }
 
   calculateFinalTotal() {
     this.totalFoodAmount = this.foodPalette.getTotalAmount();
@@ -29,6 +35,9 @@ export class DetailsService {
     }
 
     this.finalTotal = Math.round(finalAmt * 100) / 100;
+
+    //TODO remove this to button or some thing after implementation
+    this.generateIndividualSummary();
   }
 
   generateDataSourceMap(): IContributors[] {
@@ -45,6 +54,20 @@ export class DetailsService {
     }
 
     return ContributorsMap;
+  }
+
+  generateIndividualSummary() {
+    let indivualOrders = this.foodPalette.getIndividualOrders();
+    this.individualSummaryMap = new Map<string, IndividualSummary>();
+    for (let [name, orders] of indivualOrders.entries()) {
+      let summary = new IndividualSummary(
+        name,
+        orders,
+        this.contributorsMap.get(name)!,
+        this.totalAmountMap.get(name)!
+      );
+      this.individualSummaryMap.set(name, summary);
+    }
   }
 
   getCalculatedAmount() {

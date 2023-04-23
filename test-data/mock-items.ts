@@ -1,4 +1,10 @@
+import { DetailsService } from "src/app/services/details.service";
+import { FoodPaletteService } from "src/app/services/food-palette.service";
+import { SimpleProfileService } from "src/app/services/simple-profile.service";
+
 // in simple-profile.service.ts for mock profiles list
+SimpleProfileService
+
 profiles: string[] = [
     'jobel',
     'arathy',
@@ -14,6 +20,7 @@ profiles: string[] = [
   ].sort();
 
   //in food-palette.service.ts for mock palettes
+FoodPaletteService
 
  palettes: FoodItem[] = [
     new FoodItem('cb half', 89, [
@@ -38,5 +45,7 @@ profiles: string[] = [
   ];
 
  // in details.service.ts
+ DetailsService
+
   tax: number = 113.15;
   discount: number = 75;
