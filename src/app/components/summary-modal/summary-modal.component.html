@@ -3,14 +3,24 @@
     <div class="modal-content">
       <div class="modal-header border-0 pb-0">
         <div class="header-content">
-          <h3 class="modal-title" style="text-align: center" id="title">
-            SUMMARY
-          </h3>
-          <img
-            src="../../../assets/cancel-icon.svg"
-            alt="close"
-            (click)="myModal.hide()"
-          />
+          <div class="header-wrap">
+            <p class="lead modal-title" style="text-align: center" id="title">
+              SUMMARY
+            </p>
+          </div>
+          <div class="menu-wrap">
+            <img
+              id="download"
+              src="../../../assets/downlaod.jpg"
+              alt="download"
+              (click)="myModal.hide()"
+            />
+            <img
+              src="../../../assets/cancel-icon.svg"
+              alt="close"
+              (click)="myModal.hide()"
+            />
+          </div>
         </div>
       </div>
       <div class="modal-body">

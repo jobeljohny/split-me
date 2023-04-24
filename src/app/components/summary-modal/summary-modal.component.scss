@@ -1,19 +1,30 @@
 .header-content {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   width: 100%;
-  h3 {
-    align-self: flex-end;
-    margin: 0 auto !important;
+  margin-bottom: 10px;
+  .header-wrap {
+    flex-grow: 1;
+    p {
+      margin-bottom: 0;
+      margin-left: 80px;
+    }
   }
-  img {
-    width: 30px;
-    height: 30px;
-    opacity: 0.8;
-    &:hover {
-      cursor: pointer;
-      opacity: 1;
+  .menu-wrap {
+    img {
+      width: 35px;
+      height: 35px;
+      opacity: 0.8;
+      &:hover {
+        cursor: pointer;
+        opacity: 1;
+      }
+    }
+    #download {
+      width: 40px;
+      height: 40px;
+      margin-right: 16px;
     }
   }
 }
