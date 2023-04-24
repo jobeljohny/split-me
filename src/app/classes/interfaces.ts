@@ -7,4 +7,5 @@ export interface IContributors {
 export interface IorderDetails {
   food_name: string;
   contribution: number;
+  quantity: number;
 }

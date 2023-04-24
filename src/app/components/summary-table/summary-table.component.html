@@ -1,0 +1,29 @@
+<div class="info-container">
+  <div appDarkColor class="individual-name">
+    <span>{{ person.name }}</span>
+  </div>
+
+  <div class="table">
+    <div class="table-header">
+      <div class="header-item header-item-food">Food</div>
+      <div class="header-item header-item-portion">Portion</div>
+      <div class="header-item header-item-price">price</div>
+    </div>
+    <div class="table-content">
+      <div class="table-row" *ngFor="let order of person.orderDetails">
+        <div class="table-data table-data-food">{{ order.food_name }}</div>
+        <div class="table-data table-data-portion">
+          x {{ order.quantity | number : "1.0-2" }}
+        </div>
+        <div class="table-data table-data-price">
+          ₹ {{ order.contribution }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="amounts-container">
+    <span>Total : ₹ {{ person.total }}</span>
+    <span>Final : ₹ {{ person.final_amt }}</span>
+  </div>
+</div>

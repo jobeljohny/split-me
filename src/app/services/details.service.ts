@@ -14,11 +14,10 @@ export class DetailsService {
   participantsCount: number = 0;
   contributorsMap: Map<string, number>;
   totalAmountMap: Map<string, number>;
-  individualSummaryMap: Map<string, IndividualSummary>;
+  individualSummaries: IndividualSummary[] = [];
   constructor(private foodPalette: FoodPaletteService) {
     this.contributorsMap = new Map<string, number>();
     this.totalAmountMap = new Map<string, number>();
-    this.individualSummaryMap = new Map<string, IndividualSummary>();
   }
 
   calculateFinalTotal() {
@@ -60,7 +59,7 @@ export class DetailsService {
 
   generateIndividualSummary() {
     let indivualOrders = this.foodPalette.getIndividualOrders();
-    this.individualSummaryMap = new Map<string, IndividualSummary>();
+    this.individualSummaries = [];
     for (let [name, orders] of indivualOrders.entries()) {
       let summary = new IndividualSummary(
         name,
@@ -68,7 +67,7 @@ export class DetailsService {
         this.contributorsMap.get(name)!,
         this.totalAmountMap.get(name)!
       );
-      this.individualSummaryMap.set(name, summary);
+      this.individualSummaries.push(summary);
     }
   }
 

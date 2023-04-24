@@ -1,0 +1,37 @@
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  h3 {
+    align-self: flex-end;
+    margin: 0 auto !important;
+  }
+  img {
+    width: 30px;
+    height: 30px;
+    opacity: 0.8;
+    &:hover {
+      cursor: pointer;
+      opacity: 1;
+    }
+  }
+}
+
+.modal-content {
+  height: 90vh;
+}
+
+.modal-body {
+  overflow-y: auto;
+}
+
+.tables-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.table-item {
+  margin: 18px 15px;
+}

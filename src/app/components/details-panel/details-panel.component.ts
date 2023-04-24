@@ -15,6 +15,11 @@ export class DetailsPanelComponent {
     private details: DetailsService
   ) {
     this.detailModal = new DetailModalComponent(details);
+
+    //TODO remove this
+    setTimeout(() => {
+      this.calcFinalTotal();
+    }, 200);
   }
 
   calcFinalTotal() {

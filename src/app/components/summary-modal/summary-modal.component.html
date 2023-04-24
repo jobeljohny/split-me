@@ -1,0 +1,25 @@
+<div #SummaryModal id="summaryModal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header border-0 pb-0">
+        <div class="header-content">
+          <h3 class="modal-title" style="text-align: center" id="title">
+            SUMMARY
+          </h3>
+          <img
+            src="../../../assets/cancel-icon.svg"
+            alt="close"
+            (click)="myModal.hide()"
+          />
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="tables-container">
+          <div class="table-item" *ngFor="let user of summary">
+            <app-summary-table [summaryData]="user"></app-summary-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

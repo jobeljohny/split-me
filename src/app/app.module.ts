@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatMenuModule } from "@angular/material/menu";
+import { MatMenuModule } from '@angular/material/menu';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,10 +15,13 @@ import { MainComponentComponent } from './components/main-component/main-compone
 import { NameProfileComponent } from './components/name-profile/name-profile.component';
 import { TaxDiscountPanelComponent } from './components/tax-discount-panel/tax-discount-panel.component';
 import { DetailModalComponent } from './components/detail-modal/detail-modal.component';
-import { MatTableModule } from "@angular/material/table";
+import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { ProfileListComponent } from './components/profile-list/profile-list.component';
 import { FoodPalettesBoxComponent } from './components/food-palettes-box/food-palettes-box.component';
+import { SummaryModalComponent } from './components/summary-modal/summary-modal.component';
+import { SummaryTableComponent } from './components/summary-table/summary-table.component';
+import { DarkColorDirective } from './directives/dark-color.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,20 +34,23 @@ import { FoodPalettesBoxComponent } from './components/food-palettes-box/food-pa
     DetailsPanelComponent,
     DetailModalComponent,
     ProfileListComponent,
-    FoodPalettesBoxComponent
+    FoodPalettesBoxComponent,
+    SummaryModalComponent,
+    SummaryTableComponent,
+    DarkColorDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
     DragDropModule,
     MatMenuModule,
     NoopAnimationsModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

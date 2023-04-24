@@ -101,6 +101,7 @@ export class FoodPaletteService {
         const detail: IorderDetails = {
           food_name: dish.name,
           contribution: participant.contribution,
+          quantity: participant.contribution / dish.price,
         };
         const orders = indDetailsMap.get(name) || [];
         orders.push(detail);

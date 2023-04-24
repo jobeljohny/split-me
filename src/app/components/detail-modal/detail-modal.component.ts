@@ -3,6 +3,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Modal } from 'bootstrap';
 import { DetailsService } from 'src/app/services/details.service';
+import { SummaryModalComponent } from '../summary-modal/summary-modal.component';
 
 @Component({
   selector: 'app-detail-modal',
@@ -10,12 +11,15 @@ import { DetailsService } from 'src/app/services/details.service';
   styleUrls: ['./detail-modal.component.scss'],
 })
 export class DetailModalComponent implements AfterViewInit {
+  @ViewChild('SummaryModal') summaryModal: SummaryModalComponent;
   @ViewChild('DetailModal') Modal: any;
   @ViewChild(MatSort) sort = new MatSort();
   myModal: any;
   dataSource: any;
 
-  constructor(private details: DetailsService) {}
+  constructor(private details: DetailsService) {
+    this.summaryModal = new SummaryModalComponent(details);
+  }
 
   ngAfterViewInit() {
     this.myModal = new Modal(this.Modal.nativeElement, {
@@ -48,5 +52,6 @@ export class DetailModalComponent implements AfterViewInit {
 
   viewSummary() {
     console.log('viewing summary');
+    this.summaryModal.showModal();
   }
 }
