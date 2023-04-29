@@ -36,9 +36,6 @@ export class DetailsService {
     }
 
     this.finalTotal = Math.round(finalAmt * 100) / 100;
-
-    //TODO remove this to button or some thing after implementation
-    this.generateIndividualSummary();
   }
 
   generateDataSourceMap(): IContributors[] {

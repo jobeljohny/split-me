@@ -56,6 +56,7 @@ export class DetailModalComponent implements AfterViewInit {
 
   viewSummary() {
     console.log('viewing summary');
+    this.details.generateIndividualSummary();
     this.summaryModal.showModal();
   }
 }
