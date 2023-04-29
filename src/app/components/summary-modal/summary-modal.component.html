@@ -9,24 +9,49 @@
             </p>
           </div>
           <div class="menu-wrap">
-            <img
-              id="download"
-              src="../../../assets/downlaod.jpg"
-              alt="download"
-              (click)="myModal.hide()"
-            />
-            <img
-              src="../../../assets/cancel-icon.svg"
-              alt="close"
-              (click)="myModal.hide()"
-            />
+            <span class="download-wrapper"
+              ><img
+                class="option-button"
+                id="download"
+                src="../../../assets/downlaod.jpg"
+                alt="download"
+                (click)="onDownload()"
+              />
+              <div
+                class="sub-menu rounded shadow-lg"
+                [style.display]="isDownloadOptions ? 'block' : 'none'"
+              >
+                <div class="menu-item" (click)="downloadAs('img')">
+                  <span><img src="../../../assets/img-icon.svg" alt="" /></span>
+                  <div>Download Image</div>
+                </div>
+                <div class="menu-item" (click)="downloadAs('pdf')">
+                  <span><img src="../../../assets/pdf-icon.svg" alt="" /></span>
+                  <div>Download PDF</div>
+                </div>
+              </div>
+            </span>
+
+            <span
+              ><img
+                class="option-button"
+                src="../../../assets/cancel-icon.svg"
+                alt="close"
+                (click)="myModal.hide()"
+            /></span>
           </div>
         </div>
       </div>
       <div class="modal-body">
-        <div class="tables-container">
-          <div class="table-item" *ngFor="let user of summary">
-            <app-summary-table [summaryData]="user"></app-summary-table>
+        <div #SummaryBody class="summary-container" (click)="onBodyClicked()">
+          <div id="img-container">
+            <img src="../../../assets/split-me-logo.png" alt="logo" />
+          </div>
+
+          <div class="tables-container">
+            <div class="table-item" *ngFor="let user of summary">
+              <app-summary-table [summaryData]="user"></app-summary-table>
+            </div>
           </div>
         </div>
       </div>

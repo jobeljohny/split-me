@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { DetailsService } from 'src/app/services/details.service';
 import { FoodPaletteService } from 'src/app/services/food-palette.service';
 import { DetailModalComponent } from '../detail-modal/detail-modal.component';
+import { SummaryExportService } from 'src/app/services/summary-export.service';
 
 @Component({
   selector: 'app-details-panel',
@@ -12,9 +13,10 @@ export class DetailsPanelComponent {
   @ViewChild('DetailModal') detailModal: DetailModalComponent;
   constructor(
     private foodPalette: FoodPaletteService,
-    private details: DetailsService
+    private details: DetailsService,
+    private summaryExport: SummaryExportService
   ) {
-    this.detailModal = new DetailModalComponent(details);
+    this.detailModal = new DetailModalComponent(details, summaryExport);
 
     //TODO remove this
     setTimeout(() => {

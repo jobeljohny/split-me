@@ -12,7 +12,7 @@
     }
   }
   .menu-wrap {
-    img {
+    .option-button {
       width: 35px;
       height: 35px;
       opacity: 0.8;
@@ -21,10 +21,39 @@
         opacity: 1;
       }
     }
-    #download {
-      width: 40px;
-      height: 40px;
+    .download-wrapper {
+      position: relative;
       margin-right: 16px;
+      #download {
+        width: 40px;
+        height: 40px;
+      }
+      .sub-menu {
+        position: absolute;
+        background: white;
+        width: 200px;
+        top: 40px;
+        left: -5px;
+        display: none;
+        z-index: 1;
+        .menu-item {
+          padding: 8px 12px;
+          display: flex;
+          align-items: center;
+          font-size: 1rem;
+          img {
+            width: 30px;
+            margin-right: 8px;
+          }
+          &:hover {
+            img {
+              transform: scale(1.2);
+            }
+            font-weight: 400;
+            cursor: pointer;
+          }
+        }
+      }
     }
   }
 }
@@ -35,6 +64,13 @@
 
 .modal-body {
   overflow-y: auto;
+  #img-container {
+    display: flex;
+    justify-content: center;
+    img {
+      width: 300px;
+    }
+  }
 }
 
 .tables-container {

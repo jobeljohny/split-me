@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Modal } from 'bootstrap';
 import { DetailsService } from 'src/app/services/details.service';
 import { SummaryModalComponent } from '../summary-modal/summary-modal.component';
+import { SummaryExportService } from 'src/app/services/summary-export.service';
 
 @Component({
   selector: 'app-detail-modal',
@@ -17,8 +18,11 @@ export class DetailModalComponent implements AfterViewInit {
   myModal: any;
   dataSource: any;
 
-  constructor(private details: DetailsService) {
-    this.summaryModal = new SummaryModalComponent(details);
+  constructor(
+    private details: DetailsService,
+    summaryExport: SummaryExportService
+  ) {
+    this.summaryModal = new SummaryModalComponent(details, summaryExport);
   }
 
   ngAfterViewInit() {
