@@ -7,8 +7,8 @@ import { IndividualSummary } from '../classes/individual-summary';
   providedIn: 'root',
 })
 export class DetailsService {
-  tax: number = 113.15;
-  discount: number = 75;
+  tax: number = 0;
+  discount: number = 0;
   totalFoodAmount: number = 0;
   finalTotal: number = 0;
   participantsCount: number = 0;
