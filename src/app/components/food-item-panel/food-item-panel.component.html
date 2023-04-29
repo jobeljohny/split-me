@@ -17,6 +17,7 @@
         >₹
         <input
           type="number"
+          onClick="this.select();"
           [(ngModel)]="foodData.price"
           (change)="changes('price')"
       /></span>
