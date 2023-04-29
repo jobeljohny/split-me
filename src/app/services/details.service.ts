@@ -12,6 +12,7 @@ export class DetailsService {
   totalFoodAmount: number = 0;
   finalTotal: number = 0;
   participantsCount: number = 0;
+  dishesCount: number = 0;
   contributorsMap: Map<string, number>;
   totalAmountMap: Map<string, number>;
   individualSummaries: IndividualSummary[] = [];
@@ -24,6 +25,7 @@ export class DetailsService {
     this.totalFoodAmount = this.foodPalette.getTotalAmount();
     this.contributorsMap = this.foodPalette.getIndividualContributions();
     this.participantsCount = this.contributorsMap.size;
+    this.dishesCount = this.foodPalette.palettes.length;
     this.totalAmountMap = new Map<string, number>();
     let finalAmt: number = 0;
     for (let [name, money] of this.contributorsMap) {

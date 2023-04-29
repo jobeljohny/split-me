@@ -54,6 +54,10 @@ export class DetailModalComponent implements AfterViewInit {
     return this.details.participantsCount;
   }
 
+  get totalDishes() {
+    return this.details.dishesCount;
+  }
+
   viewSummary() {
     console.log('viewing summary');
     this.details.generateIndividualSummary();

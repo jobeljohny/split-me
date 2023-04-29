@@ -5,28 +5,20 @@ import { saveAs } from 'file-saver-es';
   providedIn: 'root',
 })
 export class SimpleProfileService {
-  profiles: string[] = [
-    'jobel',
-    'arathy',
-    'manju',
-    'arshith',
-    'athuljith',
-    'yogesh',
-    'joel',
-    'john',
-    'thomas',
-    'sidharth',
-    'jithin',
-  ].sort();
-  constructor() {}
+  profiles: string[] = [];
+  constructor() {
+    this.fetchFromLocalStorage();
+  }
 
   remove(profile: string) {
     this.profiles = this.profiles.filter((x) => x !== profile);
+    this.setLocalStorage();
   }
 
   add(profile: string) {
     this.profiles.push(profile);
     this.profiles.sort();
+    this.setLocalStorage();
   }
 
   exportProfiles() {
@@ -54,11 +46,20 @@ export class SimpleProfileService {
         if (this.checkValid(impData)) {
           this.profiles = impData;
           this.profiles.sort();
+          this.setLocalStorage();
         }
       } catch (error) {
         console.log(error);
         alert('Invalid profile file');
       }
     };
+  }
+
+  fetchFromLocalStorage() {
+    let profiles = localStorage.getItem('myProfiles');
+    if (profiles != null) this.profiles = JSON.parse(profiles);
+  }
+  setLocalStorage() {
+    localStorage.setItem('myProfiles', JSON.stringify(this.profiles));
   }
 }
