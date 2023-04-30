@@ -22,6 +22,7 @@ import { FoodPalettesBoxComponent } from './components/food-palettes-box/food-pa
 import { SummaryModalComponent } from './components/summary-modal/summary-modal.component';
 import { SummaryTableComponent } from './components/summary-table/summary-table.component';
 import { DarkColorDirective } from './directives/dark-color.directive';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +50,7 @@ import { DarkColorDirective } from './directives/dark-color.directive';
     NoopAnimationsModule,
     MatTableModule,
     MatSortModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
