@@ -3,6 +3,7 @@ import { Modal } from 'bootstrap';
 import html2canvas from 'html2canvas';
 import { DetailsService } from 'src/app/services/details.service';
 import { SummaryExportService } from 'src/app/services/summary-export.service';
+import { SummaryQrModalComponent } from '../summary-qr-modal/summary-qr-modal.component';
 
 @Component({
   selector: 'app-summary-modal',
@@ -11,6 +12,7 @@ import { SummaryExportService } from 'src/app/services/summary-export.service';
 })
 export class SummaryModalComponent implements AfterViewInit {
   @ViewChild('SummaryModal') Modal: any;
+  @ViewChild('summaryQR') QrModal: SummaryQrModalComponent;
   @ViewChild('SummaryBody')
   summaryBody!: ElementRef;
   myModal: any;
@@ -18,7 +20,9 @@ export class SummaryModalComponent implements AfterViewInit {
   constructor(
     private details: DetailsService,
     private summaryExport: SummaryExportService
-  ) {}
+  ) {
+    this.QrModal = new SummaryQrModalComponent();
+  }
   ngAfterViewInit() {
     this.myModal = new Modal(this.Modal.nativeElement, {
       backdrop: 'static',
@@ -48,6 +52,7 @@ export class SummaryModalComponent implements AfterViewInit {
   }
 
   async initiateDownload(type: string) {
+    if (type === 'qr') this.QrModal.showModal();
     let summaryContent = this.summaryBody.nativeElement;
     await html2canvas(summaryContent, {
       scrollY: -window.scrollY,

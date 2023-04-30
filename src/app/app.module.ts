@@ -23,6 +23,8 @@ import { SummaryModalComponent } from './components/summary-modal/summary-modal.
 import { SummaryTableComponent } from './components/summary-table/summary-table.component';
 import { DarkColorDirective } from './directives/dark-color.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { QRCodeModule } from 'angularx-qrcode';
+import { SummaryQrModalComponent } from './components/summary-qr-modal/summary-qr-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
     SummaryModalComponent,
     SummaryTableComponent,
     DarkColorDirective,
+    SummaryQrModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatTableModule,
     MatSortModule,
     HttpClientModule,
+    QRCodeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

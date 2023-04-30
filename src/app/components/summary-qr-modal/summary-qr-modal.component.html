@@ -1,0 +1,24 @@
+<!-- Modal HTML -->
+<div #SummaryQR id="SummaryQR" class="modal fade shadow-lg" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <img
+        id="remove-button"
+        src="../../../assets/cancel-icon.svg"
+        (click)="close()"
+      />
+      <div class="modal-body">
+        <p class="lead">View the summary by scanning this QR code</p>
+        <div>
+          <img src="../../../assets/scan-phone.png" alt="" />
+          <qrcode
+            [qrdata]="QR"
+            [width]="256"
+            [errorCorrectionLevel]="'M'"
+            [colorLight]="'#fffef7'"
+          ></qrcode>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

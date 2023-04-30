@@ -39,19 +39,19 @@ export class SummaryExportService {
   }
 
   generateQR(canvas: HTMLCanvasElement) {
-    canvas.toBlob((blob: any) => {
-      let formData = new FormData();
-      formData.append('file', new File([blob], 'summary.jpg'));
-      this.http.post<any>(this.url2, formData).subscribe({
-        next: (data) => {
-          let downloadURL =
-            data.data.url.slice(0, 21) + 'dl/' + data.data.url.slice(21);
-          console.log(downloadURL);
-        },
-        error: (error) => {
-          console.error('There was an error!', error);
-        },
-      });
-    });
+    // canvas.toBlob((blob: any) => {
+    //   let formData = new FormData();
+    //   formData.append('file', new File([blob], 'summary.jpg'));
+    //   this.http.post<any>(this.url2, formData).subscribe({
+    //     next: (data) => {
+    //       let downloadURL =
+    //         data.data.url.slice(0, 21) + 'dl/' + data.data.url.slice(21);
+    //       console.log(downloadURL);
+    //     },
+    //     error: (error) => {
+    //       console.error('There was an error!', error);
+    //     },
+    //   });
+    // });
   }
 }
