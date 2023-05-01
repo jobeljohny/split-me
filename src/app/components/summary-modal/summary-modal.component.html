@@ -9,12 +9,11 @@
             </p>
           </div>
           <div class="menu-wrap">
-            <span class="qr-icon-wrap"
+            <span class="qr-icon-wrap" (click)="downloadAs('qr')"
               ><img
                 class="qr-icon-button"
                 src="../../../assets/qr-icon.svg"
                 alt="QR Icon"
-                (click)="downloadAs('qr')"
             /></span>
             <span class="download-wrapper"
               ><img
@@ -64,5 +63,5 @@
       </div>
     </div>
   </div>
-  <app-summary-qr-modal #summaryQR></app-summary-qr-modal>
+  <app-summary-qr-modal [link]="link" #summaryQR></app-summary-qr-modal>
 </div>
