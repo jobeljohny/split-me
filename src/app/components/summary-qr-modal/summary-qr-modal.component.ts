@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, SimpleChanges, ViewChild } from '@angular/core';
 import { Modal } from 'bootstrap';
 
 @Component({
@@ -10,6 +10,7 @@ export class SummaryQrModalComponent {
   @ViewChild('SummaryQR') Modal: any;
   myModal: any;
   @Input('link') QR: string = 'unknown';
+  isLoading = true;
   characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
   generateString(length: number) {
@@ -23,12 +24,8 @@ export class SummaryQrModalComponent {
 
     return result;
   }
-  constructor() {
-    setTimeout(() => {
-      console.log('new URL');
-      this.QR = 'X';
-    }, 30000);
-  }
+  constructor() {}
+
   ngAfterViewInit() {
     this.myModal = new Modal(this.Modal.nativeElement, {
       backdrop: 'static',
@@ -40,8 +37,12 @@ export class SummaryQrModalComponent {
   }
   close() {
     this.myModal.hide();
+    this.QR = 'unknown';
+    this.isLoading = true;
   }
   onChangeURL(event: any) {
-    console.log(event);
+    if (this.QR != 'unknown') {
+      this.isLoading = false;
+    }
   }
 }

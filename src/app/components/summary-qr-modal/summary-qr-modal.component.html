@@ -9,7 +9,11 @@
       />
       <div class="modal-body">
         <p class="lead">View the summary by scanning this QR code</p>
-        <div>
+        <div *ngIf="isLoading" class="spinner-wrapper">
+          <mat-spinner color="blue" mode="indeterminate"></mat-spinner>
+        </div>
+
+        <div class="qr-info-wrapper" [style.opacity]="isLoading ? 0.1 : 1">
           <img src="../../../assets/scan-phone.png" alt="" />
           <qrcode
             [qrdata]="QR"
