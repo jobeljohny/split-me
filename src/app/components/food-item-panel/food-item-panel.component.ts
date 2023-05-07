@@ -49,6 +49,20 @@ export class FoodItemPanelComponent implements AfterViewInit {
     this.foodData.addParticipant(participant);
   }
 
+  onMenuOption(option: string) {
+    switch (option) {
+      case 'reset':
+        this.foodData.resetDefaultPrice();
+        break;
+      case 'split':
+        this.foodData.splitEvenly();
+        break;
+      case 'clear':
+        this.foodData.removeAllParticipants();
+        break;
+    }
+  }
+
   get participants() {
     return this.foodData.participants;
   }

@@ -25,7 +25,7 @@ export class FoodItem {
   get ID() {
     return 'consumer-list-' + this.id;
   }
-  get foodID(){
+  get foodID() {
     return this.id;
   }
 
@@ -52,5 +52,23 @@ export class FoodItem {
       }
     });
     if (!isExist) this.participants.push(participant);
+  }
+
+  public removeAllParticipants() {
+    this.participants = [];
+  }
+
+  public resetDefaultPrice() {
+    this.participants.forEach((participant) => {
+      participant.contribution = this.price;
+    });
+  }
+
+  public splitEvenly() {
+    let splitPrice =
+      Math.round((this.price / this.participants.length) * 100) / 100;
+    this.participants.forEach((participant) => {
+      participant.contribution = splitPrice;
+    });
   }
 }
