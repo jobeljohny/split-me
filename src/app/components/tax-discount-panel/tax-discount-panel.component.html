@@ -1,20 +1,24 @@
 <div class="tax-discount-panel">
-    <div class="td-panel-item">
-      <span class="td-label">Tax 🧾</span>
-      <span class="input-wrap"
-        >₹<input #taxInp
-          class="form-control"
-          (change)="onTaxDiscountChange(taxInp.value,discountInp.value)"
-          [value]="taxValue"
-      /></span>
-    </div>
-    <div class="td-panel-item">
-      <span class="td-label">Discount 🎟️</span>
-      <span class="input-wrap"
-        >₹<input #discountInp
-          class="form-control"
-          (change)="onTaxDiscountChange(taxInp.value,discountInp.value)"
-          [value]="discountValue"
-      /></span>
-    </div>
+  <div class="td-panel-item">
+    <span class="td-label">Tax 🧾</span>
+    <span class="input-wrap"
+      >₹<input
+        #taxInp
+        appInputClickSelect
+        class="form-control"
+        (change)="onTaxDiscountChange(taxInp.value, discountInp.value)"
+        [value]="taxValue"
+    /></span>
   </div>
+  <div class="td-panel-item">
+    <span class="td-label">Discount 🎟️</span>
+    <span class="input-wrap"
+      >₹<input
+        #discountInp
+        appInputClickSelect
+        class="form-control"
+        (change)="onTaxDiscountChange(taxInp.value, discountInp.value)"
+        [value]="discountValue"
+    /></span>
+  </div>
+</div>

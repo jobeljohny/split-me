@@ -26,6 +26,7 @@ import { DarkColorDirective } from './directives/dark-color.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { QRCodeModule } from 'angularx-qrcode';
 import { SummaryQrModalComponent } from './components/summary-qr-modal/summary-qr-modal.component';
+import { InputClickSelectDirective } from './directives/input-click-select.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import { SummaryQrModalComponent } from './components/summary-qr-modal/summary-q
     SummaryTableComponent,
     DarkColorDirective,
     SummaryQrModalComponent,
+    InputClickSelectDirective,
   ],
   imports: [
     BrowserModule,
