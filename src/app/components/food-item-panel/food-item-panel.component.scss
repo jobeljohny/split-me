@@ -17,7 +17,7 @@
 .panel-wrapper {
   position: relative;
   background-color: rgb(236, 238, 255);
-  padding: 0.6rem 0.4rem 0.5rem 0.3rem;
+  padding: 0.6rem 0.4rem 0.3rem 0.3rem;
 }
 
 .item-info {
@@ -59,7 +59,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  .placeholder-text{
+  .placeholder-text {
     font-size: 0.9rem;
     opacity: 0.6;
     width: 100%;
@@ -67,39 +67,55 @@
   }
 }
 
+.bottom-menu {
+  display: flex;
+  margin-top: 6px;
+  .options-panel {
+    margin-left: 50px;
+    display: flex;
+    margin-top: -3px;
+    img {
+      width: 22px;
+      height: 22px;
+      margin: 0px 3px;
+      opacity: 0.8;
+      &:hover {
+        cursor: pointer;
+        opacity: 1;
+      }
+    }
+  }
+  .total-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
+    margin-left: auto;
+    font-size: 0.8rem;
+    font-weight: 500;
+
+    .total-rate {
+      margin-left: 6px;
+      background-color: rgb(236, 238, 255);
+      border-radius: 5px;
+      padding: 1px 8px;
+      text-align: center;
+      border: none;
+    }
+  }
+}
+
 //cdk drag and drop
-
-
 .cdk-drop-list-dragging {
   background: rgba(100, 255, 229, 0.104);
 }
 
-.total-wrapper {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 6px;
-  margin-right: 16px;
-  font-size: 0.8rem;
-  font-weight: 500;
-
-  .total-rate {
-    margin-left: 6px;
-    background-color: rgb(236, 238, 255);
-    border-radius: 5px;
-    padding: 1px 8px;
-    text-align: center;
-    border: none;
-  }
-}
-
 // for disbling spinner on number input
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-input[type=number]{
-    -moz-appearance: textfield;
+input[type="number"] {
+  -moz-appearance: textfield;
 }
