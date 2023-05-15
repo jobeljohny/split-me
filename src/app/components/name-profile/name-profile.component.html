@@ -5,8 +5,11 @@
       src="../../../assets/cancel-icon.svg"
       (click)="removeProfile()"
     />
-    <img src="../../../assets/user-logo-2.png" alt="user.png" />
+    <img
+      src="../../../assets/user-logo-2.png"
+      alt="user.png"
+      [style.filter]="color"
+    />
   </div>
-
-  <span>{{ name }}</span>
+  <span>{{ profileData.name }}</span>
 </div>

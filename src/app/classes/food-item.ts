@@ -46,7 +46,7 @@ export class FoodItem {
   public addParticipant(participant: Participant) {
     let isExist = false;
     this.participants.forEach((p) => {
-      if (p.name === participant.name) {
+      if (p.profile === participant.profile) {
         isExist = true;
         //participant already exists
       }

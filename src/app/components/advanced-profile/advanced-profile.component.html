@@ -4,7 +4,11 @@
   (click)="onContextMenu($event)"
 >
   <span class="name">{{ participant.name }}</span>
-  <img src="../../../assets/user-logo-2.png" alt="user.png" />
+  <img
+    src="../../../assets/user-logo-2.png"
+    alt="user.png"
+    [style.filter]="color"
+  />
   <span class="price">₹ {{ participant.contribution }}</span>
 </div>
 <div

@@ -1,8 +1,14 @@
+import { Profile } from './profile';
+
 export class Participant {
-    name: string;
-    contribution:number;
-    constructor(name: string, contribution:number){
-        this.name = name;
-        this.contribution = contribution;
-    }
+  profile: Profile;
+  contribution: number;
+  constructor(profile: Profile, contribution: number) {
+    this.profile = profile;
+    this.contribution = contribution;
+  }
+
+  get name() {
+    return this.profile.name;
+  }
 }

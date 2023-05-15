@@ -25,18 +25,18 @@
     >
     <div *ngFor="let profile of profiles" cdkDrag [cdkDragData]="profile">
       <app-name-profile
-        [name]="profile"
+        [profileData]="profile"
         (removeUser)="removeProfile($event)"
       ></app-name-profile>
       <div *cdkDragPreview class="profile-drag-preview">
         <div class="preview-profile-wrapper">
           <img src="../../../assets/user-logo-2.png" alt="user.png" />
-          <span>{{ profile }}</span>
+          <span>{{ profile.name }}</span>
         </div>
       </div>
       <div *cdkDragPlaceholder>
         <app-name-profile
-          [name]="profile"
+          [profileData]="profile"
           (removeUser)="removeProfile($event)"
         ></app-name-profile>
       </div>

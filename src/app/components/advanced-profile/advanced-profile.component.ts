@@ -14,12 +14,11 @@ import { Participant } from 'src/app/classes/participant';
   styleUrls: ['./advanced-profile.component.scss'],
 })
 export class AdvancedProfileComponent {
-  @Input('participant') participant: Participant;
-  @Input('price') price: number;
+  @Input('participant') participant!: Participant;
+  @Input('price') price: number = 0;
   @Output() removeParticipant = new EventEmitter<Participant>();
   @ViewChild(MatMenuTrigger)
   contextMenu: MatMenuTrigger | undefined;
-
   contextMenuPosition = { x: '0px', y: '0px' };
 
   onContextMenu(event: MouseEvent) {
@@ -31,9 +30,10 @@ export class AdvancedProfileComponent {
       this.contextMenu.openMenu();
     }
   }
-  constructor() {
-    this.participant = new Participant('', 0);
-    this.price = 0;
+  constructor() {}
+
+  get color() {
+    return `hue-rotate(${this.participant.profile.hue}deg)`;
   }
 
   onPortionModifier(modifier: number) {

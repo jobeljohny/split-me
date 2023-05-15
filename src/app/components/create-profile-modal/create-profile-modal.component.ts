@@ -15,6 +15,7 @@ import {
 } from '@angular/forms';
 
 import { Modal } from 'bootstrap';
+import { Profile } from 'src/app/classes/profile';
 import { isDuplicateValidator } from 'src/app/classes/validators';
 @Component({
   selector: 'app-create-profile-modal',
@@ -25,7 +26,7 @@ export class CreateProfileModalComponent implements AfterViewInit {
   @ViewChild('profileModal') Modal: any;
   @ViewChild('ModalInput')
   ModalInput!: ElementRef;
-  @Input('existingProfiles') existingProfiles: string[] = [];
+  @Input('existingProfiles') existingProfiles: Profile[] = [];
   @Output('addProfile') addProfile = new EventEmitter<string>();
   myModal: any;
 
@@ -40,7 +41,9 @@ export class CreateProfileModalComponent implements AfterViewInit {
         [
           Validators.required,
           (control: AbstractControl) =>
-            isDuplicateValidator(this.existingProfiles)(control),
+            isDuplicateValidator(
+              this.existingProfiles.map((profile) => profile.name)
+            )(control),
         ],
       ],
     });

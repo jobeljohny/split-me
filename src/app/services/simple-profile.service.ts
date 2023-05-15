@@ -1,22 +1,24 @@
 import { Injectable } from '@angular/core';
 import { saveAs } from 'file-saver-es';
+import { Profile } from '../classes/profile';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SimpleProfileService {
-  profiles: string[] = [];
+  profiles: Profile[] = [];
   constructor() {
     this.fetchFromLocalStorage();
   }
 
-  remove(profile: string) {
-    this.profiles = this.profiles.filter((x) => x !== profile);
+  remove(profileName: string) {
+    this.profiles = this.profiles.filter((x) => x.name !== profileName);
     this.setLocalStorage();
   }
 
-  add(profile: string) {
-    this.profiles.push(profile);
+  add(profileName: string) {
+    let newProfile = new Profile(profileName);
+    this.profiles.push(newProfile);
     this.profiles.sort();
     this.setLocalStorage();
   }
