@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { FoodItem } from 'src/app/classes/food-item';
 import { Participant } from 'src/app/classes/participant';
+import { Profile } from 'src/app/classes/profile';
 
 @Component({
   selector: 'app-food-item-panel',
@@ -45,8 +46,15 @@ export class FoodItemPanelComponent implements AfterViewInit {
   }
 
   drop(event: CdkDragDrop<string[]>) {
-    let participant = new Participant(event.item.data, this.foodData.price);
-    this.foodData.addParticipant(participant);
+    if (event.item.data.values) {
+      event.item.data.values.forEach((profile: Profile) => {
+        let participant = new Participant(profile, this.foodData.price);
+        this.foodData.addParticipant(participant);
+      });
+    } else {
+      let participant = new Participant(event.item.data, this.foodData.price);
+      this.foodData.addParticipant(participant);
+    }
   }
 
   onMenuOption(option: string) {

@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import { saveAs } from 'file-saver-es';
 import { Profile } from '../classes/profile';
+import { selectionStatus } from '../classes/interfaces';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SimpleProfileService {
   profiles: Profile[] = [];
+  selections: Profile[] = [];
+  selectionCleared = new Subject<void>();
+
   constructor() {
     this.fetchFromLocalStorage();
   }
@@ -32,6 +37,18 @@ export class SimpleProfileService {
     } else {
       alert('No profile set to export');
     }
+  }
+  onSelectionUpdated(selection: selectionStatus) {
+    if (selection.status) {
+      this.selections.push(selection.profile);
+    } else {
+      this.selections.splice(this.selections.indexOf(selection.profile), 1);
+    }
+    // console.log(this.selections);
+  }
+  clearSelection() {
+    this.selections = [];
+    this.selectionCleared.next();
   }
   checkValid(profilePack: string[]) {
     return !(new Set(profilePack).size !== profilePack.length);

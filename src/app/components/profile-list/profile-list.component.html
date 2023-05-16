@@ -23,10 +23,17 @@
     <span *ngIf="!profiles.length" class="lead help-placeholder"
       >Manage your profiles by adding or importing them here</span
     >
-    <div *ngFor="let profile of profiles" cdkDrag [cdkDragData]="profile">
+    <div
+      *ngFor="let profile of profiles"
+      cdkDrag
+      [cdkDragData]="profile"
+      (cdkDragStarted)="dragStarted($event)"
+      (cdkDragEnded)="dragEnded()"
+    >
       <app-name-profile
         [profileData]="profile"
         (removeUser)="removeProfile($event)"
+        [isSelectionEnabled]="selectionEnabled"
       ></app-name-profile>
       <div *cdkDragPreview class="profile-drag-preview">
         <div class="preview-profile-wrapper">

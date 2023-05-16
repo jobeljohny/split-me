@@ -1,14 +1,21 @@
-<div class="profile-wrapper">
+<div class="profile-wrapper" appCtrlClick (ctrl-click)="selected()">
   <div class="image-wrapper">
     <img
+      *ngIf="!isSelectionEnabled"
       id="remove-button"
       src="../../../assets/cancel-icon.svg"
       (click)="removeProfile()"
     />
     <img
+      *ngIf="isSelected"
+      id="tick-img"
+      src="../../../assets/green-tick.png"
+    />
+    <img
       src="../../../assets/user-logo-2.png"
       alt="user.png"
       [style.filter]="color"
+      [style.opacity]="isSelected ? 0.6 : 1"
     />
   </div>
   <span>{{ profileData.name }}</span>

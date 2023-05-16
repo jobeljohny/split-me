@@ -1,3 +1,4 @@
+import { CdkDragStart } from '@angular/cdk/drag-drop';
 import { Component, HostListener, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { FoodPaletteService } from 'src/app/services/food-palette.service';
@@ -11,6 +12,7 @@ import { CreateProfileModalComponent } from '../create-profile-modal/create-prof
 })
 export class ProfileListComponent {
   @ViewChild('ProfileModal') profileModal: CreateProfileModalComponent;
+
   constructor(
     fb: FormBuilder,
     private foodPalette: FoodPaletteService,
@@ -42,10 +44,30 @@ export class ProfileListComponent {
     this.simpleProfile.importProfiles(e.target.files[0]);
   }
 
+  dragStarted(ev: CdkDragStart): void {
+    if (this.simpleProfile.selections.length) {
+      const indices = this.simpleProfile.selections;
+      ev.source.data = {
+        indices,
+        values: this.simpleProfile.selections,
+        source: this,
+      };
+    }
+  }
+  dragEnded() {
+    this.clearSelections();
+  }
+  clearSelections() {
+    this.simpleProfile.clearSelection();
+  }
+
   get paletteIDs() {
     return this.foodPalette.paletteIDs;
   }
   get profiles() {
     return this.simpleProfile.profiles;
+  }
+  get selectionEnabled() {
+    return this.simpleProfile.selections.length != 0;
   }
 }
