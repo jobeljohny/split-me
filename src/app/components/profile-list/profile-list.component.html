@@ -1,7 +1,17 @@
 <div class="people-card shadow-lg p-3 mb-2 rounded card-container">
   <div class="import-export-container">
-    <input type="file" class="filepicker" (change)="onFileInput($event)" />
-    <img src="../../../assets/export.png" alt="export.png" (click)="export()" />
+    <input
+      matTooltip="import profiles"
+      type="file"
+      class="filepicker"
+      (change)="onFileInput($event)"
+    />
+    <img
+      matTooltip="export profiles"
+      src="../../../assets/export.png"
+      alt="export.png"
+      (click)="export()"
+    />
   </div>
   <h3 class="lead" style="text-align: center">Profiles</h3>
   <div
@@ -34,6 +44,7 @@
 
     <span style="display: flex; justify-content: center">
       <button
+        matTooltip="New profile"
         type="button"
         class="btn btn-info btn-profile"
         (click)="onAddProfile()"

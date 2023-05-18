@@ -18,21 +18,30 @@
   <ng-template matMenuContent let-item="item">
     <div class="portions-container">
       <div class="portions">
-        <button (click)="onPortionModifier(0.5)">
+        <button matTooltip="half portion" (click)="onPortionModifier(0.5)">
           <sup>1</sup>/<sub>2</sub>
         </button>
-        <button (click)="onPortionModifier(0.3333)">
+        <button
+          matTooltip="one-third portion"
+          (click)="onPortionModifier(0.3333)"
+        >
           <sup>1</sup>/<sub>3</sub>
         </button>
-        <button (click)="onPortionModifier(0.25)">
+        <button matTooltip="quarter portion" (click)="onPortionModifier(0.25)">
           <sup>1</sup>/<sub>4</sub>
         </button>
       </div>
       <div class="portions">
-        <button (click)="onPortionModifier(1)">1</button>
-        <button (click)="onPortionModifier(2)">2</button>
-        <button (click)="onPortionModifier(3)">3</button>
-        <button (click)="onPortionModifier(4)">4</button>
+        <button matTooltip="1 portion" (click)="onPortionModifier(1)">1</button>
+        <button matTooltip="2 portions" (click)="onPortionModifier(2)">
+          2
+        </button>
+        <button matTooltip="3 portions" (click)="onPortionModifier(3)">
+          3
+        </button>
+        <button matTooltip="4 portions" (click)="onPortionModifier(4)">
+          4
+        </button>
       </div>
     </div>
 
@@ -50,7 +59,7 @@
     <hr />
     <div class="delete-wrapper" (click)="remove()">
       <img src="../../../assets/delete-icon.svg" alt="delete.png" />
-      <span>Remove</span>
+      <span matTooltip="Remove user">Remove</span>
     </div>
   </ng-template>
 </mat-menu>

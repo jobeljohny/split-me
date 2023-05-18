@@ -1,5 +1,6 @@
 <div class="panel-wrapper mx-5 shadow-sm mb-3 mt-3 rounded card-container">
   <img
+    matTooltip="remove palette"
     id="remove-button"
     src="../../../assets/cancel-icon.svg"
     (click)="removePalette()"
@@ -44,13 +45,21 @@
   <div class="bottom-menu">
     <div *ngIf="participants.length" class="options-panel">
       <div (click)="onMenuOption('reset')">
-        <img src="../../../assets/reset.svg" alt="reset" />
+        <img matTooltip="reset" src="../../../assets/reset.svg" alt="reset" />
       </div>
       <div (click)="onMenuOption('split')">
-        <img src="../../../assets/split-icon.png" alt="split" />
+        <img
+          matTooltip="split evenly"
+          src="../../../assets/split-icon.png"
+          alt="split"
+        />
       </div>
       <div (click)="onMenuOption('clear')">
-        <img src="../../../assets/cancel-icon.svg" alt="clear" />
+        <img
+          matTooltip="remove all"
+          src="../../../assets/cancel-icon.svg"
+          alt="clear"
+        />
       </div>
     </div>
     <div class="total-wrapper">

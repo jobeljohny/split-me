@@ -9,7 +9,10 @@
             </p>
           </div>
           <div class="menu-wrap">
-            <span class="qr-icon-wrap" (click)="downloadAs('qr')"
+            <span
+              class="qr-icon-wrap"
+              matTooltip="view on phone"
+              (click)="downloadAs('qr')"
               ><img
                 class="qr-icon-button"
                 src="../../../assets/qr-icon.svg"
@@ -17,6 +20,7 @@
             /></span>
             <span class="download-wrapper"
               ><img
+                matTooltip="download"
                 class="option-button"
                 id="download"
                 src="../../../assets/downlaod.png"
@@ -37,14 +41,14 @@
                 </div>
               </div>
             </span>
-
             <span
               ><img
                 class="option-button"
                 src="../../../assets/cancel-icon.svg"
                 alt="close"
                 (click)="myModal.hide()"
-            /></span>
+              />
+            </span>
           </div>
         </div>
       </div>
