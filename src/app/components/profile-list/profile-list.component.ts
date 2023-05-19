@@ -70,4 +70,7 @@ export class ProfileListComponent {
   get selectionEnabled() {
     return this.simpleProfile.selections.length != 0;
   }
+  get selections(){
+    return this.simpleProfile.selections;
+  }
 }

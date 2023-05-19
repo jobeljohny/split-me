@@ -36,10 +36,7 @@
         [isSelectionEnabled]="selectionEnabled"
       ></app-name-profile>
       <div *cdkDragPreview class="profile-drag-preview">
-        <div class="preview-profile-wrapper">
-          <img src="../../../assets/user-logo-2.png" alt="user.png" />
-          <span>{{ profile.name }}</span>
-        </div>
+        <app-profile-drag-preview [people]="profile" [selections]="selections"></app-profile-drag-preview>
       </div>
       <div *cdkDragPlaceholder>
         <app-name-profile

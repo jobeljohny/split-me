@@ -36,25 +36,6 @@
   }
 }
 
-.profile-drag-preview {
-  .preview-profile-wrapper {
-    display: flex;
-
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: -17px;
-    margin-left: -17px;
-    img {
-      width: 34px;
-      height: 34px;
-    }
-    span {
-      font-size: 0.8rem;
-    }
-  }
-}
-
 .import-export-container {
   img {
     width: 30px;
