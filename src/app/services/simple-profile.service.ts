@@ -3,6 +3,7 @@ import { saveAs } from 'file-saver-es';
 import { Profile } from '../classes/profile';
 import { selectionStatus } from '../classes/interfaces';
 import { Subject } from 'rxjs';
+import { JsonValidatorService } from './json-validator.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,10 @@ export class SimpleProfileService {
   private clickListenerActive = false;
   private renderer: Renderer2;
 
-  constructor(rendererFactory: RendererFactory2) {
+  constructor(
+    rendererFactory: RendererFactory2,
+    private validator: JsonValidatorService
+  ) {
     this.renderer = rendererFactory.createRenderer(null, null);
     this.fetchFromLocalStorage();
     this.SelectionClickHandler = this.SelectionClickHandler.bind(this);
@@ -88,8 +92,10 @@ export class SimpleProfileService {
     this.disableClickListener();
   }
 
-  checkValid(profilePack: string[]) {
-    return new Set(profilePack).size === profilePack.length;
+  checkValid(profilePack: any) {
+    if (!this.validator.profilesValidator(profilePack)) return false;
+    if (new Set(profilePack).size != profilePack.length) return false;
+    return true;
   }
 
   importProfiles(file: any) {
@@ -103,6 +109,8 @@ export class SimpleProfileService {
           this.profiles = impData;
           this.profiles.sort();
           this.setLocalStorage();
+        } else {
+          alert('Invalid profile file');
         }
       } catch (error) {
         console.log(error);
