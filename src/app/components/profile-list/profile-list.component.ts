@@ -26,22 +26,6 @@ export class ProfileListComponent {
     this.onAddProfile();
   }
 
-  @HostListener('document:click', ['$event'])
-  onClick(event: MouseEvent) {
-    console.log('click event');
-    
-    if (this.selectionEnabled) {
-      const clickedElement = event.target as HTMLElement;
-      const isInsideNameProfile = clickedElement.closest('app-name-profile');
-
-      if (!isInsideNameProfile) {
-       
-        console.log('Clicked outside name-profile components');
-         this.clearSelections();
-      }
-    }
-  }
-
   removeProfile(profile: string) {
     this.simpleProfile.remove(profile);
   }
@@ -87,7 +71,7 @@ export class ProfileListComponent {
   get selectionEnabled() {
     return this.simpleProfile.selections.length != 0;
   }
-  get selections(){
+  get selections() {
     return this.simpleProfile.selections;
   }
 }

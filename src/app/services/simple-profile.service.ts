@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 import { saveAs } from 'file-saver-es';
 import { Profile } from '../classes/profile';
 import { selectionStatus } from '../classes/interfaces';
@@ -11,9 +11,14 @@ export class SimpleProfileService {
   profiles: Profile[] = [];
   selections: Profile[] = [];
   selectionCleared = new Subject<void>();
+  private selectonListener: (() => void) | undefined;
+  private clickListenerActive = false;
+  private renderer: Renderer2;
 
-  constructor() {
+  constructor(rendererFactory: RendererFactory2) {
+    this.renderer = rendererFactory.createRenderer(null, null);
     this.fetchFromLocalStorage();
+    this.SelectionClickHandler = this.SelectionClickHandler.bind(this);
   }
 
   remove(profileName: string) {
@@ -38,27 +43,59 @@ export class SimpleProfileService {
       alert('No profile set to export');
     }
   }
+  //multi-selection functions
+  SelectionClickHandler(event: MouseEvent) {
+    if (this.selections.length != 0) {
+      const clickedElement = event.target as HTMLElement;
+      if (!clickedElement.closest('app-name-profile')) this.clearSelection();
+    }
+  }
+
   onSelectionUpdated(selection: selectionStatus) {
     if (selection.status) {
       this.selections.push(selection.profile);
     } else {
-      this.selections.splice(this.selections.indexOf(selection.profile), 1);
+      const index = this.selections.indexOf(selection.profile);
+      if (index !== -1) {
+        this.selections.splice(index, 1);
+      }
     }
-    // console.log(this.selections);
+    if (this.selections.length) this.enableClickListener();
+    else this.disableClickListener();
   }
+
+  enableClickListener() {
+    if (!this.clickListenerActive) {
+      this.clickListenerActive = true;
+      this.selectonListener = this.renderer.listen(
+        'document',
+        'click',
+        this.SelectionClickHandler
+      );
+    }
+  }
+
+  disableClickListener() {
+    this.clickListenerActive = false;
+    if (this.selectonListener) this.selectonListener();
+  }
+
+  //- end - multi-selection functions
+
   clearSelection() {
     this.selections = [];
     this.selectionCleared.next();
+    this.disableClickListener();
   }
+
   checkValid(profilePack: string[]) {
-    return !(new Set(profilePack).size !== profilePack.length);
+    return new Set(profilePack).size === profilePack.length;
   }
 
   importProfiles(file: any) {
     let fileReader = new FileReader();
 
-    fileReader.readAsText(file);
-    fileReader.onload = (e) => {
+    fileReader.onload = () => {
       try {
         if (fileReader.result)
           var impData = JSON.parse(fileReader.result as string);
@@ -72,6 +109,7 @@ export class SimpleProfileService {
         alert('Invalid profile file');
       }
     };
+    fileReader.readAsText(file);
   }
 
   fetchFromLocalStorage() {
