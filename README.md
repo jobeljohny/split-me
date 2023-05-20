@@ -1,21 +1,20 @@
 Live app : [Split Me](https://split-me-f4d3c.web.app)
 
-# Split-Me Release notes 1.2 🚀
+# Split-Me Release notes 1.3 🚀
 
 ### improvements 🛠️
 
-- new summary feature for detailed individual contribution breakdown
-- new QR tool to view the summary on your smartphone
-- new set of options for food panel to reset,split evenly and remove profiles
-- options to download contributions as Image and PDF
-- minor UI changes to details view
-- minor perfomance improvements
-- profiles will now persists on reload (yay!)
+- UI improvements on profiles list view
+- added multi-select drag and drop feature for profiles
+- added UI improvements for drag preview placeholders
+- perfomance and structural improvements to profiles
+- added tooltips for user accessibility
 
 ### bug fixes 🐞
 
-- fixed 0 persistence on price click (yes that annoying 0)
-- fixed selections for tax and discount inputs
+- minor UI bug fixes
+
+#### previous release notes : [a relative link](src\app\release notes\release-notes.md)
 
 # SplitMe
 

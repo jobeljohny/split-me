@@ -1,5 +1,22 @@
 # Releases
 
+## Split-Me Release notes 1.2 🚀
+
+#### improvements 🛠️
+
+- new summary feature for detailed individual contribution breakdown
+- new QR tool to view the summary on your smartphone
+- new set of options for food panel to reset,split evenly and remove profiles
+- options to download contributions as Image and PDF
+- minor UI changes to details view
+- minor perfomance improvements
+- profiles will now persists on reload (yay!)
+
+#### bug fixes 🐞
+
+- fixed 0 persistence on price click (yes that annoying 0)
+- fixed selections for tax and discount inputs
+
 ## Split-Me Release notes 1.1 🚀
 
 #### improvements 🛠️
