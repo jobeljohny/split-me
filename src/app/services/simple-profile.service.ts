@@ -93,9 +93,7 @@ export class SimpleProfileService {
   }
 
   checkValid(profilePack: any) {
-    if (!this.validator.profilesValidator(profilePack)) return false;
-    if (new Set(profilePack).size != profilePack.length) return false;
-    return true;
+    return this.validator.profilesValidator(profilePack);
   }
 
   importProfiles(file: any) {
