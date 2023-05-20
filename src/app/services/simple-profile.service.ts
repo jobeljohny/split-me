@@ -122,7 +122,10 @@ export class SimpleProfileService {
 
   fetchFromLocalStorage() {
     let profiles = localStorage.getItem('myProfiles');
-    if (profiles != null) this.profiles = JSON.parse(profiles);
+    if (profiles != null) {
+      let json = JSON.parse(profiles);
+      if (this.checkValid(json)) this.profiles = json;
+    }
   }
   setLocalStorage() {
     localStorage.setItem('myProfiles', JSON.stringify(this.profiles));
