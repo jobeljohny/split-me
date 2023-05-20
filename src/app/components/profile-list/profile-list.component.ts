@@ -25,6 +25,23 @@ export class ProfileListComponent {
   keydown(event: KeyboardEvent): void {
     this.onAddProfile();
   }
+
+  @HostListener('document:click', ['$event'])
+  onClick(event: MouseEvent) {
+    console.log('click event');
+    
+    if (this.selectionEnabled) {
+      const clickedElement = event.target as HTMLElement;
+      const isInsideNameProfile = clickedElement.closest('app-name-profile');
+
+      if (!isInsideNameProfile) {
+       
+        console.log('Clicked outside name-profile components');
+         this.clearSelections();
+      }
+    }
+  }
+
   removeProfile(profile: string) {
     this.simpleProfile.remove(profile);
   }
