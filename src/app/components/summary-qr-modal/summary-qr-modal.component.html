@@ -1,29 +1,23 @@
 <!-- Modal HTML -->
-<div #SummaryQR id="SummaryQR" class="modal fade shadow-lg" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <img
-        id="remove-button"
-        src="../../../assets/cancel-icon.svg"
-        (click)="close()"
-      />
-      <div class="modal-body">
-        <p class="lead">View the summary by scanning this QR code</p>
-        <div *ngIf="isLoading" class="spinner-wrapper">
-          <mat-spinner color="blue" mode="indeterminate"></mat-spinner>
-        </div>
+<img
+  id="remove-button"
+  src="../../../assets/cancel-icon.svg"
+  (click)="dialogRef.close()"
+/>
+<div class="dialog-body">
+  <p class="lead">View the summary by scanning this QR code</p>
+  <div *ngIf="isLoading" class="spinner-wrapper">
+    <mat-spinner color="blue" mode="indeterminate"></mat-spinner>
+  </div>
 
-        <div class="qr-info-wrapper" [style.opacity]="isLoading ? 0.1 : 1">
-          <img src="../../../assets/scan-phone.png" alt="" />
-          <qrcode
-            [qrdata]="QR"
-            [width]="256"
-            [errorCorrectionLevel]="'M'"
-            [colorLight]="'#fffef7'"
-            (qrCodeURL)="onChangeURL($event)"
-          ></qrcode>
-        </div>
-      </div>
-    </div>
+  <div class="qr-info-wrapper" [style.opacity]="isLoading ? 0.1 : 1">
+    <img src="../../../assets/scan-phone.png" alt="" />
+    <qrcode
+      [qrdata]="link"
+      [width]="256"
+      [errorCorrectionLevel]="'M'"
+      [colorLight]="'#fffef7'"
+      (qrCodeURL)="onChangeURL($event)"
+    ></qrcode>
   </div>
 </div>

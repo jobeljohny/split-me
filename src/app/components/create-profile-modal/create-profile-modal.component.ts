@@ -37,8 +37,4 @@ export class CreateProfileModalComponent {
       ],
     });
   }
-
-  onCancel() {
-    this.dialogRef.close();
-  }
 }

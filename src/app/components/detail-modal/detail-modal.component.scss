@@ -1,3 +1,14 @@
+.title {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  p {
+    margin: 0;
+    font-size: 1rem;
+    color: black;
+  }
+}
+
 .mat-mdc-table .mdc-data-table__row {
   height: 40px;
 }
@@ -21,8 +32,9 @@
 .food-header {
   color: black;
 }
-.modal-body {
-  padding-top: 0px;
+.dialog-body {
+  padding: 16px;
+  position: relitive;
 }
 .body-wrapper {
   display: flex;
@@ -79,5 +91,17 @@
       background: rgb(12, 0, 184);
       color: white;
     }
+  }
+}
+#remove-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
   }
 }

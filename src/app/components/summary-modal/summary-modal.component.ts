@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { Modal } from 'bootstrap';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import html2canvas from 'html2canvas';
 import { DetailsService } from 'src/app/services/details.service';
 import { SummaryExportService } from 'src/app/services/summary-export.service';
@@ -10,34 +10,18 @@ import { SummaryQrModalComponent } from '../summary-qr-modal/summary-qr-modal.co
   templateUrl: './summary-modal.component.html',
   styleUrls: ['./summary-modal.component.scss'],
 })
-export class SummaryModalComponent implements AfterViewInit {
-  @ViewChild('SummaryModal') Modal: any;
-  @ViewChild('summaryQR') QrModal: SummaryQrModalComponent;
+export class SummaryModalComponent {
   @ViewChild('SummaryBody')
   summaryBody!: ElementRef;
-  myModal: any;
-  link: string = 'unknown';
   isDownloadOptions: boolean = false;
 
   constructor(
     private details: DetailsService,
-    private summaryExport: SummaryExportService
-  ) {
-    this.QrModal = new SummaryQrModalComponent();
-    summaryExport.qrLink$.subscribe((link) => {
-      this.link = link;
-    });
-  }
-  ngAfterViewInit() {
-    this.myModal = new Modal(this.Modal.nativeElement, {
-      backdrop: 'static',
-      keyboard: true,
-    });
-  }
+    private summaryExport: SummaryExportService,
+    public dialogRef: MatDialogRef<SummaryModalComponent>,
+    private dialog: MatDialog
+  ) {}
 
-  showModal() {
-    this.myModal.show();
-  }
   onBodyClicked() {
     this.isDownloadOptions = false;
   }
@@ -50,10 +34,12 @@ export class SummaryModalComponent implements AfterViewInit {
     this.isDownloadOptions = !this.isDownloadOptions;
   }
   async downloadAs(type: 'qr' | 'img' | 'pdf') {
-    if (type === 'qr') {
-      this.QrModal.showModal();
-    }
     this.isDownloadOptions = false;
+    if (type === 'qr') {
+      this.dialog.open(SummaryQrModalComponent, {
+        width: '550px',
+      });
+    }
 
     try {
       const { offsetWidth: cWidth, offsetHeight: cHeight } =

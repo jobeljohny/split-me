@@ -1,8 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { DetailsService } from 'src/app/services/details.service';
 import { FoodPaletteService } from 'src/app/services/food-palette.service';
 import { DetailModalComponent } from '../detail-modal/detail-modal.component';
-import { SummaryExportService } from 'src/app/services/summary-export.service';
 
 @Component({
   selector: 'app-details-panel',
@@ -10,18 +10,17 @@ import { SummaryExportService } from 'src/app/services/summary-export.service';
   styleUrls: ['./details-panel.component.scss'],
 })
 export class DetailsPanelComponent {
-  @ViewChild('DetailModal') detailModal: DetailModalComponent;
   constructor(
     private foodPalette: FoodPaletteService,
     private details: DetailsService,
-    private summaryExport: SummaryExportService
-  ) {
-    this.detailModal = new DetailModalComponent(details, summaryExport);
-  }
+    private dialog: MatDialog
+  ) {}
 
   calcFinalTotal() {
     this.details.calculateFinalTotal();
-    this.detailModal.showModal();
+    this.dialog.open(DetailModalComponent, {
+      width: '800px',
+    });
   }
 
   get totalFoodBill() {
