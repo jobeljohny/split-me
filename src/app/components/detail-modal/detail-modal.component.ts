@@ -49,6 +49,8 @@ export class DetailModalComponent implements AfterViewInit {
 
   viewSummary() {
     this.details.generateIndividualSummary();
-    this.dialog.open(SummaryModalComponent);
+    this.dialog.open(SummaryModalComponent, {
+      width: '1140px',
+    });
   }
 }

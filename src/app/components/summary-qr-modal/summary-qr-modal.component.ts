@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 import { SummaryExportService } from 'src/app/services/summary-export.service';
 
 @Component({
@@ -10,12 +11,12 @@ import { SummaryExportService } from 'src/app/services/summary-export.service';
 export class SummaryQrModalComponent {
   isLoading = true;
   link: string = 'unknown';
-
+  private subscription: Subscription;
   constructor(
     public dialogRef: MatDialogRef<SummaryQrModalComponent>,
     private summaryExport: SummaryExportService
   ) {
-    this.summaryExport.qrLink$.subscribe((link) => {
+    this.subscription = this.summaryExport.qrLink$.subscribe((link) => {
       this.link = link;
     });
   }
@@ -23,6 +24,11 @@ export class SummaryQrModalComponent {
   onChangeURL(event: any) {
     if (this.link != 'unknown') {
       this.isLoading = false;
+    }
+  }
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
   }
 }
