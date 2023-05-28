@@ -33,7 +33,7 @@ export class SimpleProfileService {
   add(profileName: string) {
     let newProfile = new Profile(profileName);
     this.profiles.push(newProfile);
-    this.profiles.sort();
+    this.profiles.sort((a, b) => a.name.localeCompare(b.name));
     this.setLocalStorage();
   }
 
@@ -105,7 +105,6 @@ export class SimpleProfileService {
           var impData = JSON.parse(fileReader.result as string);
         if (this.checkValid(impData)) {
           this.profiles = impData;
-          this.profiles.sort();
           this.setLocalStorage();
         } else {
           alert('Invalid profile file');
