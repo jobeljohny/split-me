@@ -1,25 +1,20 @@
 import { CdkDragStart } from '@angular/cdk/drag-drop';
-import { Component, HostListener, ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component, HostListener } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { FoodPaletteService } from 'src/app/services/food-palette.service';
 import { SimpleProfileService } from 'src/app/services/simple-profile.service';
 import { CreateProfileModalComponent } from '../create-profile-modal/create-profile-modal.component';
-
 @Component({
   selector: 'app-profile-list',
   templateUrl: './profile-list.component.html',
   styleUrls: ['./profile-list.component.scss'],
 })
 export class ProfileListComponent {
-  @ViewChild('ProfileModal') profileModal: CreateProfileModalComponent;
-
   constructor(
-    fb: FormBuilder,
     private foodPalette: FoodPaletteService,
-    private simpleProfile: SimpleProfileService
-  ) {
-    this.profileModal = new CreateProfileModalComponent(fb);
-  }
+    private simpleProfile: SimpleProfileService,
+    public dialog: MatDialog
+  ) {}
 
   @HostListener('window:keydown.alt.p', ['$event'])
   keydown(event: KeyboardEvent): void {
@@ -30,12 +25,16 @@ export class ProfileListComponent {
     this.simpleProfile.remove(profile);
   }
 
-  addNewProfile(profile: string) {
-    this.simpleProfile.add(profile);
-  }
-
   onAddProfile() {
-    this.profileModal.showModal();
+    let dialogRef = this.dialog.open(CreateProfileModalComponent, {
+      width: '280px',
+      data: this.profiles,
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.simpleProfile.add(result);
+      }
+    });
   }
 
   export() {

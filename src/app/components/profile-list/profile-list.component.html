@@ -36,7 +36,10 @@
         [isSelectionEnabled]="selectionEnabled"
       ></app-name-profile>
       <div *cdkDragPreview class="profile-drag-preview">
-        <app-profile-drag-preview [people]="profile" [selections]="selections"></app-profile-drag-preview>
+        <app-profile-drag-preview
+          [people]="profile"
+          [selections]="selections"
+        ></app-profile-drag-preview>
       </div>
       <div *cdkDragPlaceholder>
         <app-name-profile
@@ -58,8 +61,3 @@
     </span>
   </div>
 </div>
-<app-create-profile-modal
-  #ProfileModal
-  [existingProfiles]="profiles"
-  (addProfile)="addNewProfile($event)"
-></app-create-profile-modal>

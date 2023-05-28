@@ -17,7 +17,12 @@ import { TaxDiscountPanelComponent } from './components/tax-discount-panel/tax-d
 import { DetailModalComponent } from './components/detail-modal/detail-modal.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-import { MatTooltipModule } from '@angular/material/tooltip'; 
+import { MatTooltipModule } from '@angular/material/tooltip';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogModule,
+  MatDialogRef,
+} from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ProfileListComponent } from './components/profile-list/profile-list.component';
 import { FoodPalettesBoxComponent } from './components/food-palettes-box/food-palettes-box.component';
@@ -62,11 +67,18 @@ import { ProfileDragPreviewComponent } from './components/profile-drag-preview/p
     BrowserAnimationsModule,
     MatTableModule,
     MatSortModule,
+    MatDialogModule,
     MatProgressSpinnerModule,
     HttpClientModule,
     QRCodeModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MatDialogRef,
+      useValue: {},
+    },
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

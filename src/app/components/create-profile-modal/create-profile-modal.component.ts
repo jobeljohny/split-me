@@ -1,20 +1,11 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  EventEmitter,
-  Input,
-  Output,
-  ViewChild,
-} from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
   FormGroup,
   Validators,
 } from '@angular/forms';
-
-import { Modal } from 'bootstrap';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Profile } from 'src/app/classes/profile';
 import { isDuplicateValidator } from 'src/app/classes/validators';
 @Component({
@@ -22,18 +13,16 @@ import { isDuplicateValidator } from 'src/app/classes/validators';
   templateUrl: './create-profile-modal.component.html',
   styleUrls: ['./create-profile-modal.component.scss'],
 })
-export class CreateProfileModalComponent implements AfterViewInit {
-  @ViewChild('profileModal') Modal: any;
-  @ViewChild('ModalInput')
-  ModalInput!: ElementRef;
-  @Input('existingProfiles') existingProfiles: Profile[] = [];
-  @Output('addProfile') addProfile = new EventEmitter<string>();
-  myModal: any;
-
+export class CreateProfileModalComponent {
   angForm!: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    public dialogRef: MatDialogRef<CreateProfileModalComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Profile[]
+  ) {
     this.createForm();
   }
+
   createForm() {
     this.angForm = this.fb.group({
       name: [
@@ -41,31 +30,15 @@ export class CreateProfileModalComponent implements AfterViewInit {
         [
           Validators.required,
           (control: AbstractControl) =>
-            isDuplicateValidator(
-              this.existingProfiles.map((profile) => profile.name)
-            )(control),
+            isDuplicateValidator(this.data.map((profile) => profile.name))(
+              control
+            ),
         ],
       ],
     });
   }
 
-  ngAfterViewInit(): void {
-    this.myModal = new Modal(this.Modal.nativeElement, {
-      backdrop: 'static',
-      keyboard: true,
-    });
-  }
-
-  showModal() {
-    this.angForm.reset();
-    this.myModal.show();
-    setTimeout(() => {
-      this.ModalInput.nativeElement.focus();
-    }, 500);
-  }
-
-  onSubmit() {
-    this.addProfile.emit(this.angForm.value['name']);
-    this.myModal.hide();
+  onCancel() {
+    this.dialogRef.close();
   }
 }

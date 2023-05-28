@@ -1,58 +1,43 @@
 <!-- Modal HTML -->
-<div #profileModal id="profileModal" class="modal fade" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header border-0 pb-0">
-        <h5 class="modal-title" id="title">Add Profile</h5>
-      </div>
-      <form [formGroup]="angForm" novalidate>
-        <div class="modal-body pb-0">
-          <div class="form-group">
-            <label>Name:</label>
-            <input
-              #ModalInput
-              class="form-control shadow-none"
-              formControlName="name"
-              type="text"
-            />
-          </div>
-          <div
-            *ngIf="
-              angForm.controls['name'].invalid &&
-              (angForm.controls['name'].dirty ||
-                angForm.controls['name'].touched)
-            "
-            class="is-invalid"
-          >
-            <div *ngIf="angForm.controls['name'].errors?.['required']">
-              Name is required.
-            </div>
-            <div *ngIf="angForm.controls['name'].errors?.['duplicate']">
-              profile already exists.
-            </div>
-          </div>
+<div class="title">
+  <p>ADD PROFILE</p>
+</div>
 
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-              (click)="myModal.hide()"
-            >
-              CANCEL
-            </button>
-            <button
-              type="submit"
-              class="btn btn-primary"
-              [disabled]="angForm.pristine || angForm.invalid"
-              data-dismiss="modal"
-              (click)="onSubmit()"
-            >
-              ADD
-            </button>
-          </div>
-        </div>
-      </form>
+<form [formGroup]="angForm" novalidate>
+  <div class="form-group">
+    <label>Name:</label>
+    <input
+      #ModalInput
+      class="form-control shadow-none"
+      formControlName="name"
+      type="text"
+    />
+  </div>
+  <div
+    *ngIf="
+      angForm.controls['name'].invalid &&
+      (angForm.controls['name'].dirty || angForm.controls['name'].touched)
+    "
+    class="is-invalid"
+  >
+    <div *ngIf="angForm.controls['name'].errors?.['required']">
+      Name is required.
+    </div>
+    <div *ngIf="angForm.controls['name'].errors?.['duplicate']">
+      profile already exists.
     </div>
   </div>
-</div>
+  <div class="actions-panel">
+    <button type="button" class="btn btn-secondary" (click)="onCancel()">
+      CANCEL
+    </button>
+    <button
+      type="submit"
+      [mat-dialog-close]="angForm.value['name']"
+      class="btn btn-primary"
+      [disabled]="angForm.pristine || angForm.invalid"
+    >
+      ADD
+    </button>
+  </div>
+</form>
