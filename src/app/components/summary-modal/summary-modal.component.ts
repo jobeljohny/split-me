@@ -42,14 +42,14 @@ export class SummaryModalComponent {
     }
 
     try {
-      const { offsetWidth: cWidth, offsetHeight: cHeight } =
-        this.summaryBody.nativeElement;
-      const canvas = await html2canvas(this.summaryBody.nativeElement, {
+      const summaryBody = this.summaryBody.nativeElement;
+      const { offsetWidth: cWidth, offsetHeight: cHeight } = summaryBody;
+      const canvas = await html2canvas(summaryBody, {
         scrollY: -window.scrollY,
       });
       this.summaryExport.download(canvas, cWidth, cHeight, type);
     } catch (error) {
-      console.error('Error during screenshot generation:', error);
+      console.warn('Error during screenshot generation:', error);
     }
   }
 }

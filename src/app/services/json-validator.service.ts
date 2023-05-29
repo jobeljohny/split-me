@@ -15,7 +15,7 @@ export class JsonValidatorService {
     const isValid = validate(json);
 
     if (!isValid) {
-      console.error('Validation errors:', validate.errors);
+      console.warn('Validation errors:', validate.errors);
     }
 
     return isValid;

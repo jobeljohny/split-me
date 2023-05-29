@@ -43,7 +43,7 @@ export class SummaryExportService {
         pdf.save('food-summary.pdf');
         break;
       default:
-        console.error('Invalid type');
+        console.warn('Invalid type');
         break;
     }
   }
@@ -64,7 +64,7 @@ export class SummaryExportService {
       )}dl/${data.data.url.slice(21)}`;
       this.QRlink(downloadURL);
     } catch (error) {
-      console.error('There was an error!', error);
+      console.warn('There was an error!', error);
     }
   }
 }

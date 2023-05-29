@@ -1,4 +1,4 @@
-import { CdkDragStart } from '@angular/cdk/drag-drop';
+import { CdkDragEnd, CdkDragStart } from '@angular/cdk/drag-drop';
 import { Component, HostListener } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FoodPaletteService } from 'src/app/services/food-palette.service';
@@ -15,7 +15,7 @@ export class ProfileListComponent {
     private simpleProfile: SimpleProfileService,
     public dialog: MatDialog
   ) {}
-
+  sourceBuffer: any;
   @HostListener('window:keydown.alt.p', ['$event'])
   keydown(event: KeyboardEvent): void {
     this.onAddProfile();
@@ -45,6 +45,7 @@ export class ProfileListComponent {
   }
 
   dragStarted(ev: CdkDragStart): void {
+    this.sourceBuffer = ev.source.data;
     if (this.simpleProfile.selections.length) {
       const indices = this.simpleProfile.selections;
       ev.source.data = {
@@ -54,8 +55,9 @@ export class ProfileListComponent {
       };
     }
   }
-  dragEnded() {
+  dragEnded(ev: CdkDragEnd) {
     this.clearSelections();
+    ev.source.data = this.sourceBuffer;
   }
   clearSelections() {
     this.simpleProfile.clearSelection();

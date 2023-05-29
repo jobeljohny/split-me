@@ -28,7 +28,7 @@
       cdkDrag
       [cdkDragData]="profile"
       (cdkDragStarted)="dragStarted($event)"
-      (cdkDragEnded)="dragEnded()"
+      (cdkDragEnded)="dragEnded($event)"
     >
       <app-name-profile
         [profileData]="profile"
