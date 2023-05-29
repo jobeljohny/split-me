@@ -27,8 +27,8 @@
       *ngFor="let profile of profiles"
       cdkDrag
       [cdkDragData]="profile"
-      (cdkDragStarted)="dragStarted($event)"
-      (cdkDragEnded)="dragEnded($event)"
+      (cdkDragStarted)="dragStarted($event, profile)"
+      (cdkDragEnded)="dragEnded()"
     >
       <app-name-profile
         [profileData]="profile"

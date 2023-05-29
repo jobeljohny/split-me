@@ -1,6 +1,7 @@
-import { CdkDragEnd, CdkDragStart } from '@angular/cdk/drag-drop';
+import { CdkDragStart } from '@angular/cdk/drag-drop';
 import { Component, HostListener } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Profile } from 'src/app/classes/profile';
 import { FoodPaletteService } from 'src/app/services/food-palette.service';
 import { SimpleProfileService } from 'src/app/services/simple-profile.service';
 import { CreateProfileModalComponent } from '../create-profile-modal/create-profile-modal.component';
@@ -15,7 +16,6 @@ export class ProfileListComponent {
     private simpleProfile: SimpleProfileService,
     public dialog: MatDialog
   ) {}
-  sourceBuffer: any;
   @HostListener('window:keydown.alt.p', ['$event'])
   keydown(event: KeyboardEvent): void {
     this.onAddProfile();
@@ -27,7 +27,7 @@ export class ProfileListComponent {
 
   onAddProfile() {
     let dialogRef = this.dialog.open(CreateProfileModalComponent, {
-      width: '280px',
+      width: '250px',
       data: this.profiles,
     });
     dialogRef.afterClosed().subscribe((result) => {
@@ -44,20 +44,14 @@ export class ProfileListComponent {
     this.simpleProfile.importProfiles(e.target.files[0]);
   }
 
-  dragStarted(ev: CdkDragStart): void {
-    this.sourceBuffer = ev.source.data;
-    if (this.simpleProfile.selections.length) {
-      const indices = this.simpleProfile.selections;
-      ev.source.data = {
-        indices,
-        values: this.simpleProfile.selections,
-        source: this,
-      };
+  dragStarted(ev: CdkDragStart, profile: Profile): void {
+    if (!this.simpleProfile.selections.length) {
+      this.simpleProfile.selections = [profile];
     }
+    ev.source.data = this.selections;
   }
-  dragEnded(ev: CdkDragEnd) {
+  dragEnded() {
     this.clearSelections();
-    ev.source.data = this.sourceBuffer;
   }
   clearSelections() {
     this.simpleProfile.clearSelection();

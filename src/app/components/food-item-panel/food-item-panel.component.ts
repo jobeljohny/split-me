@@ -46,15 +46,10 @@ export class FoodItemPanelComponent implements AfterViewInit {
   }
 
   drop(event: CdkDragDrop<string[]>) {
-    if (event.item.data.values) {
-      event.item.data.values.forEach((profile: Profile) => {
-        let participant = new Participant(profile, this.foodData.price);
-        this.foodData.addParticipant(participant);
-      });
-    } else {
-      let participant = new Participant(event.item.data, this.foodData.price);
+    event.item.data.forEach((profile: Profile) => {
+      let participant = new Participant(profile, this.foodData.price);
       this.foodData.addParticipant(participant);
-    }
+    });
   }
 
   onMenuOption(option: string) {

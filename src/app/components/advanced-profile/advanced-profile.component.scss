@@ -1,3 +1,6 @@
+$context-menu-foreground: white;
+$context-menu-hover: #5b5c72;
+$context-menu-background: #72738f;
 .profile-wrapper {
   display: flex;
   position: relative;
@@ -60,7 +63,7 @@
     button {
       background-color: #ffffff00;
       border: none;
-      color: white;
+      color: $context-menu-foreground;
       padding: 3px 8px;
       text-align: center;
       text-decoration: none;
@@ -68,9 +71,9 @@
       font-size: 16px;
       margin: 4px 3px;
       border-radius: 8px;
-      border: 1px solid white;
+      border: 1px solid $context-menu-foreground;
       &:hover {
-        background-color: #090055;
+        background-color: $context-menu-hover;
       }
     }
   }
@@ -84,15 +87,19 @@
     text-align: center;
     width: 85px;
     background-color: #ffffff00;
-    color: white;
+    color: $context-menu-foreground;
+    &::placeholder {
+      color: $context-menu-foreground;
+      opacity: 0.7;
+    }
   }
   button {
     background-color: #fffefe00;
     margin-left: 5px;
-    color: white;
-    border: 1px solid white;
+    color: $context-menu-foreground;
+    border: 1px solid $context-menu-foreground;
     &:hover {
-      background-color: #03001b;
+      background-color: $context-menu-hover;
     }
   }
 }
@@ -103,7 +110,7 @@
   padding: 8px 0px;
   cursor: pointer;
   &:hover {
-    background-color: #000227;
+    background-color: #9b9cc0;
     span,
     img {
       filter: brightness(50%) sepia(100) saturate(100) hue-rotate(25deg);
@@ -116,17 +123,17 @@
   }
   span {
     margin-left: 8px;
-    color: white;
+    color: $context-menu-foreground;
   }
 }
 
 hr {
   margin: 0;
-  color: white;
+  color: $context-menu-foreground;
 }
 
 //mat-menu styling
 ::ng-deep .mat-mdc-menu-content {
   padding: 0px !important;
-  background: linear-gradient(to bottom, #190075 0%, #010442 100%);
+  background: $context-menu-background;
 }
