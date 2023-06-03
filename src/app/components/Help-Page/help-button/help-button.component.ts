@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-help-button',
-  template: ` <button class="help-button">?</button> `,
+  template: ` <button class="help-button" (click)="onHelpClick()">?</button> `,
   styles: [
     `
       .help-button {
@@ -13,4 +13,6 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export class HelpButtonComponent {}
+export class HelpButtonComponent {
+  onHelpClick() {}
+}
