@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { HelpDialogComponent } from '../help-dialog/help-dialog.component';
 
 @Component({
   selector: 'app-help-button',
@@ -14,5 +16,9 @@ import { Component } from '@angular/core';
   ],
 })
 export class HelpButtonComponent {
-  onHelpClick() {}
+  constructor(private dialog: MatDialog) {}
+  onHelpClick() {
+    console.log('on help clicked');
+    this.dialog.open(HelpDialogComponent, { width: '100%', height: '80%' });
+  }
 }

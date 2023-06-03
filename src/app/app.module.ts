@@ -36,6 +36,7 @@ import { InputClickSelectDirective } from './directives/input-click-select.direc
 import { CtrlClickDirective } from './directives/ctrl-click.directive';
 import { ProfileDragPreviewComponent } from './components/profile-drag-preview/profile-drag-preview.component';
 import { HelpButtonComponent } from './components/Help-Page/help-button/help-button.component';
+import { HelpDialogComponent } from './components/Help-Page/help-dialog/help-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +58,7 @@ import { HelpButtonComponent } from './components/Help-Page/help-button/help-but
     CtrlClickDirective,
     ProfileDragPreviewComponent,
     HelpButtonComponent,
+    HelpDialogComponent,
   ],
   imports: [
     BrowserModule,
