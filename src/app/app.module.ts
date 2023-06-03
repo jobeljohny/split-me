@@ -35,6 +35,7 @@ import { SummaryQrModalComponent } from './components/summary-qr-modal/summary-q
 import { InputClickSelectDirective } from './directives/input-click-select.directive';
 import { CtrlClickDirective } from './directives/ctrl-click.directive';
 import { ProfileDragPreviewComponent } from './components/profile-drag-preview/profile-drag-preview.component';
+import { HelpButtonComponent } from './components/Help-Page/help-button/help-button.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +56,7 @@ import { ProfileDragPreviewComponent } from './components/profile-drag-preview/p
     InputClickSelectDirective,
     CtrlClickDirective,
     ProfileDragPreviewComponent,
+    HelpButtonComponent,
   ],
   imports: [
     BrowserModule,
