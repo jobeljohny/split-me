@@ -1,6 +1,6 @@
 @import "../../styles/palette.scss";
-$background-color-primary: $header-color;
-$background-color-secondary: #cfd8dc;
+$background-color-primary: #575757;
+$background-color-secondary: #505050;
 $background-color-menu-btn: #000142;
 $background-color-menu-box-shadow: rgba(0, 0, 0, 0.2);
 
@@ -67,18 +67,27 @@ $background-color-menu-box-shadow: rgba(0, 0, 0, 0.2);
   top: 0;
   left: -100%;
   width: 220px;
-  height: calc(100vh - 45px);
-  margin-top: 45px;
-  padding: 80px 0;
+  height: calc(100vh - 45px - 25px);
+  margin-top: 53px;
+  padding: 25px 0;
   list-style: none;
   background-color: $background-color-primary;
-  box-shadow: 1px 30px 30px $background-color-menu-box-shadow;
+  box-shadow: 1px 10px 30px $background-color-menu-box-shadow;
   transition-duration: 0.25s;
-
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    img {
+      width: 130px;
+      height: 130px;
+    }
+  }
   .menu-item {
     display: block;
     padding: 12px 24px;
-    color: #333;
+    color: white;
     text-decoration: none;
     transition-duration: 0.25s;
 
@@ -86,4 +95,8 @@ $background-color-menu-box-shadow: rgba(0, 0, 0, 0.2);
       background-color: $background-color-secondary;
     }
   }
+}
+
+li {
+  cursor: pointer;
 }

@@ -4,10 +4,22 @@
     <span></span>
   </label>
   <ul class="menu-box">
-    <li><a class="menu-item" href="#">Home</a></li>
-    <li><a class="menu-item" href="#">About</a></li>
-    <li><a class="menu-item" href="#">Team</a></li>
-    <li><a class="menu-item" href="#">Contact</a></li>
-    <li><a class="menu-item" href="#">Twitter</a></li>
+    <div class="logo-wrapper">
+      <a href="https://github.com/jobeljohny/split-me" target="_blank">
+        <img src="../../../assets/main-logo.png" alt="split-me" />
+      </a>
+    </div>
+    <li (click)="onHelp()"><a class="menu-item">About</a></li>
+    <li>
+      <a class="menu-item" href="mailto:jobeljohny@gmail.com">Contact</a>
+    </li>
+    <li>
+      <a
+        class="menu-item"
+        href="https://github.com/jobeljohny/split-me/issues/new"
+        target="_blank"
+        >Report an issue</a
+      >
+    </li>
   </ul>
 </div>
