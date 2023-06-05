@@ -37,6 +37,8 @@ import { CtrlClickDirective } from './directives/ctrl-click.directive';
 import { ProfileDragPreviewComponent } from './components/profile-drag-preview/profile-drag-preview.component';
 import { HelpButtonComponent } from './components/Help-Page/help-button/help-button.component';
 import { HelpDialogComponent } from './components/Help-Page/help-dialog/help-dialog.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HeaderHamburgerComponent } from './components/header-hamburger/header-hamburger.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +61,8 @@ import { HelpDialogComponent } from './components/Help-Page/help-dialog/help-dia
     ProfileDragPreviewComponent,
     HelpButtonComponent,
     HelpDialogComponent,
+    HeaderComponent,
+    HeaderHamburgerComponent,
   ],
   imports: [
     BrowserModule,

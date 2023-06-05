@@ -1,5 +1,8 @@
+@import "../../styles/palette.scss";
+
 .people-card {
   position: relative;
+  background-color: $card-color;
 }
 
 .import-export-container {

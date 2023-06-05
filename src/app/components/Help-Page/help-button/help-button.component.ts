@@ -8,9 +8,6 @@ import { HelpDialogComponent } from '../help-dialog/help-dialog.component';
   styles: [
     `
       .help-button {
-        position: fixed;
-        top: 24px;
-        right: 16px;
         background: #6096e7;
         color: white;
         border: 0;

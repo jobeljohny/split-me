@@ -1,7 +1,10 @@
+@import "../../styles/palette.scss";
+
 .details-panel {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: $card-color;
   .amounts-container {
     .amount-item {
       font-size: 1rem;

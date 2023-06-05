@@ -1,10 +1,13 @@
+@import "./styles/palette.scss";
+
 #main-wrapper {
   display: flex;
-  height: 100vh;
+  height: calc(100vh - 45px);
 }
 
 .bill-card {
   flex-basis: 75%;
+  background-color: $card-color;
 }
 
 .right-panel {
