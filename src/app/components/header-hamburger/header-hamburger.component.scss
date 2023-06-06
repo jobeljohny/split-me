@@ -1,9 +1,10 @@
 @import "../../styles/palette.scss";
-$background-color-primary: #575757;
+$background-color-primary: #24344b;
 $background-color-secondary: #505050;
 $background-color-menu-btn: #000142;
+$background-color-list: #2b3c58;
 $background-color-menu-box-shadow: rgba(0, 0, 0, 0.2);
-
+$text-color: #8f9bb0;
 #toggle-menu {
   opacity: 0;
 
@@ -62,11 +63,12 @@ $background-color-menu-box-shadow: rgba(0, 0, 0, 0.2);
 }
 
 .menu-box {
-  display: block;
+  display: flex;
+  flex-direction: column;
   position: fixed;
   top: 0;
   left: -100%;
-  width: 220px;
+  width: 200px;
   height: calc(100vh - 45px - 25px);
   margin-top: 53px;
   padding: 25px 0;
@@ -76,6 +78,7 @@ $background-color-menu-box-shadow: rgba(0, 0, 0, 0.2);
   transition-duration: 0.25s;
   .logo-wrapper {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-bottom: 30px;
@@ -83,20 +86,59 @@ $background-color-menu-box-shadow: rgba(0, 0, 0, 0.2);
       width: 130px;
       height: 130px;
     }
+    p {
+      margin-top: 10px;
+      color: $text-color;
+      font-size: 1rem;
+    }
   }
   .menu-item {
     display: block;
     padding: 12px 24px;
-    color: white;
+    color: $text-color;
     text-decoration: none;
     transition-duration: 0.25s;
 
-    &:hover {
-      background-color: $background-color-secondary;
+    .item-logo {
+      margin-right: 12px;
+      img {
+        width: 18px;
+        height: 18px;
+        filter: invert(85%) sepia(3%) saturate(2773%) hue-rotate(188deg)
+          brightness(74%) contrast(80%);
+      }
+    }
+  }
+
+  .visit-panel {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+      color: $text-color;
+      font-size: 1rem;
+      text-decoration: none;
+      font-family: Brush Script MT, Brush Script Std, cursive;
+      &:hover {
+        color: white;
+        cursor: pointer;
+        transform: scale(1.2);
+      }
     }
   }
 }
 
 li {
+  background-color: $background-color-list;
   cursor: pointer;
+  &:hover {
+    .menu-item {
+      color: white;
+    }
+    background-color: #3b4f6a;
+    img {
+      transform: scale(1.2);
+    }
+  }
 }
