@@ -1,0 +1,19 @@
+<div class="help-wrapper">
+  <div class="sidebar">
+    <ul>
+      <li><a (click)="showText('Home')">Home</a></li>
+      <li><a (click)="showText('About')">About</a></li>
+      <li><a (click)="showText('Contact')">Contact</a></li>
+    </ul>
+  </div>
+
+  <div class="content" id="content">
+    <div *ngIf="currentDisplay == 'Home'" id="home">home content</div>
+    <div *ngIf="currentDisplay == 'About'" id="about">
+      about content
+      <div><img src="../../../../assets/dish.png" /></div>
+    </div>
+    <div *ngIf="currentDisplay == 'Contact'" id="contact">contact content</div>
+  </div>
+  <div></div>
+</div>

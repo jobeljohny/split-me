@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./help-dialog.component.scss']
 })
 export class HelpDialogComponent {
+ 
+  currentDisplay:string='Home';
 
+  showText(text: string): void {
+    this.currentDisplay = text;
+  }
 }

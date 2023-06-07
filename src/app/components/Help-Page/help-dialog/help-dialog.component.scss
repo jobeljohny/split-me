@@ -1,0 +1,39 @@
+.help-wrapper{
+  display:flex;
+  height: 100%;
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        height:100%;
+        background-color: #f1f1f1;
+       
+      }
+      
+      .sidebar a {
+        margin-bottom: 10px;
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+      }
+    
+      .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+    
+       .sidebar li {
+    
+        padding: 16px;
+        width: 100%;
+        &:hover{
+          cursor: pointer;
+          background-color: #b1b1b1;
+        }
+      }
+      
+      
+    
+      
+}
