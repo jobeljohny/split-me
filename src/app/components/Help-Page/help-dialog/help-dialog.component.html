@@ -1,12 +1,10 @@
 <div class="help-wrapper">
   <div class="sidebar">
     <ul>
-      <li><a (click)="showText('About')">About</a></li>
-      <li><a (click)="showText('Help')">Help</a></li>
-      <li>
-        <a (click)="showText('Keyboard shortcuts')">Keyboard shortcuts</a>
-      </li>
-      <li><a (click)="showText('Release notes')">Release notes</a></li>
+      <li (click)="showText('About')">About</li>
+      <li (click)="showText('Help')">Help</li>
+      <li (click)="showText('Keyboard shortcuts')">Keyboard shortcuts</li>
+      <li (click)="showText('Release notes')">Release notes</li>
     </ul>
   </div>
 
