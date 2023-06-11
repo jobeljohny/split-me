@@ -39,6 +39,7 @@ import { HelpButtonComponent } from './components/Help-Page/help-button/help-but
 import { HelpDialogComponent } from './components/Help-Page/help-dialog/help-dialog.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HeaderHamburgerComponent } from './components/header-hamburger/header-hamburger.component';
+import { ReleaseNotesComponent } from './components/Help-page/release-notes/release-notes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +64,7 @@ import { HeaderHamburgerComponent } from './components/header-hamburger/header-h
     HelpDialogComponent,
     HeaderComponent,
     HeaderHamburgerComponent,
+    ReleaseNotesComponent,
   ],
   imports: [
     BrowserModule,
