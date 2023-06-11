@@ -1,19 +1,27 @@
 <div class="help-wrapper">
   <div class="sidebar">
     <ul>
-      <li><a (click)="showText('Home')">Home</a></li>
       <li><a (click)="showText('About')">About</a></li>
-      <li><a (click)="showText('Contact')">Contact</a></li>
+      <li><a (click)="showText('Help')">Help</a></li>
+      <li>
+        <a (click)="showText('Keyboard shortcuts')">Keyboard shortcuts</a>
+      </li>
+      <li><a (click)="showText('Release notes')">Release notes</a></li>
     </ul>
   </div>
 
   <div class="content" id="content">
-    <div *ngIf="currentDisplay == 'Home'" id="home">home content</div>
-    <div *ngIf="currentDisplay == 'About'" id="about">
-      about content
+    <div *ngIf="currentDisplay == 'About'" id="About">About content</div>
+    <div *ngIf="currentDisplay == 'Help'" id="Help">
+      Help content
       <div><img src="../../../../assets/dish.png" /></div>
     </div>
-    <div *ngIf="currentDisplay == 'Contact'" id="contact">contact content</div>
+    <div *ngIf="currentDisplay == 'Keyboard shortcuts'" id="Keyboard_shortcuts">
+      Keyboard shortcuts content
+    </div>
+    <div *ngIf="currentDisplay == 'Release notes'" id="Release_notes">
+      Release notes
+    </div>
   </div>
   <div></div>
 </div>
