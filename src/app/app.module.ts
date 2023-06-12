@@ -40,6 +40,7 @@ import { HelpDialogComponent } from './components/Help-Page/help-dialog/help-dia
 import { HeaderComponent } from './components/header/header.component';
 import { HeaderHamburgerComponent } from './components/header-hamburger/header-hamburger.component';
 import { ReleaseNotesComponent } from './components/Help-page/release-notes/release-notes.component';
+import { KeyboardShortcutsComponent } from './components/Help-Page/keyboard-shortcuts/keyboard-shortcuts.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +66,7 @@ import { ReleaseNotesComponent } from './components/Help-page/release-notes/rele
     HeaderComponent,
     HeaderHamburgerComponent,
     ReleaseNotesComponent,
+    KeyboardShortcutsComponent,
   ],
   imports: [
     BrowserModule,
