@@ -31,12 +31,12 @@
     font-size: 1rem;
     background-color: rgb(241, 200, 200);
     padding: 10px 16px;
-    border: 1px solid rgb(94, 184, 94);
-    background: rgb(251, 255, 251);
+    border: 1px solid $header-color;
+    background: rgb(251, 251, 255);
     cursor: pointer;
     border-radius: 20px;
     &:hover {
-      background: rgb(94, 184, 94);
+      background: $header-color;
       color: white;
     }
   }
