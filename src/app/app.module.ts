@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
@@ -41,6 +40,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { HeaderHamburgerComponent } from './components/header-hamburger/header-hamburger.component';
 import { ReleaseNotesComponent } from './components/Help-page/release-notes/release-notes.component';
 import { KeyboardShortcutsComponent } from './components/Help-Page/keyboard-shortcuts/keyboard-shortcuts.component';
+import { AboutPageComponent } from './components/Help-Page/about-page/about-page.component';
+import { InstructionsPageComponent } from './components/Help-Page/instructions-page/instructions-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +68,8 @@ import { KeyboardShortcutsComponent } from './components/Help-Page/keyboard-shor
     HeaderHamburgerComponent,
     ReleaseNotesComponent,
     KeyboardShortcutsComponent,
+    AboutPageComponent,
+    InstructionsPageComponent,
   ],
   imports: [
     BrowserModule,

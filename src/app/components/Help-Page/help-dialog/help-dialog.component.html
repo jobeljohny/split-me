@@ -1,25 +1,26 @@
 <div class="help-wrapper">
   <div class="sidebar">
     <ul>
-      <li (click)="showText('About')">About</li>
-      <li (click)="showText('Help')">Help</li>
-      <li (click)="showText('Keyboard shortcuts')">Keyboard shortcuts</li>
-      <li (click)="showText('Release notes')">Release notes</li>
+      <li *ngFor="let page of pages" (click)="showPage(page)">
+        {{ page }}
+      </li>
     </ul>
   </div>
 
   <div class="content" id="content">
-    <div *ngIf="currentDisplay == 'About'" id="About">About content</div>
-    <div *ngIf="currentDisplay == 'Help'" id="Help">
-      Help content
-      <div><img src="../../../../assets/dish.png" /></div>
-    </div>
-    <div *ngIf="currentDisplay == 'Keyboard shortcuts'" id="Keyboard_shortcuts">
-      <app-keyboard-shortcuts></app-keyboard-shortcuts>
-    </div>
-    <div *ngIf="currentDisplay == 'Release notes'" id="Release_notes">
-      <app-release-notes></app-release-notes>
-    </div>
+    <ng-container [ngSwitch]="currentDisplay">
+      <ng-template [ngSwitchCase]="Pages.About">
+        <app-about-page></app-about-page>
+      </ng-template>
+      <ng-template [ngSwitchCase]="Pages.Help">
+        <app-instructions-page></app-instructions-page>
+      </ng-template>
+      <ng-template [ngSwitchCase]="Pages.KeyboardShortcuts">
+        <app-keyboard-shortcuts></app-keyboard-shortcuts>
+      </ng-template>
+      <ng-template [ngSwitchCase]="Pages.ReleaseNotes">
+        <app-release-notes></app-release-notes>
+      </ng-template>
+    </ng-container>
   </div>
-  <div></div>
 </div>
