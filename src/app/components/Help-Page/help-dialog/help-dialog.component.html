@@ -1,55 +1,61 @@
 <div class="help-wrapper">
   <div class="sidebar">
     <ul>
-      
-    <li (click)="showPage(Pages.About)">
-      <a class="menu-item">
-        <span class="item-logo">
-          <img src="../.././../assets/sidebar_info.svg" />
-        </span>
-        About</a
+      <li
+        (click)="showPage(Pages.About)"
+        [class.active]="currentDisplay === Pages.About"
       >
-    </li>
-<li (click)="showPage(Pages.Help)">
-      <a class="menu-item">
-        <span class="item-logo">
-          <img src="../.././../assets/help.svg" />
-        </span>
-        Help</a
+        <a class="menu-item">
+          <span class="item-logo">
+            <img src="../.././../assets/sidebar_info.svg" />
+          </span>
+          About</a
+        >
+      </li>
+      <li
+        (click)="showPage(Pages.Help)"
+        [class.active]="currentDisplay === Pages.Help"
       >
-    </li><li (click)="showPage(Pages.KeyboardShortcuts)">
-      <a class="menu-item">
-        <span class="item-logo">
-          <img src="../.././../assets/keyboard.svg" />
-        </span>
-        Keyboard Shortcuts</a
+        <a class="menu-item">
+          <span class="item-logo">
+            <img src="../.././../assets/help.svg" />
+          </span>
+          Help</a
+        >
+      </li>
+      <li
+        (click)="showPage(Pages.KeyboardShortcuts)"
+        [class.active]="currentDisplay === Pages.KeyboardShortcuts"
       >
-    </li><li (click)="showPage(Pages.ReleaseNotes)">
-      <a class="menu-item">
-        <span class="item-logo">
-          <img src="../.././../assets/notes.svg" />
-        </span>
-        Release Notes</a
+        <a class="menu-item">
+          <span class="item-logo">
+            <img src="../.././../assets/keyboard.svg" />
+          </span>
+          Keyboard Shortcuts</a
+        >
+      </li>
+      <li
+        (click)="showPage(Pages.ReleaseNotes)"
+        [class.active]="currentDisplay === Pages.ReleaseNotes"
       >
-    </li>
- 
+        <a class="menu-item">
+          <span class="item-logo">
+            <img src="../.././../assets/notes.svg" />
+          </span>
+          Release Notes</a
+        >
+      </li>
     </ul>
   </div>
 
-  <div class="content" id="content">
+  <div class="content">
     <ng-container [ngSwitch]="currentDisplay">
-      <ng-template [ngSwitchCase]="Pages.About">
-        <app-about-page></app-about-page>
-      </ng-template>
-      <ng-template [ngSwitchCase]="Pages.Help">
-        <app-instructions-page></app-instructions-page>
-      </ng-template>
-      <ng-template [ngSwitchCase]="Pages.KeyboardShortcuts">
-        <app-keyboard-shortcuts></app-keyboard-shortcuts>
-      </ng-template>
-      <ng-template [ngSwitchCase]="Pages.ReleaseNotes">
-        <app-release-notes></app-release-notes>
-      </ng-template>
+      <app-about-page *ngSwitchCase="Pages.About"></app-about-page>
+      <app-instructions-page *ngSwitchCase="Pages.Help"></app-instructions-page>
+      <app-keyboard-shortcuts
+        *ngSwitchCase="Pages.KeyboardShortcuts"
+      ></app-keyboard-shortcuts>
+      <app-release-notes *ngSwitchCase="Pages.ReleaseNotes"></app-release-notes>
     </ng-container>
   </div>
 </div>
