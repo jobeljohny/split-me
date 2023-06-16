@@ -8,13 +8,13 @@ import { HelpDialogComponent } from '../help-dialog/help-dialog.component';
   styles: [
     `
       .help-button {
-        background: white;
-        color: blue;
+        background: #00a6ff ;
+        color: white;
         border: 0;
         width: 25px;
         height: 25px;
         border-radius: 25px;
-        opacity: 0.8;
+        opacity: 0.9;
         &:hover {
           opacity: 1;
         }

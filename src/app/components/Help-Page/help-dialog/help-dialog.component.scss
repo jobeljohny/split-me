@@ -1,12 +1,14 @@
+@import "../../../styles/palette.scss";
+$text-color: #8f9bb0;
 .help-wrapper {
   display: flex;
   height: 100%;
   .sidebar {
     display: flex;
     flex-direction: column;
-    width: 200px;
+    width: 260px;
     height: 100%;
-    background-color: #f1f1f1;
+    background-color: $primary-color;
 
     ul {
       list-style-type: none;
@@ -15,11 +17,33 @@
     }
 
     li {
-      padding: 16px;
+      cursor: pointer;
       width: 100%;
+      .menu-item {
+        display: block;
+        padding: 16px 16px;
+        color: $text-color;
+        text-decoration: none;
+        transition-duration: 0.25s;
+        .item-logo {
+          margin-right: 12px;
+          img {
+            width: 20px;
+            height: 20px;
+            filter: invert(85%) sepia(3%) saturate(2773%) hue-rotate(188deg)
+              brightness(74%) contrast(80%);
+          }
+        }
+      }
+
       &:hover {
-        cursor: pointer;
-        background-color: #b1b1b1;
+        background-color: #3b4f6a;
+        .menu-item {
+          color: white;
+        }
+        img {
+          transform: scale(1.2);
+        }
       }
     }
   }

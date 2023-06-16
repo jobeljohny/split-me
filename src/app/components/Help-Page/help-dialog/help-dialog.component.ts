@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { pages as Page } from './help-page-utils';
+import { pages } from './help-page-utils';
 
 @Component({
   selector: 'app-help-dialog',
@@ -8,13 +8,12 @@ import { pages as Page } from './help-page-utils';
 })
 export class HelpDialogComponent {
   currentDisplay: string = 'About';
-  pages: Page[] = Object.values(Page);
 
-  showPage(page: Page): void {
+  showPage(page: pages): void {
     this.currentDisplay = page;
   }
 
   get Pages() {
-    return Page;
+    return pages;
   }
 }

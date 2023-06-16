@@ -1,9 +1,38 @@
 <div class="help-wrapper">
   <div class="sidebar">
     <ul>
-      <li *ngFor="let page of pages" (click)="showPage(page)">
-        {{ page }}
-      </li>
+      
+    <li (click)="showPage(Pages.About)">
+      <a class="menu-item">
+        <span class="item-logo">
+          <img src="../.././../assets/sidebar_info.svg" />
+        </span>
+        About</a
+      >
+    </li>
+<li (click)="showPage(Pages.Help)">
+      <a class="menu-item">
+        <span class="item-logo">
+          <img src="../.././../assets/help.svg" />
+        </span>
+        Help</a
+      >
+    </li><li (click)="showPage(Pages.KeyboardShortcuts)">
+      <a class="menu-item">
+        <span class="item-logo">
+          <img src="../.././../assets/keyboard.svg" />
+        </span>
+        Keyboard Shortcuts</a
+      >
+    </li><li (click)="showPage(Pages.ReleaseNotes)">
+      <a class="menu-item">
+        <span class="item-logo">
+          <img src="../.././../assets/notes.svg" />
+        </span>
+        Release Notes</a
+      >
+    </li>
+ 
     </ul>
   </div>
 
