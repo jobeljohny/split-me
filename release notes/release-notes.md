@@ -1,5 +1,19 @@
 # Releases
 
+## Split-Me Release notes 1.3 🚀
+
+#### improvements 🛠️
+
+- UI improvements on profiles list view
+- added multi-select drag and drop feature for profiles
+- added UI improvements for drag preview placeholders
+- perfomance and structural improvements to profiles
+- added tooltips for user accessibility
+
+#### bug fixes 🐞
+
+- minor UI bug fixes
+
 ## Split-Me Release notes 1.2 🚀
 
 #### improvements 🛠️
