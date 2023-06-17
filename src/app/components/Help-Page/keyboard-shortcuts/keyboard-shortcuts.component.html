@@ -1,18 +1,23 @@
-<div class="header lead">Keyboard Shortcuts</div>
-<div class="content">
-  <div *ngFor="let shortcut of shortcuts | keyvalue">
-    <div class="shortcut-wrapper">
-      <div class="hotkey-container">
-        <ng-container
-          *ngFor="let key of shortcut.key.split('+'); let i = index"
-        >
-          <span class="hotkey">{{ key.trim() }}</span>
-          <span *ngIf="i < shortcut.key.split('+').length - 1" class="plus">
-            +
-          </span>
-        </ng-container>
+<div class="keyboard-content">
+  <div class="logo">
+    <img src="../../../../assets/main-logo.png" alt="logo" />
+  </div>
+  <div class="header lead">Keyboard Shortcuts</div>
+  <div class="content">
+    <div *ngFor="let shortcut of shortcuts | keyvalue">
+      <div class="shortcut-wrapper">
+        <div class="hotkey-container">
+          <ng-container
+            *ngFor="let key of shortcut.key.split('+'); let i = index"
+          >
+            <span class="hotkey">{{ key.trim() }}</span>
+            <span *ngIf="i < shortcut.key.split('+').length - 1" class="plus">
+              +
+            </span>
+          </ng-container>
+        </div>
+        <span class="desc lead">{{ shortcut.value }}</span>
       </div>
-      <span class="desc lead">{{ shortcut.value }}</span>
     </div>
   </div>
 </div>
