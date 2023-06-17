@@ -1,37 +1,55 @@
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-  margin-bottom: 32px;
-}
-.content {
-  margin-left: 8px;
-  .shortcut-wrapper {
+.keyboard-content {
+  position: relative;
+  height: 100%;
+
+  .logo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     display: flex;
-    margin: 10px 1px;
-    .desc {
-      margin-left: 12px;
-      display: flex;
-      align-items: center;
-      font-size: 1.1rem;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 50%;
+      opacity: 0.1;
     }
-    .hotkey-container {
+  }
+
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 32px;
+  }
+  .content {
+    margin-left: 8px;
+    .shortcut-wrapper {
       display: flex;
-      flex: 0 0 100px;
-      .hotkey {
-        background-color: #f0f0f0;
-        border-radius: 4px;
-        padding: 3px 6px;
-        box-shadow: 1px 1px 1px 1px #ccc;
-        font-family: "Courier New", monospace;
+      margin: 10px 1px;
+      .desc {
+        margin-left: 12px;
+        display: flex;
+        align-items: center;
+        font-size: 1.1rem;
       }
-    }
-    .plus {
-      margin: 0px 6px;
-      font-family: "Courier New", monospace;
-      display: flex;
-      align-items: center;
+      .hotkey-container {
+        display: flex;
+        flex: 0 0 100px;
+        .hotkey {
+          background-color: #f0f0f0;
+          border-radius: 4px;
+          padding: 3px 6px;
+          box-shadow: 1px 1px 1px 1px #ccc;
+          font-family: "Courier New", monospace;
+        }
+      }
+      .plus {
+        margin: 0px 6px;
+        font-family: "Courier New", monospace;
+        display: flex;
+        align-items: center;
+      }
     }
   }
 }
