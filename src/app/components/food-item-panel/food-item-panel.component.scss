@@ -119,3 +119,39 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+@media only screen and (max-width: 576px){
+  :host{
+    min-width: 100%;
+  }
+  .panel-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap:4px;
+    height: 90%;
+    margin: 6px 6px !important;
+    #remove-button{
+      top:4px;
+      right: 4px;
+    }
+    .panel{
+      display: flex;
+      flex-direction: column;
+      height: 91%;
+
+      .item-info{
+        gap:2px;
+        padding: 4px;
+      }
+
+      .consumers-palette{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 4px;       
+        overflow-x: auto;
+        padding: 6px;
+      }
+    }
+  }
+}

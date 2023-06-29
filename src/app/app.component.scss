@@ -13,3 +13,20 @@
 .right-panel {
   flex-basis: 25%;
 }
+
+@media only screen and (max-width: 576px) {
+  #main-wrapper{
+    flex-direction: column;
+    height: unset;
+  }
+
+  .bill-card{
+    height: 60vh;
+    min-height: 450px;
+  }
+
+  .right-panel{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}

@@ -37,3 +37,28 @@
     color: white;
   }
 }
+
+@media only screen and (max-width: 576px)
+{
+  :host{
+    height: inherit;
+    min-height: inherit;
+  }
+  .food-items-wrapper{
+   height: inherit;
+   min-height: inherit;
+   display: flex;
+   flex-direction: column;
+    .food-items{
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      flex:1;
+      height: 100%;
+    }
+
+    .add-action{
+      margin-top: 6px;
+    }
+  }
+}
