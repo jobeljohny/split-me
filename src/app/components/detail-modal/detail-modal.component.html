@@ -13,78 +13,10 @@
 <div class="dialog-body">
   <div class="body-wrapper">
     <div class="table-wrap shadow-lg">
-      <table
-        mat-table
-        [dataSource]="dataSource"
-        matSort
-        class="mat-elevation-z8"
-      >
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-          <td mat-cell *matCellDef="let element">👤 {{ element.name }}</td>
-        </ng-container>
-
-        <!-- food amount Column -->
-        <ng-container matColumnDef="food_amount">
-          <th
-            class="food-header"
-            mat-header-cell
-            *matHeaderCellDef
-            mat-sort-header
-          >
-            Food total
-          </th>
-          <td mat-cell *matCellDef="let element">
-            ₹ {{ element.food_amount }}
-          </td>
-        </ng-container>
-
-        <!-- split amount Column -->
-        <ng-container matColumnDef="split_amount">
-          <th
-            class="split-header"
-            mat-header-cell
-            *matHeaderCellDef
-            mat-sort-header
-          >
-            Split amount
-          </th>
-          <td mat-cell *matCellDef="let element">
-            ₹ {{ element.split_amount }}
-          </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
+      <app-break-up-table></app-break-up-table>
     </div>
     <div class="data-panel shadow-lg">
-      <div class="lead panel-content">
-        <div class="heading"><span>DETAILS</span></div>
-
-        <div class="items-container">
-          <div class="panel-item">
-            <div class="label">💵 Total food bill</div>
-            <div class="value">:&nbsp; ₹ {{ totalFoodBill }}</div>
-          </div>
-          <div class="panel-item">
-            <div class="label">👤 Participants</div>
-            <div class="value">:&nbsp; {{ participants }}</div>
-          </div>
-          <div class="panel-item">
-            <div class="label">🍽️ Total Dishes</div>
-            <div class="value">:&nbsp; {{ totalDishes }}</div>
-          </div>
-          <div class="panel-item">
-            <div class="label">💵 Final charges</div>
-            <div class="value">:&nbsp; ₹ {{ finalTotal }}</div>
-          </div>
-        </div>
-        <div class="summary-panel">
-          <span (click)="viewSummary()">View individual summaries</span>
-        </div>
-      </div>
+      <app-break-up-info></app-break-up-info>
     </div>
   </div>
 </div>

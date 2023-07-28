@@ -1,0 +1,25 @@
+<div class="lead panel-content">
+  <div class="heading"><span>DETAILS</span></div>
+
+  <div class="items-container">
+    <div class="panel-item">
+      <div class="label">💵 Total food bill</div>
+      <div class="value">:&nbsp; ₹ {{ totalFoodBill }}</div>
+    </div>
+    <div class="panel-item">
+      <div class="label">👤 Participants</div>
+      <div class="value">:&nbsp; {{ participants }}</div>
+    </div>
+    <div class="panel-item">
+      <div class="label">🍽️ Total Dishes</div>
+      <div class="value">:&nbsp; {{ totalDishes }}</div>
+    </div>
+    <div class="panel-item">
+      <div class="label">💵 Final charges</div>
+      <div class="value">:&nbsp; ₹ {{ finalTotal }}</div>
+    </div>
+  </div>
+  <div class="summary-panel">
+    <span (click)="viewSummary()">View individual summaries</span>
+  </div>
+</div>

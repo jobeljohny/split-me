@@ -1,0 +1,31 @@
+.mat-mdc-table .mdc-data-table__row {
+  height: 40px;
+}
+.mat-column-split_amount {
+  color: rgb(0, 58, 8);
+  padding-right: 0px;
+}
+.mat-column-name {
+  text-transform: capitalize;
+}
+.mat-column-food_amount {
+  color: rgb(117, 117, 117);
+}
+
+.split-header,
+.food-header {
+  color: black;
+}
+
+@media only screen and (max-width: 576px) {
+  .mat-column-name {
+    width: 40%;
+  }
+  .mat-mdc-table .mdc-data-table__row {
+    height: 35px;
+  }
+  th,
+  td {
+    font-size: 0.7rem;
+  }
+}

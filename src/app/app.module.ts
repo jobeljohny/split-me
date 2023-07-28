@@ -42,6 +42,8 @@ import { TaxDiscountPanelComponent } from './components/tax-discount-panel/tax-d
 import { CtrlClickDirective } from './directives/ctrl-click.directive';
 import { DarkColorDirective } from './directives/dark-color.directive';
 import { InputClickSelectDirective } from './directives/input-click-select.directive';
+import { BreakUpTableComponent } from './components/break-up-table/break-up-table.component';
+import { BreakUpInfoComponent } from './components/break-up-info/break-up-info.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +73,8 @@ import { InputClickSelectDirective } from './directives/input-click-select.direc
     KeyboardShortcutsComponent,
     AboutPageComponent,
     InstructionsPageComponent,
+    BreakUpTableComponent,
+    BreakUpInfoComponent,
   ],
   imports: [
     BrowserModule,
