@@ -7,80 +7,75 @@ $block-bg: linear-gradient(
 );
 .info-container {
   width: $component-width;
-}
-.individual-name {
-  display: flex;
+  .individual-name {
+    display: flex;
 
-  border-radius: 8px 8px 0px 0px;
-  padding: 10px 0px;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 8, 62, 1) 48%,
-    rgba(13, 0, 98, 1) 100%
-  );
-
-  justify-content: center;
-  color: white;
-  span {
-    text-transform: capitalize;
-  }
-}
-
-.amounts-container {
-  display: flex;
-  span {
-    flex: 1 1 50%;
-    text-align: center;
-    background: $block-bg;
-    margin-top: 4px;
+    border-radius: 8px 8px 0px 0px;
     padding: 10px 0px;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 8, 62, 1) 48%,
+      rgba(13, 0, 98, 1) 100%
+    );
+
+    justify-content: center;
     color: white;
+    span {
+      text-transform: capitalize;
+    }
+  }
+  .table {
     font-size: 1rem;
-    &:first-child {
-      border-right: 1px solid white;
-      border-radius: 0px 0px 0px 6px;
+    width: 100%;
+    margin-bottom: 0px;
+    .table-header {
+      display: flex;
+      width: 100%;
+      background: $block-bg;
+      padding: 10px 0px;
+      color: white;
+      .header-item {
+        text-align: center;
+        text-transform: uppercase;
+      }
     }
-    &:last-child {
-      border-left: 1px solid white;
-      border-radius: 0px 0px 6px 0px;
+    .table-content {
+      .table-row {
+        display: flex;
+        width: 100%;
+        padding: 3px 0px;
+        background: rgb(253, 247, 252);
+        &:nth-of-type(odd) {
+          background: #eeeeee;
+        }
+      }
+    }
+  }
+  .amounts-container {
+    display: flex;
+    span {
+      flex: 1 1 50%;
+      text-align: center;
+      background: $block-bg;
+      margin-top: 4px;
+      padding: 10px 0px;
+      color: white;
+      font-size: 1rem;
+      &:first-child {
+        border-right: 1px solid white;
+        border-radius: 0px 0px 0px 6px;
+      }
+      &:last-child {
+        border-left: 1px solid white;
+        border-radius: 0px 0px 6px 0px;
+      }
     }
   }
 }
 
-.table {
-  font-size: 1rem;
-  width: 100%;
-  margin-bottom: 0px;
-}
-
-.table-header {
-  display: flex;
-  width: 100%;
-  background: $block-bg;
-  padding: 10px 0px;
-  color: white;
-}
-
-.table-row {
-  display: flex;
-  width: 100%;
-  padding: 3px 0px;
-  background: rgb(253, 247, 252);
-  &:nth-of-type(odd) {
-    background: #eeeeee;
-  }
-}
-
-.header-item {
-  text-align: center;
-}
 .table-data {
   text-align: left;
-}
-
-.header-item {
-  text-transform: uppercase;
 }
 
 .table-data-food,
@@ -101,4 +96,46 @@ $block-bg: linear-gradient(
 }
 .table-data-price {
   text-align: center;
+}
+
+@media only screen and (max-width: 576px) {
+  .info-container {
+    width: 260px;
+    .individual-name {
+      padding: 4px 0px;
+    }
+    .table {
+      font-size: 0.9rem;
+
+      .table-header {
+        padding: 5px 0px;
+        .header-item {
+        }
+      }
+      .table-content {
+        .table-row {
+          .table-data {
+            padding: 3px 0px;
+          }
+        }
+      }
+    }
+    .amounts-container {
+      span {
+        font-size: 0.75rem;
+        padding: 3px 0;
+      }
+    }
+  }
+  .table-data-food {
+    font-size: 0.7rem;
+  }
+  .table-data-food,
+  .header-item-food,
+  .table-data-portion,
+  .header-item-portion,
+  .table-data-price,
+  .header-item-price {
+    font-size: 0.8rem;
+  }
 }
