@@ -7,12 +7,9 @@
   />
   <div class="panel">
     <div class="item-info">
-      <input
-        #dishName
-        [(ngModel)]="foodData.name"
-        class="dish-name"
-        (change)="changes('name')"
-      />
+      <app-food-input-field
+        (nameUpdate)="updateName($event)"
+      ></app-food-input-field>
       <img class="dish-logo" src="../../../assets/dish.png" alt="dish.png" />
       <span class="dish-rate"
         >₹

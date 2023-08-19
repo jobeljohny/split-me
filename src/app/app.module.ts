@@ -44,6 +44,9 @@ import { DarkColorDirective } from './directives/dark-color.directive';
 import { InputClickSelectDirective } from './directives/input-click-select.directive';
 import { BreakUpTableComponent } from './components/break-up-table/break-up-table.component';
 import { BreakUpInfoComponent } from './components/break-up-info/break-up-info.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { FoodInputFieldComponent } from './components/food-input-field/food-input-field.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +78,7 @@ import { BreakUpInfoComponent } from './components/break-up-info/break-up-info.c
     InstructionsPageComponent,
     BreakUpTableComponent,
     BreakUpInfoComponent,
+    FoodInputFieldComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,6 +92,8 @@ import { BreakUpInfoComponent } from './components/break-up-info/break-up-info.c
     MatTableModule,
     MatSortModule,
     MatDialogModule,
+    MatInputModule,
+    MatAutocompleteModule,
     MatProgressSpinnerModule,
     HttpClientModule,
     QRCodeModule,

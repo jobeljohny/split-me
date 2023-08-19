@@ -1,0 +1,12 @@
+<input
+  #dishName
+  matInput
+  [matAutocomplete]="auto"
+  [formControl]="stateCtrl"
+  class="dish-name"
+/>
+<mat-autocomplete #auto="matAutocomplete">
+  <mat-option *ngFor="let foodName of foodNames | async" [value]="foodName">
+    <span>{{ foodName }}</span>
+  </mat-option>
+</mat-autocomplete>
