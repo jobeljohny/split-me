@@ -26,9 +26,6 @@ export class DarkColorDirective {
     let darkened = `#${(g | (b << 8) | (r << 16))
       .toString(16)
       .padStart(6, '0')}`;
-
-    console.log(darkened);
-
     return darkened;
   }
 

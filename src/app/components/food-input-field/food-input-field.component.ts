@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, map, startWith } from 'rxjs';
+import { foodItem, foodNames } from 'src/app/constants/food-names';
 
 @Component({
   selector: 'app-food-input-field',
@@ -14,34 +15,27 @@ import { Observable, map, startWith } from 'rxjs';
   styleUrls: ['./food-input-field.component.scss'],
 })
 export class FoodInputFieldComponent implements AfterViewInit {
-  foodNames: Observable<string[]>;
+  foodNames: Observable<foodItem[]>;
   stateCtrl = new FormControl();
   @ViewChild('dishName') dishName: any;
   @Output('nameUpdate') foodName = new EventEmitter<string>();
   constructor() {
     this.foodNames = this.stateCtrl.valueChanges.pipe(
       startWith(''),
-      map((state) => (state ? this._filterStates(state) : this.states.slice()))
+      map((value) => this.filterFood(value || ''))
     );
   }
 
-  states: string[] = ['chicken', 'beef', 'rice', 'mandhi', 'al faham'];
   ngAfterViewInit() {
     setTimeout(() => {
       this.dishName.nativeElement.select();
     }, 50);
   }
-  private _filterStates(value: string): string[] {
+  private filterFood(value: string): foodItem[] {
     this.foodName.emit(value);
     const filterValue = value.toLowerCase();
-    console.log(
-      this.states.filter(
-        (food) => food.toLowerCase().indexOf(filterValue) === 0
-      )
-    );
-
-    return this.states.filter(
-      (food) => food.toLowerCase().indexOf(filterValue) === 0
-    );
+    return foodNames
+      .filter((food) => food.name.toLowerCase().includes(filterValue))
+      .slice(0, 5);
   }
 }

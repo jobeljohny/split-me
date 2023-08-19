@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { HelpDialogComponent } from '../help-dialog/help-dialog.component';
 import { KeyBindingService } from 'src/app/services/keybinding.service';
+import { HelpDialogComponent } from '../help-dialog/help-dialog.component';
 
 @Component({
   selector: 'app-help-button',
@@ -9,7 +9,7 @@ import { KeyBindingService } from 'src/app/services/keybinding.service';
   styles: [
     `
       .help-button {
-        background: #00a6ff ;
+        background: #00a6ff;
         color: white;
         border: 0;
         width: 25px;
@@ -24,12 +24,14 @@ import { KeyBindingService } from 'src/app/services/keybinding.service';
   ],
 })
 export class HelpButtonComponent {
-  constructor(private dialog: MatDialog, private keyBinding: KeyBindingService) {
-    this.keyBinding.handleAltH(this.onHelpClick.bind(this))
+  constructor(
+    private dialog: MatDialog,
+    private keyBinding: KeyBindingService
+  ) {
+    this.keyBinding.handleAltH(this.onHelpClick.bind(this));
   }
 
   onHelpClick() {
-    console.log('on help clicked');
     this.dialog.open(HelpDialogComponent, { width: '100%', height: '80%' });
   }
 }

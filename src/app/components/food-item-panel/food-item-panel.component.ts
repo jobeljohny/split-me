@@ -25,8 +25,6 @@ export class FoodItemPanelComponent {
   }
 
   updateName(foodName: string) {
-    console.log(foodName);
-
     this.foodData.name = foodName;
   }
 
