@@ -56,3 +56,30 @@ $text-color: #8f9bb0;
     background: rgb(255, 254, 249);
   }
 }
+@media only screen and (max-width: 576px) {
+  .help-wrapper {
+    flex-direction: column;
+    height: inherit;
+
+    .sidebar {
+      width: 100%;
+      ul {
+        padding: 0;
+        margin: 0px;
+        display: flex;
+      }
+      li {
+        .menu-item {
+          display: flex;
+          justify-content: center;
+          .item-text {
+            display: none;
+          }
+          .item-logo {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
