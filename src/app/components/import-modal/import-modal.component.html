@@ -1,0 +1,41 @@
+<div class="upload-files-container">
+  <div appDragDrop class="drag-file-area" (fileDropped)="fileUpdate($event)">
+    <img
+      [src]="
+        fileFlag
+          ? '../../../assets/import.png'
+          : '../../../assets/green-tick.png'
+      "
+      class="upload-icon"
+    />
+    <h3>{{ titleMessage }}</h3>
+    <div *ngIf="!fileFlag" class="file-info">
+      <img src="../../../assets/notes.svg" alt="" />
+      <span>{{ fileName }} | {{ fileSize }}</span>
+    </div>
+    <label class="label">
+      <span *ngIf="fileFlag">or</span>
+      <span class="browse-files">
+        <input
+          #fileInput
+          type="file"
+          (click)="fileInput.value = ''"
+          (change)="onFileInput($event)"
+          class="default-file-input"
+        />
+
+        <span class="browse-files-text">browse file </span>
+        <span>from device</span>
+      </span>
+    </label>
+  </div>
+
+  <button
+    [disabled]="fileFlag"
+    (click)="upload()"
+    type="button"
+    class="upload-button"
+  >
+    Upload
+  </button>
+</div>

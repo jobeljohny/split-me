@@ -1,5 +1,6 @@
 @import "../../styles/palette.scss";
 
+$bill-btn-color: #ffae80;
 .food-items-wrapper {
   overflow-y: auto;
   height: calc(100% - 30px);
@@ -25,10 +26,10 @@
   .add-action {
     display: flex;
     justify-content: center;
-    gap: 8px;
+    gap: 12px;
     .bill-parse {
-      background: rgb(132, 111, 255);
-      border-color: rgb(132, 111, 255);
+      background: $bill-btn-color;
+      border-color: $bill-btn-color;
       img {
         filter: invert(100%) sepia(16%) saturate(7463%) hue-rotate(222deg)
           brightness(119%) contrast(115%);

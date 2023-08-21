@@ -47,6 +47,8 @@ import { BreakUpInfoComponent } from './components/break-up-info/break-up-info.c
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { FoodInputFieldComponent } from './components/food-input-field/food-input-field.component';
+import { ImportModalComponent } from './components/import-modal/import-modal.component';
+import { DragDropDirective } from './directives/drag-drop.directive';
 
 @NgModule({
   declarations: [
@@ -79,6 +81,8 @@ import { FoodInputFieldComponent } from './components/food-input-field/food-inpu
     BreakUpTableComponent,
     BreakUpInfoComponent,
     FoodInputFieldComponent,
+    ImportModalComponent,
+    DragDropDirective,
   ],
   imports: [
     BrowserModule,
