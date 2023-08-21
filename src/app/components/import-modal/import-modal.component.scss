@@ -2,45 +2,60 @@
 $imp-color: $primary-color;
 .upload-files-container {
   background-color: whitesmoke;
-  width: 100%;
-  padding: 30px 60px;
+  padding: 30px 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-}
-.drag-file-area {
-  border: 2px dashed $imp-color;
-  border-radius: 40px;
-  margin: 10px 0 15px;
-  padding: 20px 50px;
-  width: 350px;
-  text-align: center;
-  .file-info {
+  .warn-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    padding: 6px 16px;
+    border-radius: 4px;
+    background-color: rgb(248, 236, 197);
     img {
-      width: 18px;
-      margin-right: 4px;
+      width: 20px;
+      margin-right: 2px;
+    }
+    span {
+      font-size: 0.9rem;
     }
   }
-  .upload-icon {
-    width: 50px;
-  }
-  h3 {
-    font-size: 1.2rem;
-    margin: 15px 0;
-    font-family: Tahoma, sans-serif;
-  }
-  label {
-    font-size: 1rem;
-    display: block;
-    .browse-files {
-      .default-file-input {
-        opacity: 0;
+  .drag-file-area {
+    border: 2px dashed $imp-color;
+    border-radius: 40px;
+    margin: 10px 0 15px;
+    padding: 20px 50px;
+    width: 350px;
+    text-align: center;
+    .file-info {
+      img {
+        width: 18px;
+        margin-right: 4px;
       }
-      .browse-files-text {
-        color: $imp-color;
-        font-weight: bolder;
-        cursor: pointer;
+    }
+    .upload-icon {
+      width: 50px;
+    }
+    h3 {
+      font-size: 1.2rem;
+      margin: 15px 0;
+      font-family: Tahoma, sans-serif;
+    }
+    label {
+      font-size: 1rem;
+      display: block;
+      .browse-files {
+        .default-file-input {
+          opacity: 0;
+        }
+        .browse-files-text {
+          color: $imp-color;
+          font-weight: bolder;
+          cursor: pointer;
+        }
       }
     }
   }
@@ -67,4 +82,25 @@ $imp-color: $primary-color;
 
 .fileover {
   background-color: rgba(160, 185, 253, 0.245);
+}
+
+@media only screen and (max-width: 576px) {
+  .upload-files-container {
+    .warn-box {
+      flex-direction: column;
+
+      img {
+        margin-right: 0px;
+        margin-bottom: 4px;
+      }
+      span {
+        font-size: 0.8rem;
+        text-align: center;
+      }
+    }
+    .drag-file-area {
+      padding: 20px 20px;
+      width: 90%;
+    }
+  }
 }

@@ -38,9 +38,7 @@ export class FoodPalettesBoxComponent {
   }
 
   onImportBill() {
-    let dialogRef = this.dialog.open(ImportModalComponent, {
-      width: '500px',
-    });
+    let dialogRef = this.dialog.open(ImportModalComponent);
   }
 
   removeFoodTile(item: FoodItem) {

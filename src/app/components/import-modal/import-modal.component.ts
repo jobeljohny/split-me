@@ -8,6 +8,7 @@ import { Component, ViewChild } from '@angular/core';
 export class ImportModalComponent {
   fileName: string = '';
   fileSize: string = '';
+  file!: File;
   titleMessage = 'Drag & drop any file here';
   fileFlag: boolean = true;
 
@@ -17,11 +18,14 @@ export class ImportModalComponent {
   }
 
   fileUpdate(file: File) {
+    this.file = file;
     this.fileName = file.name;
     this.fileSize = (file.size / 1024).toFixed(1) + ' KB';
     this.fileFlag = false;
     this.titleMessage = 'File dopped successfully';
   }
 
-  upload() {}
+  upload() {
+    if (!this.file) return;
+  }
 }

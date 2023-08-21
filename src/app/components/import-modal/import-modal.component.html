@@ -1,4 +1,11 @@
 <div class="upload-files-container">
+  <div class="warn-box">
+    <img src="../../../assets/warning.png" alt="warning.png" />
+    <span
+      >This is an experimental feature, please verify and update parsed
+      values</span
+    >
+  </div>
   <div appDragDrop class="drag-file-area" (fileDropped)="fileUpdate($event)">
     <img
       [src]="
@@ -36,6 +43,6 @@
     type="button"
     class="upload-button"
   >
-    Upload
+    Parse
   </button>
 </div>
