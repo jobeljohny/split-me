@@ -11,9 +11,8 @@
         >To add your first dish, simply click on the add button</span
       >
     </div>
-    
   </div>
-  <span class="add-action" style="display: flex; justify-content: center">
+  <span class="add-action">
     <button
       matTooltip="add new palette"
       type="button"
@@ -21,6 +20,15 @@
       (click)="onAddFoodPalette()"
     >
       <span>+</span>
+    </button>
+    <button
+      *ngIf="!palettes.length"
+      matTooltip="import bill"
+      type="button"
+      class="bill-parse btn btn-info btn-lg"
+      (click)="onAddFoodPalette()"
+    >
+      <img src="../../../assets/notes.svg" />
     </button>
   </span>
 </div>
