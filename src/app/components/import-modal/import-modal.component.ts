@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { createWorker } from 'tesseract.js';
 
 @Component({
   selector: 'app-import-modal',
@@ -11,6 +12,8 @@ export class ImportModalComponent {
   file!: File;
   titleMessage = 'Drag & drop any file here';
   fileFlag: boolean = true;
+  progress = 0;
+  uploadStart: boolean = false;
 
   onFileInput(event: any) {
     let input = event.target;
@@ -25,7 +28,31 @@ export class ImportModalComponent {
     this.titleMessage = 'File dopped successfully';
   }
 
-  upload() {
+  async upload() {
+    this.uploadStart = true;
     if (!this.file) return;
+    this.progress = 0;
+    const worker = await createWorker({
+      logger: (m) => {
+        if (m.status == 'recognizing text') {
+          this.progress = m.progress * 100;
+        }
+      },
+    });
+    try {
+      await worker.loadLanguage('eng');
+      await worker.initialize('eng');
+      const {
+        data: { text },
+      } = await worker.recognize(this.file);
+
+      console.log('OCR Result:', text);
+    } catch (error) {
+      console.error('OCR Error:', error);
+      this.uploadStart = false;
+    } finally {
+      await worker.terminate();
+      this.uploadStart = false;
+    }
   }
 }

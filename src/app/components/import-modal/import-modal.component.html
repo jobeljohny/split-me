@@ -6,7 +6,12 @@
       values</span
     >
   </div>
-  <div appDragDrop class="drag-file-area" (fileDropped)="fileUpdate($event)">
+  <div
+    appDragDrop
+    class="drag-file-area"
+    (fileDropped)="fileUpdate($event)"
+    [ngStyle]="{ opacity: uploadStart ? 0.5 : 1 }"
+  >
     <img
       [src]="
         fileFlag
@@ -38,6 +43,7 @@
   </div>
 
   <button
+    *ngIf="!uploadStart"
     [disabled]="fileFlag"
     (click)="upload()"
     type="button"
@@ -45,4 +51,12 @@
   >
     Parse
   </button>
+  <mat-spinner
+    *ngIf="uploadStart"
+    color="blue"
+    [value]="progress"
+    mode="determinate"
+    diameter="45"
+    color
+  ></mat-spinner>
 </div>
