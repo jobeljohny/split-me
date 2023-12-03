@@ -32,21 +32,15 @@ export class ImportModalComponent {
     this.uploadStart = true;
     if (!this.file) return;
     this.progress = 0;
-    const worker = await createWorker({
-      logger: (m) => {
-        if (m.status == 'recognizing text') {
-          this.progress = m.progress * 100;
-        }
-      },
-    });
-    try {
-      await worker.loadLanguage('eng');
-      await worker.initialize('eng');
-      const {
-        data: { text },
-      } = await worker.recognize(this.file);
+    console.log('starting');
 
-      console.log('OCR Result:', text);
+    const worker = await createWorker('eng');
+    console.log('wroker fetched');
+
+    try {
+      let data = await worker.recognize(this.file);
+
+      console.log('OCR Result:', data);
     } catch (error) {
       console.error('OCR Error:', error);
       this.uploadStart = false;
