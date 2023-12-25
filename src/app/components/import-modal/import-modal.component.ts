@@ -1,4 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { OCRApiService } from 'src/app/services/ocr-api.service';
 import { createWorker } from 'tesseract.js';
 
 @Component({
@@ -14,7 +16,14 @@ export class ImportModalComponent {
   fileFlag: boolean = true;
   progress = 0;
   uploadStart: boolean = false;
+subscription:Subscription;
+  constructor(private ocr:OCRApiService){
 
+    this.subscription = this.ocr.recieptUrl$.subscribe((link) => {
+      console.log(link);
+      
+    });
+  }
   onFileInput(event: any) {
     let input = event.target;
     this.fileUpdate(input.files[0]);
@@ -29,6 +38,9 @@ export class ImportModalComponent {
   }
 
   async upload() {
+    /* 
+    // Tesseract Extraction Code
+
     this.uploadStart = true;
     if (!this.file) return;
     this.progress = 0;
@@ -48,5 +60,10 @@ export class ImportModalComponent {
       await worker.terminate();
       this.uploadStart = false;
     }
+    */
+console.log('parsing started');
+
+    this.ocr.getReciept(this.file);
   }
+
 }
