@@ -18,22 +18,6 @@
     app-amount-display{
       flex: 1;
     }
-    .amount-item {
-      display: flex;
-      div {
-        border: 1px solid $border-line;
-        padding: 8px 12px;
-      
-        &.label {
-          width: 140px;
-          font-size: 1rem;
-        }
-        &.value {
-          width: 125px;
-          font-weight: 400;
-        }
-      }
-    }
   }
 
   .individual-cont-panel {

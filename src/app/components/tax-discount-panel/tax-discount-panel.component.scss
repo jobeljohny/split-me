@@ -1,25 +1,33 @@
+@import "../../styles/palette.scss";
 .tax-discount-panel {
   display: flex;
   font-size: 1rem;
-
+  padding: 0px 10px;
   .td-panel-item {
     margin-top: 20px;
     .td-label {
-      margin-left: 16px;
+      margin-left: 4px;
+      font-size: 0.75rem;
+      opacity: 0.9;
     }
     &:first-child {
       margin-right: 32px;
     }
   }
   .input-wrap {
-    margin-top: 4px;
+    margin-top: 3px;
     display: flex;
     align-items: center;
-    font-size: 1.4rem;
+    font-size: 1rem;
+    padding-left: 8px;
+    border-radius: 4px;
+    color: #e5e5e2;
+    background: #1e1e2e;
     input {
-      width: 100px;
-
-      margin-left: 4px;
+      background: none;
+      color: #e5e5e2;
+      padding-left: 4px;
+      border: none;
       &:focus {
         outline: none;
         box-shadow: none;
