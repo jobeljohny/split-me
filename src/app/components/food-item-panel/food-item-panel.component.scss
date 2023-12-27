@@ -1,3 +1,5 @@
+@import "../../styles/palette.scss";
+
 #remove-button {
   position: absolute;
   top: -10px;
@@ -16,15 +18,19 @@
 }
 .panel-wrapper {
   position: relative;
-  background-color: rgb(236, 238, 255);
+  background-color: $primary-color;
   padding: 0.6rem 0.4rem 0.3rem 0.3rem;
+  border-radius: 3px;
+  border: 2px solid $border-line;
 }
 
 .item-info {
   justify-content: center;
   display: flex;
+  color: #dfdfe2;
   input {
     border-radius: 20px;
+    opacity: 0.9;
     text-align: center;
     border: none;
     &:focus {
@@ -35,14 +41,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  .dish-logo {
-    width: 45px;
+  .dish-logo-wrapper {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    .dish-logo {
+      font-size: 40px;
+    }
   }
   .dish-rate {
     margin-top: 6px;
     margin-left: -5px;
     input {
       width: 80px;
+      background: $body-bg;
+      color: white;
     }
   }
 }
@@ -53,6 +66,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  background: $body-bg;
   .placeholder-text {
     font-size: 0.9rem;
     opacity: 0.6;
@@ -80,6 +94,7 @@
     }
   }
   .total-wrapper {
+    color: #dfdfe2;
     display: flex;
     align-items: center;
     margin-right: 16px;
@@ -89,7 +104,7 @@
 
     .total-rate {
       margin-left: 6px;
-      background-color: rgb(236, 238, 255);
+      background-color: $body-bg;
       border-radius: 5px;
       padding: 1px 8px;
       text-align: center;

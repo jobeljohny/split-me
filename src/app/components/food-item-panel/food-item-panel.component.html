@@ -1,4 +1,4 @@
-<div class="panel-wrapper mx-5 shadow-sm mb-3 mt-3 rounded card-container">
+<div class="panel-wrapper shadow mx-3 mb-3 mt-3 card-container">
   <img
     matTooltip="remove palette"
     id="remove-button"
@@ -10,7 +10,9 @@
       <app-food-input-field
         (nameUpdate)="updateName($event)"
       ></app-food-input-field>
-      <img class="dish-logo" src="../../../assets/dish.png" alt="dish.png" />
+      <div class="dish-logo-wrapper">
+        <span class="dish-logo">🍽️</span>
+      </div>
       <span class="dish-rate"
         >₹
         <input
@@ -24,7 +26,7 @@
       [id]="foodData.ID"
       cdkDropList
       [cdkDropListAutoScrollDisabled]="true"
-      class="consumers-palette mx-3 shadow-lg p-3 card-container"
+      class="consumers-palette mx-3 p-3 card-container"
       (cdkDropListDropped)="drop($event)"
     >
       <span *ngIf="!participants.length" class="placeholder-text lead"

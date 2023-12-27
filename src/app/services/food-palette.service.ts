@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FoodItem } from '../classes/food-item';
 import { Participant } from '../classes/participant';
 import { IorderDetails } from '../classes/interfaces';
+import { Profile } from '../classes/profile';
 
 @Injectable({
   providedIn: 'root',
@@ -12,10 +13,25 @@ export class FoodPaletteService {
       .toString(36)
       .substring(2, len + 2);
   };
+  //TODO remove
   palettes: FoodItem[] = [];
   paletteIDs: string[] = [];
 
   constructor() {
+    this.palettes = [
+      new FoodItem("fish curry", 200, [
+        new Participant(new Profile('jobel'), 200),
+        new Participant(new Profile('godwin'), 200),
+        new Participant(new Profile('noble'), 200),
+      ]),
+      new FoodItem('chicken', 239, [
+        new Participant(new Profile('jobel'), 200),
+        new Participant(new Profile('noble'), 200),
+      ]),
+    ];
+    console.log(this.palettes);
+    setTimeout(()=>console.log(this.palettes),2000);
+
     this.updatePanelIds();
   }
 
@@ -32,6 +48,7 @@ export class FoodPaletteService {
   }
 
   updatePanelIds() {
+    console.log('updating palettes');
     this.paletteIDs = this.palettes.map((x) => x.ID);
   }
 

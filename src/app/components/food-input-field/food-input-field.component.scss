@@ -1,4 +1,7 @@
+@import '../../styles/palette.scss';
 input {
+  color: #dfdfe2;
+  background: $body-bg;
   border-radius: 20px;
   text-align: center;
   border: none;

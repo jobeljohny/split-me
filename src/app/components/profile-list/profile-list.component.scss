@@ -3,6 +3,7 @@
 .people-card {
   position: relative;
   background-color: $card-color;
+  border: 2px solid $border-line;
 }
 
 .import-export-container {

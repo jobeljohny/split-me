@@ -17,7 +17,7 @@ import { foodItem, foodNames } from 'src/app/constants/food-names';
 export class FoodInputFieldComponent implements AfterViewInit {
   foodNames: Observable<foodItem[]>;
   stateCtrl = new FormControl();
-  @ViewChild('dishName') dishName: any;
+  @ViewChild('dishName') dishName:any;
   @Output('nameUpdate') foodName = new EventEmitter<string>();
   constructor() {
     this.foodNames = this.stateCtrl.valueChanges.pipe(

@@ -21,6 +21,8 @@ export class AppComponent {
   }
   @HostListener('window:beforeunload', ['$event'])
   canDeactivate(): boolean {
+    //TODO remove
+    return true;
     return this.foodPaletteService.palettes.length == 0;
   }
 }

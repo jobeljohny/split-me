@@ -18,8 +18,14 @@ export class FoodItem {
     } else this.id = 0;
 
     this.name = name;
+    console.log(this.name);
+    
+    
     this.price = price;
+    console.log(this.price);
+    
     this.participants = participants;
+    
   }
 
   get ID() {

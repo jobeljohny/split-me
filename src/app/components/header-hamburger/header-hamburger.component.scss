@@ -2,7 +2,6 @@
 $background-color-primary: $primary-color;
 $background-color-secondary: #505050;
 $background-color-menu-btn: #ffffff;
-$background-color-list: #2b3c58;
 $background-color-menu-box-shadow: rgba(0, 0, 0, 0.2);
 $text-color: #8f9bb0;
 #toggle-menu {
@@ -131,7 +130,6 @@ $text-color: #8f9bb0;
 }
 
 li {
-  background-color: $background-color-list;
   cursor: pointer;
   &:hover {
     .menu-item {

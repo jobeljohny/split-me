@@ -49,3 +49,8 @@ export const foodNames: foodItem[] = [
   { icon: '🥤', name: 'Pepsi' },
   { icon: '🧃', name: 'Juice' },
 ];
+
+
+export const foodLogo:foodItem[] = [
+  {icon:'🥘',name:'chicken'}
+]
