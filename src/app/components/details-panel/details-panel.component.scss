@@ -8,13 +8,20 @@
   border: 2px solid $border-line;
   background-color: $card-color;
   .amounts-container {
+    width: 100%;
+    display: flex;
+    background-color: #1e1e2e;
+    padding: 20px 10px;
+    padding-left:20px ;
+    border-radius: 4px;
+    
+    app-amount-display{
+      flex: 1;
+    }
     .amount-item {
-      font-size: 1rem;
       display: flex;
-
       div {
-        background-color: rgb(244, 246, 255);
-        border: 1px solid white;
+        border: 1px solid $border-line;
         padding: 8px 12px;
       
         &.label {
@@ -32,14 +39,12 @@
   .individual-cont-panel {
     margin-top: 24px;
     font-size: 1rem;
-    background-color: rgb(241, 200, 200);
     padding: 10px 16px;
-    border: 1px solid $primary-color;
-    background: rgb(251, 251, 255);
+    border: 1px solid rgb(255, 255, 255);
     cursor: pointer;
     border-radius: 20px;
     &:hover {
-      background: $primary-color;
+      background: blue;
       color: white;
     }
   }

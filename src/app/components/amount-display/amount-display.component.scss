@@ -1,0 +1,27 @@
+@import "../../styles/palette.scss";
+.amount-container {
+  .label-wrapper {
+    img {
+      width: 18px;
+      margin-right: 6px;
+      filter: $theme-filter;
+    }
+    .label {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+  }
+
+  .amount {
+    margin-top: 10px;
+    margin-left: 16px;
+    .rupee{
+opacity: 0.9;
+    }
+    .paisa{
+        font-size: 0.8rem;
+        margin-left: 1px;
+        opacity: 0.6;
+    }
+  }
+}

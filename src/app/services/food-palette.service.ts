@@ -29,8 +29,6 @@ export class FoodPaletteService {
         new Participant(new Profile('noble'), 200),
       ]),
     ];
-    console.log(this.palettes);
-    setTimeout(()=>console.log(this.palettes),2000);
 
     this.updatePanelIds();
   }
@@ -48,7 +46,6 @@ export class FoodPaletteService {
   }
 
   updatePanelIds() {
-    console.log('updating palettes');
     this.paletteIDs = this.palettes.map((x) => x.ID);
   }
 

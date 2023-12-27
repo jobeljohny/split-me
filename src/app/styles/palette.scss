@@ -1,5 +1,8 @@
+
 $primary-color: #212134;
 $border-line: #29293e;
 $body-bg: #181826;
 $card-color: $primary-color;
 $theme-primary: rgb(74, 154, 204);
+
+$theme-filter:brightness(0) saturate(100%) invert(85%) sepia(29%) saturate(606%) hue-rotate(339deg) brightness(104%) contrast(99%);
