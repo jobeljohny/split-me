@@ -21,15 +21,26 @@
   }
 
   .individual-cont-panel {
+    font-size: 0.8rem;
+    padding: 8px 6px;
+    width: 90%;
+    margin: 8px 0px;
     margin-top: 24px;
-    font-size: 1rem;
-    padding: 10px 16px;
-    border: 1px solid rgb(255, 255, 255);
+    text-align: center;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 4px;
+    font-family:   Helvetica, sans-serif;
+    font-weight: bold;
+    background-color: #3e3d65;
+    text-transform: capitalize;
+    img{
+      width:18px;
+      filter: invert(1);
+      margin-left: 2px;
+    }
+
     &:hover {
-      background: blue;
-      color: white;
+     transform: scale(1.03);
     }
   }
 }
