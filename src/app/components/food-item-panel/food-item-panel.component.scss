@@ -7,7 +7,9 @@
   width: 22px;
   height: 22px;
   opacity: 0.8;
+  filter: grayscale(1);
   &:hover {
+    filter: grayscale(0);
     cursor: pointer;
     opacity: 1;
   }

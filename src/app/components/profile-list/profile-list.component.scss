@@ -47,16 +47,20 @@
 }
 
 .import-export-container {
+  display: flex;
+  align-items: center;
   img {
-    width: 30px;
-    height: 30px;
+    width: 22px;
+    height: 22px;
+    filter: $theme-filter;
   }
   .filepicker {
-    width: 30px;
-    height: 30px;
+    width: 22px;
+    height: 22px;
     text-indent: 100em;
-    background: url("../../../assets/import.png");
+    background: url("../../../assets/icons/import-icon.svg");
     background-size: 100% 100%;
+    filter: $theme-filter;
     overflow: hidden;
     cursor: pointer;
     outline: none;
