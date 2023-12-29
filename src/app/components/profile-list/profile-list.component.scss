@@ -3,6 +3,12 @@
 .people-card {
   position: relative;
   background-color: $card-color;
+  h3 {
+    font-size: 0.75rem;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+  }
+
   border: 2px solid $border-line;
 }
 
@@ -65,10 +71,15 @@
   border-radius: 25px;
   margin-bottom: 14px;
   margin-left: 14px;
+  border: none;
+  background-color: $primary-button;
   span {
     font-size: 25px;
-    font-weight: bold;
+    font-weight: 400;
     color: white;
+  }
+  &:hover {
+    filter: brightness(120%);
   }
 }
 

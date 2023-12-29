@@ -33,7 +33,7 @@ export class AdvancedProfileComponent {
   constructor() {}
 
   get color() {
-    return `hue-rotate(${this.participant.profile.hue}deg)`;
+    return `hue-rotate(${this.participant.profile.hue}deg) grayscale(0.5)`;
   }
 
   onPortionModifier(modifier: number) {

@@ -28,16 +28,6 @@
   justify-content: center;
   display: flex;
   color: #dfdfe2;
-  input {
-    border-radius: 20px;
-    opacity: 0.9;
-    text-align: center;
-    border: none;
-    &:focus {
-      outline: none;
-      box-shadow: none;
-    }
-  }
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,9 +43,18 @@
     margin-top: 6px;
     margin-left: -5px;
     input {
+      border-radius: 20px;
+      opacity: 0.9;
+      text-align: center;
+      border: none;
       width: 80px;
       background: $body-bg;
       color: white;
+
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
     }
   }
 }

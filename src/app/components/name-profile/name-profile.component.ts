@@ -36,7 +36,7 @@ export class NameProfileComponent implements OnInit, OnDestroy {
   }
 
   get color() {
-    return `hue-rotate(${this.profileData.hue}deg)`;
+    return `hue-rotate(${this.profileData.hue}deg) grayscale(0.5)`;
   }
 
   selected() {

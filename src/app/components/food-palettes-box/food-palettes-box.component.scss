@@ -12,7 +12,7 @@
 
     img {
       width: 200px;
-      opacity: 0.4;
+      opacity: 0.1;
     }
     .help-placeholder {
       margin-top: 20px;
@@ -24,17 +24,22 @@
   }
 }
 
-.btn-lg {
-  width: 45px;
-  height: 45px;
+.add-btn {
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 23px;
+  border-radius: 20px;
+  background: $primary-button;
+  border: none;
   span {
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 500;
     color: white;
+  }
+  &:hover{
+    filter: brightness(120%);
   }
 }
 

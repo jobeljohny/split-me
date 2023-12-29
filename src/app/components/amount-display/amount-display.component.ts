@@ -25,7 +25,7 @@ export class AmountDisplayComponent implements OnChanges {
       'en-US',
       '₹',
       'INR',
-      '4.2-2'
+      '1.2-2'
     );
 
     [this.rupees,this.paisa] = amt.split('.')

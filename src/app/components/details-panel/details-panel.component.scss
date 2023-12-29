@@ -7,15 +7,21 @@
   border-radius: 2px;
   border: 2px solid $border-line;
   background-color: $card-color;
+
+  h3 {
+    font-size: 0.75rem;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+  }
   .amounts-container {
     width: 100%;
     display: flex;
-    background-color: #1e1e2e;
+    background-color: $secondary-color;
     padding: 20px 10px;
-    padding-left:20px ;
+    padding-left: 20px;
     border-radius: 4px;
-    
-    app-amount-display{
+
+    app-amount-display {
       flex: 1;
     }
   }
@@ -29,18 +35,18 @@
     text-align: center;
     cursor: pointer;
     border-radius: 4px;
-    font-family:   Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     font-weight: bold;
     background-color: #3e3d65;
     text-transform: capitalize;
-    img{
-      width:18px;
+    img {
+      width: 18px;
       filter: invert(1);
       margin-left: 2px;
     }
 
     &:hover {
-     transform: scale(1.03);
+      transform: scale(1.03);
     }
   }
 }
