@@ -4,6 +4,7 @@ export class FoodItem {
   static #id = 0;
   private id: number;
   name: string;
+  public logo: string = '🍽️';
   price: number;
   participants: Participant[];
 

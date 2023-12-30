@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FoodItem } from '../classes/food-item';
-import { Participant } from '../classes/participant';
 import { IorderDetails } from '../classes/interfaces';
+import { Participant } from '../classes/participant';
 import { Profile } from '../classes/profile';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class FoodPaletteService {
 
   constructor() {
     this.palettes = [
-      new FoodItem("fish curry", 200, [
+      new FoodItem('fish curry', 200, [
         new Participant(new Profile('jobel'), 200),
         new Participant(new Profile('godwin'), 200),
         new Participant(new Profile('noble'), 200),
@@ -29,7 +29,6 @@ export class FoodPaletteService {
         new Participant(new Profile('noble'), 239),
       ]),
     ];
-
     this.updatePanelIds();
   }
 

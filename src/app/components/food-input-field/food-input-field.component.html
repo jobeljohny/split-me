@@ -4,6 +4,7 @@
   placeholder="item name"
   [matAutocomplete]="auto"
   [formControl]="stateCtrl"
+  (blur)="updated()"
   class="dish-name"
 />
 <mat-autocomplete #auto="matAutocomplete" hideSingleSelectionIndicator>

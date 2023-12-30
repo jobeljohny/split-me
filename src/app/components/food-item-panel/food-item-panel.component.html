@@ -9,9 +9,11 @@
     <div class="item-info">
       <app-food-input-field
         (nameUpdate)="updateName($event)"
+        (updateIcon)="updateIcon($event)"
+        [initialName]="foodData.name"
       ></app-food-input-field>
       <div class="dish-logo-wrapper">
-        <span class="dish-logo">🍽️</span>
+        <span class="dish-logo">{{foodData.logo}}</span>
       </div>
       <span class="dish-rate"
         >₹
@@ -47,13 +49,12 @@
           [price]="foodData.price"
           (removeParticipant)="removeParticipant($event)"
         ></app-advanced-profile>
-        <div *cdkDragPreview >
+        <div *cdkDragPreview>
           <app-profile-drag-preview
             [people]="participant.profile"
             [selections]="[participant.profile]"
           ></app-profile-drag-preview>
         </div>
-        
       </div>
     </div>
   </div>

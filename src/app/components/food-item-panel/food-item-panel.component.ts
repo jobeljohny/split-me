@@ -10,14 +10,12 @@ import { Profile } from 'src/app/classes/profile';
   styleUrls: ['./food-item-panel.component.scss'],
 })
 export class FoodItemPanelComponent {
-  @Input() foodData: FoodItem;
-  @Input() paletteIds: string[] =[];
+  @Input() foodData!: FoodItem;
+  @Input() paletteIds: string[] = [];
   @Output() removePanel = new EventEmitter<FoodItem>();
 
   totalRate: number = 0;
-  constructor() {
-    this.foodData = new FoodItem('undefined', 0, []);
-  }
+  constructor() {}
 
   changes(type: string) {
     if (type === 'price') {
@@ -27,6 +25,10 @@ export class FoodItemPanelComponent {
 
   updateName(foodName: string) {
     this.foodData.name = foodName;
+  }
+
+  updateIcon(icon: string) {
+    this.foodData.logo = icon;
   }
 
   removePalette() {
@@ -60,15 +62,14 @@ export class FoodItemPanelComponent {
   }
 
   //drag events
-   dragStarted(ev: CdkDragStart, participant: Participant): void {
+  dragStarted(ev: CdkDragStart, participant: Participant): void {
     ev.source.data = [participant.profile];
   }
   dragEnded() {
-   //nothing for now
+    //nothing for now
   }
 
   get participants() {
     return this.foodData.participants;
   }
-
 }
