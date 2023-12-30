@@ -1,4 +1,4 @@
-import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, CdkDragStart } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FoodItem } from 'src/app/classes/food-item';
 import { Participant } from 'src/app/classes/participant';
@@ -11,6 +11,7 @@ import { Profile } from 'src/app/classes/profile';
 })
 export class FoodItemPanelComponent {
   @Input() foodData: FoodItem;
+  @Input() paletteIds: string[] =[];
   @Output() removePanel = new EventEmitter<FoodItem>();
 
   totalRate: number = 0;
@@ -58,7 +59,16 @@ export class FoodItemPanelComponent {
     }
   }
 
+  //drag events
+   dragStarted(ev: CdkDragStart, participant: Participant): void {
+    ev.source.data = [participant.profile];
+  }
+  dragEnded() {
+   //nothing for now
+  }
+
   get participants() {
     return this.foodData.participants;
   }
+
 }

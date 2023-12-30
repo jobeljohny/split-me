@@ -3,6 +3,7 @@
     <app-food-item-panel
       *ngFor="let palette of palettes"
       [foodData]="palette"
+      [paletteIds]="ids"
       (removePanel)="removeFoodTile($event)"
     ></app-food-item-panel>
     <div *ngIf="!palettes.length" class="instruction-wrapper">

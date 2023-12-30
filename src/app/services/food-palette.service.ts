@@ -25,8 +25,8 @@ export class FoodPaletteService {
         new Participant(new Profile('noble'), 200),
       ]),
       new FoodItem('chicken', 239, [
-        new Participant(new Profile('jobel'), 200),
-        new Participant(new Profile('noble'), 200),
+        new Participant(new Profile('jobel'), 239),
+        new Participant(new Profile('noble'), 239),
       ]),
     ];
 

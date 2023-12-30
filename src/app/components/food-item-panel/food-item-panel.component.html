@@ -25,19 +25,35 @@
     <div
       [id]="foodData.ID"
       cdkDropList
+      cdkDropListSortingDisabled
       [cdkDropListAutoScrollDisabled]="true"
+      [cdkDropListConnectedTo]="paletteIds"
       class="consumers-palette mx-3 p-3 card-container"
       (cdkDropListDropped)="drop($event)"
     >
       <span *ngIf="!participants.length" class="placeholder-text lead"
         >Add contributors by dragging profiles here.</span
       >
-      <div *ngFor="let participant of participants" class="people-palette">
+      <div
+        *ngFor="let participant of participants"
+        class="people-palette"
+        cdkDrag
+        [cdkDragData]="participant"
+        (cdkDragStarted)="dragStarted($event, participant)"
+        (cdkDragEnded)="dragEnded()"
+      >
         <app-advanced-profile
           [participant]="participant"
           [price]="foodData.price"
           (removeParticipant)="removeParticipant($event)"
         ></app-advanced-profile>
+        <div *cdkDragPreview >
+          <app-profile-drag-preview
+            [people]="participant.profile"
+            [selections]="[participant.profile]"
+          ></app-profile-drag-preview>
+        </div>
+        
       </div>
     </div>
   </div>
