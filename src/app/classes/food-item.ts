@@ -12,16 +12,11 @@ export class FoodItem {
   }
 
   constructor(name: string, price: number, participants: Participant[]) {
-    if (name !== 'undefined') {
-      FoodItem.#incrementID();
-      this.id = FoodItem.#id;
-    } else this.id = 0;
-
+    FoodItem.#incrementID();
+    this.id = FoodItem.#id;
     this.name = name;
     this.price = price;
-    
     this.participants = participants;
-    
   }
 
   get ID() {
@@ -49,7 +44,6 @@ export class FoodItem {
     let isExist = false;
     this.participants.forEach((p) => {
       if (p.profile === participant.profile) {
-        
         isExist = true;
         //participant already exists
       }
