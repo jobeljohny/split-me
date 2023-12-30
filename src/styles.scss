@@ -12,24 +12,38 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.food-autocomplete {
+  background-color: #2e2e49;
+  .mat-mdc-option {
+    min-height: 38px;
+    border-top: 1px solid $border-line;
+   
+    font-family: "Tahoma", sans-serif;
+    font-size: 0.85rem;
+    .mdc-list-item__primary-text {
+      color: white;
+      opacity: 0.8;
+    }
+  }
+}
 // webkits
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: $primary-color;
 }
 ::-webkit-scrollbar-thumb {
-  background: #acb0c3;
-  border-radius: 10px;
+  background: #3e3d65;
+  border-radius: 1px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #56565a;
+  background: #2e315e;
 }
 
 @media only screen and (max-width: 576px) {
   ::-webkit-scrollbar {
-    width: 4px;
+    width: 2px;
   }
 }

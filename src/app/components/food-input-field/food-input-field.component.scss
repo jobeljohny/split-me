@@ -1,4 +1,4 @@
-@import '../../styles/palette.scss';
+@import "../../styles/palette.scss";
 input {
   color: #dfdfe2;
   background: $body-bg;
@@ -14,10 +14,4 @@ input {
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 5px;
-}
-
-.mat-mdc-option {
-  min-height: 38px;
-  font-family: "Tahoma", sans-serif;
-  font-size: 0.85rem;
 }
