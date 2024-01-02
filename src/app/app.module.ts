@@ -48,6 +48,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { FoodInputFieldComponent } from './components/food-input-field/food-input-field.component';
 import { AmountDisplayComponent } from './components/amount-display/amount-display.component';
+import { IndividualMenuComponent } from './components/individual-menu/individual-menu.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { AmountDisplayComponent } from './components/amount-display/amount-displ
     BreakUpInfoComponent,
     FoodInputFieldComponent,
     AmountDisplayComponent,
+    IndividualMenuComponent,
   ],
   imports: [
     BrowserModule,
