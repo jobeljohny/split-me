@@ -21,7 +21,6 @@
     "@angular/platform-browser-dynamic": "^16.2.12",
     "@angular/router": "^16.2.12",
     "ajv": "^8.12.0",
-    "angularx-qrcode": "^15.0.1",
     "bootstrap": "^5.2.3",
     "file-saver": "^2.0.5",
     "file-saver-es": "^2.0.5",

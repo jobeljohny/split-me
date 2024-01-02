@@ -14,7 +14,6 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { QRCodeModule } from 'angularx-qrcode';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutPageComponent } from './components/Help-Page/about-page/about-page.component';
@@ -100,7 +99,6 @@ import { IndividualMenuComponent } from './components/individual-menu/individual
     MatAutocompleteModule,
     MatProgressSpinnerModule,
     HttpClientModule,
-    QRCodeModule,
   ],
   providers: [
     {
