@@ -1,76 +1,45 @@
+@import "../../styles/palette.scss";
 .panel-content {
-  padding: 24px;
-  .heading {
+    height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 24px;
-  }
-  .items-container {
-    .panel-item {
-      font-size: 1rem;
+    .stat-item {
+      flex-basis: 0;
+      flex-grow: 1;
       display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        filter: $theme-filter;
+        width: 20px;
+        margin-right: 6px;
+      }
+      .stat{
+        font-size: 0.9rem;
+      }
+      .seperator{
+        opacity: 0.5;
+      }
+      .icon-jump{
+        margin-top: -2px;
+      }
+    }
+  }
 
-      div {
-        border: 1px solid white;
-        padding: 8px 12px;
-        &.label {
-          width: 150px;
-          padding-right: 2px;
-        }
-        &.value {
-          padding-left: 0;
-          width: 125px;
-        }
-      }
-    }
-  }
-  .summary-panel {
-    display: flex;
-    justify-content: center;
-    align-self: self-end;
-    margin-top: 24px;
-    span {
-      font-size: 1rem;
-      padding: 10px 16px;
-      border: 1px solid rgb(0, 7, 109);
-      background: rgba(17, 0, 255, 0.082);
-      cursor: pointer;
-      border-radius: 8px;
-      &:hover {
-        background: rgb(12, 0, 184);
-        color: white;
-      }
-    }
-  }
-}
 
 @media only screen and (max-width: 576px) {
   .panel-content {
-    padding: 8px;
-    .heading {
-      font-size: 1rem;
-      margin-top: 8px;
-      margin-bottom: 8px;
-    }
-
-    .items-container {
-      .panel-item {
-        font-size: 0.9rem;
-
-        div {
-          padding: 4px 12px;
-        }
+    .stat-item{
+      img{
+        width:12px;
+        margin-right: 4px;
+      }
+      .stat{
+        font-size: 0.6rem;
+      }
+      .label{
+        display: none;
       }
     }
-
-    .summary-panel {
-      margin-top: 8px;
-      margin-bottom: 12px;
-      span {
-        font-size: 0.8rem;
-        padding: 6px 10px;
-      }
-    }
+    
   }
 }

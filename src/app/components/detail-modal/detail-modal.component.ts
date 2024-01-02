@@ -8,4 +8,10 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class DetailModalComponent {
   constructor(public dialogRef: MatDialogRef<DetailModalComponent>) {}
+  viewSummary() {
+    //   this.details.generateIndividualSummary();
+    //   this.dialog.open(SummaryModalComponent, {
+    //     width: '1140px',
+    //   });
+  }
 }

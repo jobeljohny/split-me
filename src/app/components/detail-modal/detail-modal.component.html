@@ -6,17 +6,20 @@
   src="../../../assets/cancel.png"
   (click)="dialogRef.close()"
 />
-<div class="title">
-  <p>SPLIT UP</p>
-</div>
 
 <div class="dialog-body">
-  <div class="body-wrapper">
-    <div class="table-wrap shadow-lg">
+  <div class="table-stats-container">
+    <div class="table-wrap">
       <app-break-up-table></app-break-up-table>
     </div>
-    <div class="data-panel shadow-lg">
-      <app-break-up-info></app-break-up-info>
+    <div class="graph-wrap">
+      hi! i am excited
+      <div class="summary-panel">
+        <span (click)="viewSummary()">View individual summaries</span>
+      </div>
     </div>
+  </div>
+  <div class="data-panel">
+    <app-break-up-info></app-break-up-info>
   </div>
 </div>

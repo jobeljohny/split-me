@@ -1,20 +1,29 @@
-.mat-mdc-table .mdc-data-table__row {
-  height: 40px;
-}
-.mat-column-split_amount {
-  color: rgb(0, 58, 8);
-  padding-right: 0px;
-}
-.mat-column-name {
-  text-transform: capitalize;
-}
-.mat-column-food_amount {
-  color: rgb(117, 117, 117);
-}
+@import "../../styles/palette.scss";
 
-.split-header,
-.food-header {
-  color: black;
+.table-container {
+  border: 1px solid $border-line;
+  .mat-mdc-table {
+    background: none;
+  }
+
+  .mat-mdc-table .mdc-data-table__row {
+    height: 40px;
+  }
+  .mat-column-split_amount {
+    color: rgb(0, 58, 8);
+    padding-right: 0px;
+  }
+  .mat-column-name {
+    text-transform: capitalize;
+  }
+  .mat-column-food_amount {
+    color: rgb(117, 117, 117);
+  }
+
+  .split-header,
+  .food-header {
+    color: black;
+  }
 }
 
 @media only screen and (max-width: 576px) {

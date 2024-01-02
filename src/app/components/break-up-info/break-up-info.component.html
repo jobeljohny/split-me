@@ -1,25 +1,38 @@
-<div class="lead panel-content">
-  <div class="heading"><span>DETAILS</span></div>
-
-  <div class="items-container">
-    <div class="panel-item">
-      <div class="label">💵 Total food bill</div>
-      <div class="value">:&nbsp; ₹ {{ totalFoodBill }}</div>
-    </div>
-    <div class="panel-item">
-      <div class="label">👤 Participants</div>
-      <div class="value">:&nbsp; {{ participants }}</div>
-    </div>
-    <div class="panel-item">
-      <div class="label">🍽️ Total Dishes</div>
-      <div class="value">:&nbsp; {{ totalDishes }}</div>
-    </div>
-    <div class="panel-item">
-      <div class="label">💵 Final charges</div>
-      <div class="value">:&nbsp; ₹ {{ finalTotal }}</div>
-    </div>
+<div class="panel-content lead">
+  <div class="stat-item">
+    <img class="stat-icon" src="assets/icons/scroll-icon.svg" alt="icon" />
+    <span class="stat"
+      ><span class="label">Dish Expense </span><span class="seperator">-</span> ₹
+      {{ totalFoodBill }}</span
+    >
   </div>
-  <div class="summary-panel">
-    <span (click)="viewSummary()">View individual summaries</span>
+  <div class="stat-item">
+    <img
+      class="stat-icon icon-jump"
+      src="assets/icons/user-icon.svg"
+      alt="icon"
+    />
+    <span class="stat"
+      ><span class="label">Contributors </span><span class="seperator">-</span>
+      {{ participants }}</span
+    >
+  </div>
+  <div class="stat-item">
+    <img
+      class="stat-icon icon-jump"
+      src="assets/icons/dish-icon.svg"
+      alt="icon"
+    />
+    <span class="stat"
+      ><span class="label">Dish Count </span><span class="seperator">-</span>
+      {{ totalDishes }}</span
+    >
+  </div>
+  <div class="stat-item">
+    <img class="stat-icon" src="assets/icons/rupee-icon.svg" alt="icon" />
+    <span class="stat"
+      ><span class="label">Final Expense </span><span class="seperator">-</span> ₹
+      {{ finalTotal }}</span
+    >
   </div>
 </div>

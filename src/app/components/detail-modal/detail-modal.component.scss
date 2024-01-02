@@ -1,27 +1,26 @@
-.title {
-  display: flex;
-  justify-content: center;
-  margin-top: 16px;
-  p {
-    margin: 0;
-    font-size: 1rem;
-    color: black;
-  }
-}
+
 
 .dialog-body {
   padding: 16px;
   position: relative;
-  .body-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .table-stats-container {
     display: flex;
     .table-wrap {
+      background-color: rgba(255, 0, 0, 0.103);
       width: 400px;
       overflow: auto;
     }
-    .data-panel {
-      margin-left: 20px;
+    .graph-wrap{
       flex-grow: 1;
+      background-color: rgba(187, 255, 0, 0.103);
     }
+  }
+  .data-panel {
+    background-color: rgba(0, 255, 13, 0.103);
+    height: 40px;
   }
 }
 
@@ -41,20 +40,17 @@
 @media only screen and (max-width: 576px) {
   .dialog-body {
     padding: 0px;
-    .body-wrapper {
+    .table-stats-container {
       margin-top: 8px;
       flex-direction: column;
       gap: 6px;
       .table-wrap {
         width: 100%;
-        height: 350px;
+        height: 300px;
         margin-bottom: 2px;
         box-shadow: none !important;
       }
-      .data-panel {
-        flex-grow: inherit;
-        margin: 0;
-      }
+      
     }
   }
 }

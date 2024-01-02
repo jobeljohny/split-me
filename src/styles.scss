@@ -38,6 +38,16 @@ body {
   border: 1px solid $border-line;
 }
 
+//details-modal
+.detailsModal .mat-mdc-dialog-container .mdc-dialog__surface{
+background: rgba(10, 10, 19, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid $border-line;
+}   
+
 //unselectable
 .not-selectable {
   user-select: none;

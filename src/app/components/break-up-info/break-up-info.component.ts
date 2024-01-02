@@ -26,10 +26,5 @@ export class BreakUpInfoComponent {
     return this.details.dishesCount;
   }
 
-  viewSummary() {
-    this.details.generateIndividualSummary();
-    this.dialog.open(SummaryModalComponent, {
-      width: '1140px',
-    });
-  }
+ 
 }
