@@ -11,7 +11,7 @@
     justify-content: center;
     img {
       width: 50%;
-      opacity: 0.1;
+      opacity: 0.05;
     }
   }
 
@@ -37,10 +37,11 @@
         display: flex;
         flex: 0 0 100px;
         .hotkey {
-          background-color: #f0f0f0;
+          color: black;
+          background-color: #e7e7e7;
           border-radius: 4px;
-          padding: 3px 6px;
-          box-shadow: 1px 1px 1px 1px #ccc;
+          padding: 3px 8px;
+          box-shadow: 1px 1px 1px 1px #a5a5a5;
           font-family: "Courier New", monospace;
         }
       }

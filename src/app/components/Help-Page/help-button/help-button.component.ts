@@ -9,7 +9,7 @@ import { HelpDialogComponent } from '../help-dialog/help-dialog.component';
   styles: [
     `
       .help-button {
-        background: #00a6ff;
+        background: #4945FF;
         color: white;
         border: 0;
         width: 25px;

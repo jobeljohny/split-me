@@ -75,6 +75,7 @@ $text-color: #8f9bb0;
   background-color: $background-color-primary;
   box-shadow: 1px 10px 30px $background-color-menu-box-shadow;
   transition-duration: 0.25s;
+  border-right: 1px solid $border-line;
   .logo-wrapper {
     display: flex;
     flex-direction: column;
@@ -135,7 +136,7 @@ li {
     .menu-item {
       color: white;
     }
-    background-color: #3b4f6a;
+    background-color: $border-line;
     img {
       transform: scale(1.2);
     }
