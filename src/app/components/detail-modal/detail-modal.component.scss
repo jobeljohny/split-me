@@ -1,4 +1,4 @@
-
+@import "../../styles/palette.scss";
 
 .dialog-body {
   padding: 16px;
@@ -7,19 +7,19 @@
   display: flex;
   flex-direction: column;
   .table-stats-container {
+    flex-grow: 1;
     display: flex;
+    margin-bottom: 8px;
     .table-wrap {
-      background-color: rgba(255, 0, 0, 0.103);
       width: 400px;
       overflow: auto;
     }
-    .graph-wrap{
+    .graph-wrap {
       flex-grow: 1;
-      background-color: rgba(187, 255, 0, 0.103);
     }
   }
   .data-panel {
-    background-color: rgba(0, 255, 13, 0.103);
+    border-top: 1px solid $border-line;
     height: 40px;
   }
 }
@@ -50,7 +50,6 @@
         margin-bottom: 2px;
         box-shadow: none !important;
       }
-      
     }
   }
 }

@@ -2,6 +2,8 @@
 
 .table-container {
   border: 1px solid $border-line;
+  border-radius: 4px;
+  height: 100%;
   .mat-mdc-table {
     background: none;
   }
@@ -9,20 +11,31 @@
   .mat-mdc-table .mdc-data-table__row {
     height: 40px;
   }
+  .mat-mdc-table .mdc-data-table__cell {
+    border-bottom-color: $border-line;
+  }
+
   .mat-column-split_amount {
-    color: rgb(0, 58, 8);
+    color: rgb(254 221 147);
     padding-right: 0px;
   }
   .mat-column-name {
     text-transform: capitalize;
+    color: rgb(224, 224, 224);
+    img {
+      margin-top: -3px;
+      width: 14px;
+      filter: $theme-filter;
+    }
   }
   .mat-column-food_amount {
-    color: rgb(117, 117, 117);
+    color: rgb(194, 194, 194);
   }
 
   .split-header,
+  .name-header,
   .food-header {
-    color: black;
+    color: rgb(255, 255, 255);
   }
 }
 
