@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CustomContributionToggler } from 'src/app/classes/interfaces';
 import { Participant } from 'src/app/classes/participant';
 
 @Component({
@@ -11,8 +12,11 @@ export class IndividualMenuComponent {
   @Input('price') price!: number;
 
   toggleIndex: number = 0;
-  togglers: string[] = ['₹', '%'];
-
+  togglers: CustomContributionToggler[] = [
+    { symbol: '₹', description: 'amount' },
+    { symbol: '%', description: 'percent' },
+    { symbol: '×', description: 'servings' },
+  ];
   @Output() removeParticipant = new EventEmitter();
   onPortionModifier(modifier: number) {
     this.participant.contribution = parseFloat(
@@ -23,8 +27,11 @@ export class IndividualMenuComponent {
   updateCustom(value: string) {
     if (this.toggleIndex == 0)
       this.participant.contribution = Math.round(parseFloat(value) * 100) / 100;
-    else {
+    else if (this.toggleIndex == 1) {
       let contribution = Math.round((this.price * parseFloat(value)) / 100);
+      this.participant.contribution = contribution;
+    } else {
+      let contribution = Math.round(this.price * parseFloat(value) * 100) / 100;
       this.participant.contribution = contribution;
     }
   }
@@ -35,6 +42,6 @@ export class IndividualMenuComponent {
 
   toggleCustom(event: Event) {
     event.stopPropagation();
-    this.toggleIndex = 1 - this.toggleIndex;
+    this.toggleIndex = (this.toggleIndex + 1) % 3;
   }
 }

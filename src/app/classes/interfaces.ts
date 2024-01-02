@@ -16,3 +16,8 @@ export interface selectionStatus {
   profile: Profile;
   status: boolean;
 }
+
+export interface CustomContributionToggler {
+  symbol: string;
+  description: string;
+}

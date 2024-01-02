@@ -37,6 +37,15 @@ body {
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid $border-line;
 }
+
+//unselectable
+.not-selectable {
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
 // webkits
 
 ::-webkit-scrollbar {

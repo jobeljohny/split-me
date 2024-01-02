@@ -1,11 +1,11 @@
 @import "../../styles/palette.scss";
-$context-menu-foreground: white;
+$context-menu-foreground: rgb(207, 207, 207);
 $context-menu-hover: #5b5c72;
 $context-menu-background: #72738f;
 .option-heading {
   font-size: 0.75rem;
   text-align: center;
-  color: white;
+  color: rgb(233, 233, 233);
 }
 .portions-container {
   padding: 8px 8px;
@@ -15,7 +15,7 @@ $context-menu-background: #72738f;
     justify-content: center;
     button {
       background: none;
-      border: 2px solid $border-line;
+      border: 1px solid $border-line;
       color: $context-menu-foreground;
       padding: 1px 10px;
       text-align: center;
@@ -37,21 +37,22 @@ $context-menu-background: #72738f;
 }
 //custom input
 .custom-input-wrapper {
-    margin: 4px 0px;
+  margin: 4px 0px;
   display: flex;
   justify-content: center;
   height: 35px;
   .custom-input {
     display: flex;
     border-radius: 6px;
+    border: 1px solid $border-line;
     width: 85px;
     height: 100%;
     background: $body-bg;
     input {
       flex-grow: 1;
       text-align: center;
-      border: none;
       background: none;
+      border: none;
       color: $context-menu-foreground;
       font-size: 14px;
       height: 100%;
@@ -104,7 +105,7 @@ $context-menu-background: #72738f;
   &:hover {
     span,
     img {
-      filter: brightness(50%) sepia(100) saturate(100) hue-rotate(25deg);
+      filter: brightness(50%) sepia(100) saturate(100) hue-rotate(8deg);
     }
   }
   img {

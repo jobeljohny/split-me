@@ -1,13 +1,13 @@
 <div class="portions-container">
   <div class="option-heading">serving size</div>
   <div class="portions extra-padded">
-    <button matTooltip="half portion" (click)="onPortionModifier(1/2)">
+    <button matTooltip="half portion" (click)="onPortionModifier(1 / 2)">
       <sup>1</sup>/<sub>2</sub>
     </button>
-    <button matTooltip="one-third portion" (click)="onPortionModifier(1/3)">
+    <button matTooltip="one-third portion" (click)="onPortionModifier(1 / 3)">
       <sup>1</sup>/<sub>3</sub>
     </button>
-    <button matTooltip="quarter portion" (click)="onPortionModifier(1/4)">
+    <button matTooltip="quarter portion" (click)="onPortionModifier(1 / 4)">
       <sup>1</sup>/<sub>4</sub>
     </button>
   </div>
@@ -31,12 +31,14 @@
       #customInput
       type="text"
       class="form-control"
-      placeholder="custom"
+      [placeholder]=" togglers[toggleIndex].description"
       (click)="$event.stopPropagation()"
     />
-    <span (click)="toggleCustom($event)" class="input-type">{{
-      togglers[toggleIndex]
-    }}</span>
+    <span
+      (click)="toggleCustom($event)"
+      class="input-type not-selectable"
+      >{{ togglers[toggleIndex].symbol }}
+    </span>
   </div>
   <button class="btn" (click)="updateCustom(customInput.value)">ok</button>
 </div>
