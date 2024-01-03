@@ -1,10 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import {
-  ChartData,
-  ChartOptions,
-} from 'chart.js';
-import { DoughnutData } from 'src/app/classes/interfaces';
-import { gradientColors } from 'src/app/constants/color-constants';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { ChartData, ChartOptions } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
+import { IgraphData } from 'src/app/classes/interfaces';
 
 @Component({
   selector: 'app-doughnut-graph',
@@ -12,13 +9,11 @@ import { gradientColors } from 'src/app/constants/color-constants';
   styleUrls: ['./doughnut-graph.component.scss'],
 })
 export class DoughnutGraphComponent implements OnInit {
-  @Input('data') data: DoughnutData[] = [];
-  doughnutChartLabels: string[] = [];
-  doughnutChartData: ChartData<'doughnut'> = { labels: [], datasets: [] };
+  @ViewChild(BaseChartDirective) chart!: BaseChartDirective;
+  @Input('data') data!: IgraphData;
   options: ChartOptions<'doughnut'> = {
     maintainAspectRatio: false,
     plugins: {
-      
       legend: {
         position: 'bottom',
         labels: {
@@ -41,38 +36,29 @@ export class DoughnutGraphComponent implements OnInit {
   };
 
   centerText = {
-      id: 'centerText',
-      beforeDraw: (chart:any) => {
-        const ctx = chart.ctx;
-        const xCoor = chart.chartArea.left + (chart.chartArea.right - chart.chartArea.left) / 2;
-        const yCoor = chart.chartArea.top + (chart.chartArea.bottom - chart.chartArea.top) / 2;
-        ctx.save();
-        ctx.font = '30px';
-        ctx.fillStyle = 'white';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(`text`, xCoor, yCoor);
-        ctx.restore();
-      },
-  }
+    id: 'centerText',
+    beforeDraw: (chart: any) => {
+      const ctx = chart.ctx;
+      const xCoor =
+        chart.chartArea.left +
+        (chart.chartArea.right - chart.chartArea.left) / 2;
+      const yCoor =
+        chart.chartArea.top +
+        (chart.chartArea.bottom - chart.chartArea.top) / 2;
+      ctx.save();
+      ctx.font = '30px';
+      ctx.fillStyle = 'white';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(`text`, xCoor, yCoor);
+      ctx.restore();
+    },
+  };
   constructor() {}
 
-  ngOnInit(): void {
-    this.doughnutChartLabels = this.data.map((item) => item.item);
+  ngOnInit(): void {}
 
-    const totalItems = this.doughnutChartLabels.length;
-    this.doughnutChartData = {
-      labels: this.doughnutChartLabels,
-
-      datasets: [
-        {
-          data: this.data.map((item) => item.value),
-
-          backgroundColor: gradientColors.slice(0, totalItems),
-          borderColor: '#0c0c1500',
-          offset: 16,
-        },
-      ],
-    };
+  refresh() {
+    this.chart.chart?.update();
   }
 }

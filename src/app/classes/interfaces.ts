@@ -1,5 +1,5 @@
+import { ChartData } from 'chart.js';
 import { Profile } from './profile';
-
 export interface IContributors {
   name: string;
   food_amount: number;
@@ -22,7 +22,17 @@ export interface CustomContributionToggler {
   description: string;
 }
 
-export interface DoughnutData{
-  item:string;
-  value:number;
+export interface DoughnutEntries {
+  item: string;
+  value: number;
+}
+
+export interface IgraphData {
+  chartData: ChartData<'doughnut'>;
+  centerText: string;
+}
+
+export interface IgraphType {
+  index: number;
+  graph: string;
 }

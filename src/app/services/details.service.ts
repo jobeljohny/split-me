@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FoodPaletteService } from './food-palette.service';
-import { DoughnutData, IContributors } from '../classes/interfaces';
+import { DoughnutEntries, IContributors } from '../classes/interfaces';
 import { IndividualSummary } from '../classes/individual-summary';
 
 @Injectable({
@@ -56,17 +56,29 @@ export class DetailsService {
     return ContributorsMap;
   }
 
-  getNameAmountDistribution(): DoughnutData[] {
-    let dataMap: DoughnutData[] = [];
+  getNameAmountDistribution(): DoughnutEntries[] {
+    let dataMap: DoughnutEntries[] = [];
 
     if (this.contributorsMap && this.totalAmountMap) {
-      for (let [name, money] of this.contributorsMap) {
-        let entry: DoughnutData = {
+      for (let name of this.contributorsMap.keys()) {
+        let entry: DoughnutEntries = {
           item: name,
           value: this.totalAmountMap.get(name)!,
         };
         dataMap.push(entry);
       }
+    }
+    return dataMap;
+  }
+
+  getDishAmountDistribution(): DoughnutEntries[] {
+    let dataMap: DoughnutEntries[] = [];
+    for (let palette of this.foodPalette.palettes) {
+      let entry: DoughnutEntries = {
+        item: palette.logo + ' ' + palette.name,
+        value: palette.totalContributions,
+      };
+      dataMap.push(entry);
     }
     return dataMap;
   }
