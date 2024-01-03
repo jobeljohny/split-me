@@ -49,8 +49,7 @@ import { FoodInputFieldComponent } from './components/food-input-field/food-inpu
 import { AmountDisplayComponent } from './components/amount-display/amount-display.component';
 import { IndividualMenuComponent } from './components/individual-menu/individual-menu.component';
 import { DoughnutGraphComponent } from './components/doughnut-graph/doughnut-graph.component';
-import { NgChartsModule   } from 'ng2-charts';
-import { GraphSliderComponent } from './components/graph-slider/graph-slider.component';
+import { NgChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,7 +84,6 @@ import { GraphSliderComponent } from './components/graph-slider/graph-slider.com
     AmountDisplayComponent,
     IndividualMenuComponent,
     DoughnutGraphComponent,
-    GraphSliderComponent,
   ],
   imports: [
     BrowserModule,
