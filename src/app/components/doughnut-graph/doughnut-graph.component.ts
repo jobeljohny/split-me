@@ -19,6 +19,8 @@ export class DoughnutGraphComponent implements OnInit {
         labels: {
           boxWidth: 10,
           boxHeight: 10,
+          color: 'whitesmoke',
+          padding: 20,
         },
       },
       tooltip: {
@@ -35,30 +37,39 @@ export class DoughnutGraphComponent implements OnInit {
     },
   };
 
+  constructor() {}
   centerText = {
     id: 'centerText',
-    beforeDraw: (chart: any) => {
-      const ctx = chart.ctx;
-      const xCoor =
-        chart.chartArea.left +
-        (chart.chartArea.right - chart.chartArea.left) / 2;
-      const yCoor =
-        chart.chartArea.top +
-        (chart.chartArea.bottom - chart.chartArea.top) / 2;
-      ctx.save();
-      ctx.font = '30px';
-      ctx.fillStyle = 'white';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(`text`, xCoor, yCoor);
-      ctx.restore();
-    },
+    beforeDraw: (chart: any) => {},
   };
-  constructor() {}
 
-  ngOnInit(): void {}
+  updateCenterText() {
+    this.centerText = {
+      id: 'centerText',
+      beforeDraw: (chart: any) => {
+        const ctx = chart.ctx;
+        const xCoor =
+          chart.chartArea.left +
+          (chart.chartArea.right - chart.chartArea.left) / 2;
+        const yCoor =
+          chart.chartArea.top +
+          (chart.chartArea.bottom - chart.chartArea.top) / 2;
+        ctx.save();
+        ctx.font = '30px';
+        ctx.fillStyle = 'white';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(`${this.data.centerText}`, xCoor, yCoor);
+        ctx.restore();
+      },
+    };
+  }
+  ngOnInit(): void {
+    this.updateCenterText();
+  }
 
   refresh() {
     this.chart.chart?.update();
+    this.updateCenterText();
   }
 }

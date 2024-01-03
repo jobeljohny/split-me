@@ -1,11 +1,10 @@
 import {
-  AfterViewInit,
   Component,
   Input,
   OnChanges,
-  SimpleChanges,
+  SimpleChanges
 } from '@angular/core';
-import { formatCurrency } from '@angular/common';
+import { getCurrencyString } from 'src/app/classes/commons';
 @Component({
   selector: 'app-amount-display',
   templateUrl: './amount-display.component.html',
@@ -20,15 +19,8 @@ export class AmountDisplayComponent implements OnChanges {
   paisa: string = '';
 
   ngOnChanges(changes: SimpleChanges): void {
-    const amt: string = formatCurrency(
-      changes['amount'].currentValue,
-      'en-US',
-      '₹',
-      'INR',
-      '1.2-2'
-    );
+    const amt: string = getCurrencyString(changes['amount'].currentValue);
 
-    [this.rupees,this.paisa] = amt.split('.')
-    
+    [this.rupees, this.paisa] = amt.split('.');
   }
 }

@@ -2,6 +2,7 @@
 
 .dialog-body {
   padding: 16px;
+  padding-bottom: 8px;
   position: relative;
   height: 100%;
   display: flex;
@@ -11,7 +12,7 @@
     display: flex;
     margin-bottom: 8px;
     .table-wrap {
-      width: 400px;
+      width: 500px;
       overflow: auto;
     }
     .graph-wrap {
@@ -24,7 +25,7 @@
         align-items: center;
         justify-content: center;
         height: 50px;
-        font-size: 1.8rem;
+        font-size: 1.4rem;
       }
       app-doughnut-graph {
         flex-grow: 1;
@@ -56,9 +57,38 @@
       }
     }
   }
-  .data-panel {
+  .footer-panel {
     border-top: 1px solid $border-line;
     height: 40px;
+    display: flex;
+    align-items: end;
+    .data-panel {
+      height: 30px;
+      flex-grow: 1;
+    }
+    .ind-summary {
+      font-size: 0.8rem;
+      width: 180px;
+      height: 30px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      cursor: pointer;
+      border-radius: 4px;
+      font-family: Helvetica, sans-serif;
+      font-weight: bold;
+      background-color: #585697;
+      text-transform: capitalize;
+      img {
+        width: 18px;
+        filter: invert(1);
+        margin-left: 2px;
+      }
+
+      &:hover {
+        filter: brightness(1.1);
+      }
+    }
   }
 }
 
@@ -78,6 +108,7 @@
 @media only screen and (max-width: 576px) {
   .dialog-body {
     padding: 0px;
+    padding-bottom: 8px;
     .table-stats-container {
       margin-top: 8px;
       flex-direction: column;
@@ -87,6 +118,38 @@
         height: 300px;
         margin-bottom: 2px;
         box-shadow: none !important;
+      }
+      .graph-wrap {
+        .graph-title {
+          height: 16px;
+          font-size: 0.7rem;
+        }
+
+        .slide-wrapper {
+          top: 30%;
+          img {
+            width: 20px;
+          }
+        }
+      }
+    }
+    .footer-panel {
+      padding: 2px 10px;
+      height: 40px;
+      display: flex;
+      align-items: end;
+      .data-panel {
+        flex-grow: 1;
+      }
+      .ind-summary {
+        width: 40px;
+
+        span {
+          display: none;
+        }
+        img {
+          width: 14px;
+        }
       }
     }
   }

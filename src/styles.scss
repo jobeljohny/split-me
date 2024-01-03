@@ -12,8 +12,8 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.food-autocomplete {
-  background-color: #2e2e49;
+.mat-mdc-autocomplete-panel.food-autocomplete {
+  background: #2e2e49;
   .mat-mdc-option {
     min-height: 38px;
     border-top: 1px solid $border-line;

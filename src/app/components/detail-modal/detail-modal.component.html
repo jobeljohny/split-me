@@ -13,7 +13,7 @@
       <app-break-up-table [dataSource]="dataMatTable"></app-break-up-table>
     </div>
     <div class="graph-wrap">
-      <div class="graph-title lead">testing only</div>
+      <div class="graph-title lead">{{ graphs[currentGraph].graph }}</div>
       <span (click)="slideGraph()" class="slide-wrapper slide-left">
         <img src="assets/icons/slide-arrow-icon.svg" alt="slide" />
       </span>
@@ -28,7 +28,13 @@
       </div>
     </div>
   </div>
-  <div class="data-panel">
-    <app-break-up-info></app-break-up-info>
+  <div class="footer-panel">
+    <div class="data-panel">
+      <app-break-up-info></app-break-up-info>
+    </div>
+    <div class="ind-summary" (click)="viewSummary()">
+      <span>individual summary</span>
+      <img src="assets/icons/right-arrow-icon.svg" alt="" />
+    </div>
   </div>
 </div>

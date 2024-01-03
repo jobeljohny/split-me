@@ -9,7 +9,7 @@ import { SummaryModalComponent } from '../summary-modal/summary-modal.component'
   styleUrls: ['./break-up-info.component.scss'],
 })
 export class BreakUpInfoComponent {
-  constructor(private details: DetailsService, private dialog: MatDialog) {}
+  constructor(private details: DetailsService ) {}
   get totalFoodBill() {
     return this.details.totalFoodAmount;
   }

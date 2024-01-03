@@ -35,10 +35,10 @@ export class FoodPaletteService {
       ]),
       new FoodItem('juice', 50, [
         new Participant(new Profile('marvel'), 50),
-        new Participant(new Profile('richard'), 50),
-        new Participant(new Profile('joseph'), 50),
+        new Participant(new Profile('richard'), 150),
+        new Participant(new Profile('joseph'), 250),
         new Participant(new Profile('athul'), 50),
-        new Participant(new Profile('manju'), 50),
+        new Participant(new Profile('manju'), 100),
       ]),
     ];
     this.updatePanelIds();

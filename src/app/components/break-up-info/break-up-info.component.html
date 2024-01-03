@@ -2,8 +2,10 @@
   <div class="stat-item">
     <img class="stat-icon" src="assets/icons/scroll-icon.svg" alt="icon" />
     <span class="stat"
-      ><span class="label">Dish Expense </span><span class="seperator">-</span> ₹
-      {{ totalFoodBill }}</span
+      ><span class="label">Dish Expense </span><span class="seperator">-</span>
+      {{
+        totalFoodBill | currency : "INR" : "symbol" : "1.2-2" : "en-US"
+      }}</span
     >
   </div>
   <div class="stat-item">
@@ -31,8 +33,9 @@
   <div class="stat-item">
     <img class="stat-icon" src="assets/icons/rupee-icon.svg" alt="icon" />
     <span class="stat"
-      ><span class="label">Final Expense </span><span class="seperator">-</span> ₹
-      {{ finalTotal }}</span
+      ><span class="label">Final Expense </span
+      ><span class="seperator">-</span>
+      {{ finalTotal | currency : "INR" : "symbol" : "1.2-2" : "en-US" }}</span
     >
   </div>
 </div>

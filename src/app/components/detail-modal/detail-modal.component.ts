@@ -1,16 +1,18 @@
 import { Component, ViewChild } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { ChartData } from 'chart.js';
+import { getCurrencyString } from 'src/app/classes/commons';
 import {
   DoughnutEntries,
   IContributors,
   IgraphData,
   IgraphType,
 } from 'src/app/classes/interfaces';
-import { DetailsService } from 'src/app/services/details.service';
-import { ChartData, ChartOptions } from 'chart.js';
 import { gradientColors } from 'src/app/constants/color-constants';
+import { DetailsService } from 'src/app/services/details.service';
 import { DoughnutGraphComponent } from '../doughnut-graph/doughnut-graph.component';
+import { SummaryModalComponent } from '../summary-modal/summary-modal.component';
 
 @Component({
   selector: 'app-detail-modal',
@@ -18,8 +20,7 @@ import { DoughnutGraphComponent } from '../doughnut-graph/doughnut-graph.compone
   styleUrls: ['./detail-modal.component.scss'],
 })
 export class DetailModalComponent {
-  @ViewChild('graph') private graph!:DoughnutGraphComponent;
-
+  @ViewChild('graph') private graph!: DoughnutGraphComponent;
 
   dataSourceMap: IContributors[];
   dataMatTable: any;
@@ -37,56 +38,61 @@ export class DetailModalComponent {
 
   constructor(
     public dialogRef: MatDialogRef<DetailModalComponent>,
+    private dialog: MatDialog,
     private details: DetailsService
   ) {
     this.dataSourceMap = this.details.generateDataSourceMap();
     this.dataMatTable = new MatTableDataSource(this.dataSourceMap);
     this.nameAmountMap = this.details.getNameAmountDistribution();
     this.dishAmountMap = this.details.getDishAmountDistribution();
+
     this.graphData = this.populateGraphData();
   }
 
   viewSummary() {
-    //   this.details.generateIndividualSummary();
-    //   this.dialog.open(SummaryModalComponent, {
-    //     width: '1140px',
-    //   });
+    this.details.generateIndividualSummary();
+    this.dialog.open(SummaryModalComponent, {
+      width: '1140px',
+    });
   }
 
   populateGraphData() {
+    const amounts = this.nameAmountMap.map((entry) => entry.value);
     return {
       chartData: {
         labels: this.nameAmountMap.map((entry) => entry.item),
         datasets: [
           {
-            data: this.nameAmountMap.map((entry) => entry.value),
+            data: amounts,
             backgroundColor: gradientColors.slice(0, this.nameAmountMap.length),
             borderColor: '#00000000',
-            offset: 16,
+            offset: 20,
           },
         ],
       },
-      centerText: 'random',
+      centerText: getCurrencyString(amounts.reduce((sum, num) => sum + num, 0)),
     };
+  }
+
+  setChartData(map: DoughnutEntries[]) {
+    const labels = map.map((entry) => entry.item);
+    const amounts = map.map((entry) => entry.value);
+
+    this.graphData.chartData.labels = labels;
+    this.graphData.chartData.datasets[0].data = amounts;
+    this.graphData.centerText = getCurrencyString(
+      amounts.reduce((sum, num) => sum + num, 0)
+    );
   }
 
   slideGraph() {
     this.currentGraph = 1 - this.currentGraph;
     if (this.currentGraph == 0) {
-      this.graphData.chartData.labels = this.nameAmountMap.map(
-        (entry) => entry.item
-      );
-      this.graphData.chartData.datasets[0].data = this.nameAmountMap.map(
-        (entry) => entry.value
-      );
+      this.setChartData(this.nameAmountMap);
     } else {
-      this.graphData.chartData.labels = this.dishAmountMap.map(
-        (entry) => entry.item
-      );
-      this.graphData.chartData.datasets[0].data = this.dishAmountMap.map(
-        (entry) => entry.value
-      );
+      this.setChartData(this.dishAmountMap);
     }
-   this.graph.refresh();
+
+    this.graph.refresh();
   }
 }
