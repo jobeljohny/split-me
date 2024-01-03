@@ -44,6 +44,7 @@ export class DoughnutGraphComponent implements OnInit {
   };
 
   updateCenterText() {
+    const textSet = this.data.centerText.split('|');
     this.centerText = {
       id: 'centerText',
       beforeDraw: (chart: any) => {
@@ -55,11 +56,15 @@ export class DoughnutGraphComponent implements OnInit {
           chart.chartArea.top +
           (chart.chartArea.bottom - chart.chartArea.top) / 2;
         ctx.save();
-        ctx.font = '30px';
+        ctx.font = 'bold 20px Trebuchet MS';
         ctx.fillStyle = 'white';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText(`${this.data.centerText}`, xCoor, yCoor);
+        ctx.fillText(`${textSet[1]}`, xCoor, yCoor - 16); //amount
+        ctx.font = '16px Trebuchet MS';
+        ctx.fillStyle = '#888d99';
+        ctx.fillText(`${textSet[0]}`, xCoor, yCoor + 12); //title
+
         ctx.restore();
       },
     };

@@ -70,27 +70,28 @@ export class DetailModalComponent {
           },
         ],
       },
-      centerText: getCurrencyString(amounts.reduce((sum, num) => sum + num, 0)),
+      centerText: 'Total Expense|'+getCurrencyString(amounts.reduce((sum, num) => sum + num, 0)),
     };
   }
 
-  setChartData(map: DoughnutEntries[]) {
+  setChartData(map: DoughnutEntries[], centerTitle: string) {
     const labels = map.map((entry) => entry.item);
     const amounts = map.map((entry) => entry.value);
 
     this.graphData.chartData.labels = labels;
     this.graphData.chartData.datasets[0].data = amounts;
-    this.graphData.centerText = getCurrencyString(
-      amounts.reduce((sum, num) => sum + num, 0)
-    );
+    this.graphData.centerText =
+      centerTitle +
+      '|' +
+      getCurrencyString(amounts.reduce((sum, num) => sum + num, 0));
   }
 
   slideGraph() {
     this.currentGraph = 1 - this.currentGraph;
     if (this.currentGraph == 0) {
-      this.setChartData(this.nameAmountMap);
+      this.setChartData(this.nameAmountMap,'Total Expense');
     } else {
-      this.setChartData(this.dishAmountMap);
+      this.setChartData(this.dishAmountMap,'Culinary Total');
     }
 
     this.graph.refresh();
