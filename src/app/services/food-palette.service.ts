@@ -28,6 +28,18 @@ export class FoodPaletteService {
         new Participant(new Profile('jobel'), 239),
         new Participant(new Profile('noble'), 239),
       ]),
+ new FoodItem('noodles', 200, [
+        new Participant(new Profile('neena'), 200),
+        new Participant(new Profile('isham'), 200),
+        new Participant(new Profile('divya'), 200),
+      ]),
+      new FoodItem('juice', 50, [
+        new Participant(new Profile('marvel'), 50),
+        new Participant(new Profile('richard'), 50),
+        new Participant(new Profile('joseph'), 50),
+        new Participant(new Profile('athul'), 50),
+        new Participant(new Profile('manju'), 50),
+      ]),
     ];
     this.updatePanelIds();
   }

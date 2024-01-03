@@ -1,7 +1,5 @@
 import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { DetailsService } from 'src/app/services/details.service';
 
 @Component({
   selector: 'app-break-up-table',
@@ -10,11 +8,9 @@ import { DetailsService } from 'src/app/services/details.service';
 })
 export class BreakUpTableComponent implements AfterViewInit {
   @ViewChild(MatSort) sort = new MatSort();
-  dataSource!: any;
-  constructor(private details: DetailsService) {
-    this.dataSource = new MatTableDataSource(
-      this.details.generateDataSourceMap()
-    );
+  @Input('dataSource') dataSource!: any;
+  constructor() {
+ 
   }
   displayedColumns: string[] = ['name', 'food_amount', 'split_amount'];
   footerColumns: string[] = ['total_amt', 'total_food_amt', 'total_split_amt'];

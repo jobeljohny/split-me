@@ -48,7 +48,9 @@ import { MatInputModule } from '@angular/material/input';
 import { FoodInputFieldComponent } from './components/food-input-field/food-input-field.component';
 import { AmountDisplayComponent } from './components/amount-display/amount-display.component';
 import { IndividualMenuComponent } from './components/individual-menu/individual-menu.component';
-
+import { DoughnutGraphComponent } from './components/doughnut-graph/doughnut-graph.component';
+import { NgChartsModule   } from 'ng2-charts';
+import { GraphSliderComponent } from './components/graph-slider/graph-slider.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,11 +84,14 @@ import { IndividualMenuComponent } from './components/individual-menu/individual
     FoodInputFieldComponent,
     AmountDisplayComponent,
     IndividualMenuComponent,
+    DoughnutGraphComponent,
+    GraphSliderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    NgChartsModule,
     ReactiveFormsModule,
     DragDropModule,
     MatMenuModule,

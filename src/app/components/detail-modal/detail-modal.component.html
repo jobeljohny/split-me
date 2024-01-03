@@ -10,12 +10,15 @@
 <div class="dialog-body">
   <div class="table-stats-container">
     <div class="table-wrap">
-      <app-break-up-table></app-break-up-table>
+      <app-break-up-table [dataSource]="dataMatTable"></app-break-up-table>
     </div>
     <div class="graph-wrap">
-      hi! i am excited
+      <app-graph-slider></app-graph-slider>
+      <app-doughnut-graph [data]="nameAmountMap"></app-doughnut-graph>
       <div class="summary-panel">
+        <!--
         <span (click)="viewSummary()">View individual summaries</span>
+        -->
       </div>
     </div>
   </div>

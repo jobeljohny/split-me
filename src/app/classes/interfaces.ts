@@ -21,3 +21,8 @@ export interface CustomContributionToggler {
   symbol: string;
   description: string;
 }
+
+export interface DoughnutData{
+  item:string;
+  value:number;
+}
