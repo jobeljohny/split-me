@@ -1,23 +1,16 @@
 <div class="dialog-content">
   <div class="menu-wrap">
     <span
-      class="qr-icon-wrap"
+      class="option-button"
       matTooltip="view on phone"
       (click)="downloadAs('qr')"
-      ><img
-        class="qr-icon-button"
-        src="../../../assets/qr-icon.svg"
-        alt="QR Icon"
-    /></span>
-    <span class="download-wrapper"
-      ><img
-        matTooltip="download"
-        class="option-button"
-        id="download"
-        src="../../../assets/downlaod.png"
-        alt="download"
-        (click)="onDownload()"
-      />
+      ><img class="filter" src="assets/summary/qr.svg" alt="QR Icon" />
+    </span>
+    <span
+      class="option-button download-button"
+      matTooltip="download"
+      (click)="onDownload()"
+    >
       <div
         class="lead sub-menu rounded shadow-lg"
         [style.display]="isDownloadOptions ? 'block' : 'none'"
@@ -31,11 +24,14 @@
           <div>Download PDF</div>
         </div>
       </div>
+      <img
+        class="filter"
+        src="assets/summary/download.svg"
+        alt="download Icon"
+      />
     </span>
-    <span
+    <span class="option-button close-button" matTooltip="close"
       ><img
-        class="option-button"
-        matTooltip="close"
         src="../../../assets/cancel.png"
         alt="close"
         (click)="dialogRef.close()"
@@ -43,11 +39,7 @@
     </span>
   </div>
   <div class="dialog-body">
-    <div #SummaryBody class="summary-container" (click)="onBodyClicked()">
-      <div id="img-container">
-        <img src="../../../assets/split-me-logo.png" alt="logo" />
-      </div>
-
+  <div #SummaryBody class="summary-container" (click)="onBodyClicked()">
       <div class="tables-container">
         <div class="table-item" *ngFor="let user of summary">
           <app-summary-table [summaryData]="user"></app-summary-table>

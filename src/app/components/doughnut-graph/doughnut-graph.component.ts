@@ -20,7 +20,7 @@ export class DoughnutGraphComponent implements OnInit {
           boxWidth: 10,
           boxHeight: 10,
           color: 'whitesmoke',
-          padding: 20,
+          padding: 16,
         },
       },
       tooltip: {

@@ -23,8 +23,8 @@ export class DetailsPanelComponent {
   calcFinalTotal() {
     this.details.calculateFinalTotal();
     this.dialog.open(DetailModalComponent, {
-      width: '80%',
-      height: '80vh',
+      width: '1200px',
+      height: '600px',
       panelClass:'detailsModal'
     });
   }

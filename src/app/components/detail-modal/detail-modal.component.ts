@@ -47,28 +47,34 @@ export class DetailModalComponent {
     this.dishAmountMap = this.details.getDishAmountDistribution();
 
     this.graphData = this.populateGraphData();
+    //TODO remove
+    setTimeout(()=>this.viewSummary())
   }
 
   viewSummary() {
     this.details.generateIndividualSummary();
     this.dialog.open(SummaryModalComponent, {
       width: '1140px',
+      panelClass:'summaryModal'
     });
   }
 
-  populateGraphData() {
+  populateGraphData():IgraphData {
     const amounts = this.nameAmountMap.map((entry) => entry.value);
     return {
-      chartData: {
+      chartData: {  
         labels: this.nameAmountMap.map((entry) => entry.item),
         datasets: [
           {
+            hoverOffset:70,
             data: amounts,
             backgroundColor: gradientColors.slice(0, this.nameAmountMap.length),
             borderColor: '#00000000',
             offset: 20,
+          
           },
         ],
+        
       },
       centerText: 'Total Expense|'+getCurrencyString(amounts.reduce((sum, num) => sum + num, 0)),
     };

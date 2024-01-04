@@ -1,53 +1,48 @@
-$component-width: 320px;
-$block-bg: linear-gradient(
-  90deg,
-  rgb(68, 68, 68, 1) 0%,
-  rgba(87, 87, 87, 1) 50%,
-  rgba(68, 68, 68, 1) 100%
-);
+@import "../../styles/palette.scss";
+$component-width: 250px;
+$block-bg: $card-color;
+$title-bg: rgb(9, 16, 43);
 .info-container {
+  //border: 1px solid $border-line;
+  //border-radius: 3px;
   width: $component-width;
   .individual-name {
     display: flex;
-
-    border-radius: 8px 8px 0px 0px;
-    padding: 10px 0px;
-    background: linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(0, 8, 62, 1) 48%,
-      rgba(13, 0, 98, 1) 100%
-    );
+    font-size: 0.85rem;
+    border-bottom: 1px solid $border-line;
+    border-radius: 4px 4px 0px 0px;
+    padding: 7px 0px;
+    background: $title-bg;
 
     justify-content: center;
-    color: white;
+    color: rgb(218, 218, 218);
     span {
       text-transform: capitalize;
     }
   }
   .table {
-    font-size: 1rem;
+    font-size: 0.8rem;
     width: 100%;
     margin-bottom: 0px;
     .table-header {
       display: flex;
       width: 100%;
       background: $block-bg;
-      padding: 10px 0px;
-      color: white;
+      padding: 5px 0px;
+      color: rgb(236, 236, 236);
       .header-item {
         text-align: center;
-        text-transform: uppercase;
+        text-transform: capitalize;
       }
     }
     .table-content {
       .table-row {
+        color: #bdc4dd;
         display: flex;
         width: 100%;
-        padding: 3px 0px;
-        background: rgb(253, 247, 252);
+        background: rgb(60 60 80);
         &:nth-of-type(odd) {
-          background: #eeeeee;
+          background: #414157;
         }
       }
     }
@@ -58,17 +53,17 @@ $block-bg: linear-gradient(
       flex: 1 1 50%;
       text-align: center;
       background: $block-bg;
-      margin-top: 4px;
-      padding: 10px 0px;
-      color: white;
-      font-size: 1rem;
+      margin-top: 2px;
+      padding: 6px 0px;
+      color: rgb(219, 219, 219);
+      font-size: 0.75rem;
       &:first-child {
-        border-right: 1px solid white;
-        border-radius: 0px 0px 0px 6px;
+        margin-right: 1px;
+        border-radius: 0px 0px 0px 4px;
       }
       &:last-child {
-        border-left: 1px solid white;
-        border-radius: 0px 0px 6px 0px;
+        margin-left: 1px;
+        border-radius: 0px 0px 4px 0px;
       }
     }
   }
@@ -76,6 +71,7 @@ $block-bg: linear-gradient(
 
 .table-data {
   text-align: left;
+  padding: 5px;
 }
 
 .table-data-food,
@@ -91,7 +87,7 @@ $block-bg: linear-gradient(
   flex: 1 1 35%;
 }
 .table-data-food {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   text-align: center;
 }
 .table-data-price {
@@ -100,42 +96,35 @@ $block-bg: linear-gradient(
 
 @media only screen and (max-width: 576px) {
   .info-container {
-    width: 260px;
+    width: 240px;
     .individual-name {
       padding: 4px 0px;
     }
     .table {
-      font-size: 0.9rem;
-
       .table-header {
-        padding: 5px 0px;
-        .header-item {
-        }
-      }
-      .table-content {
-        .table-row {
-          .table-data {
-            padding: 3px 0px;
-          }
-        }
+        padding: 4px 0px;
       }
     }
     .amounts-container {
       span {
-        font-size: 0.75rem;
-        padding: 3px 0;
+        font-size: 0.65em;
+        padding: 2px 0;
       }
     }
   }
   .table-data-food {
-    font-size: 0.7rem;
+    font-size: 0.5.5rem;
   }
+
   .table-data-food,
   .header-item-food,
   .table-data-portion,
   .header-item-portion,
   .table-data-price,
   .header-item-price {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+  }
+  .table-data-portion {
+    padding-left: 10px;
   }
 }
