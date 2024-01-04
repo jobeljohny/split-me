@@ -23,7 +23,7 @@ export class FoodInputFieldComponent implements OnInit {
   @Input('initialName') initialName!: string;
   @Output('nameUpdate') foodName = new EventEmitter<string>();
   @Output('updateIcon') updateIcon = new EventEmitter<string>();
-  constructor(private cdr: ChangeDetectorRef) {
+  constructor() {
     this.foodNames = this.stateCtrl.valueChanges.pipe(
       startWith(''),
       map((value) => this.filterFood(value || ''))

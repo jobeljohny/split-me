@@ -14,9 +14,7 @@ export class DetailsPanelComponent {
     private foodPalette: FoodPaletteService,
     private details: DetailsService,
     private dialog: MatDialog
-  ) {
-    setTimeout(() => this.calcFinalTotal());
-  }
+  ) {}
 
   calcFinalTotal() {
     this.details.calculateFinalTotal();
