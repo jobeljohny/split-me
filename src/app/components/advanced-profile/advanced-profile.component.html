@@ -19,11 +19,9 @@
 ></div>
 <!-- context menu -->
 <mat-menu #contextMenu="matMenu" class="individual-menu">
-  <ng-template matMenuContent let-item="item">
    <app-individual-menu
    [participant]="participant"
    [price]="price"
    (removeParticipant)="remove()"
    ></app-individual-menu> 
-  </ng-template>
 </mat-menu>

@@ -27,7 +27,6 @@ export class AdvancedProfileComponent {
     this.contextMenuPosition.y = event.clientY + 'px';
 
     if (this.contextMenu != null) {
-      this.contextMenu.menuData = { item: 'item' };
       this.contextMenu.openMenu();
     }
   }

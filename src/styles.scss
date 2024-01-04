@@ -29,12 +29,23 @@ body {
 
 //mat-menu styling
 .mat-mdc-menu-panel.individual-menu {
-  padding: 0px;
   background: rgba(24, 24, 38, 0.7);
   border-radius: 10px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  border: 1px solid $border-line;
+}
+.individual-menu .mat-mdc-menu-content{
+  padding: 0;
+}
+
+.contribution-graph-menu .mat-mdc-menu-content{
+  padding: 0px;
+}
+.mat-mdc-menu-panel.contribution-graph-menu {
+  background: rgba(24, 24, 38, 0.7);
+  border-radius: 10px;
   border: 1px solid $border-line;
 }
 
