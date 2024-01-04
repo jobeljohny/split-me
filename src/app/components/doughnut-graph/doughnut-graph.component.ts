@@ -45,8 +45,6 @@ export class DoughnutGraphComponent implements OnInit {
   }
 
   displayUser(event: ChartEvent) {
-    console.log(event);
-
     const e = event.native as PointerEvent;
     this.contextMenuPosition.x = e.clientX - (window.innerWidth - 1200) / 2;
     this.contextMenuPosition.y = e.clientY - (window.innerHeight - 600) / 2;
