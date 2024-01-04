@@ -1,14 +1,14 @@
 import { Component, ViewChild } from '@angular/core';
+import { getCurrencyString } from 'src/app/classes/commons';
 import { Graphs } from 'src/app/classes/constants';
 import {
   DoughnutEntries,
   IgraphData,
   IgraphType,
 } from 'src/app/classes/interfaces';
+import { gradientColors } from 'src/app/constants/color-constants';
 import { DetailsService } from 'src/app/services/details.service';
 import { DoughnutGraphComponent } from '../doughnut-graph/doughnut-graph.component';
-import { getCurrencyString } from 'src/app/classes/commons';
-import { gradientColors } from 'src/app/constants/color-constants';
 
 @Component({
   selector: 'app-graph-container',
