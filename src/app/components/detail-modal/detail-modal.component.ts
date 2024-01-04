@@ -15,8 +15,6 @@ export class DetailModalComponent {
   dataSourceMap: IContributors[];
   dataMatTable: any;
 
-  doughnutChartData: ChartData<'doughnut'> = { labels: [], datasets: [] };
-
   constructor(
     public dialogRef: MatDialogRef<DetailModalComponent>,
     private dialog: MatDialog,
