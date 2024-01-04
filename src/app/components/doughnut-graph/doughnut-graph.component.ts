@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { ChartData, ChartOptions } from 'chart.js';
+import { ChartOptions } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { Graphs } from 'src/app/classes/constants';
 import { IgraphData } from 'src/app/classes/interfaces';
 
 @Component({
@@ -13,6 +14,12 @@ export class DoughnutGraphComponent implements OnInit {
   @Input('data') data!: IgraphData;
   options: ChartOptions<'doughnut'> = {
     maintainAspectRatio: false,
+    onHover: (event, chartElement) => {
+      (<HTMLElement>event.native?.target).style.cursor = chartElement[0]
+        ? 'pointer'
+        : 'default';
+    },
+
     plugins: {
       legend: {
         position: 'bottom',
@@ -71,6 +78,16 @@ export class DoughnutGraphComponent implements OnInit {
   }
   ngOnInit(): void {
     this.updateCenterText();
+  }
+
+  chartClicked({ active }: { active?: any[] }): void {
+    if (
+      this.data.graph.name == Graphs.COST_CONTRIBUTION &&
+      active &&
+      active.length > 0
+    ) {
+      const user = this.data.chartData.labels?.[active[0].index];
+    }
   }
 
   refresh() {

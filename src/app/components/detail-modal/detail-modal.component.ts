@@ -13,6 +13,7 @@ import { gradientColors } from 'src/app/constants/color-constants';
 import { DetailsService } from 'src/app/services/details.service';
 import { DoughnutGraphComponent } from '../doughnut-graph/doughnut-graph.component';
 import { SummaryModalComponent } from '../summary-modal/summary-modal.component';
+import { Graphs } from 'src/app/classes/constants';
 
 @Component({
   selector: 'app-detail-modal',
@@ -29,8 +30,8 @@ export class DetailModalComponent {
 
   //chart data
   graphs: IgraphType[] = [
-    { index: 0, graph: 'Cost Contribution Breakdown' },
-    { index: 0, graph: 'Dish Proportion Breakdown' },
+    { name: Graphs.COST_CONTRIBUTION, title: 'Cost Contribution Breakdown' },
+    { name: Graphs.DISH_PROPOTION, title: 'Dish Proportion Breakdown' },
   ];
   currentGraph: number = 0;
   graphData: IgraphData;
@@ -47,43 +48,41 @@ export class DetailModalComponent {
     this.dishAmountMap = this.details.getDishAmountDistribution();
 
     this.graphData = this.populateGraphData();
-    //TODO remove
-    setTimeout(()=>this.viewSummary())
+    this.details.generateIndividualSummary();
   }
 
   viewSummary() {
-    this.details.generateIndividualSummary();
     this.dialog.open(SummaryModalComponent, {
       width: '1140px',
-      panelClass:'summaryModal'
+      panelClass: 'summaryModal',
     });
   }
 
-  populateGraphData():IgraphData {
+  populateGraphData(): IgraphData {
     const amounts = this.nameAmountMap.map((entry) => entry.value);
     return {
-      chartData: {  
+      graph: this.graphs[this.currentGraph],
+      chartData: {
         labels: this.nameAmountMap.map((entry) => entry.item),
         datasets: [
           {
-            hoverOffset:70,
+            hoverOffset: 70,
             data: amounts,
             backgroundColor: gradientColors.slice(0, this.nameAmountMap.length),
             borderColor: '#00000000',
             offset: 20,
-          
           },
         ],
-        
       },
-      centerText: 'Total Expense|'+getCurrencyString(amounts.reduce((sum, num) => sum + num, 0)),
+      centerText:
+        'Total Expense|' +
+        getCurrencyString(amounts.reduce((sum, num) => sum + num, 0)),
     };
   }
 
   setChartData(map: DoughnutEntries[], centerTitle: string) {
     const labels = map.map((entry) => entry.item);
     const amounts = map.map((entry) => entry.value);
-
     this.graphData.chartData.labels = labels;
     this.graphData.chartData.datasets[0].data = amounts;
     this.graphData.centerText =
@@ -95,11 +94,11 @@ export class DetailModalComponent {
   slideGraph() {
     this.currentGraph = 1 - this.currentGraph;
     if (this.currentGraph == 0) {
-      this.setChartData(this.nameAmountMap,'Total Expense');
+      this.setChartData(this.nameAmountMap, 'Total Expense');
     } else {
-      this.setChartData(this.dishAmountMap,'Culinary Total');
+      this.setChartData(this.dishAmountMap, 'Culinary Total');
     }
-
+    this.graphData.graph = this.graphs[this.currentGraph];
     this.graph.refresh();
   }
 }

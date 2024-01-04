@@ -13,8 +13,10 @@
       <app-break-up-table [dataSource]="dataMatTable"></app-break-up-table>
     </div>
     <div class="graph-wrap">
-      <div class="graph-title lead">{{ graphs[currentGraph].graph }}</div>
-      <div class="graph-subtitle lead">Glide your cursor across the chart for supplementary details</div>
+      <div class="graph-title lead">{{ graphs[currentGraph].title }}</div>
+      <div class="graph-subtitle lead">
+        Glide your cursor across the chart for supplementary details
+      </div>
       <span (click)="slideGraph()" class="slide-wrapper slide-left">
         <img src="assets/icons/slide-arrow-icon.svg" alt="slide" />
       </span>
@@ -22,11 +24,7 @@
         <img src="assets/icons/slide-arrow-icon.svg" alt="slide" />
       </span>
       <app-doughnut-graph #graph [data]="graphData"></app-doughnut-graph>
-      <div class="summary-panel">
-        <!--
-        <span (click)="viewSummary()">View individual summaries</span>
-        -->
-      </div>
+      <div class="summary-panel"></div>
     </div>
   </div>
   <div class="footer-panel">

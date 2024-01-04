@@ -1,5 +1,6 @@
 import { ChartData } from 'chart.js';
 import { Profile } from './profile';
+import { Graphs } from './constants';
 export interface IContributors {
   name: string;
   food_amount: number;
@@ -28,11 +29,12 @@ export interface DoughnutEntries {
 }
 
 export interface IgraphData {
+  graph: IgraphType;
   chartData: ChartData<'doughnut'>;
   centerText: string;
 }
 
 export interface IgraphType {
-  index: number;
-  graph: string;
+  name: Graphs;
+  title: string;
 }

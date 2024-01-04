@@ -28,7 +28,7 @@ export class FoodPaletteService {
         new Participant(new Profile('jobel'), 239),
         new Participant(new Profile('noble'), 239),
       ]),
- new FoodItem('noodles', 200, [
+      new FoodItem('noodles', 200, [
         new Participant(new Profile('neena'), 200),
         new Participant(new Profile('isham'), 200),
         new Participant(new Profile('divya'), 200),
@@ -104,7 +104,7 @@ export class FoodPaletteService {
         const name = participant.name;
 
         const detail: IorderDetails = {
-          food_name: dish.name,
+          food_name: dish.logo + ' ' + dish.name,
           contribution: participant.contribution,
           quantity: participant.contribution / dish.price,
         };

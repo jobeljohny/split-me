@@ -50,6 +50,7 @@ import { AmountDisplayComponent } from './components/amount-display/amount-displ
 import { IndividualMenuComponent } from './components/individual-menu/individual-menu.component';
 import { DoughnutGraphComponent } from './components/doughnut-graph/doughnut-graph.component';
 import { NgChartsModule } from 'ng2-charts';
+import { GraphContainerComponent } from './components/graph-container/graph-container.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,6 +85,7 @@ import { NgChartsModule } from 'ng2-charts';
     AmountDisplayComponent,
     IndividualMenuComponent,
     DoughnutGraphComponent,
+    GraphContainerComponent,
   ],
   imports: [
     BrowserModule,
