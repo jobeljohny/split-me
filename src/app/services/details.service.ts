@@ -7,8 +7,9 @@ import { IndividualSummary } from '../classes/individual-summary';
   providedIn: 'root',
 })
 export class DetailsService {
-  tax: number = 0;
-  discount: number = 0;
+  //TODO reset to 0
+  tax: number = 512.35;
+  discount: number = 30.85;
   totalFoodAmount: number = 0;
   finalTotal: number = 0;
   participantsCount: number = 0;

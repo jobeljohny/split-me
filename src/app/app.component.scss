@@ -3,6 +3,14 @@
 #main-wrapper {
   display: flex;
   height: calc(100vh - 45px);
+  background-image: linear-gradient(
+      rgba(24, 24, 38, 0.93),
+      rgba(26, 26, 27, 0.99)
+    ),
+    url("../assets/cover/cov5.jpg");
+  
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .bill-card {
@@ -10,21 +18,23 @@
 }
 
 .right-panel {
+  padding-top: 30px;
   flex-basis: 25%;
 }
 
 @media only screen and (max-width: 576px) {
-  #main-wrapper{
+  #main-wrapper {
     flex-direction: column;
     height: unset;
   }
 
-  .bill-card{
+  .bill-card {
     height: 60vh;
     min-height: 450px;
   }
 
-  .right-panel{
+  .right-panel {
+    padding-top: inherit;
     display: flex;
     flex-direction: column-reverse;
   }

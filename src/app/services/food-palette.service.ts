@@ -19,26 +19,29 @@ export class FoodPaletteService {
 
   constructor() {
     this.palettes = [
-      new FoodItem('fish curry', 200, [
-        new Participant(new Profile('jobel'), 200),
-        new Participant(new Profile('godwin'), 200),
-        new Participant(new Profile('noble'), 200),
+      new FoodItem('Grilled Fish', 200, [
+        new Participant(new Profile('markus'), 200),
+        new Participant(new Profile('emily'), 200),
+        new Participant(new Profile('olivia'), 200),
       ]),
-      new FoodItem('chicken', 239, [
-        new Participant(new Profile('jobel'), 239),
-        new Participant(new Profile('noble'), 239),
+      new FoodItem('Chicken Sandwich', 180, [
+        new Participant(new Profile('markus'), 90),
+        new Participant(new Profile('ava'), 90),
       ]),
-      new FoodItem('noodles', 200, [
-        new Participant(new Profile('neena'), 200),
-        new Participant(new Profile('isham'), 200),
-        new Participant(new Profile('divya'), 200),
+      new FoodItem('Mixed Noodles', 200, [
+        new Participant(new Profile('isabella'), 200),
+        new Participant(new Profile('jordan'), 200),
+        new Participant(new Profile('lucas'), 200),
+        new Participant(new Profile('martin'), 200),
       ]),
-      new FoodItem('juice', 50, [
-        new Participant(new Profile('marvel'), 50),
-        new Participant(new Profile('richard'), 150),
-        new Participant(new Profile('joseph'), 250),
-        new Participant(new Profile('athul'), 50),
-        new Participant(new Profile('manju'), 100),
+      new FoodItem('Orange Juice', 50, [
+        new Participant(new Profile('markus'), 50),
+        new Participant(new Profile('olivia'), 50),
+        new Participant(new Profile('ava'), 50),
+        new Participant(new Profile('emily'), 50),
+        new Participant(new Profile('lucas'), 50),
+        new Participant(new Profile('rodrick'), 50),
+        new Participant(new Profile('maria'), 50),
       ]),
     ];
     this.updatePanelIds();
