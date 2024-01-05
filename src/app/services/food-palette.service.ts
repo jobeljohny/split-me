@@ -29,10 +29,10 @@ export class FoodPaletteService {
         new Participant(new Profile('ava'), 90),
       ]),
       new FoodItem('Mixed Noodles', 200, [
-        new Participant(new Profile('isabella'), 200),
-        new Participant(new Profile('jordan'), 200),
-        new Participant(new Profile('lucas'), 200),
-        new Participant(new Profile('martin'), 200),
+        new Participant(new Profile('isabella'), 100),
+        new Participant(new Profile('jordan'), 100),
+        new Participant(new Profile('lucas'), 100),
+        new Participant(new Profile('martin'), 100),
       ]),
       new FoodItem('Orange Juice', 50, [
         new Participant(new Profile('markus'), 50),

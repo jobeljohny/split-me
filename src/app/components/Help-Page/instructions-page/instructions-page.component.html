@@ -1,19 +1,74 @@
-<!--TODO: remove when completed-->
-<div
-  style="
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  "
->
-  <p class="lead" style="margin-top: 20px; margin-bottom: 50px">
-    Still in the works!
-  </p>
-  <img
-    src="../../../../assets/in-progress.png"
-    alt="in progress"
-    style="opacity: 0.5"
-  />
+<div class="instructions-container">
+  <div class="slides-container">
+    <input type="radio" name="slider" id="item-1" checked />
+    <input type="radio" name="slider" id="item-2" />
+    <input type="radio" name="slider" id="item-3" />
+    <div class="cards">
+      <!--SLIDE 1-->
+      <label class="card" for="item-1" id="song-1">
+        <div class="data-box">
+          <div class="title">Getting started</div>
+          <div class="content lead">
+            <div class="slide-1 slides">
+              <div class="img-wrapper">
+                <img src="assets/instructions/app-home.png" alt="home" />
+              </div>
+              <p>
+                Introducing Split Me, your sidekick in conquering the chaos of
+                food bill splitting! I'm here to rescue you from bill-splitting
+                drama. In the upcoming slides, I'll break down how to use the
+                app with ease. click on the next slide to navigate.
+              </p>
+            </div>
+          </div>
+        </div>
+      </label>
+      <!--SLIDE 2-->
+      <label class="card" for="item-2" id="song-2">
+        <div class="data-box">
+          <div class="title">Profile panel</div>
+          <div class="content lead">
+            <div class="slide-2 slides">
+              <div class="profile-ins-container">
+                <img src="assets/instructions/profile.png" alt="profile" />
+                <p>
+                  Let's begin by adding the individuals connected to the food
+                  bill to the Profiles Panel.<br />
+                  The Profile Panel houses the crew for your food bill
+                  adventures. Easily expand your squad by hitting the
+                  <span class="fake-btn">+</span>
+                  button. <br />Plus, for ultimate convenience, save and import
+                  your regular hangout buddies. No more manual entries—just
+                  swift access to your go-to people!
+                </p>
+              </div>
+              <p class="mt-3">
+                Add new profiles, remove unnecessary ones, or select specific
+                profiles to tailor your experience. It's your command center for
+                managing individuals associated with the food bill effortlessly.
+              </p>
+            </div>
+          </div>
+        </div>
+      </label>
+
+      <!--SLIDE 3-->
+      <label class="card" for="item-3" id="song-3">
+        <div class="data-box">
+          <div class="title">Food Palette</div>
+          <div class="content lead">
+            <div class="slide-3 slides">
+              <div class="img-wrapper">
+                <img
+                  src="assets/instructions/food-palette.png"
+                  alt="food-palette"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </label>
+    </div>
+  </div>
+  <div class="slide-help">x x x</div>
 </div>

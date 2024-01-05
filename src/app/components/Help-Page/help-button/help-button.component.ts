@@ -29,9 +29,11 @@ export class HelpButtonComponent {
     private keyBinding: KeyBindingService
   ) {
     this.keyBinding.handleAltH(this.onHelpClick.bind(this));
+    //TODO remove
+    this.onHelpClick();
   }
 
   onHelpClick() {
-    this.dialog.open(HelpDialogComponent, { width: '100%', height: '80%' });
+    this.dialog.open(HelpDialogComponent, { width: '1200px', height: '600px' });
   }
 }
