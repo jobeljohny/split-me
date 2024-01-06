@@ -7,8 +7,7 @@ import { pages } from './help-page-utils';
   styleUrls: ['./help-dialog.component.scss'],
 })
 export class HelpDialogComponent {
-  //TODO switch to About
-  currentDisplay: pages = pages.Help;
+  currentDisplay: pages = pages.About;
 
   showPage(page: pages): void {
     this.currentDisplay = page;

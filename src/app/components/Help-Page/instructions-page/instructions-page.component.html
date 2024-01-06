@@ -6,7 +6,7 @@
       name="slider"
       [id]="'item-' + (i + 1)"
       [checked]="i === selectedIndex"
-      (change)="onRadioButtonChanged(i)"
+      (change)="updateIndex(i)"
     />
     <div class="cards">
       <!--SLIDE 1-->
@@ -162,7 +162,7 @@
     <span
       *ngFor="let item of radioButtons; let i = index"
       [class.selected]="i === selectedIndex"
-      (click)="onButtonClick(i)"
+      (click)="updateIndex(i)"
     >
     </span>
   </div>

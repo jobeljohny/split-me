@@ -9,14 +9,9 @@ export class InstructionsPageComponent {
   selectedItem: string = '';
   radioButtons: number[] = [1, 2, 3, 4, 5];
   selectedIndex: number = 0;
-  constructor() {
-    //  setInterval(()=>console.log(this.selectedItem),500)
-  }
+  constructor() {}
 
-  onRadioButtonChanged(index: number) {
-    this.selectedIndex = index;
-  }
-  onButtonClick(index: number) {
+  updateIndex(index: number) {
     this.selectedIndex = index;
   }
 }

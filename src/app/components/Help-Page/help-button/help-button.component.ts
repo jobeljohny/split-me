@@ -29,8 +29,6 @@ export class HelpButtonComponent {
     private keyBinding: KeyBindingService
   ) {
     this.keyBinding.handleAltH(this.onHelpClick.bind(this));
-    //TODO remove
-    this.onHelpClick();
   }
 
   onHelpClick() {
