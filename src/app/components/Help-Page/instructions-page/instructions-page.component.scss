@@ -24,6 +24,7 @@
       width: 100%;
       height: 100%;
       .card {
+        cursor: pointer;
         position: absolute;
         width: 80%;
         height: 100%;
@@ -33,7 +34,6 @@
         transition: transform 0.4s ease;
         background: $primary-color;
         border: 1px solid $border-line;
-        cursor: pointer;
         padding: 20px 30px;
         .data-box {
           height: 100%;
@@ -43,8 +43,9 @@
             text-align: center;
             margin-bottom: 16px;
             height: 20px;
-            font-family: Tahoma, sans-serif;
-            font-size: 1.2rem;
+            font-family: "Lucida Sans", Verdana, sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
           }
           .content {
             display: flex;
@@ -199,7 +200,23 @@
   .slide-help {
     height: 20px;
     margin-top: 8px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 10px;
+    span {
+      height: 9px;
+      width: 9px;
+      background-color: $primary-color;
+      border-radius: 50%;
+      &:hover{
+        cursor: pointer;
+        filter: brightness(1.5);
+      }
+    }
+    .selected {
+      background-color: rgb(197, 197, 197) !important;
+    }
   }
 }
 
@@ -209,7 +226,7 @@
 #item-4:checked ~ .cards #song-3,
 #item-5:checked ~ .cards #song-4 {
   transform: translatex(-20%) scale(0.8);
-  opacity: 0.4;
+  opacity: 0.5;
   z-index: 0;
 }
 
@@ -219,7 +236,7 @@
 #item-4:checked ~ .cards #song-5,
 #item-5:checked ~ .cards #song-1 {
   transform: translatex(20%) scale(0.8);
-  opacity: 0.4;
+  opacity: 0.5;
   z-index: 0;
 }
 

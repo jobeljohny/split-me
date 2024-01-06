@@ -1,10 +1,13 @@
 <div class="instructions-container">
   <div class="slides-container">
-    <input type="radio" name="slider" id="item-1" />
-    <input type="radio" name="slider" id="item-2" />
-    <input type="radio" name="slider" id="item-3" />
-    <input type="radio" name="slider" id="item-4" />
-    <input type="radio" name="slider" id="item-5" checked />
+    <input
+      *ngFor="let item of [1, 2, 3, 4, 5]; let i = index"
+      type="radio"
+      name="slider"
+      [id]="'item-' + (i + 1)"
+      [checked]="i === selectedIndex"
+      (change)="onRadioButtonChanged(i)"
+    />
     <div class="cards">
       <!--SLIDE 1-->
       <label class="card" for="item-1" id="song-1">
@@ -28,7 +31,7 @@
       <!--SLIDE 2-->
       <label class="card" for="item-2" id="song-2">
         <div class="data-box">
-          <div class="title">Profile panel</div>
+          <div class="title">Profile Panel</div>
           <div class="content lead">
             <div class="slide-2 slides">
               <div class="profile-ins-container">
@@ -141,8 +144,9 @@
                   <img src="assets/icons/right-arrow-icon.svg" alt="" />
                 </span>
                 in <span class="highlight">Details Panel</span> to view detailed
-                expenditure.</p>
-                <p class="mt-2">
+                expenditure.
+              </p>
+              <p class="mt-2">
                 The table provides sorting options , and the
                 <span class="highlight">interactive charts</span> offer
                 additional insights - don't forget to explore them! You can
@@ -154,5 +158,12 @@
       </label>
     </div>
   </div>
-  <div class="slide-help">x x x</div>
+  <div class="slide-help">
+    <span
+      *ngFor="let item of radioButtons; let i = index"
+      [class.selected]="i === selectedIndex"
+      (click)="onButtonClick(i)"
+    >
+    </span>
+  </div>
 </div>
