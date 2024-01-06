@@ -78,13 +78,15 @@
             .slide-2 {
               p {
                 line-height: 1.6;
+                font-size: 1.1rem;
                 text-align: center;
               }
               .profile-ins-container {
                 display: flex;
                 gap: 20px;
                 img {
-                  width: 300px;
+                  width: 400px;
+                  border-radius: 8px;
                 }
                 p {
                   text-align: left;
@@ -112,6 +114,80 @@
                 width: 100%;
                 img {
                   width: 600px;
+                  border-radius: 10px;
+                  border: 1px solid $border-line;
+                }
+                p {
+                  padding: 0px 4px;
+                  line-height: 1.6;
+                  .fake-btn {
+                    width: 20px;
+                    height: 20px;
+                    padding: 1px 6px;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 10px;
+                    margin-left: 2px;
+                    margin-right: 2px;
+                    border: none;
+                    background-color: $primary-button;
+                    font-size: 15px;
+                    font-weight: 400;
+                    color: white;
+                  }
+                }
+              }
+            }
+            .slide-4 {
+              .video-wrapper {
+                display: flex;
+                justify-content: center;
+                video {
+                  border-radius: 6px;
+                }
+              }
+              P {
+                text-align: center;
+                line-height: 1.6;
+                margin-bottom: 0;
+                img {
+                  height: 28px;
+                }
+              }
+            }
+            .slide-5 {
+              .img-wrapper {
+                display: flex;
+                justify-content: center;
+                img {
+                  width: 600px;
+                  border: 1px solid $border-line;
+                  border-radius: 6px;
+                }
+              }
+              p {
+                line-height: 1.6;
+                text-align: center;
+                margin-bottom: 0;
+                .mock-btn {
+                  font-size: 0.58rem;
+                  padding: 7px 6px;
+                  margin: 0px 4px;
+                  text-align: center;
+                  border-radius: 2px;
+                  font-family: Helvetica, sans-serif;
+                  font-weight: bold;
+                  background-color: #3e3d65;
+                  text-transform: capitalize;
+                  img {
+                    width: 15px;
+                    filter: invert(1);
+                    margin-left: 1px;
+                  }
+
+                  &:hover {
+                    filter: brightness(1.1);
+                  }
                 }
               }
             }
@@ -127,9 +203,11 @@
   }
 }
 
-#item-1:checked ~ .cards #song-3,
+#item-1:checked ~ .cards #song-5,
 #item-2:checked ~ .cards #song-1,
-#item-3:checked ~ .cards #song-2 {
+#item-3:checked ~ .cards #song-2,
+#item-4:checked ~ .cards #song-3,
+#item-5:checked ~ .cards #song-4 {
   transform: translatex(-20%) scale(0.8);
   opacity: 0.4;
   z-index: 0;
@@ -137,7 +215,9 @@
 
 #item-1:checked ~ .cards #song-2,
 #item-2:checked ~ .cards #song-3,
-#item-3:checked ~ .cards #song-1 {
+#item-3:checked ~ .cards #song-4,
+#item-4:checked ~ .cards #song-5,
+#item-5:checked ~ .cards #song-1 {
   transform: translatex(20%) scale(0.8);
   opacity: 0.4;
   z-index: 0;
@@ -145,10 +225,16 @@
 
 #item-1:checked ~ .cards #song-1,
 #item-2:checked ~ .cards #song-2,
-#item-3:checked ~ .cards #song-3 {
+#item-3:checked ~ .cards #song-3,
+#item-4:checked ~ .cards #song-4,
+#item-5:checked ~ .cards #song-5 {
   transform: translatex(0) scale(1);
   opacity: 1;
   z-index: 1;
+}
+
+.highlight {
+  color: rgb(254 221 147);
 }
 
 @media only screen and (max-width: 576px) {

@@ -1,8 +1,10 @@
 <div class="instructions-container">
   <div class="slides-container">
-    <input type="radio" name="slider" id="item-1" checked />
+    <input type="radio" name="slider" id="item-1" />
     <input type="radio" name="slider" id="item-2" />
     <input type="radio" name="slider" id="item-3" />
+    <input type="radio" name="slider" id="item-4" />
+    <input type="radio" name="slider" id="item-5" checked />
     <div class="cards">
       <!--SLIDE 1-->
       <label class="card" for="item-1" id="song-1">
@@ -32,20 +34,20 @@
               <div class="profile-ins-container">
                 <img src="assets/instructions/profile.png" alt="profile" />
                 <p>
-                  Let's begin by adding the individuals connected to the food
-                  bill to the Profiles Panel.<br />
                   The Profile Panel houses the crew for your food bill
                   adventures. Easily expand your squad by hitting the
                   <span class="fake-btn">+</span>
-                  button. <br />Plus, for ultimate convenience, save and import
-                  your regular hangout buddies. No more manual entries—just
-                  swift access to your go-to people!
+                  button. <br /><br />Plus, for ultimate convenience,
+                  <span class="highlight">save</span> and
+                  <span class="highlight">import</span> your regular hangout
+                  buddies. No more manual entries—just swift access to your
+                  go-to people!
                 </p>
               </div>
               <p class="mt-3">
-                Add new profiles, remove unnecessary ones, or select specific
-                profiles to tailor your experience. It's your command center for
-                managing individuals associated with the food bill effortlessly.
+                Add, remove, or select profiles to tailor your experience. It's
+                your command center for managing individuals associated with the
+                food bill effortlessly.
               </p>
             </div>
           </div>
@@ -63,7 +65,89 @@
                   src="assets/instructions/food-palette.png"
                   alt="food-palette"
                 />
+                <p class="mt-3">
+                  simply hit the <span class="fake-btn">+</span> button to
+                  create a new palette. Specify the food item by providing its
+                  <span class="highlight">name</span> and
+                  <span class="highlight">price</span>. To assign individuals to
+                  this palette, simply drag the relevant profiles from the
+                  Profile Panel. This ensures that everyone involved in that
+                  particular food item is seamlessly included. <Br /><Br /> For
+                  every food item, craft a personalized
+                  <span class="highlight">food palette</span> and toss in the
+                  profiles of those who savored the flavors.
+                </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </label>
+      <!--SLIDE 4-->
+      <label class="card" for="item-4" id="song-4">
+        <div class="data-box">
+          <div class="title">
+            Palette Profiling - Adding and Exploring Options
+          </div>
+          <div class="content lead">
+            <div class="slide-4 slides">
+              <div class="video-wrapper">
+                <video
+                  src="assets/instructions/interaction.mp4"
+                  [autoplay]="true"
+                  [loop]="true"
+                  [muted]="true"
+                ></video>
+              </div>
+              <p class="mt-3">
+                Manage your participants by dragging a profile from the panel
+                onto the designated food palette. A simple click on a
+                participant allows you to edit attributes like their serving
+                size.
+              </p>
+              <p class="mt-2">
+                Explore the food palette options<img
+                  src="assets/instructions/palette-options.png"
+                  alt="palette-options"
+                />
+                - <span class="highlight">split equally</span> or
+                <span class="highlight">reset</span> participant prices in a
+                snap
+              </p>
+              <p class="mt-2">
+                Need to add multiple profiles at once? No problem! Just use
+                <span class="highlight">Ctrl + click</span> to multi-select the
+                profiles.
+              </p>
+            </div>
+          </div>
+        </div>
+      </label>
+      <!--SLIDE 5-->
+      <label class="card" for="item-5" id="song-5">
+        <div class="data-box">
+          <div class="title">Details Panel</div>
+          <div class="content lead">
+            <div class="slide-5 slides">
+              <div class="img-wrapper">
+                <img
+                  src="assets/instructions/details-panel.png"
+                  alt="details-panel"
+                />
+              </div>
+              <p class="mt-3">
+                After adding palettes and participants, click on
+                <span class="mock-btn">
+                  Inspect Expense Breakdown
+                  <img src="assets/icons/right-arrow-icon.svg" alt="" />
+                </span>
+                in <span class="highlight">Details Panel</span> to view detailed
+                expenditure.</p>
+                <p class="mt-2">
+                The table provides sorting options , and the
+                <span class="highlight">interactive charts</span> offer
+                additional insights - don't forget to explore them! You can
+                seamlessly switch between different charts
+              </p>
             </div>
           </div>
         </div>
