@@ -31,6 +31,7 @@ export const foodNames: foodItem[] = [
   { icon: '🍚', name: 'Meals' },
   { icon: '🌭', name: 'Sausage' },
   { icon: '🍕', name: 'Pizza' },
+  { icon: '🍚', name: 'Meals' },
   { icon: '🌯', name: 'Shawarma' },
   { icon: '🍖', name: 'Kebab' },
   { icon: '🥪', name: 'Sandwich' },
@@ -51,10 +52,12 @@ export const foodNames: foodItem[] = [
 ];
 
 export const foodLogo: foodItem[] = [
-  { icon: '🥪', name: 'Sandwich' },
+  { icon: '🥪', name: 'sandwich' },
+  { icon: '🌯', name: 'roll' },
   { icon: '🐟', name: 'fish' },
   { icon: '🍚', name: 'rice' },
   { icon: '🍗', name: 'chicken' },
+  { icon: '🍖', name: 'beef' },
   { icon: '🍲', name: 'soup' },
   { icon: '🍜', name: 'Noodles' },
   { icon: '🍰', name: 'cake' },
