@@ -1,0 +1,36 @@
+.slide-4 {
+  .video-wrapper {
+    display: flex;
+    justify-content: center;
+    video {
+      border-radius: 6px;
+    }
+  }
+  P {
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 0;
+    img {
+      height: 28px;
+    }
+  }
+}
+
+.slides {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 576px) {
+  .slide-4 {
+    .video-wrapper {
+      video {
+        width: 100%;
+        border-radius: 3px;
+      }
+    }
+  }
+}

@@ -51,6 +51,11 @@ import { IndividualMenuComponent } from './components/individual-menu/individual
 import { DoughnutGraphComponent } from './components/doughnut-graph/doughnut-graph.component';
 import { NgChartsModule } from 'ng2-charts';
 import { GraphContainerComponent } from './components/graph-container/graph-container.component';
+import { GettingStartedComponent } from './components/Help-Page/instruction-slides/getting-started/getting-started.component';
+import { ProfilePanelHelpComponent } from './components/Help-Page/instruction-slides/profile-panel-help/profile-panel-help.component';
+import { FoodPaletteHelpComponent } from './components/Help-Page/instruction-slides/food-palette-help/food-palette-help.component';
+import { PaletteProfilingHelpComponent } from './components/Help-Page/instruction-slides/palette-profiling-help/palette-profiling-help.component';
+import { DetailsPanelHelpComponent } from './components/Help-Page/instruction-slides/details-panel-help/details-panel-help.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,6 +91,11 @@ import { GraphContainerComponent } from './components/graph-container/graph-cont
     IndividualMenuComponent,
     DoughnutGraphComponent,
     GraphContainerComponent,
+    GettingStartedComponent,
+    ProfilePanelHelpComponent,
+    FoodPaletteHelpComponent,
+    PaletteProfilingHelpComponent,
+    DetailsPanelHelpComponent,
   ],
   imports: [
     BrowserModule,

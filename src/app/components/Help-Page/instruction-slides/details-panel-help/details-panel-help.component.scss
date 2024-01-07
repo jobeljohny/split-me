@@ -1,0 +1,66 @@
+@import "../../../../styles/palette.scss";
+.slide-5 {
+  .img-wrapper {
+    display: flex;
+    justify-content: center;
+    img {
+      width: 600px;
+      border: 1px solid $border-line;
+      border-radius: 6px;
+    }
+  }
+  p {
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 0;
+    .mock-btn {
+      font-size: 0.58rem;
+      padding: 7px 6px;
+      margin: 0px 4px;
+      text-align: center;
+      border-radius: 2px;
+      font-family: Helvetica, sans-serif;
+      font-weight: bold;
+      background-color: #3e3d65;
+      text-transform: capitalize;
+      img {
+        width: 15px;
+        filter: invert(1);
+        margin-left: 1px;
+      }
+
+      &:hover {
+        filter: brightness(1.1);
+      }
+    }
+  }
+}
+
+.slides {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media only screen and (max-width: 576px) {
+  .slide-5 {
+    .img-wrapper {
+      img {
+        width: 100%;
+        border-radius: 3px;
+      }
+    }
+    p {
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 0;
+      .mock-btn {
+        display: block;
+        padding: 7px 4px;
+        margin: 3px 13px;
+        border-radius: 2px;
+      }
+    }
+  }
+}

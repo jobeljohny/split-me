@@ -14,17 +14,7 @@
         <div class="data-box">
           <div class="title">Getting started</div>
           <div class="content lead">
-            <div class="slide-1 slides">
-              <div class="img-wrapper">
-                <img src="assets/instructions/app-home.png" alt="home" />
-              </div>
-              <p>
-                Introducing Split Me, your sidekick in conquering the chaos of
-                food bill splitting! I'm here to rescue you from bill-splitting
-                drama. In the upcoming slides, I'll break down how to use the
-                app with ease. click on the next slide to navigate.
-              </p>
-            </div>
+           <app-getting-started></app-getting-started> 
           </div>
         </div>
       </label>
@@ -33,26 +23,7 @@
         <div class="data-box">
           <div class="title">Profile Panel</div>
           <div class="content lead">
-            <div class="slide-2 slides">
-              <div class="profile-ins-container">
-                <img src="assets/instructions/profile.png" alt="profile" />
-                <p>
-                  The Profile Panel houses the crew for your food bill
-                  adventures. Easily expand your squad by hitting the
-                  <span class="fake-btn">+</span>
-                  button. <br /><br />Plus, for ultimate convenience,
-                  <span class="highlight">save</span> and
-                  <span class="highlight">import</span> your regular hangout
-                  buddies. No more manual entries—just swift access to your
-                  go-to people!
-                </p>
-              </div>
-              <p class="mt-3">
-                Add, remove, or select profiles to tailor your experience. It's
-                your command center for managing individuals associated with the
-                food bill effortlessly.
-              </p>
-            </div>
+           <app-profile-panel-help></app-profile-panel-help>
           </div>
         </div>
       </label>
@@ -62,26 +33,7 @@
         <div class="data-box">
           <div class="title">Food Palette</div>
           <div class="content lead">
-            <div class="slide-3 slides">
-              <div class="img-wrapper">
-                <img
-                  src="assets/instructions/food-palette.png"
-                  alt="food-palette"
-                />
-                <p class="mt-3">
-                  simply hit the <span class="fake-btn">+</span> button to
-                  create a new palette. Specify the food item by providing its
-                  <span class="highlight">name</span> and
-                  <span class="highlight">price</span>. To assign individuals to
-                  this palette, simply drag the relevant profiles from the
-                  Profile Panel. This ensures that everyone involved in that
-                  particular food item is seamlessly included. <Br /><Br /> For
-                  every food item, craft a personalized
-                  <span class="highlight">food palette</span> and toss in the
-                  profiles of those who savored the flavors.
-                </p>
-              </div>
-            </div>
+           <app-food-palette-help></app-food-palette-help> 
           </div>
         </div>
       </label>
@@ -92,36 +44,7 @@
             Palette Profiling - Adding and Exploring Options
           </div>
           <div class="content lead">
-            <div class="slide-4 slides">
-              <div class="video-wrapper">
-                <video
-                  src="assets/instructions/interaction.mp4"
-                  [autoplay]="true"
-                  [loop]="true"
-                  [muted]="true"
-                ></video>
-              </div>
-              <p class="mt-3">
-                Manage your participants by dragging a profile from the panel
-                onto the designated food palette. A simple click on a
-                participant allows you to edit attributes like their serving
-                size.
-              </p>
-              <p class="mt-2">
-                Explore the food palette options<img
-                  src="assets/instructions/palette-options.png"
-                  alt="palette-options"
-                />
-                - <span class="highlight">split equally</span> or
-                <span class="highlight">reset</span> participant prices in a
-                snap
-              </p>
-              <p class="mt-2">
-                Need to add multiple profiles at once? No problem! Just use
-                <span class="highlight">Ctrl + click</span> to multi-select the
-                profiles.
-              </p>
-            </div>
+           <app-palette-profiling-help></app-palette-profiling-help> 
           </div>
         </div>
       </label>
@@ -130,29 +53,7 @@
         <div class="data-box">
           <div class="title">Details Panel</div>
           <div class="content lead">
-            <div class="slide-5 slides">
-              <div class="img-wrapper">
-                <img
-                  src="assets/instructions/details-panel.png"
-                  alt="details-panel"
-                />
-              </div>
-              <p class="mt-3">
-                After adding palettes and participants, click on
-                <span class="mock-btn">
-                  Inspect Expense Breakdown
-                  <img src="assets/icons/right-arrow-icon.svg" alt="" />
-                </span>
-                in <span class="highlight">Details Panel</span> to view detailed
-                expenditure.
-              </p>
-              <p class="mt-2">
-                The table provides sorting options , and the
-                <span class="highlight">interactive charts</span> offer
-                additional insights - don't forget to explore them! You can
-                seamlessly switch between different charts
-              </p>
-            </div>
+           <app-details-panel-help></app-details-panel-help> 
           </div>
         </div>
       </label>
