@@ -18,8 +18,16 @@
 }
 
 .right-panel {
-  padding-top: 30px;
   flex-basis: 25%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  app-details-panel{
+    flex-grow: 0.3;
+  }
+  app-profile-list{
+    flex-grow: 1;
+  }
 }
 
 @media only screen and (max-width: 576px) {
@@ -34,7 +42,7 @@
   }
 
   .right-panel {
-    padding-top: inherit;
+    padding-top: 0 !important;
     display: flex;
     flex-direction: column-reverse;
   }

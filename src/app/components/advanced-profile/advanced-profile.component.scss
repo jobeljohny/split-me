@@ -1,6 +1,5 @@
 @import "../../styles/palette.scss";
 
-
 .profile-wrapper {
   display: flex;
   position: relative;
@@ -47,4 +46,25 @@
   }
 }
 
-//
+@media only screen and (max-width: 576px) {
+  .profile-wrapper {
+    min-width: 64px;
+    border-radius: 10px;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+    span.price {
+      font-size: 0.7rem;
+      margin-top: 5px;
+      margin-bottom: 3px;
+      width: 54px;
+      border-radius: 8px;
+    }
+    span.name {
+      font-size: 0.65rem;
+      margin-top: 2px;
+    }
+  }
+}
