@@ -1,6 +1,7 @@
 import { ChartData } from 'chart.js';
 import { Profile } from './profile';
 import { Graphs } from './constants';
+import { pages } from '../components/Help-Page/help-dialog/help-page-utils';
 export interface IContributors {
   name: string;
   food_amount: number;
@@ -37,4 +38,8 @@ export interface IgraphData {
 export interface IgraphType {
   name: Graphs;
   title: string;
+}
+
+export interface IPageData {
+  page: pages;
 }

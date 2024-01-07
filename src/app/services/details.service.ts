@@ -8,8 +8,8 @@ import { IndividualSummary } from '../classes/individual-summary';
 })
 export class DetailsService {
   //TODO reset to 0
-  tax: number = 512.35;
-  discount: number = 30.85;
+  tax: number = 0;
+  discount: number = 0;
   totalFoodAmount: number = 0;
   finalTotal: number = 0;
   participantsCount: number = 0;
