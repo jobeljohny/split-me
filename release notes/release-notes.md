@@ -1,5 +1,25 @@
 # Releases
 
+
+## Split-Me Release notes 2.1 🚀
+
+#### improvements 🛠️
+
+- New Navigation panel and Help menu
+- Added Mobile support for usability
+- New Hamburger Menu and theme
+- Added options to report issues and links to the Repo
+- UI improvements
+- New info Dialog (few pages to be implemented)
+- Minor perfomance improvements
+
+#### bug fixes 🐞
+
+- Fixed nested Modals issue
+- Fixed tooltips not showing on top nested Modals
+- Fixed backdrop closing using Esc Key
+- Minor UI Bug fixes
+
 ## Split-Me Release notes 1.3 🚀
 
 #### improvements 🛠️
