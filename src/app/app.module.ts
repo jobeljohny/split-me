@@ -56,6 +56,7 @@ import { ProfilePanelHelpComponent } from './components/Help-Page/instruction-sl
 import { FoodPaletteHelpComponent } from './components/Help-Page/instruction-slides/food-palette-help/food-palette-help.component';
 import { PaletteProfilingHelpComponent } from './components/Help-Page/instruction-slides/palette-profiling-help/palette-profiling-help.component';
 import { DetailsPanelHelpComponent } from './components/Help-Page/instruction-slides/details-panel-help/details-panel-help.component';
+import { WebsiteMovedDialogComponent } from './components/website-moved-dialog/website-moved-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,6 +97,7 @@ import { DetailsPanelHelpComponent } from './components/Help-Page/instruction-sl
     FoodPaletteHelpComponent,
     PaletteProfilingHelpComponent,
     DetailsPanelHelpComponent,
+    WebsiteMovedDialogComponent,
   ],
   imports: [
     BrowserModule,

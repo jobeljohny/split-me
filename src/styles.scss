@@ -36,11 +36,11 @@ body {
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid $border-line;
 }
-.individual-menu .mat-mdc-menu-content{
+.individual-menu .mat-mdc-menu-content {
   padding: 0;
 }
 
-.contribution-graph-menu .mat-mdc-menu-content{
+.contribution-graph-menu .mat-mdc-menu-content {
   padding: 0px;
 }
 .mat-mdc-menu-panel.contribution-graph-menu {
@@ -59,8 +59,9 @@ body {
   border: 1px solid $border-line;
 }
 
-//summary-modal
-.summaryModal .mat-mdc-dialog-container .mdc-dialog__surface {
+//summary-modal, domain-moved-modal
+.summaryModal .mat-mdc-dialog-container .mdc-dialog__surface,
+.domain-moved-modal .mat-mdc-dialog-container .mdc-dialog__surface {
   background: rgba(10, 10, 19, 0.9);
   border-radius: 10px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
