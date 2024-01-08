@@ -5,7 +5,7 @@
   height: 100%;
   border: 1px solid #29293e54;
   border-radius: 4px;
-  .expand{
+  .expand {
     height: 100%;
   }
   .instruction-wrapper {
@@ -22,7 +22,11 @@
       justify-content: center;
       font-family: Helvetica, sans-serif;
       span {
-        opacity: 0.8;
+        opacity: 0.9;
+        .highlight {
+          color: rgb(254 221 147);
+          opacity: 1;
+        }
       }
       button {
         border: none;
@@ -32,7 +36,7 @@
         color: whitesmoke;
         padding: 5px 10px;
         font-size: 0.85rem;
-        &:hover{
+        &:hover {
           filter: brightness(1.1);
         }
       }
@@ -46,7 +50,7 @@
       padding-bottom: 80px;
       img {
         width: 400px;
-        opacity:0.4;
+        opacity: 0.4;
       }
       .help-placeholder {
         margin-top: 20px;
