@@ -3,6 +3,14 @@
 .people-card {
   position: relative;
   background-color: $card-color;
+  height: 100%;
+  h3 {
+    font-size: 0.75rem;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+  }
+
+  border: 2px solid $border-line;
 }
 
 .import-export-container {
@@ -40,16 +48,20 @@
 }
 
 .import-export-container {
+  display: flex;
+  align-items: center;
   img {
-    width: 30px;
-    height: 30px;
+    width: 22px;
+    height: 22px;
+    filter: $theme-filter;
   }
   .filepicker {
-    width: 30px;
-    height: 30px;
+    width: 22px;
+    height: 22px;
     text-indent: 100em;
-    background: url("../../../assets/import.png");
+    background: url("../../../assets/icons/import-icon.svg");
     background-size: 100% 100%;
+    filter: $theme-filter;
     overflow: hidden;
     cursor: pointer;
     outline: none;
@@ -64,10 +76,15 @@
   border-radius: 25px;
   margin-bottom: 14px;
   margin-left: 14px;
+  border: none;
+  background-color: $primary-button;
   span {
     font-size: 25px;
-    font-weight: bold;
+    font-weight: 400;
     color: white;
+  }
+  &:hover {
+    filter: brightness(120%);
   }
 }
 

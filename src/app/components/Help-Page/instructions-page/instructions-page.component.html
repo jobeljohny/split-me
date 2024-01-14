@@ -1,19 +1,70 @@
-<!--TODO: remove when completed-->
-<div
-  style="
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  "
->
-  <p class="lead" style="margin-top: 20px; margin-bottom: 50px">
-    Still in the works!
-  </p>
-  <img
-    src="../../../../assets/in-progress.png"
-    alt="in progress"
-    style="opacity: 0.5"
-  />
+<div class="instructions-container">
+  <div class="slides-container">
+    <input
+      *ngFor="let item of [1, 2, 3, 4, 5]; let i = index"
+      type="radio"
+      name="slider"
+      [id]="'item-' + (i + 1)"
+      [checked]="i === selectedIndex"
+      (change)="updateIndex(i)"
+    />
+    <div class="cards">
+      <!--SLIDE 1-->
+      <label class="card" for="item-1" id="slide-1">
+        <div class="data-box">
+          <div class="title">Getting started</div>
+          <div class="content lead">
+           <app-getting-started></app-getting-started> 
+          </div>
+        </div>
+      </label>
+      <!--SLIDE 2-->
+      <label class="card" for="item-2" id="slide-2">
+        <div class="data-box">
+          <div class="title">Profile Panel</div>
+          <div class="content lead">
+           <app-profile-panel-help></app-profile-panel-help>
+          </div>
+        </div>
+      </label>
+
+      <!--SLIDE 3-->
+      <label class="card" for="item-3" id="slide-3">
+        <div class="data-box">
+          <div class="title">Food Palette</div>
+          <div class="content lead">
+           <app-food-palette-help></app-food-palette-help> 
+          </div>
+        </div>
+      </label>
+      <!--SLIDE 4-->
+      <label class="card" for="item-4" id="slide-4">
+        <div class="data-box">
+          <div class="title">
+            Palette Profiling - Adding and Exploring Options
+          </div>
+          <div class="content lead">
+           <app-palette-profiling-help></app-palette-profiling-help> 
+          </div>
+        </div>
+      </label>
+      <!--SLIDE 5-->
+      <label class="card" for="item-5" id="slide-5">
+        <div class="data-box">
+          <div class="title">Details Panel</div>
+          <div class="content lead">
+           <app-details-panel-help></app-details-panel-help> 
+          </div>
+        </div>
+      </label>
+    </div>
+  </div>
+  <div class="slide-help">
+    <span
+      *ngFor="let item of radioButtons; let i = index"
+      [class.selected]="i === selectedIndex"
+      (click)="updateIndex(i)"
+    >
+    </span>
+  </div>
 </div>

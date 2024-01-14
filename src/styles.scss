@@ -5,30 +5,111 @@ html,
 body {
   height: 100%;
   background: $body-bg;
+  color: white;
 }
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.highlight {
+  color: rgb(254 221 147);
+}
+
+.mat-mdc-autocomplete-panel.food-autocomplete {
+  background: #2e2e49;
+  .mat-mdc-option {
+    min-height: 38px;
+    border-top: 1px solid $border-line;
+
+    font-family: "Tahoma", sans-serif;
+    font-size: 0.85rem;
+    .mdc-list-item__primary-text {
+      color: white;
+      opacity: 0.8;
+    }
+  }
+}
+
+//mat-menu styling
+.mat-mdc-menu-panel.individual-menu {
+  background: rgba(24, 24, 38, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid $border-line;
+}
+.individual-menu .mat-mdc-menu-content {
+  padding: 0;
+}
+
+.contribution-graph-menu .mat-mdc-menu-content {
+  padding: 0px;
+}
+.mat-mdc-menu-panel.contribution-graph-menu {
+  background: rgba(24, 24, 38, 0.7);
+  border-radius: 10px;
+  border: 1px solid $border-line;
+}
+
+//details-modal
+.detailsModal .mat-mdc-dialog-container .mdc-dialog__surface {
+  background: rgba(10, 10, 19, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid $border-line;
+}
+
+//summary-modal, domain-moved-modal
+.summaryModal .mat-mdc-dialog-container .mdc-dialog__surface,
+.domain-moved-modal .mat-mdc-dialog-container .mdc-dialog__surface {
+  background: rgba(10, 10, 19, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid $border-line;
+}
+
+//add-profile-modal
+.add-profile-modal .mat-mdc-dialog-container .mdc-dialog__surface {
+  background: $card-color;
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid $border-line;
+}
+
+//unselectable
+.not-selectable {
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
 // webkits
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: $primary-color;
 }
 ::-webkit-scrollbar-thumb {
-  background: #acb0c3;
-  border-radius: 10px;
+  background: #3e3d65;
+  border-radius: 1px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #56565a;
+  background: #2e315e;
 }
 
 @media only screen and (max-width: 576px) {
   ::-webkit-scrollbar {
-    width: 4px;
+    width: 2px;
   }
 }

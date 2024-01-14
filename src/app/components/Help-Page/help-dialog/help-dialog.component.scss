@@ -37,7 +37,7 @@ $text-color: #8f9bb0;
       }
 
       &:hover {
-        background-color: #3b4f6a;
+        background-color: $border-line;
         .menu-item {
           color: white;
         }
@@ -47,22 +47,24 @@ $text-color: #8f9bb0;
       }
     }
     .active {
-      background-color: #2b3c58;
+      background-color: #3e3d65;
+      a {
+        color: white;
+      }
     }
   }
   .content {
     padding: 16px;
     width: 100%;
-    background: rgb(255, 254, 249);
+    background: $body-bg;
   }
 }
 @media only screen and (max-width: 576px) {
   .help-wrapper {
     flex-direction: column;
-    height: inherit;
-
     .sidebar {
       width: 100%;
+      height: 50px;
       ul {
         padding: 0;
         margin: 0px;
@@ -81,5 +83,8 @@ $text-color: #8f9bb0;
         }
       }
     }
+   .content{
+    flex-grow: 1;
+   }
   }
 }

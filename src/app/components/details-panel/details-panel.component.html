@@ -1,17 +1,21 @@
-<div class="details-panel shadow p-3 mb-2 rounded card-container lead">
-  <h3 class="lead" style="text-align: center">Details</h3>
+<div class="details-panel p-4 mb-2 card-container lead">
+  <h3 style="text-align: center">DETAILS</h3>
+
   <div class="amounts-container">
-    <div class="amount-item lead">
-      <div class="label">Food price&nbsp; 💵</div>
-      <div class="value">₹ {{ totalFoodBill }}</div>
-    </div>
-    <div class="amount-item">
-      <div class="label">Bill amount 💵</div>
-      <div class="value">₹ {{ finalTotal }}</div>
-    </div>
+    <app-amount-display
+      [title]="'Dish Prices'"
+      [logoSrc]="'assets/icons/dish-icon.svg'"
+      [amount]="totalFoodBill"
+    ></app-amount-display>
+    <app-amount-display
+      [title]="'Bill Total'"
+      [logoSrc]="'assets/icons/scroll-icon.svg'"
+      [amount]="finalTotal"
+    ></app-amount-display>
   </div>
   <app-tax-discount-panel></app-tax-discount-panel>
   <div class="individual-cont-panel" (click)="calcFinalTotal()">
-    view individual splits
+    Inspect Expense Breakdown
+    <img src="assets/icons/right-arrow-icon.svg" alt="" />
   </div>
 </div>

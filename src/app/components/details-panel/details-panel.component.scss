@@ -2,43 +2,54 @@
 
 .details-panel {
   display: flex;
+  height: 100%;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+  border-radius: 2px;
+  flex-basis: 1;
+  border: 2px solid $border-line;
   background-color: $card-color;
-  .amounts-container {
-    .amount-item {
-      font-size: 1rem;
-      display: flex;
 
-      div {
-        background-color: rgb(244, 246, 255);
-        border: 1px solid white;
-        padding: 8px 12px;
-      
-        &.label {
-          width: 140px;
-          font-size: 1rem;
-        }
-        &.value {
-          width: 125px;
-          font-weight: 400;
-        }
-      }
+  h3 {
+    font-size: 0.75rem;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+  }
+  .amounts-container {
+    width: 100%;
+    display: flex;
+    background-color: #29293b;
+    padding: 20px 10px;
+    padding-left: 20px;
+    border-radius: 4px;
+
+    app-amount-display {
+      flex: 1;
     }
   }
 
   .individual-cont-panel {
+    font-size: 0.8rem;
+    padding: 8px 6px;
+    width: 100%;
+    margin: 8px 0px;
     margin-top: 24px;
-    font-size: 1rem;
-    background-color: rgb(241, 200, 200);
-    padding: 10px 16px;
-    border: 1px solid $primary-color;
-    background: rgb(251, 251, 255);
+    text-align: center;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 4px;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    background-color: #3e3d65;
+    text-transform: capitalize;
+    img {
+      width: 18px;
+      filter: invert(1);
+      margin-left: 2px;
+    }
+
     &:hover {
-      background: $primary-color;
-      color: white;
+      filter: brightness(1.1);
     }
   }
 }

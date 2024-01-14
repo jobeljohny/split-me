@@ -1,3 +1,4 @@
+@import "../../styles/palette.scss";
 .title {
   display: flex;
   justify-content: center;
@@ -5,18 +6,24 @@
   p {
     margin: 0;
     font-size: 0.9rem;
-    color: #0c2d61;
+    color: whitesmoke;
   }
 }
+
 .is-invalid {
   margin: 10px 0px;
-  color: rgb(156, 3, 3);
+  color: rgb(255, 0, 0);
   font-size: 0.8rem;
   margin: 2px 0px;
 }
 label {
   font-size: 0.9rem;
-  color: rgb(71, 71, 71);
+  color: rgb(189, 189, 189);
+}
+.form-control {
+  background: rgb(24,24,39);
+  color: white;
+  border: 1px solid $border-line;
 }
 .btn {
   box-shadow: none;
@@ -28,9 +35,10 @@ label {
 }
 
 .btn-secondary {
-  background-color: #e3ebf7;
-  color: #285192;
+  background-color: #3e3d65;
+  color: whitesmoke;
 }
+
 .actions-panel {
   display: flex;
   justify-content: flex-end;

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { KeyBindingService } from 'src/app/services/keybinding.service';
 import { HelpDialogComponent } from '../help-dialog/help-dialog.component';
+import { pages } from '../help-dialog/help-page-utils';
 
 @Component({
   selector: 'app-help-button',
@@ -9,7 +10,7 @@ import { HelpDialogComponent } from '../help-dialog/help-dialog.component';
   styles: [
     `
       .help-button {
-        background: #00a6ff;
+        background: #4945ff;
         color: white;
         border: 0;
         width: 25px;
@@ -32,6 +33,10 @@ export class HelpButtonComponent {
   }
 
   onHelpClick() {
-    this.dialog.open(HelpDialogComponent, { width: '100%', height: '80%' });
+    this.dialog.open(HelpDialogComponent, {
+      width: '1200px',
+      height: '600px',
+      data: { page: pages.About },
+    });
   }
 }

@@ -4,9 +4,14 @@
   placeholder="item name"
   [matAutocomplete]="auto"
   [formControl]="stateCtrl"
+  (blur)="updated()"
   class="dish-name"
 />
-<mat-autocomplete #auto="matAutocomplete" hideSingleSelectionIndicator>
+<mat-autocomplete
+  #auto="matAutocomplete"
+  class="food-autocomplete"
+  hideSingleSelectionIndicator
+>
   <mat-option *ngFor="let food of foodNames | async" [value]="food.name">
     <span>{{ food.icon }} {{ food.name }}</span>
   </mat-option>

@@ -1,22 +1,48 @@
-<div #itemWrapper class="food-items-wrapper">
-  <div class="food-items">
+<div #itemWrapper class="food-items-wrapper shadow">
+  <div class="food-items" [ngClass]="{ expand: !palettes.length }">
     <app-food-item-panel
       *ngFor="let palette of palettes"
       [foodData]="palette"
+      [paletteIds]="ids"
       (removePanel)="removeFoodTile($event)"
     ></app-food-item-panel>
-    <div *ngIf="!palettes.length" class="instruction-wrapper">
-      <img src="../../../assets/dish.png" alt="dish.png" />
-      <span class="lead help-placeholder"
-        >To add your first dish, simply click on the add button</span
-      >
+    <div *ngIf="!palettes.length" class="instruction-wrapper px-3">
+      <div class="add-food-wrapper">
+        <img
+          class="new-food-logo"
+          src="../../../assets/dish-home.svg"
+          alt="dish.png"
+        />
+        <span class="lead help-placeholder"
+          >To add your first dish, simply click on the add button</span
+        >
+        <button
+          matTooltip="add new palette"
+          type="button"
+          class="add-btn"
+          (click)="onAddFoodPalette()"
+        >
+          <span>+</span>
+        </button>
+      </div>
+      <div class="help-bar">
+        <span>
+          First Date with <span class="highlight"> Split Me</span>? No worries,
+          It won't ghost you!</span
+        >
+        <button (click)="openDialog()">Get Started</button>
+      </div>
     </div>
   </div>
-  <span class="add-action">
+  <span
+    *ngIf="palettes.length"
+    class="add-action"
+    style="display: flex; justify-content: center"
+  >
     <button
       matTooltip="add new palette"
       type="button"
-      class="btn btn-info btn-lg"
+      class="add-btn"
       (click)="onAddFoodPalette()"
     >
       <span>+</span>

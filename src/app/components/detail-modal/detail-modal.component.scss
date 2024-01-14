@@ -1,26 +1,55 @@
-.title {
-  display: flex;
-  justify-content: center;
-  margin-top: 16px;
-  p {
-    margin: 0;
-    font-size: 1rem;
-    color: black;
-  }
-}
+@import "../../styles/palette.scss";
 
 .dialog-body {
   padding: 16px;
-  position: relative;
-  .body-wrapper {
+  padding-bottom: 8px;
+ // position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .table-stats-container {
+    flex-grow: 1;
     display: flex;
+    margin-bottom: 8px;
     .table-wrap {
-      width: 400px;
+      width: 500px;
       overflow: auto;
     }
+   app-graph-container{
+    flex-grow: 1;
+   } 
+  }
+  .footer-panel {
+    border-top: 1px solid $border-line;
+    height: 40px;
+    display: flex;
+    align-items: end;
     .data-panel {
-      margin-left: 20px;
+      height: 30px;
       flex-grow: 1;
+    }
+    .ind-summary {
+      font-size: 0.8rem;
+      width: 180px;
+      height: 30px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      cursor: pointer;
+      border-radius: 4px;
+      font-family: Helvetica, sans-serif;
+      font-weight: bold;
+      background-color: #585697;
+      text-transform: capitalize;
+      img {
+        width: 18px;
+        filter: invert(1);
+        margin-left: 2px;
+      }
+
+      &:hover {
+        filter: brightness(1.1);
+      }
     }
   }
 }
@@ -32,8 +61,11 @@
   width: 20px;
   height: 20px;
   opacity: 0.7;
+  z-index: 1;
+  filter: grayscale(1);
   &:hover {
     cursor: pointer;
+    filter: grayscale(0);
     opacity: 1;
   }
 }
@@ -41,19 +73,40 @@
 @media only screen and (max-width: 576px) {
   .dialog-body {
     padding: 0px;
-    .body-wrapper {
+    padding-bottom: 8px;
+    .table-stats-container {
+      flex-grow: 1;
       margin-top: 8px;
       flex-direction: column;
       gap: 6px;
       .table-wrap {
         width: 100%;
-        height: 350px;
+        height: 400px;
         margin-bottom: 2px;
         box-shadow: none !important;
       }
+      app-graph-container {
+        display: none;
+      }
+    }
+    .footer-panel {
+      height: 200px;
+      padding: 2px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
       .data-panel {
-        flex-grow: inherit;
-        margin: 0;
+        flex-grow: 1;
+        width: 100%;
+      }
+      .ind-summary {
+        width: 90%;
+
+        img {
+          width: 14px;
+        }
       }
     }
   }

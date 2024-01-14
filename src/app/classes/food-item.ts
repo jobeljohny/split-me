@@ -4,6 +4,7 @@ export class FoodItem {
   static #id = 0;
   private id: number;
   name: string;
+  public logo: string = '🍽️';
   price: number;
   participants: Participant[];
 
@@ -12,11 +13,8 @@ export class FoodItem {
   }
 
   constructor(name: string, price: number, participants: Participant[]) {
-    if (name !== 'undefined') {
-      FoodItem.#incrementID();
-      this.id = FoodItem.#id;
-    } else this.id = 0;
-
+    FoodItem.#incrementID();
+    this.id = FoodItem.#id;
     this.name = name;
     this.price = price;
     this.participants = participants;

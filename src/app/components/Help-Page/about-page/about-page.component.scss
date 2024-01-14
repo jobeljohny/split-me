@@ -1,5 +1,125 @@
-@media only screen and (max-width: 576px) {
-  img {
+@import "../../../styles/palette.scss";
+.about-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  .logo {
+    position: absolute;
     width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 50%;
+      opacity: 0.05;
+    }
+  }
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    margin-top: 10px;
+    margin-bottom: 32px;
+  }
+  .body-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1;
+    .about-body {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 0 8px;
+      .text-content {
+        padding-left: 24px;
+        flex-grow: 1;
+        p {
+          font-size: 1rem;
+          line-height: 1.8;
+          text-align: center;
+        }
+      }
+      .image-wrapper {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 16px;
+        img {
+          width: 420px;
+          margin-bottom: 30px;
+        }
+      }
+    }
+    .btn-panel {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+      justify-content: center;
+      .btn-item {
+        padding: 10px 20px;
+        border-radius: 6px;
+        background: none;
+        color: white;
+        text-decoration: none;
+        &:hover {
+          background-color: rgb(68, 68, 68);
+
+          filter: brightness(1.2);
+        }
+        &:first-child {
+          background: $primary-button;
+          border: none;
+        }
+        &:nth-child(2) {
+          border: 1px solid whitesmoke;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 576px) {
+  .about-content {
+    .header {
+      font-size: 0.9rem;
+      margin-top: 10px;
+      margin-bottom: 16px;
+    }
+    .body-container {
+      .about-body {
+        flex-direction: column-reverse;
+        gap: 0;
+        .text-content {
+          padding-left: 0px;
+          p {
+            font-size: 0.7rem;
+            line-height: 1.5;
+          }
+        }
+        .image-wrapper {
+          margin-left: 0;
+          img {
+            width: 100%;
+          }
+        }
+      }
+      .btn-panel {
+        display: flex;
+        gap: 20px;
+        margin-top: 8px;
+        justify-content: center;
+        .btn-item {
+          padding: 4px 8px;
+          border-radius: 3px;
+          font-size: 0.7rem;
+        }
+      }
+    }
   }
 }

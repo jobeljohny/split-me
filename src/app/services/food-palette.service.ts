@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { FoodItem } from '../classes/food-item';
-import { Participant } from '../classes/participant';
 import { IorderDetails } from '../classes/interfaces';
+import { Participant } from '../classes/participant';
+import { Profile } from '../classes/profile';
 
 @Injectable({
   providedIn: 'root',
@@ -79,7 +80,7 @@ export class FoodPaletteService {
         const name = participant.name;
 
         const detail: IorderDetails = {
-          food_name: dish.name,
+          food_name: dish.logo + ' ' + dish.name,
           contribution: participant.contribution,
           quantity: participant.contribution / dish.price,
         };

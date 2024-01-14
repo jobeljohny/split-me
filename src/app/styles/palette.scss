@@ -1,9 +1,11 @@
-$primary-color: #24344b;
-$body-bg: linear-gradient(
-  90deg,
-  rgba(239, 246, 255, 1) 0%,
-  rgba(246, 250, 255, 1) 53%,
-  rgba(217, 231, 247, 1) 100%
-);
-$card-color: #f9fcfe;
+
+$primary-color: #212134;
+$primary-color-trans: #2121349c;
+$border-line: #29293e;
+$body-bg: #181826;
+$card-color: $primary-color-trans;
+$secondary-color:#1e1e2e;
 $theme-primary: rgb(74, 154, 204);
+$primary-button:#4945FF;
+
+$theme-filter:brightness(0) saturate(100%) invert(85%) sepia(29%) saturate(606%) hue-rotate(339deg) brightness(104%) contrast(99%);

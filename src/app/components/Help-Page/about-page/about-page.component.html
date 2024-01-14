@@ -1,20 +1,41 @@
 <!--<img src="../../../../assets/main-logo.png" alt="logo" />-->
 <!--TODO: remove when completed-->
-<div
-  style="
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  "
->
-  <p class="lead" style="margin-top: 20px; margin-bottom: 50px">
-    Still in the works!
-  </p>
-  <img
-    src="../../../../assets/in-progress.png"
-    alt="in progress"
-    style="opacity: 0.5"
-  />
+<div class="about-content">
+  <div class="logo">
+    <img src="../../../../assets/main-logo.png" alt="logo" />
+  </div>
+  <div class="header lead">About Us</div>
+  <div class="body-container">
+    <div class="about-body">
+      <div class="text-content">
+        <p class="lead">
+          Welcome to <span class="highlight">Split Me</span> - Your Ultimate
+          Food Bill Splitting Solution!
+        </p>
+        <p class="lead">
+          At Split Me, we understand the challenges and hassles that come with
+          splitting the bill after a delightful meal with friends or colleagues.
+          That's why we've created a user-friendly and feature-rich food bill
+          splitting application to make your dining experiences stress-free and
+          enjoyable.
+        </p>
+        <p class="lead">
+          Split Me is here to rescue you from the clutches of confusing math and
+          awkward bill-splitting debates.
+        </p>
+      </div>
+      <div class="image-wrapper">
+        <img src="../../../../assets/instructions/about-skin.png" alt="" />
+      </div>
+    </div>
+    <div class="btn-panel">
+      <button class="btn-item" (click)="goToHelpPage()">Get started</button
+      ><a
+        class="btn-item"
+        href="https://github.com/jobeljohny/split-me"
+        target="_blank"
+        >Visit Us</a
+      >
+    </div>
+  </div>
 </div>

@@ -14,7 +14,6 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { QRCodeModule } from 'angularx-qrcode';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutPageComponent } from './components/Help-Page/about-page/about-page.component';
@@ -49,7 +48,17 @@ import { MatInputModule } from '@angular/material/input';
 import { FoodInputFieldComponent } from './components/food-input-field/food-input-field.component';
 import { ImportModalComponent } from './components/import-modal/import-modal.component';
 import { DragDropDirective } from './directives/drag-drop.directive';
-
+import { AmountDisplayComponent } from './components/amount-display/amount-display.component';
+import { IndividualMenuComponent } from './components/individual-menu/individual-menu.component';
+import { DoughnutGraphComponent } from './components/doughnut-graph/doughnut-graph.component';
+import { NgChartsModule } from 'ng2-charts';
+import { GraphContainerComponent } from './components/graph-container/graph-container.component';
+import { GettingStartedComponent } from './components/Help-Page/instruction-slides/getting-started/getting-started.component';
+import { ProfilePanelHelpComponent } from './components/Help-Page/instruction-slides/profile-panel-help/profile-panel-help.component';
+import { FoodPaletteHelpComponent } from './components/Help-Page/instruction-slides/food-palette-help/food-palette-help.component';
+import { PaletteProfilingHelpComponent } from './components/Help-Page/instruction-slides/palette-profiling-help/palette-profiling-help.component';
+import { DetailsPanelHelpComponent } from './components/Help-Page/instruction-slides/details-panel-help/details-panel-help.component';
+import { WebsiteMovedDialogComponent } from './components/website-moved-dialog/website-moved-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,11 +92,22 @@ import { DragDropDirective } from './directives/drag-drop.directive';
     FoodInputFieldComponent,
     ImportModalComponent,
     DragDropDirective,
+    AmountDisplayComponent,
+    IndividualMenuComponent,
+    DoughnutGraphComponent,
+    GraphContainerComponent,
+    GettingStartedComponent,
+    ProfilePanelHelpComponent,
+    FoodPaletteHelpComponent,
+    PaletteProfilingHelpComponent,
+    DetailsPanelHelpComponent,
+    WebsiteMovedDialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    NgChartsModule,
     ReactiveFormsModule,
     DragDropModule,
     MatMenuModule,
@@ -100,7 +120,6 @@ import { DragDropDirective } from './directives/drag-drop.directive';
     MatAutocompleteModule,
     MatProgressSpinnerModule,
     HttpClientModule,
-    QRCodeModule,
   ],
   providers: [
     {

@@ -18,9 +18,15 @@ export class DetailsPanelComponent {
 
   calcFinalTotal() {
     this.details.calculateFinalTotal();
-    this.dialog.open(DetailModalComponent, {
-      width: '800px',
-    });
+    if (this.details.contributorsMap.size > 0) {
+      this.dialog.open(DetailModalComponent, {
+        width: '1200px',
+        height: '600px',
+        panelClass: 'detailsModal',
+      });
+    } else {
+      alert('No Contributors present');
+    }
   }
 
   get totalFoodBill() {

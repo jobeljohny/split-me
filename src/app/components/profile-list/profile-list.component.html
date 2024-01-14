@@ -1,4 +1,4 @@
-<div class="people-card shadow p-3 mb-2 rounded card-container">
+<div class="people-card p-3 mb-2 card-container">
   <div class="import-export-container">
     <input
       matTooltip="import profiles"
@@ -8,14 +8,15 @@
     />
     <img
       matTooltip="export profiles"
-      src="../../../assets/export.png"
+      src="assets/icons/save-icon.svg"
       alt="export.png"
       (click)="export()"
     />
   </div>
-  <h3 class="lead" style="text-align: center">Profiles</h3>
+  <h3 class="lead" style="text-align: center">PROFILES</h3>
   <div
     cdkDropList
+    cdkDropListSortingDisabled
     id="profile-wrap-list"
     [cdkDropListConnectedTo]="paletteIDs"
     class="profiles-wrapper"
@@ -53,7 +54,7 @@
       <button
         matTooltip="New profile"
         type="button"
-        class="btn btn-info btn-profile"
+        class="btn-profile"
         (click)="onAddProfile()"
       >
         <span>+</span>

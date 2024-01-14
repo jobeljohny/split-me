@@ -1,0 +1,23 @@
+<div class="canvas-wrapper">
+  <canvas
+    baseChart
+    [data]="data.chartData"
+    [type]="'doughnut'"
+    [options]="options"
+    [plugins]="[centerText]"
+    (chartClick)="chartClicked($event)"
+  >
+  </canvas>
+</div>
+
+<span
+  style="visibility: hidden; position: fixed"
+  [style.left.px]="contextMenuPosition.x"
+  [style.top.px]="contextMenuPosition.y"
+  [matMenuTriggerFor]="infoMenu"
+  #menuTrigger="matMenuTrigger"
+  ></span
+>
+<mat-menu #infoMenu="matMenu" class="contribution-graph-menu">
+  <app-summary-table [summaryData]="user"></app-summary-table>
+</mat-menu>

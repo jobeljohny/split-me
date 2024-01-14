@@ -50,7 +50,7 @@
 
   <div class="content">
     <ng-container [ngSwitch]="currentDisplay">
-      <app-about-page *ngSwitchCase="Pages.About"></app-about-page>
+      <app-about-page (onHelp)="showPage(Pages.Help)" *ngSwitchCase="Pages.About"></app-about-page>
       <app-instructions-page *ngSwitchCase="Pages.Help"></app-instructions-page>
       <app-keyboard-shortcuts
         *ngSwitchCase="Pages.KeyboardShortcuts"

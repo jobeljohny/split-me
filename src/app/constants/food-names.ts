@@ -9,7 +9,7 @@ export const foodNames: foodItem[] = [
   { icon: '🍛', name: 'Pepper Chicken' },
   { icon: '🍘', name: 'Al Faham Mandhi' },
   { icon: '🍘', name: 'Mandhi' },
-  { icon: '🍘', name: 'Biriyani' },
+  { icon: '🥘', name: 'Biriyani' },
   { icon: '🍗', name: 'Chicken Biriyani' },
   { icon: '🍖', name: 'Beef Biriyani' },
   { icon: '🍜', name: 'Noodles' },
@@ -31,6 +31,7 @@ export const foodNames: foodItem[] = [
   { icon: '🍚', name: 'Meals' },
   { icon: '🌭', name: 'Sausage' },
   { icon: '🍕', name: 'Pizza' },
+  { icon: '🍚', name: 'Meals' },
   { icon: '🌯', name: 'Shawarma' },
   { icon: '🍖', name: 'Kebab' },
   { icon: '🥪', name: 'Sandwich' },
@@ -48,4 +49,18 @@ export const foodNames: foodItem[] = [
   { icon: '🥤', name: 'Coke' },
   { icon: '🥤', name: 'Pepsi' },
   { icon: '🧃', name: 'Juice' },
+];
+
+export const foodLogo: foodItem[] = [
+  { icon: '🥪', name: 'sandwich' },
+  { icon: '🌯', name: 'roll' },
+  { icon: '🐟', name: 'fish' },
+  { icon: '🍚', name: 'rice' },
+  { icon: '🍗', name: 'chicken|faham|bbq' },
+  { icon: '🍖', name: 'beef' },
+  { icon: '🍲', name: 'soup' },
+  { icon: '🍜', name: 'Noodles' },
+  { icon: '🍰', name: 'cake' },
+  { icon: '🍔', name: 'burger' },
+  { icon: '🥤', name: 'shake|juice' },
 ];

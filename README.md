@@ -16,23 +16,24 @@
 
 #### Live app : [Split Me](https://split-me-f4d3c.web.app)
 
-# Split-Me Release notes 2.1 🚀
+# Split-Me Release notes 3.0 🚀
 
 ### improvements 🛠️
 
-- New Navigation panel and Help menu
-- Added Mobile support for usability
-- New Hamburger Menu and theme
-- Added options to report issues and links to the Repo
-- UI improvements
-- New info Dialog (few pages to be implemented)
-- Minor perfomance improvements
+- Switching to stealth mode – dark theme now ruling the interface
+- Guess what decided to join the party fashionably late? The Help Page!
+- New and Improved UI and Accessibility
+- Introducing the upgraded details modal: now with sleek graphical stats
+- Inter-Palette dragging now supported
+- New and update food palette
+- Individual's context menu now support different splitting options
+- Minor perfomance improvements and framework updations
 
 ### bug fixes 🐞
 
-- Fixed nested Modals issue
-- Fixed tooltips not showing on top nested Modals
-- Fixed backdrop closing using Esc Key
+- Fixed drag distortion issue
+- Fixed few mobile UI glitches
+- Fixed autocomplete UI inconsitencies
 - Minor UI Bug fixes
 
 #### previous release notes : [release notes](release%20notes/release-notes.md)
