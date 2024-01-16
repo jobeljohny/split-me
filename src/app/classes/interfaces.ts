@@ -43,3 +43,8 @@ export interface IgraphType {
 export interface IPageData {
   page: pages;
 }
+
+export interface IBillEntry {
+  item: string;
+  amount: number;
+}

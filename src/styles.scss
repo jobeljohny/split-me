@@ -65,6 +65,7 @@ body {
 
 //summary-modal, domain-moved-modal
 .summaryModal .mat-mdc-dialog-container .mdc-dialog__surface,
+.importModal .mat-mdc-dialog-container .mdc-dialog__surface,
 .domain-moved-modal .mat-mdc-dialog-container .mdc-dialog__surface {
   background: rgba(10, 10, 19, 0.9);
   border-radius: 10px;

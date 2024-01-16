@@ -16,13 +16,13 @@ export class ImportModalComponent {
   fileFlag: boolean = true;
   progress = 0;
   uploadStart: boolean = false;
-subscription:Subscription;
-  constructor(private ocr:OCRApiService){
-
+  subscription: Subscription;
+  constructor(private ocr: OCRApiService) {
     this.subscription = this.ocr.recieptUrl$.subscribe((link) => {
-      console.log(link);
-      
+     // console.log(link);
+     //TODO remove
     });
+    setTimeout( ()=>this.upload(),200)
   }
   onFileInput(event: any) {
     let input = event.target;
@@ -38,32 +38,31 @@ subscription:Subscription;
   }
 
   async upload() {
-    /* 
+    
     // Tesseract Extraction Code
 
-    this.uploadStart = true;
-    if (!this.file) return;
-    this.progress = 0;
-    console.log('starting');
+   // this.uploadStart = true;
+   // if (!this.file) return;
+   // this.progress = 0;
+   // console.log('starting');
 
-    const worker = await createWorker('eng');
-    console.log('wroker fetched');
+   // const worker = await createWorker('eng');
+   // console.log('wroker fetched');
 
-    try {
-      let data = await worker.recognize(this.file);
+   // try {
+   //   let data = await worker.recognize(this.file);
 
-      console.log('OCR Result:', data);
-    } catch (error) {
-      console.error('OCR Error:', error);
-      this.uploadStart = false;
-    } finally {
-      await worker.terminate();
-      this.uploadStart = false;
-    }
-    */
-console.log('parsing started');
+   //   console.log('OCR Result:', data);
+   // } catch (error) {
+   //   console.error('OCR Error:', error);
+   //   this.uploadStart = false;
+   // } finally {
+   //   await worker.terminate();
+   //   this.uploadStart = false;
+   // }
+    
+    console.log('parsing started');
 
-    this.ocr.getReciept(this.file);
+    await this.ocr.getReciept(this.file);
   }
-
 }

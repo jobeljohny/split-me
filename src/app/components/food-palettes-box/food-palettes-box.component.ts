@@ -39,7 +39,9 @@ export class FoodPalettesBoxComponent {
   }
 
   onImportBill() {
-    let dialogRef = this.dialog.open(ImportModalComponent);
+    let dialogRef = this.dialog.open(ImportModalComponent, {
+      panelClass: 'importModal',
+    });
   }
 
   removeFoodTile(item: FoodItem) {
