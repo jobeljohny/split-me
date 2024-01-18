@@ -59,6 +59,7 @@ import { FoodPaletteHelpComponent } from './components/Help-Page/instruction-sli
 import { PaletteProfilingHelpComponent } from './components/Help-Page/instruction-slides/palette-profiling-help/palette-profiling-help.component';
 import { DetailsPanelHelpComponent } from './components/Help-Page/instruction-slides/details-panel-help/details-panel-help.component';
 import { WebsiteMovedDialogComponent } from './components/website-moved-dialog/website-moved-dialog.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 @NgModule({
   declarations: [
     AppComponent,
@@ -120,6 +121,7 @@ import { WebsiteMovedDialogComponent } from './components/website-moved-dialog/w
     MatAutocompleteModule,
     MatProgressSpinnerModule,
     HttpClientModule,
+    ImageCropperModule,
   ],
   providers: [
     {

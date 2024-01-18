@@ -803,8 +803,8 @@ export class OCRApiService {
       ProcessingTimeInMilliseconds: '2281',
       SearchablePDFURL: 'Searchable PDF not generated as it was not requested.',
     };
-    //this.processResult(mock);
-    //return;
+    // this.processResult(mock);
+    // return;
     try {
       const formData = new FormData();
       formData.append('file', file);
@@ -895,6 +895,8 @@ export class OCRApiService {
 
   processResult(extraction: any) {
     const data: string = extraction.ParsedResults[0].ParsedText;
+    console.log(extraction);
+    
     console.log('processing');
     this.updateStructure(data);
     //    const regex = /^\d+\s+[a-zA-Z]+\s+\d+\.\d+\s+\d+\.\d+$/;

@@ -54,8 +54,32 @@ $imp-color: $primary-button;
           color: $imp-color;
           font-weight: bolder;
           cursor: pointer;
-          
         }
+      }
+    }
+  }
+  .bill-display-container {
+    display: flex;
+    height: 300px;
+    width: 500px;
+    gap: 8px;
+    image-cropper {
+      --cropper-overlay-color: #69696900;
+      --cropper-outline-color: #21213440;
+      border: 1px solid $border-line;
+      border-radius: 4px;
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+    .preview-wrapper {
+      flex-grow: 1;
+      flex-basis: 0;
+      border: 1px solid $border-line;
+      border-radius: 4px;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
       }
     }
   }

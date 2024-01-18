@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { ImageCroppedEvent, LoadedImage } from 'ngx-image-cropper';
 import { Subscription } from 'rxjs';
 import { OCRApiService } from 'src/app/services/ocr-api.service';
 import { createWorker } from 'tesseract.js';
@@ -17,12 +18,14 @@ export class ImportModalComponent {
   progress = 0;
   uploadStart: boolean = false;
   subscription: Subscription;
+  imgChangeEvt: string = '';
+  cropImgPreview: string | undefined = '';
   constructor(private ocr: OCRApiService) {
     this.subscription = this.ocr.recieptUrl$.subscribe((link) => {
-     // console.log(link);
-     //TODO remove
+      // console.log(link);
     });
-    setTimeout( ()=>this.upload(),200)
+    //TODO remove
+    // setTimeout(() => this.upload(), 200);
   }
   onFileInput(event: any) {
     let input = event.target;
@@ -38,31 +41,49 @@ export class ImportModalComponent {
   }
 
   async upload() {
-    
     // Tesseract Extraction Code
 
-   // this.uploadStart = true;
-   // if (!this.file) return;
-   // this.progress = 0;
-   // console.log('starting');
+     this.uploadStart = true;
+     if (!this.file) return;
+     this.progress = 0;
+     console.log('starting');
 
-   // const worker = await createWorker('eng');
-   // console.log('wroker fetched');
+     const worker = await createWorker('eng');
+     console.log('wroker fetched');
 
-   // try {
-   //   let data = await worker.recognize(this.file);
+     try {
+       let data = await worker.recognize(this.file);
 
-   //   console.log('OCR Result:', data);
-   // } catch (error) {
-   //   console.error('OCR Error:', error);
-   //   this.uploadStart = false;
-   // } finally {
-   //   await worker.terminate();
-   //   this.uploadStart = false;
-   // }
-    
+       console.log('OCR Result:', data);
+     } catch (error) {
+       console.error('OCR Error:', error);
+       this.uploadStart = false;
+     } finally {
+       await worker.terminate();
+       this.uploadStart = false;
+     }
+
     console.log('parsing started');
 
-    await this.ocr.getReciept(this.file);
+  //  await this.ocr.getReciept(this.file);
+  }
+
+  imageLoaded(image: LoadedImage) {
+    // show cropper
+    console.log(image);
+  }
+  cropperReady() {
+    // cropper ready
+    console.log('croppepr ready');
+  }
+
+  imgFailed() {
+    // error msg
+    console.log('error occured');
+  }
+
+  cropImg(e: ImageCroppedEvent) {
+    console.log('cropped');
+    if (e.objectUrl) this.cropImgPreview = e.objectUrl;
   }
 }
