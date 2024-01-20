@@ -94,7 +94,6 @@ $imp-color: $primary-button;
         text-align: center;
         font-size: 0.9rem;
       }
-      
     }
     .bill-display-image-holders {
       display: flex;
@@ -123,28 +122,26 @@ $imp-color: $primary-button;
     }
   }
 }
-
-.upload-button {
-  background-color: $imp-color;
-  color: white;
-  display: flex;
-  align-items: center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 18px;
-  border: none;
-  border-radius: 18px;
-  margin: 10px;
-  padding: 8px 30px;
-  cursor: pointer;
-  &:disabled {
-    cursor: not-allowed;
-    color: #e6e6e6;
-    opacity: 0.4;
+.bottom-panel {
+  margin-top: 8px;
+  .upload-button {
+    background-color: $imp-color;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    border: none;
+    border-radius: 18px;
+    margin: 10px;
+    padding: 8px 30px;
+    cursor: pointer;
+    &:disabled {
+      cursor: not-allowed;
+      color: #e6e6e6;
+      opacity: 0.4;
+    }
   }
-}
-
-.fileover {
-  background-color: rgba(160, 185, 253, 0.245);
 }
 
 @media only screen and (max-width: 576px) {

@@ -50,7 +50,7 @@ export class ImageProcessor {
         this.canvas.width,
         this.canvas.height
       );
-      // this.blurARGB(imgData.data, 0.5);
+      //this.blurARGB(imgData.data, 0.5);
       //this.dilate(imgData.data);
       // this.invertColors(imgData.data)
       this.thresholdFilter(imgData.data, 0.6);

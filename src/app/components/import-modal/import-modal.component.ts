@@ -12,18 +12,13 @@ export class ImportModalComponent {
   fileName: string = '';
   fileSize: string = '';
   file!: File;
-  titleMessage = 'Drag & drop any file here';
   fileFlag: boolean = true;
   progress = 0;
   uploadStart: boolean = false;
-  subscription: Subscription;
   imgChangeEvt: string = '';
   cropImgPreview: string | undefined = '';
   cropImgBlob: Blob | undefined | null;
   constructor(private ocr: OCRApiService) {
-    this.subscription = this.ocr.recieptUrl$.subscribe((link) => {
-      // console.log(link);
-    });
     //TODO remove
     // setTimeout(() => this.upload(), 200);
   }
@@ -37,7 +32,6 @@ export class ImportModalComponent {
     this.fileName = file.name;
     this.fileSize = (file.size / 1024).toFixed(1) + ' KB';
     this.fileFlag = false;
-    this.titleMessage = 'File dopped successfully';
   }
 
   async upload() {
@@ -48,22 +42,12 @@ export class ImportModalComponent {
     }
   }
 
-  imageLoaded(image: LoadedImage) {
-    // show cropper
-    console.log(image);
-  }
-  cropperReady() {
-    // cropper ready
-    console.log('croppepr ready');
-  }
-
   imgFailed() {
     // error msg
     console.log('error occured');
   }
 
   cropImg(e: ImageCroppedEvent) {
-    console.log('cropped');
     if (e.objectUrl) {
       this.cropImgPreview = e.objectUrl;
       this.cropImgBlob = e.blob;

@@ -11,10 +11,9 @@
     appDragDrop
     class="drag-file-area"
     (fileDropped)="fileUpdate($event)"
-    [ngStyle]="{ opacity: uploadStart ? 0.5 : 1 }"
   >
     <img src="../../../assets/import.png" class="upload-icon" />
-    <h3>{{ titleMessage }}</h3>
+    <h3>Drag & drop any file here</h3>
     <label class="label">
       <span>or</span>
       <span class="browse-files">
@@ -40,7 +39,11 @@
       choose another file
     </div>
   </div>
-  <div *ngIf="!fileFlag" class="bill-display-container">
+  <div
+    *ngIf="!fileFlag"
+    class="bill-display-container"
+    [ngStyle]="{ opacity: uploadStart ? 0.3 : 1 }"
+  >
     <div class="image-titles lead">
       <div class="img-title">Uploaded bill</div>
       <div class="img-title">Clipped region</div>
@@ -51,8 +54,6 @@
         [maintainAspectRatio]="false"
         format="png"
         (imageCropped)="cropImg($event)"
-        (imageLoaded)="imageLoaded($event)"
-        (cropperReady)="cropperReady()"
         (loadImageFailed)="imgFailed()"
       >
       </image-cropper>
@@ -61,22 +62,22 @@
       </div>
     </div>
   </div>
-
-  <button
-    *ngIf="!uploadStart"
-    [disabled]="fileFlag"
-    (click)="upload()"
-    type="button"
-    class="upload-button"
-  >
-    Parse
-  </button>
-  <mat-spinner
-    *ngIf="uploadStart"
-    color="blue"
-    [value]="progress"
-    mode="determinate"
-    diameter="45"
-    color
-  ></mat-spinner>
+  <div class="bottom-panel">
+    <button
+      *ngIf="!uploadStart"
+      [disabled]="fileFlag"
+      (click)="upload()"
+      type="button"
+      class="upload-button"
+    >
+      Parse
+    </button>
+    <mat-spinner
+      *ngIf="uploadStart"
+      color="blue"
+      mode="indeterminate"
+      diameter="45"
+      color
+    ></mat-spinner>
+  </div>
 </div>

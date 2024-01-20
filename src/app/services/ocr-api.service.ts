@@ -1,31 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 import { Line, PSM, createWorker } from 'tesseract.js';
 import { ImageProcessor } from '../classes/imageProcesser';
 import { IBillEntry } from '../classes/interfaces';
+import { TESS_WHITELIST } from '../classes/constants';
 @Injectable({
   providedIn: 'root',
 })
 export class OCRApiService {
-  private recieptUrlSource = new Subject<string>();
-  recieptUrl$ = this.recieptUrlSource.asObservable();
-
   constructor() {}
-
-  notifyCompletion(link: string) {
-    this.recieptUrlSource.next(link);
-  }
 
   async getReciept(blob: Blob) {
     const image = new ImageProcessor();
     await image.loadImage(blob);
     const worker = await createWorker('eng');
-    worker.setParameters({ tessedit_pageseg_mode: PSM.SINGLE_COLUMN });
+    worker.setParameters({ tessedit_pageseg_mode: PSM.SINGLE_COLUMN ,tessedit_char_whitelist:TESS_WHITELIST});
     try {
       let result = await worker.recognize(image.getImage(), {
         rotateAuto: true,
       });
-      //console.log('OCR Result:', result);
+      console.log('OCR Result:', result);
       this.processResult(result.data.lines);
     } catch (error) {
       console.error('OCR Error:', error);
