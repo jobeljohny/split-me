@@ -1,9 +1,9 @@
-export class imageProcessor {
+export class ImageProcessor {
   private canvas!: HTMLCanvasElement;
 
   constructor() {}
 
-  async loadImage(file: File): Promise<void> {
+  async loadImage(file: Blob): Promise<void> {
     return new Promise((resolve, reject) => {
       this.canvas = document.createElement('canvas');
       const reader = new FileReader();
@@ -50,9 +50,9 @@ export class imageProcessor {
         this.canvas.width,
         this.canvas.height
       );
-     // this.blurARGB(imgData.data, 0.5);
+      // this.blurARGB(imgData.data, 0.5);
       //this.dilate(imgData.data);
-     // this.invertColors(imgData.data)
+      // this.invertColors(imgData.data)
       this.thresholdFilter(imgData.data, 0.6);
       ctx.putImageData(imgData, 0, 0);
     } else {

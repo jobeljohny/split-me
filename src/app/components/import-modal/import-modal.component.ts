@@ -1,8 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { ImageCroppedEvent, LoadedImage } from 'ngx-image-cropper';
 import { Subscription } from 'rxjs';
 import { OCRApiService } from 'src/app/services/ocr-api.service';
-import { createWorker } from 'tesseract.js';
 
 @Component({
   selector: 'app-import-modal',
@@ -20,6 +19,7 @@ export class ImportModalComponent {
   subscription: Subscription;
   imgChangeEvt: string = '';
   cropImgPreview: string | undefined = '';
+  cropImgBlob: Blob | undefined | null;
   constructor(private ocr: OCRApiService) {
     this.subscription = this.ocr.recieptUrl$.subscribe((link) => {
       // console.log(link);
@@ -41,31 +41,10 @@ export class ImportModalComponent {
   }
 
   async upload() {
-    // Tesseract Extraction Code
-
-     this.uploadStart = true;
-     if (!this.file) return;
-     this.progress = 0;
-     console.log('starting');
-
-     const worker = await createWorker('eng');
-     console.log('wroker fetched');
-
-     try {
-       let data = await worker.recognize(this.file);
-
-       console.log('OCR Result:', data);
-     } catch (error) {
-       console.error('OCR Error:', error);
-       this.uploadStart = false;
-     } finally {
-       await worker.terminate();
-       this.uploadStart = false;
-     }
-
-    console.log('parsing started');
-
-  //  await this.ocr.getReciept(this.file);
+    if (this.cropImgBlob) {
+      this.uploadStart = true;
+      await this.ocr.getReciept(this.cropImgBlob);
+    }
   }
 
   imageLoaded(image: LoadedImage) {
@@ -84,6 +63,9 @@ export class ImportModalComponent {
 
   cropImg(e: ImageCroppedEvent) {
     console.log('cropped');
-    if (e.objectUrl) this.cropImgPreview = e.objectUrl;
+    if (e.objectUrl) {
+      this.cropImgPreview = e.objectUrl;
+      this.cropImgBlob = e.blob;
+    }
   }
 }
