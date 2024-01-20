@@ -13,28 +13,25 @@ $imp-color: $primary-button;
     margin-bottom: 8px;
     padding: 6px 16px;
     border-radius: 4px;
+    width: 500px;
     background-color: $primary-color;
     img {
-      width: 20px;
+      width: 15px;
       margin-right: 2px;
     }
     span {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
+      font-weight: 300;
     }
   }
   .drag-file-area {
     border: 2px dashed $primary-color;
-    border-radius: 40px;
+    border-radius: 30px;
     margin: 10px 0 15px;
     padding: 20px 50px;
     width: 350px;
     text-align: center;
-    .file-info {
-      img {
-        width: 18px;
-        margin-right: 4px;
-      }
-    }
+
     .upload-icon {
       width: 50px;
     }
@@ -48,6 +45,7 @@ $imp-color: $primary-button;
       display: block;
       .browse-files {
         .default-file-input {
+          height: 0px;
           opacity: 0;
         }
         .browse-files-text {
@@ -58,28 +56,69 @@ $imp-color: $primary-button;
       }
     }
   }
-  .bill-display-container {
+  .after-upload {
     display: flex;
-    height: 300px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4px;
+    border: 1px solid $border-line;
+    border-radius: 8px;
+    padding: 10px 10px;
     width: 500px;
-    gap: 8px;
-    image-cropper {
-      --cropper-overlay-color: #69696900;
-      --cropper-outline-color: #21213440;
-      border: 1px solid $border-line;
-      border-radius: 4px;
-      flex-grow: 1;
-      flex-basis: 0;
-    }
-    .preview-wrapper {
-      flex-grow: 1;
-      flex-basis: 0;
-      border: 1px solid $border-line;
-      border-radius: 4px;
+
+    .file-info {
       img {
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
+        width: 18px;
+        margin-right: 4px;
+      }
+      span {
+        font-size: 0.8rem;
+      }
+    }
+    .reset-file-picker {
+      color: $imp-color;
+      font-weight: bolder;
+      cursor: pointer;
+    }
+  }
+  .bill-display-container {
+    .image-titles {
+      display: flex;
+      margin-bottom: 4px;
+      margin-top: 6px;
+      opacity: 0.8;
+      .img-title {
+        flex-grow: 1;
+        flex-basis: 0;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      
+    }
+    .bill-display-image-holders {
+      display: flex;
+      height: 300px;
+      width: 500px;
+      gap: 8px;
+      image-cropper {
+        --cropper-overlay-color: #69696900;
+        --cropper-outline-color: #21213440;
+        border: 1px solid $border-line;
+        border-radius: 4px;
+        flex-grow: 1;
+        flex-basis: 0;
+      }
+      .preview-wrapper {
+        flex-grow: 1;
+        flex-basis: 0;
+        border: 1px solid $border-line;
+        border-radius: 4px;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
       }
     }
   }

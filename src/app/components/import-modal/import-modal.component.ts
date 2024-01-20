@@ -44,6 +44,7 @@ export class ImportModalComponent {
     if (this.cropImgBlob) {
       this.uploadStart = true;
       await this.ocr.getReciept(this.cropImgBlob);
+      this.uploadStart = false;
     }
   }
 

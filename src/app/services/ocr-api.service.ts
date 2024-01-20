@@ -39,8 +39,6 @@ export class OCRApiService {
   }
   isolatedPriceAppender(lines: string[]): string[] {
     const Priceregex: RegExp = /\b\d+\.\d{2}\b/;
-    let updateLines: string[] = [];
-
     const alphabetRegex: RegExp = /[a-z]/i;
 
     for (let i = 0; i < lines.length; i++) {
@@ -48,10 +46,8 @@ export class OCRApiService {
         if (!alphabetRegex.test(lines[i])) {
           lines[i - 1] += ' ' + lines[i];
           lines[i] = '';
-          console.log();
         }
       }
-      const element = lines[i];
     }
     return lines;
   }
@@ -77,18 +73,9 @@ export class OCRApiService {
   }
 
   updateStructure(lines: string[]) {
-    console.log('initial lines');
-    console.log(lines);
     lines = lines.map((line) => this.removeIndex(line));
-    console.log('index removal:');
-    console.log(lines);
-
     lines = this.isolatedPriceAppender(lines);
-    console.log('price isolator');
-    console.log(lines);
     lines = lines.filter((line) => line);
-    console.log('removing empty');
-    console.log(lines);
     console.log(this.filterValidEntries(lines));
   }
 

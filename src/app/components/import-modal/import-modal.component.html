@@ -7,26 +7,16 @@
     >
   </div>
   <div
+    *ngIf="fileFlag"
     appDragDrop
     class="drag-file-area"
     (fileDropped)="fileUpdate($event)"
     [ngStyle]="{ opacity: uploadStart ? 0.5 : 1 }"
   >
-    <img
-      [src]="
-        fileFlag
-          ? '../../../assets/import.png'
-          : '../../../assets/green-tick.png'
-      "
-      class="upload-icon"
-    />
+    <img src="../../../assets/import.png" class="upload-icon" />
     <h3>{{ titleMessage }}</h3>
-    <div *ngIf="!fileFlag" class="file-info">
-      <img src="../../../assets/notes.svg" alt="" />
-      <span>{{ fileName }} | {{ fileSize }}</span>
-    </div>
     <label class="label">
-      <span *ngIf="fileFlag">or</span>
+      <span>or</span>
       <span class="browse-files">
         <input
           #fileInput
@@ -37,23 +27,38 @@
         />
 
         <span class="browse-files-text">browse file </span>
-        <span>from device</span>
+        <span class="static-text">from device</span>
       </span>
     </label>
   </div>
-  <div class="bill-display-container">
-    <image-cropper
-      [imageFile]="file"
-      [maintainAspectRatio]="false"
-      format="png"
-      (imageCropped)="cropImg($event)"
-      (imageLoaded)="imageLoaded($event)"
-      (cropperReady)="cropperReady()"
-      (loadImageFailed)="imgFailed()"
-    >
-    </image-cropper>
-    <div class="preview-wrapper">
-      <img class="preview-img" [src]="cropImgPreview" />
+  <div *ngIf="!fileFlag" class="after-upload mb-2">
+    <div class="file-info">
+      <img src="../../../assets/green-tick.png" alt="" />
+      <span>{{ fileName }} | {{ fileSize }}</span>
+    </div>
+    <div class="reset-file-picker" (click)="fileFlag = true">
+      choose another file
+    </div>
+  </div>
+  <div *ngIf="!fileFlag" class="bill-display-container">
+    <div class="image-titles lead">
+      <div class="img-title">Uploaded bill</div>
+      <div class="img-title">Clipped region</div>
+    </div>
+    <div class="bill-display-image-holders">
+      <image-cropper
+        [imageFile]="file"
+        [maintainAspectRatio]="false"
+        format="png"
+        (imageCropped)="cropImg($event)"
+        (imageLoaded)="imageLoaded($event)"
+        (cropperReady)="cropperReady()"
+        (loadImageFailed)="imgFailed()"
+      >
+      </image-cropper>
+      <div class="preview-wrapper">
+        <img class="preview-img" [src]="cropImgPreview" />
+      </div>
     </div>
   </div>
 
