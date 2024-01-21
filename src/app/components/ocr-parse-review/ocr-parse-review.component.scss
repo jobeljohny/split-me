@@ -55,7 +55,7 @@
         opacity: 1;
         filter: invert(22%) sepia(100%) saturate(7055%) hue-rotate(359deg)
           brightness(102%) contrast(108%);
-          transform: scale(1.05);
+        transform: scale(1.05);
       }
     }
   }
@@ -71,5 +71,41 @@
     border-radius: 13px;
     border: 1px solid $border-line;
     text-align: center;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .review-container {
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    .icon {
+      font-size: 1.8rem;
+    }
+    .inputs-container {
+      margin-left: 14px;
+      flex-direction: column;
+      gap: 2px;
+      .section-wrapper {
+        .input-label {
+          font-size: 0.65rem;
+        }
+        .input-wrap {
+          font-size: 0.75rem;
+          padding: 2px 0;
+          padding-left: 6px;
+          input {
+            padding-left: 2px;
+          }
+        }
+      }
+    }
+    .delete-icon {
+      margin-left: 12px;
+      margin-bottom: 74px;
+      img {
+        width: 18px;
+      }
+    }
   }
 }
