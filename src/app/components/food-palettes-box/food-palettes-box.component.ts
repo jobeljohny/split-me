@@ -41,6 +41,7 @@ export class FoodPalettesBoxComponent {
   onImportBill() {
     let dialogRef = this.dialog.open(ImportModalComponent, {
       panelClass: 'importModal',
+      width:'520px',
     });
   }
 

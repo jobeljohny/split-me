@@ -60,6 +60,7 @@ import { PaletteProfilingHelpComponent } from './components/Help-Page/instructio
 import { DetailsPanelHelpComponent } from './components/Help-Page/instruction-slides/details-panel-help/details-panel-help.component';
 import { WebsiteMovedDialogComponent } from './components/website-moved-dialog/website-moved-dialog.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { OcrParseReviewComponent } from './components/ocr-parse-review/ocr-parse-review.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,6 +104,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     PaletteProfilingHelpComponent,
     DetailsPanelHelpComponent,
     WebsiteMovedDialogComponent,
+    OcrParseReviewComponent,
   ],
   imports: [
     BrowserModule,

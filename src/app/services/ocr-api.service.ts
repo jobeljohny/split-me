@@ -13,18 +13,23 @@ export class OCRApiService {
     const image = new ImageProcessor();
     await image.loadImage(blob);
     const worker = await createWorker('eng');
-    worker.setParameters({ tessedit_pageseg_mode: PSM.SINGLE_COLUMN ,tessedit_char_whitelist:TESS_WHITELIST});
+    worker.setParameters({
+      tessedit_pageseg_mode: PSM.SINGLE_COLUMN,
+      tessedit_char_whitelist: TESS_WHITELIST,
+    });
+    let entries: IBillEntry[] = [];
     try {
       let result = await worker.recognize(image.getImage(), {
         rotateAuto: true,
       });
       console.log('OCR Result:', result);
-      this.processResult(result.data.lines);
+      entries = this.processResult(result.data.lines);
     } catch (error) {
       console.error('OCR Error:', error);
     } finally {
       await worker.terminate();
     }
+    return entries;
   }
   removeIndex(inputString: string): string {
     const indexRegex = /^\d+\s+/;
@@ -44,7 +49,7 @@ export class OCRApiService {
     }
     return lines;
   }
-  filterValidEntries(lines: string[]) {
+  filterValidEntries(lines: string[]): IBillEntry[] {
     let validEntries: IBillEntry[] = [];
     const Priceregex: RegExp = /\b\d+\.\d{2}\b/;
     const itemRegex: RegExp = /([^\d]+(?:\s+[^\d]+)*)/;
@@ -69,13 +74,13 @@ export class OCRApiService {
     lines = lines.map((line) => this.removeIndex(line));
     lines = this.isolatedPriceAppender(lines);
     lines = lines.filter((line) => line);
-    console.log(this.filterValidEntries(lines));
+    return this.filterValidEntries(lines);
   }
 
   processResult(lines: Line[]) {
     const strings = lines.map((line) =>
       line.text.replace(/\n/g, '').trim().toLowerCase()
     );
-    this.updateStructure(strings);
+    return this.updateStructure(strings);
   }
 }

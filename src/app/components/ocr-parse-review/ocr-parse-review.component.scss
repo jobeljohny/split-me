@@ -1,0 +1,75 @@
+@import "../../styles/palette.scss";
+.review-container {
+  position: relative;
+  width: 100%;
+  background-color: $primary-color;
+  border-radius: 3px;
+  border: 1px solid $border-line;
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  .icon {
+    font-size: 2.2rem;
+  }
+  .inputs-container {
+    margin-left: 20px;
+    flex-grow: 1;
+    display: flex;
+    gap: 24px;
+    .section-wrapper {
+      .input-label {
+        font-size: 0.7rem;
+        opacity: 0.7;
+      }
+      .input-wrap {
+        display: flex;
+        align-items: center;
+        font-size: 0.8rem;
+        padding: 4px 0;
+        padding-left: 8px;
+        border-radius: 4px;
+        color: #e5e5e2;
+        background: $body-bg;
+        input {
+          background: none;
+          color: #e5e5e2;
+          padding-left: 4px;
+          border: none;
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+  .delete-icon {
+    margin-left: 12px;
+    margin-bottom: -16px;
+    img {
+      width: 20px;
+      filter: $theme-filter;
+      opacity: 0.5;
+      cursor: pointer;
+      &:hover {
+        opacity: 1;
+        filter: invert(22%) sepia(100%) saturate(7055%) hue-rotate(359deg)
+          brightness(102%) contrast(108%);
+          transform: scale(1.05);
+      }
+    }
+  }
+  //absoultes
+  .index {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    background: $body-bg;
+    font-size: 0.65rem;
+    width: 23px;
+    height: 23px;
+    border-radius: 13px;
+    border: 1px solid $border-line;
+    text-align: center;
+  }
+}

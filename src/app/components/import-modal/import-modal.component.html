@@ -1,10 +1,12 @@
 <div class="upload-files-container">
   <div class="warn-box">
     <img src="../../../assets/warning.png" alt="warning.png" />
-    <span
-      >This is an experimental feature, please verify and update parsed
-      values</span
-    >
+    <span data-alttext="experimental feature, verify parsed values"
+      ><span
+        >This is an experimental feature, please verify and update parsed
+        values</span
+      >
+    </span>
   </div>
   <div
     *ngIf="fileFlag"
@@ -40,13 +42,13 @@
     </div>
   </div>
   <div
-    *ngIf="!fileFlag"
+    *ngIf="!fileFlag && parsedItems.length == 0"
     class="bill-display-container"
     [ngStyle]="{ opacity: uploadStart ? 0.3 : 1 }"
   >
     <div class="image-titles lead">
-      <div class="img-title">Uploaded bill</div>
-      <div class="img-title">Clipped region</div>
+      <div class="img-title actual">Uploaded bill</div>
+      <div class="img-title cropped">Clipped region</div>
     </div>
     <div class="bill-display-image-holders">
       <image-cropper
@@ -62,7 +64,7 @@
       </div>
     </div>
   </div>
-  <div class="bottom-panel">
+  <div *ngIf="parsedItems.length == 0" class="bottom-panel">
     <button
       *ngIf="!uploadStart"
       [disabled]="fileFlag"
@@ -79,5 +81,10 @@
       diameter="45"
       color
     ></mat-spinner>
+  </div>
+  <div *ngIf="parsedItems.length > 0" class="item-review-wrapper shadow-lg">
+    <div *ngFor="let item of parsedItems; let i = index" class="review item">
+      <app-ocr-parse-review [index]="i" [item]="item"></app-ocr-parse-review>
+    </div>
   </div>
 </div>

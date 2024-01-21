@@ -1,0 +1,15 @@
+<div class="review-container">
+  <span class="index">{{ index + 1 }}</span>
+  <div class="icon">{{ icon }}</div>
+  <div class="inputs-container lead">
+    <div class="section-wrapper">
+      <span class="input-label">Dish Name</span>
+      <span class="input-wrap"> <input [value]="item.item" /></span>
+    </div>
+    <div class="section-wrapper">
+      <span class="input-label">Dish Cost</span>
+      <span class="input-wrap"> ₹<input [value]="item.amount" /></span>
+    </div>
+  </div>
+  <span class="delete-icon"><img src="../../../assets/icons/trash-icon.svg" alt="delete"></span>
+</div>
