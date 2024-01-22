@@ -6,4 +6,17 @@ export enum Graphs {
 export const DOMAIN_NAME = 'splitme.in';
 
 export const TESS_WHITELIST =
-  'abcdefghijklmnopqrstuvwxyz'+'ABCDEFGHIJKLMNOPQRSTUVWXYZ'+'0123456789'+' .()';
+  'abcdefghijklmnopqrstuvwxyz' +
+  'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
+  '0123456789' +
+  ' .()';
+
+export const billFilters: string[] = [
+  'total',
+  'round',
+  'gst',
+  'discount',
+  'tax',
+  'charges',
+  'service',
+];

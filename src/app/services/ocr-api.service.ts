@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Line, PSM, createWorker } from 'tesseract.js';
 import { ImageProcessor } from '../classes/imageProcesser';
 import { IBillEntry } from '../classes/interfaces';
-import { TESS_WHITELIST } from '../classes/constants';
+import { TESS_WHITELIST, billFilters } from '../classes/constants';
 @Injectable({
   providedIn: 'root',
 })
@@ -54,13 +54,13 @@ export class OCRApiService {
     const Priceregex: RegExp = /\b\d+\.\d{2}\b/;
     const itemRegex: RegExp = /([^\d]+(?:\s+[^\d]+)*)/;
     lines.forEach((line) => {
-      if (line.includes('total')) return;
+      if (billFilters.some(keyword => line.includes(keyword))) return;
       if (Priceregex.test(line) && itemRegex.test(line)) {
         const item = line.match(itemRegex);
         const price = line.match(Priceregex);
         if (item && price) {
           let validEntry: IBillEntry = {
-            item: item[0],
+            item: item[0].trim(),
             amount: parseFloat(price[0]),
           };
           validEntries.push(validEntry);

@@ -21,40 +21,40 @@ export class ImportModalComponent {
   constructor(private ocr: OCRApiService) {
     //TODO remove
     //setTimeout(() => this.upload(), 200);
-    this.fileName ='thenkasibill.jpg';
-    this.fileSize='35.89 KB'
+    this.fileName = 'thenkasibill.jpg';
+    this.fileSize = '35.89 KB';
     this.fileFlag = false;
-    this.parsedItems=  [
+    this.parsedItems = [
       {
-        item: 'party time ',
+        item: 'party time',
         amount: 1499,
       },
       {
-        item: 'orange alfahm ',
+        item: 'orange alfahm',
         amount: 180,
       },
       {
-        item: 'coleslaw ',
+        item: 'coleslaw',
         amount: 50,
       },
       {
-        item: 'pepsi ',
+        item: 'pepsi',
         amount: 70,
       },
       {
-        item: 'cgst ',
+        item: 'cgst',
         amount: 52.73,
       },
       {
-        item: 'sgst ',
+        item: 'sgst',
         amount: 52.73,
       },
       {
-        item: 'round off ',
+        item: 'round off',
         amount: 0.46,
       },
     ];
-    
+   // this.parsedItems=[];
   }
   onFileInput(event: any) {
     let input = event.target;
@@ -82,6 +82,10 @@ export class ImportModalComponent {
   imgFailed() {
     // error msg
     console.log('error occured');
+  }
+
+  removeParsedItem(index: number) {
+    this.parsedItems.splice(index, 1);
   }
 
   cropImg(e: ImageCroppedEvent) {

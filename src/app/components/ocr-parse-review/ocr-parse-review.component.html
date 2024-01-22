@@ -4,12 +4,14 @@
   <div class="inputs-container lead">
     <div class="section-wrapper">
       <span class="input-label">Dish Name</span>
-      <span class="input-wrap"> <input [value]="item.item" /></span>
+      <span class="input-wrap"> <input [(ngModel)]="item.item" /></span>
     </div>
     <div class="section-wrapper">
       <span class="input-label">Dish Cost</span>
-      <span class="input-wrap"> ₹<input [value]="item.amount" /></span>
+      <span class="input-wrap"> ₹<input [(ngModel)]="item.amount" /></span>
     </div>
   </div>
-  <span class="delete-icon"><img src="../../../assets/icons/trash-icon.svg" alt="delete"></span>
+  <span class="delete-icon"
+    ><img src="../../../assets/icons/trash-icon.svg" alt="delete" (click)="remove.emit()"
+  /></span>
 </div>

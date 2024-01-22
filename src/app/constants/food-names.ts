@@ -56,11 +56,39 @@ export const foodLogo: foodItem[] = [
   { icon: '🌯', name: 'roll' },
   { icon: '🐟', name: 'fish' },
   { icon: '🍚', name: 'rice' },
-  { icon: '🍗', name: 'chicken|faham|bbq' },
+  { icon: '🍗', name: 'chicken|faham|bbq|alfahm|fahm' },
   { icon: '🍖', name: 'beef' },
   { icon: '🍲', name: 'soup' },
   { icon: '🍜', name: 'Noodles' },
   { icon: '🍰', name: 'cake' },
   { icon: '🍔', name: 'burger' },
-  { icon: '🥤', name: 'shake|juice' },
+  { icon: '🍲', name: 'curry' },
+  { icon: '🥤', name: 'shake|juice|cola' },
+  { icon: '☕', name: 'tea|coffee' },
 ];
+
+export function getLogo(value: string) {
+  value = value.toLowerCase();
+  let icon = '🍽️';
+  let item = foodNames.find((fooditem) => fooditem.name.toLowerCase() == value);
+  if (item) {
+    icon = item.icon;
+    return icon;
+  }
+
+  //keyword search
+  const searchKeywords = value.split(' ');
+
+  for (const keyword of searchKeywords) {
+    const matchingFoodItem = foodLogo.find((foodItem) =>
+      foodItem.name
+        .split('|')
+        .some((namePart) => namePart.toLowerCase() === keyword)
+    );
+
+    if (matchingFoodItem) {
+      icon = matchingFoodItem.icon;
+    }
+  }
+  return icon;
+}

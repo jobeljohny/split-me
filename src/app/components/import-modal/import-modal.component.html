@@ -37,7 +37,7 @@
       <img src="../../../assets/green-tick.png" alt="" />
       <span>{{ fileName }} | {{ fileSize }}</span>
     </div>
-    <div class="reset-file-picker" (click)="fileFlag = true">
+    <div class="reset-file-picker" (click)="fileFlag = true; parsedItems = []">
       choose another file
     </div>
   </div>
@@ -82,9 +82,22 @@
       color
     ></mat-spinner>
   </div>
-  <div *ngIf="parsedItems.length > 0" class="item-review-wrapper shadow-lg">
-    <div *ngFor="let item of parsedItems; let i = index" class="review item">
-      <app-ocr-parse-review [index]="i" [item]="item"></app-ocr-parse-review>
+  <div *ngIf="parsedItems.length > 0">
+    <div class="item-review-wrapper shadow-lg">
+      <div *ngFor="let item of parsedItems; let i = index" class="review item">
+        <app-ocr-parse-review
+          [index]="i"
+          [item]="item"
+          (remove)="removeParsedItem(i)"
+        ></app-ocr-parse-review>
+      </div>
+    </div>
+    <div class="review-options-panel">
+      <div class="parse-option" (click)="parsedItems = []">Go Back</div>
+      <div class="parse-option palette-add-button" (click)="(1)">
+        Add Palettes
+        <img src="assets/icons/right-arrow-icon.svg" alt="" />
+      </div>
     </div>
   </div>
 </div>
