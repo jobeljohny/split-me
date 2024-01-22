@@ -6,6 +6,7 @@ import { KeyBindingService } from 'src/app/services/keybinding.service';
 import { ImportModalComponent } from '../import-modal/import-modal.component';
 import { HelpDialogComponent } from '../Help-Page/help-dialog/help-dialog.component';
 import { pages } from '../Help-Page/help-dialog/help-page-utils';
+import { IBillEntry } from 'src/app/classes/interfaces';
 @Component({
   selector: 'app-food-palettes-box',
   templateUrl: './food-palettes-box.component.html',
@@ -41,7 +42,14 @@ export class FoodPalettesBoxComponent {
   onImportBill() {
     let dialogRef = this.dialog.open(ImportModalComponent, {
       panelClass: 'importModal',
-      width:'520px',
+      width: '520px',
+    });
+    dialogRef.afterClosed().subscribe((result: IBillEntry[]) => {
+      if (result && result.length > 0) {
+        result.forEach((palette) => {
+          this.foodPalette.add(new FoodItem(palette.item, palette.amount, []));
+        });
+      }
     });
   }
 

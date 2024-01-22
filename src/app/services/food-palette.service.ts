@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FoodItem } from '../classes/food-item';
 import { IorderDetails } from '../classes/interfaces';
-import { Participant } from '../classes/participant';
-import { Profile } from '../classes/profile';
 
 @Injectable({
   providedIn: 'root',
@@ -20,10 +18,11 @@ export class FoodPaletteService {
     this.updatePanelIds();
   }
 
-  add() {
-    let item: FoodItem = new FoodItem('', 0, []);
-    item.name = 'item ' + item.foodID;
-    this.palettes.push(item);
+  add(palette: FoodItem = new FoodItem('', 0, [])): void {
+    if (!palette.name) {
+      palette.name = 'item ' + palette.foodID;
+    }
+    this.palettes.push(palette);
     this.updatePanelIds();
   }
 

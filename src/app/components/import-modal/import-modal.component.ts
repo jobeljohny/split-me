@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { IBillEntry } from 'src/app/classes/interfaces';
 import { OCRApiService } from 'src/app/services/ocr-api.service';
@@ -18,7 +19,10 @@ export class ImportModalComponent {
   cropImgPreview: string | undefined = '';
   cropImgBlob: Blob | undefined | null;
   parsedItems: IBillEntry[] = [];
-  constructor(private ocr: OCRApiService) {
+  constructor(
+    public dialogRef: MatDialogRef<ImportModalComponent>,
+    private ocr: OCRApiService
+  ) {
     //TODO remove
     //setTimeout(() => this.upload(), 200);
     this.fileName = 'thenkasibill.jpg';
@@ -54,7 +58,7 @@ export class ImportModalComponent {
         amount: 0.46,
       },
     ];
-   // this.parsedItems=[];
+    // this.parsedItems=[];
   }
   onFileInput(event: any) {
     let input = event.target;
@@ -93,5 +97,9 @@ export class ImportModalComponent {
       this.cropImgPreview = e.objectUrl;
       this.cropImgBlob = e.blob;
     }
+  }
+
+  addPalettes() {
+    this.dialogRef.close(this.parsedItems);
   }
 }
