@@ -4,8 +4,13 @@ $bill-btn-color: #ffae80;
 .food-items-wrapper {
   overflow-y: auto;
   height: 100%;
-  border: 1px solid #29293e54;
+  border: 1px solid hsla(240, 20%, 20%, 0.329);
   border-radius: 4px;
+  .food-items {
+    .item-panel-wrapper {
+      overflow: hidden;
+    }
+  }
   .expand {
     height: 100%;
   }
@@ -108,10 +113,13 @@ $bill-btn-color: #ffae80;
     flex-direction: column;
     .food-items {
       display: flex;
-      flex-direction: row;
-      overflow-x: auto;
-      flex: 1;
       height: 100%;
+
+      .item-panel-wrapper {
+        height: 100%;
+        display: flex;
+        overflow-x: auto;
+      }
 
       .instruction-wrapper {
         .help-bar {

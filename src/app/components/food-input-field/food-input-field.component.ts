@@ -39,7 +39,7 @@ export class FoodInputFieldComponent implements OnInit {
     if (this.initialName.startsWith('item')) {
       setTimeout(() => {
         this.dishName.nativeElement.select();
-      }, 50);
+      }, 400);
     } else {
       this.stateCtrl.setValue(this.initialName);
       this.updated();

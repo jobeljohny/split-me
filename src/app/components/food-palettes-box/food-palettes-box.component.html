@@ -1,11 +1,17 @@
 <div #itemWrapper class="food-items-wrapper shadow">
   <div class="food-items" [ngClass]="{ expand: !palettes.length }">
-    <app-food-item-panel
-      *ngFor="let palette of palettes"
-      [foodData]="palette"
-      [paletteIds]="ids"
-      (removePanel)="removeFoodTile($event)"
-    ></app-food-item-panel>
+    <div *ngIf="palettes.length"
+      class="item-panel-wrapper"
+      [@cardAnimation]="palettes.length"
+    >
+      <app-food-item-panel
+        style="display: block"
+        *ngFor="let palette of palettes; let i = index"
+        [foodData]="palette"
+        [paletteIds]="ids"
+        (removePanel)="removeFoodTile($event)"
+      ></app-food-item-panel>
+    </div>
     <div *ngIf="!palettes.length" class="instruction-wrapper px-3">
       <div class="add-food-wrapper">
         <img
