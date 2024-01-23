@@ -47,4 +47,5 @@ export interface IPageData {
 export interface IBillEntry {
   item: string;
   amount: number;
+  quantity?:number;
 }

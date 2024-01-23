@@ -1,7 +1,13 @@
+import { ReceiptType } from './constants';
+
 export class ImageProcessor {
   private canvas!: HTMLCanvasElement;
+  parseType: ReceiptType;
+  scaleFactor: number = 1.6;
 
-  constructor() {}
+  constructor(type: ReceiptType) {
+    this.parseType = type;
+  }
 
   async loadImage(file: Blob): Promise<void> {
     return new Promise((resolve, reject) => {
@@ -30,8 +36,8 @@ export class ImageProcessor {
 
     if (ctx) {
       const borderThickness = 64;
-      this.canvas.width = image.width * 1.6 + borderThickness;
-      this.canvas.height = image.height * 1.6 + borderThickness;
+      this.canvas.width = image.width * this.scaleFactor + borderThickness;
+      this.canvas.height = image.height * this.scaleFactor + borderThickness;
       ctx.beginPath();
       ctx.strokeStyle = 'white';
       ctx.lineWidth = borderThickness;
@@ -41,8 +47,8 @@ export class ImageProcessor {
         image,
         borderThickness / 2,
         borderThickness / 2,
-        image.width * 1.6,
-        image.height * 1.6
+        image.width * this.scaleFactor,
+        image.height * this.scaleFactor
       );
       const imgData = ctx.getImageData(
         0,

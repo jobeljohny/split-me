@@ -32,9 +32,9 @@ export const cardAnimation = trigger('cardAnimation', [
     ),
     query(
       ':leave',
-      stagger('200ms', [
+      stagger('100ms', [
         animate(
-          '0.3s ease-out',
+          '0.2s ease-out',
           keyframes([
             style({ opacity: 1, transform: 'scale(1.1)', offset: 0 }),
             style({ opacity: 0.5, transform: 'scale(.5)', offset: 0.3 }),

@@ -2,15 +2,19 @@ import { Injectable } from '@angular/core';
 import { Line, PSM, createWorker } from 'tesseract.js';
 import { ImageProcessor } from '../classes/imageProcesser';
 import { IBillEntry } from '../classes/interfaces';
-import { TESS_WHITELIST, billFilters } from '../classes/constants';
+import { ReceiptType, TESS_WHITELIST, billFilters } from '../classes/constants';
+import { swiggyParse } from '../classes/swiggyParser';
 @Injectable({
   providedIn: 'root',
 })
 export class OCRApiService {
-  constructor() {}
+  constructor() {
+    //TODO remove
+    swiggyParse([]);
+  }
 
-  async getReciept(blob: Blob) {
-    const image = new ImageProcessor();
+  async getReciept(blob: Blob, parseType: ReceiptType) {
+    const image = new ImageProcessor(parseType);
     await image.loadImage(blob);
     const worker = await createWorker('eng');
     worker.setParameters({
@@ -22,8 +26,11 @@ export class OCRApiService {
       let result = await worker.recognize(image.getImage(), {
         rotateAuto: true,
       });
-      console.log('OCR Result:', result);
-      entries = this.processResult(result.data.lines);
+      if (parseType == ReceiptType.REGULAR)
+        entries = this.processResult(result.data.lines);
+      else {
+        entries = swiggyParse(result.data.lines);
+      }
     } catch (error) {
       console.error('OCR Error:', error);
     } finally {
@@ -54,7 +61,7 @@ export class OCRApiService {
     const Priceregex: RegExp = /\b\d+\.\d{2}\b/;
     const itemRegex: RegExp = /([^\d]+(?:\s+[^\d]+)*)/;
     lines.forEach((line) => {
-      if (billFilters.some(keyword => line.includes(keyword))) return;
+      if (billFilters.some((keyword) => line.includes(keyword))) return;
       if (Priceregex.test(line) && itemRegex.test(line)) {
         const item = line.match(itemRegex);
         const price = line.match(Priceregex);
@@ -81,6 +88,7 @@ export class OCRApiService {
     const strings = lines.map((line) =>
       line.text.replace(/\n/g, '').trim().toLowerCase()
     );
+
     return this.updateStructure(strings);
   }
 }

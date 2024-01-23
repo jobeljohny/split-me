@@ -63,6 +63,39 @@
         <img class="preview-img" [src]="cropImgPreview" />
       </div>
     </div>
+    <form class="parse-options mt-3 lead">
+      <div class="option">
+        <input
+          id="regular-parse"
+          type="radio"
+          name="parse"
+          [value]="ReceiptType.REGULAR"
+          [(ngModel)]="parseType"
+          checked
+        />
+        <label for="regular-parse"
+          ><img
+            class="regular"
+            src="../../../assets/icons/receipt-icon.svg"
+            alt=""
+          /><span>regular receipt</span></label
+        >
+      </div>
+      <div class="option">
+        <input
+          id="swiggy-parse"
+          type="radio"
+          name="parse"
+          [value]="ReceiptType.SWIGGY"
+          [(ngModel)]="parseType"
+        />
+        <label for="swiggy-parse">
+          <img src="../../../assets/icons/swiggy-icon.svg" /><span>
+            swiggy recipt</span
+          ></label
+        >
+      </div>
+    </form>
   </div>
   <div *ngIf="parsedItems.length == 0" class="bottom-panel">
     <button

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
+import { ReceiptType } from 'src/app/classes/constants';
 import { IBillEntry } from 'src/app/classes/interfaces';
 import { OCRApiService } from 'src/app/services/ocr-api.service';
 
@@ -19,46 +20,17 @@ export class ImportModalComponent {
   cropImgPreview: string | undefined = '';
   cropImgBlob: Blob | undefined | null;
   parsedItems: IBillEntry[] = [];
+  parseType: ReceiptType = ReceiptType.REGULAR;
   constructor(
     public dialogRef: MatDialogRef<ImportModalComponent>,
     private ocr: OCRApiService
   ) {
     //TODO remove
     //setTimeout(() => this.upload(), 200);
-    this.fileName = 'thenkasibill.jpg';
-    this.fileSize = '35.89 KB';
-    this.fileFlag = false;
-    this.parsedItems = [
-      {
-        item: 'party time',
-        amount: 1499,
-      },
-      {
-        item: 'orange alfahm',
-        amount: 180,
-      },
-      {
-        item: 'coleslaw',
-        amount: 50,
-      },
-      {
-        item: 'pepsi',
-        amount: 70,
-      },
-      {
-        item: 'cgst',
-        amount: 52.73,
-      },
-      {
-        item: 'sgst',
-        amount: 52.73,
-      },
-      {
-        item: 'round off',
-        amount: 0.46,
-      },
-    ];
     // this.parsedItems=[];
+    this.fileFlag = false;
+    this.fileName = 'sample.jpg';
+    this.fileSize = '12:43KB';
   }
   onFileInput(event: any) {
     let input = event.target;
@@ -75,9 +47,10 @@ export class ImportModalComponent {
   async upload() {
     if (this.cropImgBlob) {
       this.uploadStart = true;
-      this.parsedItems = await this.ocr.getReciept(this.cropImgBlob);
-      console.log('result');
-      console.log(this.parsedItems);
+      this.parsedItems = await this.ocr.getReciept(
+        this.cropImgBlob,
+        this.parseType
+      );
 
       this.uploadStart = false;
     }
@@ -101,5 +74,9 @@ export class ImportModalComponent {
 
   addPalettes() {
     this.dialogRef.close(this.parsedItems);
+  }
+
+  get ReceiptType() {
+    return ReceiptType;
   }
 }

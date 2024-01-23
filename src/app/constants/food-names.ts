@@ -57,6 +57,7 @@ export const foodLogo: foodItem[] = [
   { icon: '🐟', name: 'fish' },
   { icon: '🍚', name: 'rice' },
   { icon: '🍗', name: 'chicken|faham|bbq|alfahm|fahm' },
+  { icon: '🍘', name: 'mandhi|mandi' },
   { icon: '🍖', name: 'beef' },
   { icon: '🍲', name: 'soup' },
   { icon: '🍜', name: 'Noodles' },

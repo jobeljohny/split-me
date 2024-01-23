@@ -3,6 +3,11 @@ export enum Graphs {
   DISH_PROPOTION,
 }
 
+export enum ReceiptType {
+  REGULAR,
+  SWIGGY,
+}
+
 export const DOMAIN_NAME = 'splitme.in';
 
 export const TESS_WHITELIST =
