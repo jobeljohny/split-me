@@ -50,7 +50,7 @@ $bill-btn-color: #ffae80;
       align-items: center;
       justify-content: center;
       padding-bottom: 80px;
-      img {
+      .new-food-logo {
         width: 400px;
         opacity: 0.4;
       }
@@ -60,6 +60,17 @@ $bill-btn-color: #ffae80;
         width: 100%;
         opacity: 0.6;
         text-align: center;
+      }
+      .btn-stack {
+        display: flex;
+        gap: 16px;
+        .receipt-btn {
+          background: #f1752d;
+          img {
+            width: 22px;
+            filter: brightness(0) saturate(100%) invert(1);
+          }
+        }
       }
       button {
         margin-top: 16px;

@@ -8,10 +8,7 @@ import { swiggyParse } from '../classes/swiggyParser';
   providedIn: 'root',
 })
 export class OCRApiService {
-  constructor() {
-    //TODO remove
-    swiggyParse([]);
-  }
+  constructor() {}
 
   async getReciept(blob: Blob, parseType: ReceiptType) {
     const image = new ImageProcessor(parseType);

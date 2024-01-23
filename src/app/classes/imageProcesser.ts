@@ -61,6 +61,7 @@ export class ImageProcessor {
       // this.invertColors(imgData.data)
       this.thresholdFilter(imgData.data, 0.6);
       ctx.putImageData(imgData, 0, 0);
+      
     } else {
       console.error('Unable to get 2D context for canvas');
     }

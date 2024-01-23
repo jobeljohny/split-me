@@ -24,10 +24,6 @@ export class FoodPalettesBoxComponent {
     private dialog: MatDialog
   ) {
     this.keyBinding.handleAltF(this.onAddFoodPalette.bind(this));
-    //TODO remove
-    setTimeout(() => {
-      this.onImportBill();
-    }, 200);
   }
 
   onAddFoodPalette() {

@@ -24,14 +24,7 @@ export class ImportModalComponent {
   constructor(
     public dialogRef: MatDialogRef<ImportModalComponent>,
     private ocr: OCRApiService
-  ) {
-    //TODO remove
-    //setTimeout(() => this.upload(), 200);
-    // this.parsedItems=[];
-    this.fileFlag = false;
-    this.fileName = 'sample.jpg';
-    this.fileSize = '12:43KB';
-  }
+  ) {}
   onFileInput(event: any) {
     let input = event.target;
     this.fileUpdate(input.files[0]);

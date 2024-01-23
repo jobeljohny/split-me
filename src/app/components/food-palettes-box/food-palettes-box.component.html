@@ -23,14 +23,23 @@
         <span class="lead help-placeholder"
           >To add your first dish, simply click on the add button</span
         >
-        <button
-          matTooltip="add new palette"
-          type="button"
-          class="add-btn"
-          (click)="onAddFoodPalette()"
-        >
-          <span>+</span>
-        </button>
+        <div class="btn-stack">
+          <button
+            matTooltip="add new palette"
+            type="button"
+            class="add-btn"
+            (click)="onAddFoodPalette()"
+          >
+            <span>+</span>
+          </button>
+          <button
+            matTooltip="scan receipt"
+            class="add-btn receipt-btn"
+            (click)="onImportBill()"
+          >
+            <img src="../../../assets/icons/receipt-icon.svg" alt="" />
+          </button>
+        </div>
       </div>
       <div class="help-bar">
         <span>
