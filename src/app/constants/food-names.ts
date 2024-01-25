@@ -25,7 +25,7 @@ export const foodNames: foodItem[] = [
   { icon: '🍖', name: 'Beef Fry' },
   { icon: '🍔', name: 'Burger' },
   { icon: '🍔', name: 'Chicken Burger' },
-  { icon: '🍔', name: 'Butter Chicken' },
+  { icon: '🍛', name: 'Butter Chicken' },
   { icon: '🫓', name: 'Naan' },
   { icon: '🫓', name: 'Butter Naan' },
   { icon: '🍚', name: 'Meals' },
@@ -66,6 +66,7 @@ export const foodLogo: foodItem[] = [
   { icon: '🍲', name: 'curry' },
   { icon: '🥤', name: 'shake|juice|cola' },
   { icon: '☕', name: 'tea|coffee' },
+    { icon: '🫓', name: 'Porotta|parotta|paratta' },
 ];
 
 export function getLogo(value: string) {

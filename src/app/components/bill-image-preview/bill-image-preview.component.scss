@@ -1,0 +1,121 @@
+@import "../../styles/palette.scss";
+.image-titles {
+  display: flex;
+  margin-bottom: 4px;
+  margin-top: 6px;
+  opacity: 0.8;
+  .img-title {
+    flex-grow: 1;
+    flex-basis: 0;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+}
+.bill-display-image-holders {
+  display: flex;
+  height: 300px;
+  width: 100%;
+  gap: 8px;
+  image-cropper {
+    --cropper-overlay-color: #69696900;
+    --cropper-outline-color: #21213440;
+    border: 1px solid $border-line;
+    border-radius: 4px;
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+  .preview-wrapper {
+    flex-grow: 1;
+    flex-basis: 0;
+    border: 1px solid $border-line;
+    border-radius: 4px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+}
+.parse-options {
+  display: flex;
+  font-size: 0.9rem;
+  justify-content: center;
+  gap: 16px;
+  .option {
+    display: flex;
+    align-items: center;
+    input {
+      appearance: none;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-clip: content-box;
+      margin-right: 6px;
+      accent-color: blue;
+      border: 2px solid $border-line;
+      background-color: none;
+      cursor: pointer;
+      &:checked {
+        background-color: $primary-button;
+        border: 0;
+        padding: 0px;
+      }
+      &:not(:checked):hover {
+        transform: scale(1.1);
+        background-color: $border-line;
+      }
+    }
+    label {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 12px;
+        margin-right: 6px;
+      }
+      .regular {
+        filter: $theme-filter;
+        width: 16px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 576px) {
+  .image-titles {
+    .img-title {
+      font-size: 0.8rem;
+    }
+    .cropped {
+      display: none;
+    }
+  }
+  .bill-display-image-holders {
+    width: 100%;
+    .preview-wrapper {
+      display: none;
+    }
+  }
+  .parse-options {
+    font-size: 0.7rem;
+
+    gap: 14px;
+    .option {
+      input {
+        width: 10px;
+        height: 10px;
+        margin-right: 4px;
+      }
+      label {
+        img {
+          width: 8px;
+          margin-right: 4px;
+        }
+        .regular {
+          filter: $theme-filter;
+          width: 12px;
+        }
+      }
+    }
+  }
+}

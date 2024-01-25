@@ -61,6 +61,7 @@ import { DetailsPanelHelpComponent } from './components/Help-Page/instruction-sl
 import { WebsiteMovedDialogComponent } from './components/website-moved-dialog/website-moved-dialog.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { OcrParseReviewComponent } from './components/ocr-parse-review/ocr-parse-review.component';
+import { BillImagePreviewComponent } from './components/bill-image-preview/bill-image-preview.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -105,6 +106,7 @@ import { OcrParseReviewComponent } from './components/ocr-parse-review/ocr-parse
     DetailsPanelHelpComponent,
     WebsiteMovedDialogComponent,
     OcrParseReviewComponent,
+    BillImagePreviewComponent,
   ],
   imports: [
     BrowserModule,

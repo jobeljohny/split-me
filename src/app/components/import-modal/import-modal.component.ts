@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { ReceiptType } from 'src/app/classes/constants';
 import { IBillEntry } from 'src/app/classes/interfaces';
 import { OCRApiService } from 'src/app/services/ocr-api.service';
@@ -16,9 +15,7 @@ export class ImportModalComponent {
   file!: File;
   fileFlag: boolean = true;
   uploadStart: boolean = false;
-  imgChangeEvt: string = '';
-  cropImgPreview: string | undefined = '';
-  cropImgBlob: Blob | undefined | null;
+  cropImgBlob: Blob | undefined ;
   parsedItems: IBillEntry[] = [];
   parseType: ReceiptType = ReceiptType.REGULAR;
   constructor(
@@ -49,21 +46,11 @@ export class ImportModalComponent {
     }
   }
 
-  imgFailed() {
-    // error msg
-    console.log('error occured');
-  }
 
   removeParsedItem(index: number) {
     this.parsedItems.splice(index, 1);
   }
 
-  cropImg(e: ImageCroppedEvent) {
-    if (e.objectUrl) {
-      this.cropImgPreview = e.objectUrl;
-      this.cropImgBlob = e.blob;
-    }
-  }
 
   addPalettes() {
     this.dialogRef.close(this.parsedItems);

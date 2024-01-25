@@ -46,56 +46,11 @@
     class="bill-display-container"
     [ngStyle]="{ opacity: uploadStart ? 0.3 : 1 }"
   >
-    <div class="image-titles lead">
-      <div class="img-title actual">Uploaded bill</div>
-      <div class="img-title cropped">Clipped region</div>
-    </div>
-    <div class="bill-display-image-holders">
-      <image-cropper
-        [imageFile]="file"
-        [maintainAspectRatio]="false"
-        format="png"
-        (imageCropped)="cropImg($event)"
-        (loadImageFailed)="imgFailed()"
-      >
-      </image-cropper>
-      <div class="preview-wrapper">
-        <img class="preview-img" [src]="cropImgPreview" />
-      </div>
-    </div>
-    <form class="parse-options mt-3 lead">
-      <div class="option">
-        <input
-          id="regular-parse"
-          type="radio"
-          name="parse"
-          [value]="ReceiptType.REGULAR"
-          [(ngModel)]="parseType"
-          checked
-        />
-        <label for="regular-parse"
-          ><img
-            class="regular"
-            src="../../../assets/icons/receipt-icon.svg"
-            alt=""
-          /><span>regular receipt</span></label
-        >
-      </div>
-      <div class="option">
-        <input
-          id="swiggy-parse"
-          type="radio"
-          name="parse"
-          [value]="ReceiptType.SWIGGY"
-          [(ngModel)]="parseType"
-        />
-        <label for="swiggy-parse">
-          <img src="../../../assets/icons/swiggy-icon.svg" /><span>
-            swiggy recipt</span
-          ></label
-        >
-      </div>
-    </form>
+    <app-bill-image-preview
+      [image]="file"
+      (cropped)="cropImgBlob = $event"
+      (billType)="parseType = $event"
+    ></app-bill-image-preview>
   </div>
   <div *ngIf="parsedItems.length == 0" class="bottom-panel">
     <button
