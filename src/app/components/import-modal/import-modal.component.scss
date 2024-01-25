@@ -180,7 +180,7 @@ $imp-color: $primary-button;
     margin-top: 12px;
     margin-right: 12px;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 10px;
     .parse-option {
       font-size: 0.8rem;
