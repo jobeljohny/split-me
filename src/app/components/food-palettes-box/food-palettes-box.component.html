@@ -23,21 +23,19 @@
         <span class="lead help-placeholder"
           >To add your first dish, simply click on the add button</span
         >
-        <div class="btn-stack">
+        <div class="btn-stack ">
           <button
             matTooltip="add new palette"
             type="button"
-            class="add-btn"
             (click)="onAddFoodPalette()"
+           
           >
-            <span>+</span>
+            <img src="../../../assets/icons/plus-icon.svg" alt="" />
+            <span class="lead">Add Dishes</span>
           </button>
-          <button
-            matTooltip="scan receipt"
-            class="add-btn receipt-btn"
-            (click)="onImportBill()"
-          >
+          <button matTooltip="extract from receipt" (click)="onImportBill()">
             <img src="../../../assets/icons/receipt-icon.svg" alt="" />
+            <span class="lead">Scan Receipt</span>
           </button>
         </div>
       </div>
@@ -63,15 +61,6 @@
       (click)="onAddFoodPalette()"
     >
       <span>+</span>
-    </button>
-    <button
-      *ngIf="!palettes.length"
-      matTooltip="import bill"
-      type="button"
-      class="bill-parse btn btn-info btn-lg"
-      (click)="onImportBill()"
-    >
-      <img src="../../../assets/notes.svg" />
     </button>
   </span>
 </div>

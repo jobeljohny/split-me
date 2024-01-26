@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { KeyboardKey } from '../constants/keyboard-key.constants';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class KeyBindingService {
-
-  constructor() { }
+  constructor() {}
   private AddProfile!: () => void;
   private AddFoodPalette!: () => void;
   private OpenHelpPage!: () => void;

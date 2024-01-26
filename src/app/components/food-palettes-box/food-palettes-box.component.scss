@@ -49,46 +49,62 @@ $bill-btn-color: #ffae80;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding-bottom: 80px;
+      padding-bottom: 40px;
       .new-food-logo {
-        width: 400px;
+        width: 450px;
         opacity: 0.4;
       }
       .help-placeholder {
         margin-top: 20px;
-        font-size: 1rem;
+        font-size: 1.05rem;
         width: 100%;
         opacity: 0.6;
         text-align: center;
       }
       .btn-stack {
         display: flex;
-        gap: 16px;
-        .receipt-btn {
-          background: #f1752d;
+        gap: 50px;
+        margin-top: 50px;
+        button {
+          background: none;
+          width: 200px;
+          height: 120px;
+          gap: 8px;
+          background: rgba(255, 255, 255, 0.008);
+          backdrop-filter: blur(2px);
+          border: 1px solid $border-line;
+          border-radius: 6px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
           img {
-            width: 22px;
-            filter: brightness(0) saturate(100%) invert(1);
+            width: 30px;
+            filter: $theme-filter;
+            opacity: 0.9;
+          }
+          span {
+            margin-top: 6px;
+            color: rgb(194, 194, 194);
+            font-size: 1rem;
+          }
+          &:hover {
+            background: rgba($border-line, 0.3);
+            img {
+              transform: scale(1.1);
+            }
+            span {
+              color: white;
+            }
           }
         }
-      }
-      button {
-        margin-top: 16px;
       }
     }
   }
   .add-action {
     display: flex;
     justify-content: center;
-    gap: 12px;
-    .bill-parse {
-      background: $bill-btn-color;
-      border-color: $bill-btn-color;
-      img {
-        filter: invert(100%) sepia(16%) saturate(7463%) hue-rotate(222deg)
-          brightness(119%) contrast(115%);
-      }
-    }
   }
 }
 
@@ -152,8 +168,7 @@ $bill-btn-color: #ffae80;
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          padding-bottom: 80px;
-          img {
+          .new-food-logo {
             width: 200px;
             opacity: 0.3;
           }
