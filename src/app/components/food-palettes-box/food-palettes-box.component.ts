@@ -5,9 +5,9 @@ import { FoodItem } from 'src/app/classes/food-item';
 import { IBillEntry } from 'src/app/classes/interfaces';
 import { FoodPaletteService } from 'src/app/services/food-palette.service';
 import { KeyBindingService } from 'src/app/services/keybinding.service';
-import { HelpDialogComponent } from '../Help-Page/help-dialog/help-dialog.component';
-import { pages } from '../Help-Page/help-dialog/help-page-utils';
 import { ImportModalComponent } from '../import-modal/import-modal.component';
+import { HelpDialogComponent } from 'src/app/help-dialog/help-dialog/help-dialog.component';
+import { pages } from 'src/app/help-dialog/help-dialog/help-page-utils';
 @Component({
   selector: 'app-food-palettes-box',
   templateUrl: './food-palettes-box.component.html',

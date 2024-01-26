@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { HelpDialogComponent } from '../Help-Page/help-dialog/help-dialog.component';
-import { pages } from '../Help-Page/help-dialog/help-page-utils';
+import { HelpDialogComponent } from 'src/app/help-dialog/help-dialog/help-dialog.component';
+import { pages } from 'src/app/help-dialog/help-dialog/help-page-utils';
 
 @Component({
   selector: 'app-header-hamburger',

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { KeyBindingService } from 'src/app/services/keybinding.service';
-import { HelpDialogComponent } from '../help-dialog/help-dialog.component';
-import { pages } from '../help-dialog/help-page-utils';
+import { HelpDialogComponent } from 'src/app/help-dialog/help-dialog/help-dialog.component';
+import { pages } from 'src/app/help-dialog/help-dialog/help-page-utils';
 
 @Component({
   selector: 'app-help-button',
