@@ -8,7 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Observable, map, startWith } from 'rxjs';
+import { Observable, debounceTime, map, startWith } from 'rxjs';
 import {
   foodItem,
   foodLogo,
@@ -33,6 +33,9 @@ export class FoodInputFieldComponent implements OnInit {
       startWith(''),
       map((value) => this.filterFood(value || ''))
     );
+    this.stateCtrl.valueChanges.pipe(debounceTime(300)).subscribe(() => {
+      this.updated();
+    });
   }
 
   ngOnInit() {
