@@ -84,6 +84,11 @@ body {
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid $border-line;
 }
+.toast-container>div{
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
 
 //unselectable
 .not-selectable {

@@ -4,11 +4,12 @@ import { ImageProcessor } from '../classes/imageProcesser';
 import { IBillEntry } from '../classes/interfaces';
 import { ReceiptType, TESS_WHITELIST, billFilters } from '../classes/constants';
 import { swiggyParse } from '../classes/swiggyParser';
+import { ToastrService } from 'ngx-toastr';
 @Injectable({
   providedIn: 'root',
 })
 export class OCRApiService {
-  constructor() {}
+  constructor(private toastr: ToastrService) {}
 
   async getReciept(blob: Blob, parseType: ReceiptType) {
     const image = new ImageProcessor(parseType);
@@ -28,8 +29,12 @@ export class OCRApiService {
       else {
         entries = swiggyParse(result.data.lines);
       }
+      if (entries.length == 0) {
+        this.toastr.error('No dishes were discovered');
+      }
     } catch (error) {
       console.error('OCR Error:', error);
+      this.toastr.error('Recognition error');
     } finally {
       await worker.terminate();
     }

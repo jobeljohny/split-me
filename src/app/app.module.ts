@@ -27,7 +27,6 @@ import { BreakUpInfoComponent } from './components/break-up-info/break-up-info.c
 import { BreakUpTableComponent } from './components/break-up-table/break-up-table.component';
 import { CreateProfileModalComponent } from './components/create-profile-modal/create-profile-modal.component';
 import { DetailModalComponent } from './components/detail-modal/detail-modal.component';
-import { DetailsPanelComponent } from './components/details-panel/details-panel.component';
 import { DoughnutGraphComponent } from './components/doughnut-graph/doughnut-graph.component';
 import { FoodInputFieldComponent } from './components/food-input-field/food-input-field.component';
 import { FoodItemPanelComponent } from './components/food-item-panel/food-item-panel.component';
@@ -53,6 +52,8 @@ import { DarkColorDirective } from './directives/dark-color.directive';
 import { DragDropDirective } from './directives/drag-drop.directive';
 import { InputClickSelectDirective } from './directives/input-click-select.directive';
 import { HelpDialogModule } from './help-dialog/help-dialog.module';
+import { ToastrModule } from 'ngx-toastr';
+import { DetailsPanelComponent } from './components/details-panel/details-panel.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -109,6 +110,9 @@ import { HelpDialogModule } from './help-dialog/help-dialog.module';
     HttpClientModule,
     ImageCropperModule,
     HelpDialogModule,
+    ToastrModule.forRoot({
+    timeOut: 1600,
+  }),
   ],
   providers: [
     {

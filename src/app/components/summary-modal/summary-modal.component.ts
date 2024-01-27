@@ -1,10 +1,10 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import html2canvas from 'html2canvas';
+import { ToastrService } from 'ngx-toastr';
+import { IndividualSummary } from 'src/app/classes/individual-summary';
 import { DetailsService } from 'src/app/services/details.service';
 import { SummaryExportService } from 'src/app/services/summary-export.service';
-import { SummaryQrModalComponent } from '../summary-qr-modal/summary-qr-modal.component';
-import { IndividualSummary } from 'src/app/classes/individual-summary';
 
 @Component({
   selector: 'app-summary-modal',
@@ -20,6 +20,7 @@ export class SummaryModalComponent {
   constructor(
     private details: DetailsService,
     private summaryExport: SummaryExportService,
+    private toastr:ToastrService,
     public dialogRef: MatDialogRef<SummaryModalComponent>
   ) {
     this.summary = this.details.individualSummaries;
@@ -36,7 +37,7 @@ export class SummaryModalComponent {
   async downloadAs(type: 'qr' | 'img' | 'pdf') {
     this.isDownloadOptions = false;
     if (type === 'qr') {
-      alert('disabled tempororily');
+     this.toastr.warning("this feature is temporarily disabled")
       //this.dialog.open(SummaryQrModalComponent, {
       //  width: '550px',
       //});

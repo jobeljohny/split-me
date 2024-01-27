@@ -27,6 +27,7 @@
     "jspdf": "^2.5.1",
     "ng2-charts": "^5.0.4",
     "ngx-image-cropper": "^7.2.1",
+    "ngx-toastr": "^18.0.0",
     "rxjs": "~7.8.0",
     "tesseract.js": "^5.0.3",
     "tslib": "^2.3.0",

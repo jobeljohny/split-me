@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
+import { ToastrService } from 'ngx-toastr';
 import { ReceiptType } from 'src/app/classes/constants';
 
 @Component({
@@ -14,6 +15,7 @@ export class BillImagePreviewComponent {
   parseType: ReceiptType = ReceiptType.REGULAR;
   cropImgPreview: string | undefined = '';
   cropImgBlob: Blob | undefined | null;
+  constructor(private toastr: ToastrService) {}
 
   cropImg(e: ImageCroppedEvent) {
     if (e.objectUrl && e.blob) {
@@ -23,7 +25,7 @@ export class BillImagePreviewComponent {
   }
   imgFailed() {
     // error msg
-    console.log('error occured');
+    this.toastr.error('invalid image file');
   }
   onParseTypeChange(newValue: ReceiptType) {
     this.parseType = newValue;

@@ -4,6 +4,7 @@ import { Profile } from '../classes/profile';
 import { selectionStatus } from '../classes/interfaces';
 import { Subject } from 'rxjs';
 import { JsonValidatorService } from './json-validator.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,8 @@ export class SimpleProfileService {
 
   constructor(
     rendererFactory: RendererFactory2,
-    private validator: JsonValidatorService
+    private validator: JsonValidatorService,
+    private toastr: ToastrService
   ) {
     this.renderer = rendererFactory.createRenderer(null, null);
     this.fetchFromLocalStorage();
@@ -44,7 +46,7 @@ export class SimpleProfileService {
         'my_profiles.prf'
       );
     } else {
-      alert('No profile set to export');
+      this.toastr.error('There are no profiles to export');
     }
   }
   //multi-selection functions
@@ -106,12 +108,16 @@ export class SimpleProfileService {
         if (this.checkValid(impData)) {
           this.profiles = impData;
           this.setLocalStorage();
+          this.toastr.success(
+            `successfully imported ${this.profiles.length} profiles`,
+            'Success'
+          );
         } else {
-          alert('Invalid profile file');
+          this.toastr.error('Invalid profile file');
         }
       } catch (error) {
         console.log(error);
-        alert('Invalid profile file');
+        this.toastr.error('Invalid profile file');
       }
     };
     fileReader.readAsText(file);
