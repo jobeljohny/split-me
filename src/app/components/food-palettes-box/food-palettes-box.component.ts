@@ -15,7 +15,6 @@ import { pages } from 'src/app/help-dialog/help-dialog/help-page-utils';
   animations: [cardAnimation, buttonAnimation],
 })
 export class FoodPalettesBoxComponent {
-  buttonState: number = 0;
   @ViewChild('itemWrapper') myScrollContainer!: ElementRef;
 
   constructor(
@@ -27,7 +26,6 @@ export class FoodPalettesBoxComponent {
   }
 
   onAddFoodPalette() {
-    this.buttonState++;
     this.foodPalette.add();
 
     //TODO create a smoother transition for this or discard scroll effect
@@ -55,7 +53,6 @@ export class FoodPalettesBoxComponent {
 
   removeFoodTile(item: FoodItem) {
     this.foodPalette.remove(item);
-    this.buttonState--;
   }
 
   openDialog() {
