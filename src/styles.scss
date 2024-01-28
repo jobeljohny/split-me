@@ -53,41 +53,28 @@ body {
   border: 1px solid $border-line;
 }
 
-//details-modal
-.detailsModal .mat-mdc-dialog-container .mdc-dialog__surface {
-  background: rgba(10, 10, 19, 0.7);
-  border-radius: 10px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid $border-line;
+//modal theming
+.detailsModal,
+.summaryModal,
+.importModal,
+.add-profile-modal,
+.domain-moved-modal {
+  .mat-mdc-dialog-container {
+    .mdc-dialog__surface {
+      background: rgba(10, 10, 19, 0.75);
+      border-radius: 10px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid $border-line;
+    }
+  }
 }
 
-//summary-modal, domain-moved-modal
-.summaryModal .mat-mdc-dialog-container .mdc-dialog__surface,
-.importModal .mat-mdc-dialog-container .mdc-dialog__surface,
-.domain-moved-modal .mat-mdc-dialog-container .mdc-dialog__surface {
-  background: rgba(10, 10, 19, 0.9);
-  border-radius: 10px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid $border-line;
-}
-
-//add-profile-modal
-.add-profile-modal .mat-mdc-dialog-container .mdc-dialog__surface {
-  background: $card-color;
-  border-radius: 10px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid $border-line;
-}
-.toast-container>div{
-    -moz-box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
+.toast-container > div {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 //unselectable

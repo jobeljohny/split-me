@@ -2,7 +2,7 @@
 .title {
   display: flex;
   justify-content: center;
-  margin-top: 12px;
+  margin-top: 16px;
   p {
     margin: 0;
     font-size: 0.9rem;
@@ -19,11 +19,12 @@
 label {
   font-size: 0.9rem;
   color: rgb(189, 189, 189);
+  margin-bottom: 4px;
 }
 .form-control {
-  background: rgb(24,24,39);
+  background: $primary-color;
   color: white;
-  border: 1px solid $border-line;
+ border: none;
 }
 .btn {
   box-shadow: none;
@@ -45,5 +46,5 @@ label {
 }
 
 form {
-  padding: 12px 16px;
+  padding: 12px 20px;
 }

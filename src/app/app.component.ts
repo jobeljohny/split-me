@@ -20,7 +20,8 @@ export class AppComponent {
     private dialog: MatDialog,
     @Inject(DOCUMENT) private document: Document
   ) {
-    this.checkHostName();
+    //TODO remove
+    //this.checkHostName();
   }
 
   @HostListener('window:keydown', ['$event'])

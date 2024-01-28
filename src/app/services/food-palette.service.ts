@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FoodItem } from '../classes/food-item';
 import { IorderDetails } from '../classes/interfaces';
+import { mockFoodPalettes } from '../classes/mock-data';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +14,10 @@ export class FoodPaletteService {
   };
   palettes: FoodItem[] = [];
   paletteIDs: string[] = [];
-
+  
   constructor() {
+    //TODO remove
+    this.palettes=mockFoodPalettes;
     this.updatePanelIds();
   }
 
