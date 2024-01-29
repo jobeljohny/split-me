@@ -149,17 +149,19 @@
 
       .instruction-wrapper {
         .help-bar {
-          height: 60px;
-          font-size: 0.65rem;
+          height: inherit;
+          text-align: center;
+          font-size: 0.7rem;
           flex-direction: column;
           button {
             margin-left: 5px;
             padding: 4px 8px;
             font-size: 0.6rem;
-            margin-top: 4px;
+            margin-top: 8px;
           }
         }
         .add-food-wrapper {
+          padding-bottom: 10px;
           .new-food-logo {
             width: 200px;
           }
@@ -170,8 +172,8 @@
             gap: 25px;
             margin-top: 40px;
             button {
-              width: 120px;
-              height: 80px;
+              width: 100px;
+              height: 75px;
               gap: 4px;
               img {
                 width: 20px;

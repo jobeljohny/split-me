@@ -63,10 +63,12 @@
 
 .consumers-palette {
   flex-grow: 1;
-  border-radius: 30px;
+  border-radius: 20px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  margin:0 1rem;
+  padding: 1rem;
   background: $body-bg;
   .placeholder-text {
     font-size: 0.9rem;
@@ -147,7 +149,7 @@ input[type="number"] {
     .panel {
       display: flex;
       flex-direction: column;
-      height: 91%;
+      height: 90%;
 
       .item-info {
         gap: 2px;
@@ -158,9 +160,10 @@ input[type="number"] {
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
-        gap: 4px;
+        gap: 2px;
         overflow-x: auto;
-        padding: 6px;
+        margin: 0;
+        padding: 0.75rem;
       }
     }
   }

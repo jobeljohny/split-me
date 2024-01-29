@@ -13,7 +13,7 @@
         [initialName]="foodData.name"
       ></app-food-input-field>
       <div class="dish-logo-wrapper">
-        <span class="dish-logo">{{foodData.logo}}</span>
+        <span class="dish-logo">{{ foodData.logo }}</span>
       </div>
       <span class="dish-rate"
         >₹
@@ -30,7 +30,7 @@
       cdkDropListSortingDisabled
       [cdkDropListAutoScrollDisabled]="true"
       [cdkDropListConnectedTo]="paletteIds"
-      class="consumers-palette mx-3 p-3 card-container"
+      class="consumers-palette card-container"
       (cdkDropListDropped)="drop($event)"
     >
       <span *ngIf="!participants.length" class="placeholder-text lead"
