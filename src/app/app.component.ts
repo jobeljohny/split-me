@@ -20,8 +20,7 @@ export class AppComponent {
     private dialog: MatDialog,
     @Inject(DOCUMENT) private document: Document
   ) {
-    //TODO remove
-    //this.checkHostName();
+    this.checkHostName();
   }
 
   @HostListener('window:keydown', ['$event'])
@@ -35,7 +34,11 @@ export class AppComponent {
 
   checkHostName() {
     if (!this.document.location.hostname.includes(DOMAIN_NAME)) {
-      this.dialog.open(WebsiteMovedDialogComponent,{width:'400px',height:'350px',panelClass:'split-me-modal'});
+      this.dialog.open(WebsiteMovedDialogComponent, {
+        width: '400px',
+        height: '350px',
+        panelClass: 'split-me-modal',
+      });
     }
   }
 }

@@ -49,3 +49,28 @@
     right: 5%;
   }
 }
+@media only screen and (max-width: 576px) {
+  .graph-wrap {
+    width: 100%;
+    .graph-title {
+      font-size: 0.9rem;
+      height: 25px;
+    }
+    .graph-subtitle {
+      display: none;
+    }
+    app-doughnut-graph {
+      flex-grow: inherit;
+      height: 450px;
+      display: flex;
+      align-items: center;
+    }
+    .slide-wrapper {
+      position: absolute;
+      top: 40%;
+      img {
+        width: 20px;
+      }
+    }
+  }
+}

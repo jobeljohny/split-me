@@ -3,7 +3,6 @@
 .dialog-body {
   padding: 16px;
   padding-bottom: 8px;
- // position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -15,40 +14,46 @@
       width: 500px;
       overflow: auto;
     }
-   app-graph-container{
-    flex-grow: 1;
-   } 
+    app-graph-container {
+      flex-grow: 1;
+    }
   }
   .footer-panel {
     border-top: 1px solid $border-line;
     height: 40px;
     display: flex;
-    align-items:flex-end;
+    align-items: flex-end;
     .data-panel {
       height: 30px;
       flex-grow: 1;
     }
-    .ind-summary {
-      font-size: 0.8rem;
-      width: 180px;
-      height: 30px;
-      align-items: center;
-      justify-content: center;
+    .summary-graph-wrapper {
       display: flex;
-      cursor: pointer;
-      border-radius: 4px;
-      font-family: Helvetica, sans-serif;
-      font-weight: bold;
-      background-color: #585697;
-      text-transform: capitalize;
-      img {
-        width: 18px;
-        filter: invert(1);
-        margin-left: 2px;
-      }
+      .ind-summary {
+        font-size: 0.8rem;
+        width: 180px;
+        height: 30px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        cursor: pointer;
+        border-radius: 4px;
+        font-family: Helvetica, sans-serif;
+        font-weight: bold;
+        background-color: #585697;
+        text-transform: capitalize;
+        img {
+          width: 18px;
+          filter: invert(1);
+          margin-left: 2px;
+        }
 
-      &:hover {
-        filter: brightness(1.1);
+        &:hover {
+          filter: brightness(1.1);
+        }
+      }
+      .graph-button {
+        display: none;
       }
     }
   }
@@ -101,11 +106,23 @@
         flex-grow: 1;
         width: 100%;
       }
-      .ind-summary {
-        width: 90%;
+      .summary-graph-wrapper {
+        gap: 8px;
+        .ind-summary {
+          flex-grow: 1;
+          img {
+            width: 14px;
+          }
+        }
+        .graph-button {
+          display: flex;
+          width: 40px;
+          align-items: center;
+          justify-content: center;
 
-        img {
-          width: 14px;
+          img {
+            width: 28px;
+          }
         }
       }
     }

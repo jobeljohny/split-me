@@ -27,7 +27,7 @@ export class DetailsPanelComponent {
         panelClass: 'split-me-modal',
       });
     } else {
-     this.toastr.error("No Participants present")
+      this.toastr.error('No Participants present');
     }
   }
 

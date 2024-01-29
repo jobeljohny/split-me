@@ -12,16 +12,20 @@
     <div class="table-wrap">
       <app-break-up-table [dataSource]="dataMatTable"></app-break-up-table>
     </div>
-  <app-graph-container></app-graph-container> 
+    <app-graph-container></app-graph-container>
   </div>
   <div class="footer-panel">
-    
     <div class="data-panel">
       <app-break-up-info></app-break-up-info>
     </div>
-    <div class="ind-summary" (click)="viewSummary()">
-      <span>individual summary</span>
-      <img src="assets/icons/right-arrow-icon.svg" alt="" />
+    <div class="summary-graph-wrapper">
+      <div class="graph-button" (click)="openGraph()">
+        <img src="assets/icons/graph-icon.svg" alt="" />
+      </div>
+      <div class="ind-summary" (click)="viewSummary()">
+        <span>individual summary</span>
+        <img src="assets/icons/right-arrow-icon.svg" alt="" />
+      </div>
     </div>
   </div>
 </div>
