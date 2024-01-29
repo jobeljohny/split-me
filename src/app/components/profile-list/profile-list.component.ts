@@ -29,7 +29,7 @@ export class ProfileListComponent {
     let dialogRef = this.dialog.open(CreateProfileModalComponent, {
       width: '250px',
       data: this.profiles,
-      panelClass:'add-profile-modal'
+      panelClass:'split-me-modal'
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {

@@ -35,7 +35,7 @@ export class AppComponent {
 
   checkHostName() {
     if (!this.document.location.hostname.includes(DOMAIN_NAME)) {
-      this.dialog.open(WebsiteMovedDialogComponent,{width:'400px',height:'350px',panelClass:'domain-moved-modal'});
+      this.dialog.open(WebsiteMovedDialogComponent,{width:'400px',height:'350px',panelClass:'split-me-modal'});
     }
   }
 }

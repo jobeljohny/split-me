@@ -39,7 +39,7 @@ export class FoodPalettesBoxComponent {
 
   onImportBill() {
     let dialogRef = this.dialog.open(ImportModalComponent, {
-      panelClass: 'importModal',
+      panelClass: 'split-me-modal',
       width: '520px',
     });
     dialogRef.afterClosed().subscribe((result: IBillEntry[]) => {

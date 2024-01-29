@@ -54,11 +54,7 @@ body {
 }
 
 //modal theming
-.detailsModal,
-.summaryModal,
-.importModal,
-.add-profile-modal,
-.domain-moved-modal {
+.split-me-modal {
   .mat-mdc-dialog-container {
     .mdc-dialog__surface {
       background: rgba(10, 10, 19, 0.75);

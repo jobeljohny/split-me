@@ -28,7 +28,7 @@ export class DetailModalComponent {
   viewSummary() {
     this.dialog.open(SummaryModalComponent, {
       width: '1140px',
-      panelClass: 'summaryModal',
+      panelClass: 'split-me-modal',
     });
   }
 }
