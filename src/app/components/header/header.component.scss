@@ -23,8 +23,18 @@
           font-weight: 500;
           font-size: 1.2rem;
           color: white;
-font-family:  Script MT, Brush Script Std, cursive;
+          font-family: Script MT, Brush Script Std, cursive;
         }
+      }
+    }
+    .right-options{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      img{
+        width:30px;
+        filter: $theme-filter;
+        cursor: pointer;
       }
     }
   }

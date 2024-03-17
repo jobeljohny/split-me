@@ -1,8 +1,10 @@
 import { CdkDragDrop, CdkDragStart } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ActionType } from 'src/app/classes/constants';
 import { FoodItem } from 'src/app/classes/food-item';
 import { Participant } from 'src/app/classes/participant';
 import { Profile } from 'src/app/classes/profile';
+import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-food-item-panel',
@@ -15,7 +17,7 @@ export class FoodItemPanelComponent {
   @Output() removePanel = new EventEmitter<FoodItem>();
 
   totalRate: number = 0;
-  constructor() {}
+  constructor(private store: StoreService) {}
 
   changes(type: string) {
     if (type === 'price') {
@@ -36,14 +38,22 @@ export class FoodItemPanelComponent {
   }
   removeParticipant(p: Participant) {
     this.foodData.participants = this.foodData.participants.filter(
-      (x) => x !== p
+      (x) => x.name !== p.name
     );
+    this.store.fireAction(ActionType.REMOVE_PARTICIPANT, {
+      name: p.name,
+      palette: this.foodData.id,
+    });
   }
 
   drop(event: CdkDragDrop<string[]>) {
     event.item.data.forEach((profile: Profile) => {
       let participant = new Participant(profile, this.foodData.price);
       this.foodData.addParticipant(participant);
+    });
+    this.store.fireAction(ActionType.ADD_PARTICIPANT, {
+      participants: event.item.data,
+      palette: this.foodData.id,
     });
   }
 

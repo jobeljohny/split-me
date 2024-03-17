@@ -21,3 +21,12 @@ export const profileSchema = {
     required: ['hue', 'name'],
   },
 };
+
+export function getRoomID(): string {
+  let outString: string = '';
+  let inOptions: string = 'abcdefghijklmnopqrstuvwxyz';
+  for (let i = 0; i < 6; i++) {
+    outString += inOptions.charAt(Math.floor(Math.random() * inOptions.length));
+  }
+  return outString;
+}

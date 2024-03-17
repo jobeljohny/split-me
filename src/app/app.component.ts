@@ -1,10 +1,10 @@
-import { Component, HostListener, Inject } from '@angular/core';
-import { KeyBindingService } from './services/keybinding.service';
-import { FoodPaletteService } from './services/food-palette.service';
 import { DOCUMENT } from '@angular/common';
-import { DOMAIN_NAME } from './classes/constants';
+import { Component, HostListener, Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { DOMAIN_NAME } from './classes/constants';
 import { WebsiteMovedDialogComponent } from './components/website-moved-dialog/website-moved-dialog.component';
+import { FoodPaletteService } from './services/food-palette.service';
+import { KeyBindingService } from './services/keybinding.service';
 
 @Component({
   selector: 'app-root',
@@ -18,9 +18,10 @@ export class AppComponent {
     private keyBinding: KeyBindingService,
     private foodPaletteService: FoodPaletteService,
     private dialog: MatDialog,
+
     @Inject(DOCUMENT) private document: Document
   ) {
-    this.checkHostName();
+    //  this.checkHostName();
   }
 
   @HostListener('window:keydown', ['$event'])
@@ -29,6 +30,8 @@ export class AppComponent {
   }
   @HostListener('window:beforeunload', ['$event'])
   canDeactivate(): boolean {
+    //TODO remove
+    return true;
     return this.foodPaletteService.palettes.length == 0;
   }
 

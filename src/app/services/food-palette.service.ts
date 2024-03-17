@@ -18,12 +18,13 @@ export class FoodPaletteService {
     this.updatePanelIds();
   }
 
-  add(palette: FoodItem = new FoodItem('', 0, [])): void {
+  add(palette: FoodItem = new FoodItem('', 0, [])): string {
     if (!palette.name) {
       palette.name = 'item ' + palette.foodID;
     }
     this.palettes.push(palette);
     this.updatePanelIds();
+    return palette.id;
   }
 
   remove(item: FoodItem) {

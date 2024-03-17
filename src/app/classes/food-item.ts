@@ -1,20 +1,16 @@
 import { Participant } from './participant';
+import { getID } from './uuid';
 
 export class FoodItem {
-  static #id = 0;
-  private id: number;
+  id: string;
   name: string;
   public logo: string = '🍽️';
   price: number;
   participants: Participant[];
 
-  static #incrementID() {
-    this.#id++;
-  }
-
-  constructor(name: string, price: number, participants: Participant[]) {
-    FoodItem.#incrementID();
-    this.id = FoodItem.#id;
+  constructor(name: string, price: number, participants: Participant[],id:string = getID()) {
+   
+    this.id = id;
     this.name = name;
     this.price = price;
     this.participants = participants;
@@ -44,7 +40,7 @@ export class FoodItem {
   public addParticipant(participant: Participant) {
     let isExist = false;
     this.participants.forEach((p) => {
-      if (p.profile === participant.profile) {
+      if (p.profile.name === participant.profile.name) {
         isExist = true;
         //participant already exists
       }

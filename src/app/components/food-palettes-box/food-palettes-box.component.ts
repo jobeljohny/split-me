@@ -3,11 +3,13 @@ import { MatDialog } from '@angular/material/dialog';
 import { buttonAnimation, cardAnimation } from 'src/app/classes/animations';
 import { FoodItem } from 'src/app/classes/food-item';
 import { IBillEntry } from 'src/app/classes/interfaces';
+import { HelpDialogComponent } from 'src/app/help-dialog/help-dialog/help-dialog.component';
+import { pages } from 'src/app/help-dialog/help-dialog/help-page-utils';
 import { FoodPaletteService } from 'src/app/services/food-palette.service';
 import { KeyBindingService } from 'src/app/services/keybinding.service';
 import { ImportModalComponent } from '../import-modal/import-modal.component';
-import { HelpDialogComponent } from 'src/app/help-dialog/help-dialog/help-dialog.component';
-import { pages } from 'src/app/help-dialog/help-dialog/help-page-utils';
+import { StoreService } from 'src/app/services/store.service';
+import { ActionType } from 'src/app/classes/constants';
 @Component({
   selector: 'app-food-palettes-box',
   templateUrl: './food-palettes-box.component.html',
@@ -20,13 +22,15 @@ export class FoodPalettesBoxComponent {
   constructor(
     private foodPalette: FoodPaletteService,
     private keyBinding: KeyBindingService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private store: StoreService
   ) {
     this.keyBinding.handleAltF(this.onAddFoodPalette.bind(this));
   }
 
   onAddFoodPalette() {
-    this.foodPalette.add();
+    const id = this.foodPalette.add();
+    this.store.fireAction(ActionType.ADD_PALETTE, { id: id });
 
     //TODO create a smoother transition for this or discard scroll effect
     setTimeout(
