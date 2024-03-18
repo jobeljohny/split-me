@@ -19,14 +19,31 @@ export class FoodItemPanelComponent {
   totalRate: number = 0;
   constructor(private store: StoreService) {}
 
-  changes(type: string) {
-    if (type === 'price') {
-      this.foodData.updatePrices();
-    }
+  onPriceUpdated() {
+    this.foodData.updatePrices();
+    this.store.fireAction(ActionType.UPDATE_DISH_PRICE, {
+      id: this.foodData.id,
+      price: this.foodData.price,
+    });
+  }
+
+  onContributionUpdated(participant: Participant) {
+    this.store.fireAction(ActionType.UPDATE_PARTICIPANT_PRICE, {
+      id: this.foodData.id,
+      name: participant.name,
+      contribution: participant.contribution,
+    });
   }
 
   updateName(foodName: string) {
     this.foodData.name = foodName;
+  }
+
+  updateNameSocket(foodName: string) {
+    this.store.fireAction(ActionType.UPDATE_PALETTE_FOODNAME, {
+      id: this.foodData.id,
+      name: foodName,
+    });
   }
 
   updateIcon(icon: string) {
@@ -61,12 +78,21 @@ export class FoodItemPanelComponent {
     switch (option) {
       case 'reset':
         this.foodData.resetDefaultPrice();
+        this.store.fireAction(ActionType.RESET_PALETTE_DEFAULT_PRICE, {
+          id: this.foodData.id,
+        });
         break;
       case 'split':
         this.foodData.splitEvenly();
+        this.store.fireAction(ActionType.SPLIT_EVENLY, {
+          id: this.foodData.id,
+        });
         break;
       case 'clear':
         this.foodData.removeAllParticipants();
+        this.store.fireAction(ActionType.CLEAR_PALETTE_PARTICIPANTS, {
+          id: this.foodData.id,
+        });
         break;
     }
   }

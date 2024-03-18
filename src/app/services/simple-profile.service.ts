@@ -5,6 +5,7 @@ import { selectionStatus } from '../classes/interfaces';
 import { Subject } from 'rxjs';
 import { JsonValidatorService } from './json-validator.service';
 import { ToastrService } from 'ngx-toastr';
+import { StoreService } from './store.service';
 
 @Injectable({
   providedIn: 'root',
@@ -37,6 +38,7 @@ export class SimpleProfileService {
     this.profiles.push(newProfile);
     this.profiles.sort((a, b) => a.name.localeCompare(b.name));
     this.setLocalStorage();
+    return newProfile;
   }
 
   exportProfiles() {

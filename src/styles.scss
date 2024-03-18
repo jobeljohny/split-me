@@ -73,6 +73,24 @@ body {
   box-shadow: none !important;
 }
 
+//socket-toast
+.socket-title {
+  font-weight: 400;
+  font-size: 1rem;
+}
+.socket-toast {
+  margin: 2px 0 6px;
+  padding: 15px 15px 15px 50px;
+  width: 300px;
+  background-color: #3e3d65;
+  border-radius: 3px 3px 3px 3px;
+  border: 1px solid $border-line;
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  color: #ffffff;
+}
+
 //unselectable
 .not-selectable {
   user-select: none;

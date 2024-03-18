@@ -9,12 +9,7 @@ import {
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, debounceTime, map, startWith } from 'rxjs';
-import {
-  foodItem,
-  foodLogo,
-  foodNames,
-  getLogo,
-} from 'src/app/constants/food-names';
+import { foodItem, foodNames, getLogo } from 'src/app/constants/food-names';
 
 @Component({
   selector: 'app-food-input-field',
@@ -24,11 +19,22 @@ import {
 export class FoodInputFieldComponent implements OnInit {
   foodNames: Observable<foodItem[]>;
   stateCtrl: FormControl = new FormControl();
+  private _initialName!: string;
   @ViewChild('dishName') dishName: any;
-  @Input('initialName') initialName!: string;
+  @Input('initialName') set initialName(value: string) {
+    this._initialName = value;
+    if (value && value.startsWith('{socket}')) {
+      setTimeout(() => {
+        this.stateCtrl.setValue(value.slice(8));
+        this.updated();
+      });
+    }
+  }
   @Output('nameUpdate') foodName = new EventEmitter<string>();
   @Output('updateIcon') updateIcon = new EventEmitter<string>();
-  constructor() {
+  @Output('socketUpdate') updateSocket = new EventEmitter<string>();
+
+  constructor(private cdr: ChangeDetectorRef) {
     this.foodNames = this.stateCtrl.valueChanges.pipe(
       startWith(''),
       map((value) => this.filterFood(value || ''))
@@ -36,6 +42,10 @@ export class FoodInputFieldComponent implements OnInit {
     this.stateCtrl.valueChanges.pipe(debounceTime(300)).subscribe(() => {
       this.updated();
     });
+  }
+
+  get initialName() {
+    return this._initialName;
   }
 
   ngOnInit() {
@@ -65,5 +75,10 @@ export class FoodInputFieldComponent implements OnInit {
     const icon = getLogo(Rawvalue);
 
     this.updateIcon.emit(icon);
+  }
+
+  onBlur() {
+    const Rawvalue = this.stateCtrl.getRawValue();
+    if (Rawvalue) this.updateSocket.emit(Rawvalue);
   }
 }

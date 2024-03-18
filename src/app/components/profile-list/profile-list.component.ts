@@ -6,6 +6,8 @@ import { FoodPaletteService } from 'src/app/services/food-palette.service';
 import { SimpleProfileService } from 'src/app/services/simple-profile.service';
 import { CreateProfileModalComponent } from '../create-profile-modal/create-profile-modal.component';
 import { KeyBindingService } from 'src/app/services/keybinding.service';
+import { StoreService } from 'src/app/services/store.service';
+import { ActionType } from 'src/app/classes/constants';
 @Component({
   selector: 'app-profile-list',
   templateUrl: './profile-list.component.html',
@@ -16,6 +18,7 @@ export class ProfileListComponent {
     private foodPalette: FoodPaletteService,
     private simpleProfile: SimpleProfileService,
     private keyBinding: KeyBindingService,
+    private store: StoreService,
     public dialog: MatDialog
   ) {
     this.keyBinding.handleAltP(this.onAddProfile.bind(this));
@@ -23,17 +26,19 @@ export class ProfileListComponent {
 
   removeProfile(profile: string) {
     this.simpleProfile.remove(profile);
+    this.store.fireAction(ActionType.REMOVE_PROFILE, { name: profile });
   }
 
   onAddProfile() {
     let dialogRef = this.dialog.open(CreateProfileModalComponent, {
       width: '250px',
       data: this.profiles,
-      panelClass:'split-me-modal'
+      panelClass: 'split-me-modal',
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.simpleProfile.add(result);
+        const profile = this.simpleProfile.add(result);
+        this.store.fireAction(ActionType.ADD_PROFILE, { profile: profile });
       }
     });
   }

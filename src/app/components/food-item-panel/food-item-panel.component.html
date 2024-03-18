@@ -10,6 +10,7 @@
       <app-food-input-field
         (nameUpdate)="updateName($event)"
         (updateIcon)="updateIcon($event)"
+        (socketUpdate)="updateNameSocket($event)"
         [initialName]="foodData.name"
       ></app-food-input-field>
       <div class="dish-logo-wrapper">
@@ -21,7 +22,7 @@
           type="number"
           appInputClickSelect
           [(ngModel)]="foodData.price"
-          (change)="changes('price')"
+          (change)="onPriceUpdated()"
       /></span>
     </div>
     <div
@@ -48,6 +49,7 @@
           [participant]="participant"
           [price]="foodData.price"
           (removeParticipant)="removeParticipant($event)"
+          (contributionUpdated)="onContributionUpdated($event)"
         ></app-advanced-profile>
         <div *cdkDragPreview>
           <app-profile-drag-preview

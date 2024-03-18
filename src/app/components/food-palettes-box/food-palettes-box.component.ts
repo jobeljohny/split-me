@@ -57,6 +57,7 @@ export class FoodPalettesBoxComponent {
 
   removeFoodTile(item: FoodItem) {
     this.foodPalette.remove(item);
+    this.store.fireAction(ActionType.REMOVE_PALETTE, { id: item.id });
   }
 
   openDialog() {

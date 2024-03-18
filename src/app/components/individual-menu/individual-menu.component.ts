@@ -10,6 +10,7 @@ import { Participant } from 'src/app/classes/participant';
 export class IndividualMenuComponent {
   @Input('participant') participant!: Participant;
   @Input('price') price!: number;
+  @Output('contributionUpdated') countributionUpdated = new EventEmitter();
 
   toggleIndex: number = 0;
   togglers: CustomContributionToggler[] = [
@@ -22,6 +23,7 @@ export class IndividualMenuComponent {
     this.participant.contribution = parseFloat(
       (this.price * modifier).toFixed(2)
     );
+    this.countributionUpdated.emit();
   }
 
   updateCustom(value: string) {
@@ -34,6 +36,7 @@ export class IndividualMenuComponent {
       let contribution = Math.round(this.price * parseFloat(value) * 100) / 100;
       this.participant.contribution = contribution;
     }
+    this.countributionUpdated.emit()
   }
 
   remove() {

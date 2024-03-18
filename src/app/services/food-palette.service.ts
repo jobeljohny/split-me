@@ -28,7 +28,7 @@ export class FoodPaletteService {
   }
 
   remove(item: FoodItem) {
-    this.palettes = this.palettes.filter((x) => x !== item);
+    this.palettes = this.palettes.filter((x) => x.id !== item.id);
     this.updatePanelIds();
   }
 

@@ -17,6 +17,7 @@ export class AdvancedProfileComponent {
   @Input('participant') participant!: Participant;
   @Input('price') price: number = 0;
   @Output() removeParticipant = new EventEmitter<Participant>();
+  @Output() contributionUpdated = new EventEmitter<Participant>();
   @ViewChild(MatMenuTrigger)
   contextMenu: MatMenuTrigger | undefined;
   contextMenuPosition = { x: '0px', y: '0px' };
@@ -37,6 +38,10 @@ export class AdvancedProfileComponent {
   }
 
   //Context menu options
+
+  OnContributionUpdated(){
+    this.contributionUpdated.emit(this.participant);
+  }
 
   remove() {
     this.removeParticipant.emit(this.participant);

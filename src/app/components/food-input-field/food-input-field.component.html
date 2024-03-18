@@ -4,6 +4,7 @@
   placeholder="item name"
   [matAutocomplete]="auto"
   [formControl]="stateCtrl"
+  (blur)="onBlur()"
   class="dish-name"
 />
 <mat-autocomplete
