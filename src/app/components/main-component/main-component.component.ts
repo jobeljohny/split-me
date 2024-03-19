@@ -4,6 +4,9 @@ import { SocketService } from 'src/app/services/socket.service';
 import { RoomService } from 'src/app/services/room.service';
 import { ActivatedRoute } from '@angular/router';
 import { getID } from 'src/app/classes/uuid';
+import { MatDialog } from '@angular/material/dialog';
+import { NicknameModalComponent } from '../nickname-modal/nickname-modal.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-main-component',
@@ -14,22 +17,47 @@ export class MainComponentComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private roomService: RoomService,
-    private socket: SocketService
+    private socket: SocketService,
+    public dialog: MatDialog,
+    private toast: ToastrService
   ) {}
 
   ngOnInit(): void {
     const roomId = this.route.snapshot.paramMap.get('roomId');
 
     if (roomId) {
-      const userId = getID();
-      this.socket.initSocket();
-      this.socket.joinRoom(roomId, userId); // Join the room for real-time updates
-      this.roomService.roomId = roomId;
-      this.roomService.userId = userId;
+      //check user id exist
+      let dialogRef = this.dialog.open(NicknameModalComponent, {
+        width: '350px',
+        data: roomId,
+        disableClose: true,
+        panelClass: 'split-me-modal',
+      });
+      dialogRef.afterClosed().subscribe((result) => {
+        if (result) {
+          console.log(result);
 
-      this.roomService.getRoomData(roomId).subscribe((data: IAppState) => {
-        if (data) this.roomService.syncCloudData(data);
+          this.joinRoom(roomId, result);
+        }
       });
     }
+  }
+  joinRoom(roomId: string, username: string) {
+    const userId = getID();
+    this.socket.initSocket();
+    this.socket.joinRoom(roomId, userId, username); // Join the room for real-time updates
+    this.roomService.roomId = roomId;
+    this.roomService.getRoomData(roomId).subscribe((data: IAppState) => {
+      if (data) {
+        this.roomService.syncCloudData(data);
+        this.toast.success(`connected to room - ${roomId}`, 'Connected', {
+          titleClass: 'socket-title',
+          toastClass: 'socket-toast',
+          timeOut: 3000,
+        });
+      } else {
+        this.toast.error('Cannot connect to specified room', 'Invalid Room');
+      }
+    });
   }
 }

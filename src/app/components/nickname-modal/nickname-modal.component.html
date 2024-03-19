@@ -1,0 +1,46 @@
+<!-- Modal HTML -->
+<div class="title">
+  <img src="assets/icons/group-icon.svg" alt="" />
+  <span class="room"
+    >Room : <span class="room-id">{{ data }}</span></span
+  >
+  <p class="desc lead">
+    Join your collaborative bill-splitting room by toss in your nickname
+  </p>
+</div>
+
+<form [formGroup]="angForm" novalidate>
+  <div class="form-group">
+    <label>Enter nickname below</label>
+    <div class="action-panel">
+      <input
+        #ModalInput
+        class="form-control shadow-none"
+        formControlName="name"
+        type="text"
+      />
+      <button
+        type="submit"
+        [mat-dialog-close]="angForm.value['name']"
+        class="btn btn-primary"
+        [disabled]="angForm.pristine || angForm.invalid"
+      >
+        JOIN
+      </button>
+    </div>
+  </div>
+  <div
+    *ngIf="
+      angForm.controls['name'].invalid &&
+      (angForm.controls['name'].dirty || angForm.controls['name'].touched)
+    "
+    class="is-invalid"
+  >
+    <div *ngIf="angForm.controls['name'].errors?.['required']">
+      Name is required.
+    </div>
+    <div *ngIf="angForm.controls['name'].errors?.['minlength']">
+      minimum 3 characters.
+    </div>
+  </div>
+</form>

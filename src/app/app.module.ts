@@ -54,6 +54,7 @@ import { InputClickSelectDirective } from './directives/input-click-select.direc
 import { HelpDialogModule } from './help-dialog/help-dialog.module';
 import { ToastrModule } from 'ngx-toastr';
 import { DetailsPanelComponent } from './components/details-panel/details-panel.component';
+import { NicknameModalComponent } from './components/nickname-modal/nickname-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,6 +91,7 @@ import { DetailsPanelComponent } from './components/details-panel/details-panel.
     BillImagePreviewComponent,
 
     WebsiteMovedDialogComponent,
+      NicknameModalComponent,
   ],
   imports: [
     BrowserModule,

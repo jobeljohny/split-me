@@ -5,7 +5,8 @@ interface MessageMap {
   [key: number]: (payload: any, paletteName?: string) => string;
 }
 const messageMap: MessageMap = {
-  [ActionType.ADD_PROFILE]: (payload) => `Added new profile ${payload.profile.name}`,
+  [ActionType.ADD_PROFILE]: (payload) =>
+    `Added new profile ${payload.profile.name}`,
   [ActionType.REMOVE_PROFILE]: (payload) => `Removed profile ${payload.name}`,
   [ActionType.ADD_PALETTE]: () => `Added a new palette`,
   [ActionType.REMOVE_PALETTE]: (_, paletteName) =>
@@ -27,6 +28,7 @@ const messageMap: MessageMap = {
     `Applied default price to '${paletteName}'`,
   [ActionType.CLEAR_PALETTE_PARTICIPANTS]: (_, paletteName) =>
     `Cleared participants from '${paletteName}'`,
+  [ActionType.SCAN_RECEIPT_ACTION]: (_, __) => `Scan and parsed a receipt`,
 };
 
 export function getMessage(action: Action, palette?: { name: string }) {

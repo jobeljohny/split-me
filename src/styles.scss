@@ -77,9 +77,13 @@ body {
 .socket-title {
   font-weight: 400;
   font-size: 1rem;
+  margin-bottom: 6px;
+  margin-left: 2px;
+  color: #F38851;
+  text-transform: capitalize;
 }
 .socket-toast {
-  margin: 2px 0 6px;
+  margin: 6px 0 6px;
   padding: 15px 15px 15px 50px;
   width: 300px;
   background-color: #3e3d65;

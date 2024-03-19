@@ -47,7 +47,7 @@ export class StoreService {
     this.notifyAppState({ type: type, payload: payload });
   }
 
-  handleAction(action: Action) {
+  handleAction(action: Action, username: string) {
     const payload = action.payload;
     let palette;
     switch (action.type) {
@@ -130,12 +130,16 @@ export class StoreService {
       case ActionType.UPDATE_TAX_DISCOUNT:
         this.details.tax = payload.tax;
         this.details.discount = payload.discount;
+        break;
+      case ActionType.SCAN_RECEIPT_ACTION:
+        this.palette.palettes = this.paletteCreation(payload.palettes);
+        this.palette.updatePanelIds();
     }
     const toastMessage = getMessage(action, palette);
-    this.toastr.info(toastMessage, 'User', {
+    this.toastr.info(toastMessage, username, {
       titleClass: 'socket-title',
       toastClass: 'socket-toast',
-      timeOut:3000
+      timeOut: 3000,
     });
   }
 

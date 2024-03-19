@@ -49,7 +49,12 @@ export class FoodPalettesBoxComponent {
     dialogRef.afterClosed().subscribe((result: IBillEntry[]) => {
       if (result && result.length > 0) {
         result.forEach((palette) => {
-          this.foodPalette.add(new FoodItem(palette.item, palette.amount, []));
+          const id = this.foodPalette.add(
+            new FoodItem(palette.item, palette.amount, [])
+          );
+        });
+        this.store.fireAction(ActionType.SCAN_RECEIPT_ACTION, {
+          palettes: this.foodPalette.palettes,
         });
       }
     });

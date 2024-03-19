@@ -1,0 +1,60 @@
+@import "../../styles/palette.scss";
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  img {
+    filter: $theme-filter;
+    width: 40px;
+  }
+  .room {
+    font-size: 1.1rem;
+    .room-id{
+        color: rgb(255, 218, 117);
+
+    }
+  }
+  .desc {
+    margin: 0 24px;
+    font-size: 0.8rem;
+    text-align: center;
+    color: rgb(212, 212, 212);
+  }
+}
+
+form {
+  padding: 12px 20px;
+  .form-group {
+    label {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      width: 100%;
+      color: rgb(231, 231, 231);
+      text-align: center;
+    }
+    .action-panel {
+      display: flex;
+      gap: 8px;
+      margin: 12px 16px 32px;
+      .form-control {
+        background: $primary-color;
+        color: white;
+        border: none;
+      }
+      .btn {
+        box-shadow: none;
+        border: 0;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+    }
+  }
+  .is-invalid {
+    color: rgb(255, 0, 0);
+    font-size: 0.8rem;
+    text-align: center;
+  }
+}

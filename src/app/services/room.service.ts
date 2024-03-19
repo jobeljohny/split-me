@@ -10,9 +10,9 @@ import { Action } from '../classes/constants';
   providedIn: 'root',
 })
 export class RoomService {
-  private apiUrl = 'http://localhost:3000'; // Update with your Node.js server URL
+  //private apiUrl = 'https://node-sharehub.onrender.com'; // Update with your Node.js server URL
+  private apiUrl = 'http://localhost:3000';
   roomId: string = '';
-  userId: string = '';
   constructor(
     private http: HttpClient,
     private store: StoreService,
@@ -37,7 +37,7 @@ export class RoomService {
 
   notifyChanges(action: Action) {
     if (this.roomId != '' && this.socket.socketInitialized)
-      this.socket.updateData(this.roomId, this.userId, action);
+      this.socket.updateData(this.roomId, action);
   }
 
   syncCloudData(data: IAppState) {
