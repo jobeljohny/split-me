@@ -13,7 +13,23 @@
       </a>
     </div>
     <div class="right-options">
-      <img src="assets/icons/group-icon.svg" (click)="initiateShare()">
+      <div class="room-btn">
+        <img
+          *ngIf="roomStatus == 'idle'"
+          src="assets/icons/group-icon.svg"
+          (click)="initiateShare()"
+        />
+        <img
+          class="exit-icon"
+          *ngIf="roomStatus == 'connected'"
+          src="assets/icons/exit-group-icon.svg"
+          (click)="exitRoom()"
+        />
+        <app-loading-bubbles
+          *ngIf="roomStatus == 'connecting'"
+          [size]="5"
+        ></app-loading-bubbles>
+      </div>
       <app-help-button></app-help-button>
     </div>
   </div>

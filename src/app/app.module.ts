@@ -55,6 +55,7 @@ import { HelpDialogModule } from './help-dialog/help-dialog.module';
 import { ToastrModule } from 'ngx-toastr';
 import { DetailsPanelComponent } from './components/details-panel/details-panel.component';
 import { NicknameModalComponent } from './components/nickname-modal/nickname-modal.component';
+import { LoadingBubblesComponent } from './components/loading-bubbles/loading-bubbles.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,6 +93,7 @@ import { NicknameModalComponent } from './components/nickname-modal/nickname-mod
 
     WebsiteMovedDialogComponent,
       NicknameModalComponent,
+      LoadingBubblesComponent,
   ],
   imports: [
     BrowserModule,

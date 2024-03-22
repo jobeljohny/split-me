@@ -41,6 +41,19 @@ export class StoreService {
     this.stateSubject.next(action);
   }
 
+  clearState() {
+    this.palette.palettes = [];
+    this.palette.updatePanelIds();
+    this.details.tax = 0;
+    this.details.discount = 0;
+
+    this.toastr.info('You have left the room', undefined, {
+      titleClass: 'socket-title',
+      toastClass: 'socket-toast',
+      timeOut: 2000,
+    });
+  }
+
   //STORE ACTIONS
 
   fireAction(type: ActionType, payload: any) {

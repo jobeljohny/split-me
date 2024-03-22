@@ -40,8 +40,8 @@ export class SocketService {
 
   initSocket() {
     this.socketInitialized = true;
-    // this.socket = io('https://node-sharehub.onrender.com');
-    this.socket = io('http://localhost:3000');
+     this.socket = io('https://node-sharehub.onrender.com');
+    //this.socket = io('http://localhost:3000');
     this.socket.on('updateData', (data: IsocketMessage) => {
       if (data.id.userId != this.user.userId) {
         const action: Action = JSON.parse(data.action);

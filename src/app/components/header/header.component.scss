@@ -27,14 +27,20 @@
         }
       }
     }
-    .right-options{
+    .right-options {
       display: flex;
       align-items: center;
       gap: 12px;
-      img{
-        width:30px;
-        filter: $theme-filter;
-        cursor: pointer;
+      .room-btn {
+        img {
+          width: 30px;
+          filter: $theme-filter;
+          cursor: pointer;
+        }
+        .exit-icon{
+          width: 25px;
+          margin-top: 2px;
+        }
       }
     }
   }

@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { IAppState } from '../header/header.component';
 import { SocketService } from 'src/app/services/socket.service';
 import { RoomService } from 'src/app/services/room.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { getID } from 'src/app/classes/uuid';
 import { MatDialog } from '@angular/material/dialog';
 import { NicknameModalComponent } from '../nickname-modal/nickname-modal.component';
 import { ToastrService } from 'ngx-toastr';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-main-component',
@@ -19,7 +20,8 @@ export class MainComponentComponent implements OnInit {
     private roomService: RoomService,
     private socket: SocketService,
     public dialog: MatDialog,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -42,22 +44,29 @@ export class MainComponentComponent implements OnInit {
       });
     }
   }
-  joinRoom(roomId: string, username: string) {
+  async joinRoom(roomId: string, username: string) {
     const userId = getID();
     this.socket.initSocket();
     this.socket.joinRoom(roomId, userId, username); // Join the room for real-time updates
     this.roomService.roomId = roomId;
-    this.roomService.getRoomData(roomId).subscribe((data: IAppState) => {
+    this.roomService.roomStatus = 'connected';
+    try {
+      const data: IAppState = await lastValueFrom(
+        this.roomService.getRoomData(roomId)
+      );
       if (data) {
         this.roomService.syncCloudData(data);
-        this.toast.success(`connected to room - ${roomId}`, 'Connected', {
+        this.toast.success(`Connected to room - ${roomId}`, 'Connected', {
           titleClass: 'socket-title',
           toastClass: 'socket-toast',
           timeOut: 3000,
         });
       } else {
         this.toast.error('Cannot connect to specified room', 'Invalid Room');
+        this.router.navigate(['/']);
       }
-    });
+    } catch (error) {
+      this.toast.error('Error occurred while connecting to room');
+    }
   }
 }

@@ -10,8 +10,9 @@ import { Action } from '../classes/constants';
   providedIn: 'root',
 })
 export class RoomService {
-  //private apiUrl = 'https://node-sharehub.onrender.com'; // Update with your Node.js server URL
-  private apiUrl = 'http://localhost:3000';
+  roomStatus: string = 'idle';
+  private apiUrl = 'https://node-sharehub.onrender.com'; // Update with your Node.js server URL
+  //private apiUrl = 'http://localhost:3000';
   roomId: string = '';
   constructor(
     private http: HttpClient,
@@ -24,8 +25,8 @@ export class RoomService {
   }
 
   createRoom(): Observable<string> {
+    this.roomStatus = 'connecting';
     console.log(JSON.stringify(this.store.state));
-
     return this.http.post<string>(`${this.apiUrl}/createRoom`, {
       data: JSON.stringify(this.store.state),
     });
@@ -33,6 +34,11 @@ export class RoomService {
 
   getRoomData(roomId: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/room/${roomId}`);
+  }
+  
+  exitRoom(){
+    this.roomStatus = 'idle';
+    this.store.clearState();
   }
 
   notifyChanges(action: Action) {
