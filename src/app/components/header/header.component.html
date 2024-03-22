@@ -17,12 +17,14 @@
         <img
           *ngIf="roomStatus == 'idle'"
           src="assets/icons/group-icon.svg"
+          matTooltip="Create room"
           (click)="initiateShare()"
         />
         <img
           class="exit-icon"
           *ngIf="roomStatus == 'connected'"
           src="assets/icons/exit-group-icon.svg"
+          matTooltip="Exit room"
           (click)="exitRoom()"
         />
         <app-loading-bubbles

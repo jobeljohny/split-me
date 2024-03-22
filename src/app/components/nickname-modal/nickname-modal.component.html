@@ -21,7 +21,7 @@
       />
       <button
         type="submit"
-        [mat-dialog-close]="angForm.value['name']"
+        (click)="submitForm()"
         class="btn btn-primary"
         [disabled]="angForm.pristine || angForm.invalid"
       >
